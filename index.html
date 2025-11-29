@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>The Novel of Comedy (TNoC) - Atlas numérique de la comédie romanesque</title>
+  <title>The Novel of Comedy (TNoC) – Digital atlas of modern comic fiction</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description"
-        content="The Novel of Comedy (TNoC) est un atlas numérique et une cartographie critique de la comédie romanesque moderne : trois courants, branches, Labs, fiches romans et fiches auteurs.">
+        content="The Novel of Comedy (TNoC) is a digital atlas and critical cartography of modern comic fiction: three currents, branches, environments, Labs, and a system of novel and author fiches.">
   <style>
     :root{
       --bg:#0b0b0c;
@@ -103,7 +103,7 @@
       text-decoration:none;
     }
     .nav a.is-primary{
-      padding:6px 10px;
+      padding:6px 12px;
       border-radius:999px;
       border:1px solid rgba(255,255,255,.22);
       font-size:12px;
@@ -129,9 +129,9 @@
     .hero-inner{
       max-width:1120px;
       margin:0 auto;
-      padding:44px 20px 32px;
+      padding:40px 20px 32px;
       display:grid;
-      grid-template-columns:1.4fr 1fr;
+      grid-template-columns:1.35fr 1fr;
       gap:32px;
       align-items:center;
     }
@@ -141,35 +141,40 @@
       }
     }
     .hero-kicker{
-      font-size:13px;
-      letter-spacing:.15em;
+      font-size:12px;
+      letter-spacing:.18em;
       text-transform:uppercase;
       opacity:.9;
     }
-    .hero-title{
-      font-size:clamp(30px,4.2vw,44px);
-      margin:8px 0 4px;
-      letter-spacing:.04em;
-      text-transform:uppercase;
+    .hero-totem{
+      font-size:20px;
+      line-height:1.4;
+      margin:10px 0 4px;
+      max-width:520px;
+    }
+    .hero-totem-sign{
+      font-size:12px;
+      opacity:.8;
+      margin-bottom:10px;
     }
     .hero-sub{
-      font-size:15px;
+      font-size:13px;
       line-height:1.6;
-      max-width:520px;
+      max-width:480px;
       opacity:.9;
+      margin:10px 0 12px;
     }
     .hero-actions{
-      margin-top:18px;
+      margin-top:14px;
       display:flex;
       flex-wrap:wrap;
-      gap:10px;
+      gap:8px;
     }
     .btn{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      gap:6px;
-      padding:10px 14px;
+      padding:9px 14px;
       border-radius:999px;
       font-size:13px;
       border:1px solid transparent;
@@ -187,12 +192,9 @@
       border-color:rgba(255,255,255,.3);
       color:#fff;
     }
-    .btn span.icon{
-      font-size:14px;
-    }
 
     .hero-chips{
-      margin-top:18px;
+      margin-top:16px;
       display:flex;
       flex-wrap:wrap;
       gap:8px;
@@ -201,7 +203,7 @@
       display:inline-flex;
       align-items:center;
       gap:6px;
-      padding:5px 10px;
+      padding:5px 11px;
       border-radius:999px;
       background:rgba(255,255,255,.06);
       border:1px solid rgba(255,255,255,.18);
@@ -218,7 +220,7 @@
     .hero-visual{
       border-radius:18px;
       border:1px solid rgba(255,255,255,.18);
-      padding:16px 18px;
+      padding:16px 18px 14px;
       background:radial-gradient(circle at 0 0,rgba(255,255,255,.12),rgba(0,0,0,.92));
       box-shadow:0 12px 40px rgba(0,0,0,.7);
     }
@@ -240,65 +242,143 @@
       opacity:.7;
     }
 
-    /* POSTER CAROUSEL */
-    .poster-strip{
-      display:flex;
-      gap:12px;
-      overflow-x:auto;
-      padding-bottom:6px;
-      margin-bottom:4px;
-    }
-    .poster-strip::-webkit-scrollbar{
-      height:6px;
-    }
-    .poster-strip::-webkit-scrollbar-track{
-      background:rgba(0,0,0,.04);
-    }
-    .poster-strip::-webkit-scrollbar-thumb{
-      background:rgba(0,0,0,.18);
-      border-radius:999px;
-    }
-    .poster-card{
-      min-width:170px;
-      max-width:190px;
-      background:#111;
-      color:#f5f5f5;
-      border-radius:16px;
-      padding:10px 10px 12px;
-      border:1px solid rgba(255,255,255,.15);
-      box-shadow:0 8px 24px rgba(0,0,0,.45);
-      text-decoration:none;
-      display:flex;
-      flex-direction:column;
-      gap:6px;
-      flex-shrink:0;
-    }
-    .poster-portrait{
-      width:100%;
-      aspect-ratio:3/4;
-      border-radius:12px;
+    /* POSTER CAROUSEL (hero) */
+    .poster-carousel{
+      margin-top:10px;
+      border-radius:14px;
       border:1px solid rgba(255,255,255,.18);
-      background:radial-gradient(circle at 20% 0,#444,#111);
+      background:rgba(0,0,0,.45);
+      padding:10px 10px 12px;
+      position:relative;
+      overflow:hidden;
+    }
+    .poster-track{
+      position:relative;
+      min-height:210px;
+    }
+    .poster-slide{
+      position:absolute;
+      inset:0;
+      padding:4px;
+      display:grid;
+      grid-template-columns:0.9fr 1.4fr;
+      gap:10px;
+      opacity:0;
+      pointer-events:none;
+      transform:translateX(8px);
+      transition:opacity .45s ease, transform .45s ease;
+      font-size:12px;
+    }
+    .poster-slide.is-active{
+      opacity:1;
+      pointer-events:auto;
+      transform:translateX(0);
+    }
+    .poster-slide--author{
+      grid-template-columns:1fr;
+      text-align:left;
+    }
+    @media(max-width:640px){
+      .poster-slide{
+        grid-template-columns:1fr;
+      }
+    }
+
+    .poster-cover{
+      border-radius:12px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.28);
+      background:#111;
       display:flex;
       align-items:center;
       justify-content:center;
-      font-size:11px;
-      text-transform:uppercase;
-      letter-spacing:.12em;
-      opacity:.9;
     }
-    .poster-title{
-      font-size:13px;
+    .poster-cover img{
+      display:block;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .poster-main{
+      display:flex;
+      flex-direction:column;
+      gap:4px;
+      color:#f5f5f5;
+    }
+    .poster-main .poster-title{
+      font-size:14px;
       font-weight:600;
     }
-    .poster-author{
-      font-size:11px;
-      opacity:.8;
+    .poster-main .poster-author{
+      font-size:12px;
+      opacity:.85;
     }
-    .poster-punch{
-      font-size:11px;
+    .poster-main .poster-coords{
+      font-size:12px;
+      opacity:.85;
+    }
+    .poster-main .poster-claim{
+      font-size:12px;
       font-style:italic;
       opacity:.9;
+      margin-top:4px;
+    }
+
+    .poster-tools{
+      margin-top:6px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:4px;
+      font-size:11px;
+    }
+    .tool-chip{
+      padding:3px 8px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.25);
+      background:rgba(0,0,0,.4);
+      white-space:nowrap;
+    }
+
+    .poster-nav-row{
+      margin-top:10px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:8px;
+    }
+    .poster-dots{
+      display:flex;
+      flex-wrap:wrap;
+      gap:4px;
+    }
+    .poster-dot{
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.35);
+      background:rgba(0,0,0,.4);
+      color:#f5f5f5;
+      font-size:10px;
+      padding:3px 8px;
+      cursor:pointer;
+      opacity:.65;
+    }
+    .poster-dot.is-active{
+      opacity:1;
+      background:#fff;
+      color:#000;
+    }
+    .poster-nav-buttons{
+      display:flex;
+      gap:4px;
+    }
+    .poster-nav-btn{
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.35);
+      background:rgba(0,0,0,.4);
+      color:#f5f5f5;
+      padding:3px 8px;
+      font-size:11px;
+      cursor:pointer;
     }
 
     /* MAIN CONTENT WRAP */
@@ -329,13 +409,14 @@
       color:var(--muted);
     }
     .section-title{
-      font-size:22px;
+      font-size:24px;
+      letter-spacing:.04em;
       margin:4px 0;
     }
     .section-sub{
       font-size:14px;
       color:var(--muted);
-      max-width:680px;
+      max-width:720px;
     }
 
     .grid-3{
@@ -374,19 +455,7 @@
     .card-tagline{
       font-size:12px;
       color:var(--muted);
-      margin-top:4px;
-    }
-
-    .split{
-      display:grid;
-      grid-template-columns:1.3fr 1fr;
-      gap:20px;
-      align-items:flex-start;
-    }
-    @media(max-width:900px){
-      .split{
-        grid-template-columns:1fr;
-      }
+      margin-top:6px;
     }
 
     .list{
@@ -404,10 +473,15 @@
 
     .start-grid{
       display:grid;
-      grid-template-columns:repeat(3,minmax(0,1fr));
+      grid-template-columns:repeat(4,minmax(0,1fr));
       gap:18px;
     }
-    @media(max-width:900px){
+    @media(max-width:1020px){
+      .start-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
+    }
+    @media(max-width:700px){
       .start-grid{
         grid-template-columns:1fr;
       }
@@ -429,19 +503,29 @@
     }
 
     /* LABS MAP */
+    .lab-map-wrapper{
+      margin-top:12px;
+    }
+    .lab-map-title{
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      color:var(--muted);
+      margin-bottom:6px;
+    }
     .lab-map{
       position:relative;
       height:220px;
       border-radius:18px;
-      background:radial-gradient(circle at 20% 0,rgba(255,255,255,.16),rgba(0,0,0,.88));
+      background:radial-gradient(circle at 20% 0,rgba(0,0,0,.08),rgba(0,0,0,.88));
       border:1px solid var(--border);
       overflow:hidden;
-      box-shadow:0 10px 26px rgba(0,0,0,.35);
+      box-shadow:0 10px 26px rgba(0,0,0,.25);
     }
     .lab-map-overlay{
       position:absolute;
       inset:0;
-      opacity:.14;
+      opacity:.16;
       background:repeating-linear-gradient(
         90deg,
         rgba(255,255,255,.4) 0,
@@ -465,6 +549,116 @@
       color:#f5f5f5;
       text-shadow:0 1px 2px rgba(0,0,0,.7);
       white-space:nowrap;
+    }
+
+    /* COURANTS – RAILS (desktop) */
+    .courants-rails{
+      margin-top:14px;
+      border-radius:20px;
+      border:1px solid rgba(0,0,0,.06);
+      background:linear-gradient(135deg,rgba(0,0,0,.015),rgba(0,0,0,.045));
+      padding:14px 16px 14px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    .courants-rails-intro{
+      font-size:13px;
+      color:var(--graphite);
+      margin-bottom:2px;
+    }
+    .courants-rails-intro p{
+      margin:0 0 6px;
+    }
+    .courants-rails-timeline{
+      font-size:11px;
+      color:var(--muted);
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      margin-top:4px;
+    }
+    .courant-rail{
+      position:relative;
+      border-radius:14px;
+      background:#fff;
+      border:1px solid rgba(0,0,0,.06);
+      box-shadow:var(--shadow);
+      padding:10px 12px 9px;
+      display:grid;
+      grid-template-columns:0.9fr 1.5fr 1.2fr;
+      gap:12px;
+      align-items:flex-start;
+      font-size:13px;
+    }
+    .courant-rail::before{
+      content:"";
+      position:absolute;
+      left:10px;
+      right:10px;
+      top:0;
+      height:2px;
+      background:linear-gradient(to right,rgba(0,0,0,.08),rgba(0,0,0,.16),rgba(0,0,0,.08));
+      opacity:.4;
+    }
+    .courant-rail:first-of-type::before{
+      opacity:.55;
+    }
+    .courant-rail-label{
+      padding-top:4px;
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      color:var(--muted);
+    }
+    .courant-rail-title{
+      font-weight:600;
+      font-size:13px;
+      margin-bottom:4px;
+    }
+    .courant-rail-body{
+      font-size:13px;
+      line-height:1.55;
+      color:var(--graphite);
+    }
+    .courant-rail-body p{
+      margin:0 0 6px;
+    }
+    .courant-rail-claim{
+      font-size:12px;
+      font-style:italic;
+      margin-top:2px;
+      color:var(--muted);
+    }
+    .courant-rail-meta{
+      font-size:12px;
+      color:var(--muted);
+      padding-top:4px;
+    }
+    .courant-rail-meta strong{
+      font-weight:600;
+    }
+
+    @media(max-width:900px){
+      .courant-rail{
+        grid-template-columns:1fr;
+      }
+      .courant-rail::before{
+        display:none;
+      }
+    }
+
+    /* META HUB FOR IA */
+    .meta-ia{
+      font-size:12px;
+      color:var(--muted);
+      background:#f3f1ea;
+      border-radius:14px;
+      border:1px dashed rgba(0,0,0,.18);
+      padding:10px 12px;
+      margin-top:10px;
+    }
+    .meta-ia strong{
+      font-weight:600;
     }
 
     .footer{
@@ -493,20 +687,19 @@
       .hero-inner{
         padding:28px 16px 22px;
       }
-      .hero-title{
-        font-size:28px;
-        line-height:1.2;
+      .hero-totem{
+        font-size:18px;
       }
       .hero-sub{
-        font-size:14px;
+        font-size:13px;
         line-height:1.55;
         max-width:none;
       }
       .hero-actions{
-        margin-top:14px;
+        margin-top:12px;
       }
       .hero-chips{
-        margin-top:14px;
+        margin-top:12px;
       }
       .hero-visual{
         margin-top:18px;
@@ -519,7 +712,7 @@
         padding:20px 0;
       }
       .section-title{
-        font-size:20px;
+        font-size:22px;
       }
       .section-sub{
         font-size:13px;
@@ -554,539 +747,739 @@
 <div class="page-wrap">
 
   <!-- TOP BAR -->
-  <header class="topbar" role="banner" aria-label="Navigation principale">
+  <header class="topbar" role="banner" aria-label="Main navigation">
     <div class="topbar-inner">
-      <a href="/" class="brand" aria-label="Accueil The Novel of Comedy">
+      <a href="/" class="brand" aria-label="The Novel of Comedy home">
         <div class="brand-mark">TNoC</div>
         <div class="brand-text">
           <div class="brand-title">The Novel of Comedy</div>
-          <div class="brand-sub">Atlas et cartographie critique de la comédie romanesque</div>
+          <div class="brand-sub">Digital atlas & critical cartography of comic fiction</div>
         </div>
       </a>
       <nav class="nav" aria-label="Navigation">
-        <a href="#intro">Introduction</a>
-        <a href="#authors-novels">Fiches (aperçu)</a>
-        <a href="/fr/fiches-romans">Fiches romans</a>
-        <a href="/fr/fiches-auteurs">Fiches auteurs</a>
-        <a href="/fr/fiches-series">Grandes séries</a>
-        <a href="/fr/courants">Courants</a>
-        <a href="#roles">Rôles du comique</a>
+        <a href="#fiches">Fiches</a>
+        <a href="#courants">Currents</a>
+        <a href="#roles">Roles of comedy</a>
+        <a href="#toolbox">Toolbox</a>
         <a href="#labs">Labs</a>
-        <a href="#about">A propos</a>
-        <a href="#research" class="is-primary">Chercheurs et IA</a>
+        <a href="#about">About</a>
+        <a href="#research" class="is-primary">Researchers &amp; AI</a>
       </nav>
     </div>
   </header>
 
-  <!-- HERO -->
+  <!-- HERO + CAROUSEL -->
   <section class="hero">
     <div class="hero-inner">
       <div>
-        <div class="hero-kicker">Atlas numérique et cartographie critique</div>
-        <h1 class="hero-title">The Novel of Comedy (TNoC)</h1>
+        <div class="hero-kicker">Digital atlas & critical cartography</div>
+        <p class="hero-totem">
+          Comedy is one of the most precise ways of reading reality.
+        </p>
+        <p class="hero-totem-sign">— The Novel of Comedy</p>
         <p class="hero-sub">
-          The Novel of Comedy propose une cartographie nouvelle du rire dans le roman. Une lecture
-          transnationale, transhistorique et transgénérique de la comédie littéraire.
-          Trois grands courants,
-          <a href="/fr/courants#everyday" style="color:inherit;text-decoration:underline;">Comedy of Everyday</a>,
-          <a href="/fr/courants#crime" style="color:inherit;text-decoration:underline;">Comedy of Crime</a> et
-          <a href="/fr/courants#neo-nonsense" style="color:inherit;text-decoration:underline;">Neo-Nonsense</a>,
-          sont considérés comme des moteurs de narration, et non comme des genres clos.
+          An atlas of modern comic novels, organised through fiches, currents and writing hubs.
+          A living library dedicated to 20th–21st century comic fiction.
         </p>
         <div class="hero-actions">
-          <a href="#authors-novels" class="btn btn-primary">
-            <span class="icon">📚</span><span>Entrer par les fiches</span>
-          </a>
-          <a href="/fr/courants" class="btn btn-secondary">
-            <span class="icon">🗺</span><span>Voir la page Courants</span>
-          </a>
+          <a href="/fr/fiches-romans" class="btn btn-primary">Novel fiches</a>
+          <a href="/fr/fiches-auteurs" class="btn btn-secondary">Author fiches</a>
+          <a href="/fr/fiches-series" class="btn btn-secondary">Long-running series fiches</a>
         </div>
-        <div class="hero-chips" aria-label="Concepts clés">
+        <div class="hero-chips" aria-label="Main currents">
           <span class="chip">
             <span class="chip-dot"></span>
-            <a href="/fr/courants#everyday" style="color:inherit;text-decoration:none;">Comedy of Everyday</a>
+            Everyday
           </span>
           <span class="chip">
             <span class="chip-dot"></span>
-            <a href="/fr/courants#crime" style="color:inherit;text-decoration:none;">Comedy of Crime</a>
+            Crime
           </span>
           <span class="chip">
             <span class="chip-dot"></span>
-            <a href="/fr/courants#neo-nonsense" style="color:inherit;text-decoration:none;">Neo-Nonsense</a>
+            Neo-Nonsense
           </span>
-          <span class="chip"><span class="chip-dot"></span> Core, Hybrid, Turn</span>
-          <span class="chip"><span class="chip-dot"></span> Labs</span>
         </div>
       </div>
 
-      <aside class="hero-visual" aria-label="Aperçu des fiches">
-        <h2>Posters de fiches</h2>
+      <aside class="hero-visual" aria-label="Preview of fiches">
+        <h2>Fiche posters</h2>
         <p>
-          Aperçu de quelques romans et auteurs. Chaque poster ouvre une fiche complète dans l’atlas.
+          A few emblematic novels and one author. Each poster opens a full fiche in the atlas.
         </p>
-        <div class="poster-strip">
-          <a href="/fr/fiche-roman/wilt-1976" class="poster-card" aria-label="Voir la fiche roman Wilt">
-            <div class="poster-portrait">Portrait</div>
-            <div class="poster-title">Wilt</div>
-            <div class="poster-author">Tom Sharpe · 1976</div>
-            <div class="poster-punch">
-              Survivre par l’ironie, régner par l’échec.
+
+        <!-- CAROUSEL -->
+        <div class="poster-carousel" aria-label="Fiche posters carousel" aria-live="polite">
+          <div class="poster-track">
+            <!-- 1. Wilt (novel) -->
+            <a href="/fr/fiche-roman/wilt-1976"
+               class="poster-slide is-active"
+               data-slide="0"
+               aria-label="Open the Wilt novel fiche">
+              <div class="poster-cover">
+                <img src="img/wilt31A.png" alt="Cover of Wilt (Tom Sharpe)">
+              </div>
+              <div class="poster-main">
+                <div class="poster-title">Wilt</div>
+                <div class="poster-author">Tom Sharpe · 1976</div>
+                <div class="poster-coords">
+                  UK · Midlands · technical college · pre-Thatcher England
+                </div>
+                <div class="poster-claim">
+                  Surviving through irony, ruling through failure.
+                </div>
+                <div class="poster-tools">
+                  <span class="tool-chip">Comedy of Everyday</span>
+                  <span class="tool-chip">Frustration</span>
+                  <span class="tool-chip">Campus</span>
+                  <span class="tool-chip">Midlands Lab</span>
+                </div>
+              </div>
+            </a>
+
+            <!-- 2. The Code of the Woosters (novel) -->
+            <a href="/fr/fiche-roman/the-code-of-the-woosters"
+               class="poster-slide"
+               data-slide="1"
+               aria-label="Open the The Code of the Woosters novel fiche">
+              <div class="poster-cover">
+                <img src="img/code-of-the-woosters.png" alt="Cover of The Code of the Woosters (P. G. Wodehouse)">
+              </div>
+              <div class="poster-main">
+                <div class="poster-title">The Code of the Woosters</div>
+                <div class="poster-author">P. G. Wodehouse · 1938</div>
+                <div class="poster-coords">
+                  UK · London & countryside · clubs, aunts, country houses
+                </div>
+                <div class="poster-claim">
+                  The etiquette of chaos: Jeeves, Bertie and the code of the upper-class farce.
+                </div>
+                <div class="poster-tools">
+                  <span class="tool-chip">Comedy of Everyday</span>
+                  <span class="tool-chip">Code/Etiquette</span>
+                  <span class="tool-chip">Vaudeville</span>
+                  <span class="tool-chip">Domestic / Status comedy</span>
+                </div>
+              </div>
+            </a>
+
+            <!-- 3. The Girls of Slender Means (novel) -->
+            <a href="/fr/fiche-roman/the-girls-of-slender-means"
+               class="poster-slide"
+               data-slide="2"
+               aria-label="Open The Girls of Slender Means novel fiche">
+              <div class="poster-cover">
+                <img src="img/girls-of-slender-means.png" alt="Cover of The Girls of Slender Means (Muriel Spark)">
+              </div>
+              <div class="poster-main">
+                <div class="poster-title">The Girls of Slender Means</div>
+                <div class="poster-author">Muriel Spark · 1963</div>
+                <div class="poster-coords">
+                  London · post-war hostel · young women on the edge of austerity
+                </div>
+                <div class="poster-claim">
+                  Grace, cruelty and comedy in a house where everything is provisional.
+                </div>
+                <div class="poster-tools">
+                  <span class="tool-chip">Comedy of Everyday</span>
+                  <span class="tool-chip">Edge</span>
+                  <span class="tool-chip">Winner / Comeback tones</span>
+                  <span class="tool-chip">Urban Lab</span>
+                </div>
+              </div>
+            </a>
+
+            <!-- 4. James (Percival Everett) -->
+            <a href="/fr/fiche-roman/james-percival-everett"
+               class="poster-slide"
+               data-slide="3"
+               aria-label="Open the James novel fiche">
+              <div class="poster-cover">
+                <img src="img/james-percival-everett.png" alt="Cover of James (Percival Everett)">
+              </div>
+              <div class="poster-main">
+                <div class="poster-title">James</div>
+                <div class="poster-author">Percival Everett · 2024</div>
+                <div class="poster-coords">
+                  US South · canonical territory revisited from within
+                </div>
+                <div class="poster-claim">
+                  A minor character steps out of the margins and rewrites the rules of the story.
+                </div>
+                <div class="poster-tools">
+                  <span class="tool-chip">Neo-Nonsense</span>
+                  <span class="tool-chip">Minor-Character Turn</span>
+                  <span class="tool-chip">Edge</span>
+                  <span class="tool-chip">Postmodern / Intertextual</span>
+                </div>
+              </div>
+            </a>
+
+            <!-- 5. Author poster: Tom Sharpe -->
+            <a href="/fr/fiche-auteur/tom-sharpe"
+               class="poster-slide poster-slide--author"
+               data-slide="4"
+               aria-label="Open the Tom Sharpe author fiche">
+              <div class="poster-main">
+                <div style="display:flex;align-items:center;gap:10px;">
+                  <div class="poster-cover" style="flex:0 0 80px;height:80px;border-radius:999px;">
+                    <img src="img/tom-sharpe-portrait.jpg" alt="Portrait of Tom Sharpe">
+                  </div>
+                  <div>
+                    <div class="poster-title">Tom Sharpe</div>
+                    <div class="poster-author">1928–2013 · UK</div>
+                    <div class="poster-coords">
+                      Core Comedy · Comedy of Everyday / Crime · Midlands Lab
+                    </div>
+                  </div>
+                </div>
+                <div class="poster-claim" style="margin-top:6px;">
+                  Brilliant losers, institutional meltdown and farces that smell of boiled cabbage.
+                </div>
+                <div class="poster-tools">
+                  <span class="tool-chip">Core Comedy</span>
+                  <span class="tool-chip">Frustration</span>
+                  <span class="tool-chip">Code/Etiquette</span>
+                  <span class="tool-chip">Comedy of Crime</span>
+                  <span class="tool-chip">Midlands Lab</span>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div class="poster-nav-row">
+            <div class="poster-dots" aria-label="Carousel navigation">
+              <button class="poster-dot is-active" data-target="0">Wilt</button>
+              <button class="poster-dot" data-target="1">Woosters</button>
+              <button class="poster-dot" data-target="2">Slender Means</button>
+              <button class="poster-dot" data-target="3">James</button>
+              <button class="poster-dot" data-target="4">Tom Sharpe</button>
             </div>
-          </a>
-          <a href="/fr/fiche-roman/lucky-jim-1954" class="poster-card" aria-label="Voir la fiche roman Lucky Jim">
-            <div class="poster-portrait">Campus</div>
-            <div class="poster-title">Lucky Jim</div>
-            <div class="poster-author">Kingsley Amis · 1954</div>
-            <div class="poster-punch">
-              Le rire comme stratégie de survie académique.
+            <div class="poster-nav-buttons">
+              <button class="poster-nav-btn" data-dir="prev" aria-label="Previous poster">‹</button>
+              <button class="poster-nav-btn" data-dir="next" aria-label="Next poster">›</button>
             </div>
-          </a>
-          <a href="/fr/fiche-roman/catch-22-1961" class="poster-card" aria-label="Voir la fiche roman Catch-22">
-            <div class="poster-portrait">Edge</div>
-            <div class="poster-title">Catch 22</div>
-            <div class="poster-author">Joseph Heller · 1961</div>
-            <div class="poster-punch">
-              Quand l’absurde bureaucratique devient condition de survie.
-            </div>
-          </a>
-          <a href="/fr/fiche-roman/neo-nonsense-demo" class="poster-card" aria-label="Voir une fiche Neo-Nonsense">
-            <div class="poster-portrait">Neo</div>
-            <div class="poster-title">Neo Nonsense</div>
-            <div class="poster-author">Auteur · Année</div>
-            <div class="poster-punch">
-              La logique la moins extravagante dans un monde saturé de sens.
-            </div>
-          </a>
+          </div>
         </div>
+
         <div class="hero-caption">
-          Glisser horizontalement pour explorer, cliquer pour entrer dans les fiches.
+          Posters rotate automatically. Use the dots or arrows to navigate between novels and authors.
         </div>
       </aside>
     </div>
   </section>
 
-  <!-- MAIN CONTENT -->
-  <main class="main" aria-label="Contenu principal">
+  <!-- MAIN CONTENT (version anglaise complète avec meta-hub) -->
+  <main class="main" aria-label="Main content">
     <div class="main-inner">
 
-      <!-- SECTION: INTRODUCTION GENERALE -->
-      <section class="section" id="intro">
-        <header class="section-header">
-          <div class="section-kicker">Introduction</div>
-          <h2 class="section-title">Atlas et cartographie critique du rire romanesque</h2>
-          <p class="section-sub">
-            Comedy of Everyday, Comedy of Crime et Neo-Nonsense forment trois dynamiques du rire moderne :
-            l’individu face au groupe, à la règle, à l’univers.
-            Ces courants se combinent et se répondent. TNoC les utilise comme moteurs d’analyse, non comme catégories fixes.
-          </p>
-        </header>
-
-        <div class="card">
-          <div class="card-body">
-            <p>
-              TNoC considère la comédie comme un mode de connaissance du réel, avant d’être un simple registre de divertissement.
-              L’atlas associe à chaque roman trois niveaux de description :
-            </p>
-            <ul class="list">
-              <li><strong>un extrait</strong>, qui montre comment le rire fonctionne concrètement dans la langue,</li>
-              <li><strong>une analyse stylistique</strong>, qui décrit la forme, le rythme et les dispositifs,</li>
-              <li><strong>un positionnement cartographique</strong>, qui situe l’œuvre dans un ensemble de courants, branches et Labs.</li>
-            </ul>
-
-            <p style="margin-top:10px;"><strong>Les trois grandes tensions du rire :</strong></p>
-            <table style="width:100%;border-collapse:collapse;font-size:13px;margin-top:6px;">
-              <thead>
-              <tr>
-                <th style="text-align:left;border-bottom:1px solid var(--border);padding:6px 4px;">Courant</th>
-                <th style="text-align:left;border-bottom:1px solid var(--border);padding:6px 4px;">Moteur narratif</th>
-                <th style="text-align:left;border-bottom:1px solid var(--border);padding:6px 4px;">Rapport fondamental</th>
-              </tr>
-              </thead>
-              <tbody>
-              <tr>
-                <td style="padding:6px 4px;">
-                  <a href="/fr/courants#everyday">Comedy of Everyday</a>
-                </td>
-                <td style="padding:6px 4px;">Intégration et refus</td>
-                <td style="padding:6px 4px;">L’individu face au groupe</td>
-              </tr>
-              <tr>
-                <td style="padding:6px 4px;">
-                  <a href="/fr/courants#crime">Comedy of Crime</a>
-                </td>
-                <td style="padding:6px 4px;">Transgression</td>
-                <td style="padding:6px 4px;">L’individu face à la règle</td>
-              </tr>
-              <tr>
-                <td style="padding:6px 4px;">
-                  <a href="/fr/courants#neo-nonsense">Neo-Nonsense</a>
-                </td>
-                <td style="padding:6px 4px;">Vertige du sens</td>
-                <td style="padding:6px 4px;">L’individu face à l’univers</td>
-              </tr>
-              </tbody>
-            </table>
-
-            <p style="margin-top:12px;font-size:13px;color:var(--muted);">
-              La comédie du quotidien observe comment l’individu et la société se manquent, plutôt que de les opposer frontalement.
-            </p>
-          </div>
-        </div>
-
-        <!-- BLOC: POURQUOI TNoC EST DIFFERENT -->
-        <div class="card" style="margin-top:14px;">
-          <div class="card-header">Spécificité de The Novel of Comedy</div>
-          <div class="card-body">
-            <ul class="list">
-              <li>
-                <strong>Spécialisation</strong><br>
-                Atlas consacré à la comédie romanesque moderne, autour de trois courants et d’un corpus structuré de romans et d’auteurs.
-              </li>
-              <li>
-                <strong>Typologie explicite</strong><br>
-                Courants, rôles du comique, branches (Frustration, Code / Etiquette, Winner, Campus, Edge, Crime branches) et Labs sont définis de manière opérationnelle.
-              </li>
-              <li>
-                <strong>Fiches à matrices fixes</strong><br>
-                Les fiches romans et auteurs reposent sur des matrices stables, ce qui permet la comparaison entre œuvres et traditions.
-              </li>
-              <li>
-                <strong>Usage multiple</strong><br>
-                L’atlas est conçu pour des lectures individuelles, des usages académiques et des projets numériques ou IA.
-              </li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <!-- SECTION: FICHES ROMANS & AUTEURS -->
-      <section class="section" id="authors-novels">
+      <!-- SECTION: FICHES -->
+      <section class="section" id="fiches">
         <header class="section-header">
           <div class="section-kicker">Fiches</div>
-          <h2 class="section-title">Fiches romans, fiches auteurs, grandes séries</h2>
+          <h2 class="section-title">Novel, author and series fiches</h2>
           <p class="section-sub">
-            Le centre de TNoC est constitué par les fiches. Les concepts de courants, branches et Labs ont pour rôle de les éclairer et de les relier entre elles.
+            The heart of TNoC is made of fiches. Currents, branches, environments and Labs are there
+            to illuminate them and connect them to one another.
           </p>
         </header>
 
-        <div class="split">
-          <!-- Description des matrices -->
-          <div class="card">
-            <div class="card-header">Deux matrices et une extension séries</div>
-            <div class="card-body">
-              <p style="margin-top:0;">
-                <strong>Fiches romans</strong> : matrice fixe en dix chapitres (Coordinates, Snapshot, Quatrième de couverture, Literary Currents,
-                Style et écriture, Personnages, Contexte de création, Réception, Bonus, Legacy). La fiche décrit la mécanique comique, le style,
-                le contexte et l’empreinte du livre dans l’atlas.
-              </p>
-              <p>
-                <strong>Fiches auteurs</strong> : matrice en huit chapitres (Coordinates, Billet, Style et palettes, Œuvres clés, How They Write Comedy,
-                Amitiés d’humour, Influences et réception, Notes et navigation) qui suit la façon dont un écrivain travaille le comique dans la durée.
-              </p>
-              <p>
-                <strong>Fiches grandes séries</strong> : format spécifique pour les cycles romanesques et ensembles cohérents, articulé avec les fiches romans.
-              </p>
-              <p>
-                Chaque fiche précise le <strong>Role of Humor</strong> pour un roman (Comic Engine, Comic Thread, Comic Turn)
-                et l’<strong>Author Humor Role</strong> pour un auteur (Core Comedy, Hybrid / Transversal, Comic Incursions).
-              </p>
-              <div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:10px;">
-                <a href="/fr/fiches-romans" class="btn btn-secondary">
-                  <span class="icon">📘</span><span>Toutes les fiches romans</span>
-                </a>
-                <a href="/fr/fiches-auteurs" class="btn btn-secondary">
-                  <span class="icon">👤</span><span>Toutes les fiches auteurs</span>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Schéma de la matrice -->
-          <div class="card">
-            <div class="card-header">Organisation d’une fiche roman</div>
+        <div class="grid-3">
+          <!-- Novel fiches -->
+          <article class="card">
+            <div class="card-header">Novel fiches</div>
             <div class="card-body">
               <p>
-                Une fiche roman repose sur une matrice en dix chapitres. Cette structure est identique pour tous les livres afin de faciliter la comparaison.
+                The novel fiche is the basic unit of The Novel of Comedy: a fixed ten-chapter matrix,
+                identical from one book to the next.
               </p>
+              <p>It includes in particular:</p>
               <ul class="list">
-                <li>
-                  <strong>Coordinates, Snapshot, Quatrième de couverture</strong><br>
-                  Données de base, situation initiale et description de l’intrigue, dans la continuité d’une jaquette éditoriale.
-                </li>
-                <li>
-                  <strong>Literary Currents et rôle du comique</strong><br>
-                  Rattachement au courant (Everyday, Crime, Neo-Nonsense), aux branches (Frustration, Code / Etiquette, Winner, Campus, Edge, Crime branches),
-                  aux Labs, et indication du rôle du comique (Comic Engine, Thread, Turn).
-                </li>
-                <li>
-                  <strong>Style &amp; Writing, Major Characters</strong><br>
-                  Description de la langue, du rythme, des dispositifs comiques et des figures qui portent le rire, avec exemples brefs.
-                </li>
-                <li>
-                  <strong>Contexte, Réception, Bonus, Legacy</strong><br>
-                  Contextes d’écriture, réception, informations complémentaires et synthèse de l’empreinte du roman dans l’atlas.
-                </li>
+                <li>a signed reading note by <em>The Novel of Comedy</em>;</li>
+                <li>the incipit (opening lines, in the original language);</li>
+                <li>a character table (comic archetypes, “line-citations”);</li>
+                <li>a creation context (what the writer was living through, what the country or world was going through);</li>
+                <li>a cartography (current, branches, environment, eventual Lab);</li>
+                <li>a legacy section (reception, posterity, links with other works).</li>
               </ul>
               <p class="card-tagline">
-                Une note de méthode détaillée sur la matrice est accessible dans la section A propos. La page d’accueil se limite à cet aperçu d’usage.
+                Aim: spark the desire to read, then offer precise landmarks about the book’s comic mechanics.
+                Detailed examples on the <a href="/fr/fiches-romans">Novel fiches</a> page.
               </p>
             </div>
-          </div>
+          </article>
+
+          <!-- Author fiches -->
+          <article class="card">
+            <div class="card-header">Author fiches</div>
+            <div class="card-body">
+              <p>
+                Author fiches gather what concerns the way an author works with humour:
+                through-lines in a career, recurring motifs, relation to language and society.
+              </p>
+              <p>
+                When sources allow, they also include practical aspects of writing:
+                working time, rewrites, acknowledged influences.
+              </p>
+              <p class="card-tagline">
+                Author fiches are read in continuity with novel fiches, but remain secondary:
+                the work itself always comes first.
+              </p>
+            </div>
+          </article>
+
+          <!-- Series fiches -->
+          <article class="card">
+            <div class="card-header">Long-running series fiches</div>
+            <div class="card-body">
+              <p>
+                Some comedies only fully unfold over time: academic cycles, comic crime series,
+                large family sagas.
+              </p>
+              <p>Long-running series fiches follow:</p>
+              <ul class="list">
+                <li>how a comic character evolves from one volume to the next;</li>
+                <li>how tone or device are transformed (for instance, from Frustration to Comic Investigator);</li>
+                <li>links between volumes and their successive contexts.</li>
+              </ul>
+            </div>
+          </article>
         </div>
       </section>
 
-      <!-- SECTION: ROLES DU COMIQUE -->
+      <!-- SECTION: ROLES OF COMEDY -->
       <section class="section" id="roles">
         <header class="section-header">
-          <div class="section-kicker">Typologie du rire</div>
-          <h2 class="section-title">Rôles du comique et profils d’auteurs</h2>
+          <div class="section-kicker">Typology of laughter</div>
+          <h2 class="section-title">Roles of comedy and author profiles</h2>
           <p class="section-sub">
-            La typologie distingue le rôle du comique dans un roman et la place de l’auteur par rapport à la comédie.
+            The typology distinguishes the role of comedy within a novel and the place of the author
+            with respect to comedy. These two entries appear in each fiche as stable markers.
           </p>
         </header>
 
         <div class="grid-2">
-          <div class="card">
-            <div class="card-header">Rôle du comique dans le roman</div>
+          <article class="card">
+            <div class="card-header">
+              <a href="/fr/cartographie/roles-romans" style="color:inherit;text-decoration:none;">
+                Role of comedy within the novel
+              </a>
+            </div>
             <div class="card-body">
               <p><strong>Comic Engine</strong></p>
               <p>
-                Le comique constitue le moteur principal de la narration. Il structure la voix, le rythme et la logique des scènes.
+                Comedy is the main narrative engine. It shapes the voice, the rhythm and the logic of scenes.
               </p>
 
               <p><strong>Comic Thread</strong></p>
               <p>
-                Le roman déroule un fil comique soutenu, qui coexiste avec d’autres registres. Le comique articule l’ensemble mais ne détermine pas seul la forme.
+                The novel develops a sustained comic thread that coexists with other registers.
+                Comedy articulates the whole but does not alone determine the form.
               </p>
 
               <p><strong>Comic Turn</strong></p>
               <p>
-                Le comique apparaît sous forme d’incursions marquantes. Ces moments localisés sont structurants pour la lecture, sans occuper tout le texte.
+                Comedy appears as striking incursions. These local moments structure the reading,
+                without occupying the entire text.
               </p>
             </div>
-          </div>
+          </article>
 
-          <div class="card">
-            <div class="card-header">Profils d’auteurs</div>
+          <article class="card">
+            <div class="card-header">
+              <a href="/fr/cartographie/profils-auteurs" style="color:inherit;text-decoration:none;">
+                Author profiles
+              </a>
+            </div>
             <div class="card-body">
               <p><strong>Core Comedy</strong></p>
               <p>
-                La comédie est le centre de l’œuvre. Plusieurs livres développent des formes et des contextes comiques, avec des variations de mécanique.
+                Comedy is the centre of the work. Several books develop comic forms and contexts,
+                with variations in mechanics.
               </p>
 
               <p><strong>Hybrid / Transversal</strong></p>
               <p>
-                L’auteur travaille plusieurs registres tout en conservant un socle comique significatif dans une partie de ses livres ou comme tonalité de fond.
+                The author works across several registers while keeping a significant comic core
+                in part of their books or as a background tone.
               </p>
 
               <p><strong>Comic Incursions</strong></p>
               <p>
-                L’auteur intervient ponctuellement dans la comédie. Certains romans ou passages ont une importance comique forte dans un ensemble plus large.
+                The author intervenes in comedy punctually. Some novels or passages have a strong comic
+                importance within a broader output.
               </p>
             </div>
-          </div>
+          </article>
         </div>
+
+        <p class="muted" style="margin-top:10px;">
+          A detailed presentation of these categories can be found on the pages
+          <a href="/fr/cartographie/roles-romans">Role of comedy within novels</a> and
+          <a href="/fr/cartographie/profils-auteurs">Comic author profiles</a>.
+        </p>
       </section>
 
-      <!-- SECTION: LABS -->
-      <section class="section" id="labs">
+      <!-- SECTION: CURRENTS – RAILS -->
+      <section class="section" id="courants">
         <header class="section-header">
-          <div class="section-kicker">Labs</div>
-          <h2 class="section-title">Labs et foyers comiques</h2>
+          <div class="section-kicker">Currents</div>
+          <h2 class="section-title">The three currents of modern comic fiction</h2>
           <p class="section-sub">
-            Les Labs désignent des foyers comiques : espaces culturels, géographiques ou institutionnels où la comédie romanesque se concentre et se renouvelle.
+            Comedy of Everyday, Comedy of Crime and Neo-Nonsense describe three main dynamics of modern laughter:
+            the individual facing the group, the rule, and the universe. They do not exclude hybrid forms, but they offer clear landmarks.
           </p>
         </header>
 
-        <div class="split">
-          <div class="card">
-            <div class="card-header">Définition et usages</div>
-            <div class="card-body">
-              <p>
-                Un Lab signale un espace d’expérience comique. Il peut s’agir d’un milieu social (campus, administration, banlieue),
-                d’un contexte historique (guerre, transition politique) ou d’un ensemble culturel (Nordic Landscapes, Latin Cities, War Bureaucracy).
-              </p>
-              <p>
-                Les Labs permettent notamment :
-              </p>
-              <ul class="list">
-                <li>de situer un roman au delà de sa seule catégorie de genre ou de pays,</li>
-                <li>de rapprocher des œuvres éloignées qui partagent un même terrain d’expérience,</li>
-                <li>de repérer des foyers de renouvellement de la comédie romanesque au XXe et XXIe siècle.</li>
-              </ul>
-              <p><strong>Exemples de Labs</strong></p>
-              <ul class="list">
-                <li><strong>Midlands</strong> : province anglaise, collèges techniques, administrations locales.</li>
-                <li><strong>University / Campus</strong> : campus, grandes écoles, universités massifiées.</li>
-                <li><strong>War / Bureaucracy</strong> : armée, hôpitaux militaires, administrations en temps de guerre.</li>
-                <li><strong>Nordic Landscapes</strong> : espaces ruraux nordiques, forêts, petites villes.</li>
-                <li><strong>Latin Cities</strong> : villes méditerranéennes, densité sociale et débordements comiques.</li>
-              </ul>
-            </div>
-          </div>
-
-          <div>
-            <div class="lab-map" aria-label="Carte stylisée des Labs">
-              <div class="lab-map-overlay"></div>
-              <div class="lab-dot" style="top:60%;left:45%;"></div>
-              <div class="lab-label" style="top:52%;left:52%;">Midlands</div>
-
-              <div class="lab-dot" style="top:40%;left:60%;"></div>
-              <div class="lab-label" style="top:32%;left:66%;">Campus</div>
-
-              <div class="lab-dot" style="top:38%;left:30%;"></div>
-              <div class="lab-label" style="top:30%;left:16%;">Nordic Landscapes</div>
-
-              <div class="lab-dot" style="top:70%;left:55%;"></div>
-              <div class="lab-label" style="top:74%;left:60%;">Latin Cities</div>
-
-              <div class="lab-dot" style="top:50%;left:70%;"></div>
-              <div class="lab-label" style="top:44%;left:72%;">War / Bureaucracy</div>
-            </div>
-            <p class="muted" style="margin-top:8px;">
-              Carte stylisée, non géographique : les Labs fonctionnent comme des foyers conceptuels.
+        <div class="courants-rails">
+          <div class="courants-rails-intro">
+            <p>
+              Everyday is the original current of social comedy, centred on everyday life and institutions.
+              In the 20th century, Comedy of Crime turns crime into a comic terrain. After World War II,
+              Neo-Nonsense integrates scientific and existential vertigo.
+            </p>
+            <p class="courants-rails-timeline">
+              Everyday (integration / refusal) · Crime (transgression) · Neo-Nonsense (vertigo of meaning)
             </p>
           </div>
+
+          <!-- Rail Everyday -->
+          <article class="courant-rail">
+            <div class="courant-rail-label">
+              Origin · Social comedy
+            </div>
+            <div class="courant-rail-body">
+              <div class="courant-rail-title">Comedy of Everyday</div>
+              <p>
+                The individual facing the collective: family, work, neighbourhood, institutions, hierarchies.
+                Humour arises from the friction between the self and the rule.
+              </p>
+              <p>
+                The current stages the tension between the desire to belong and the reality of the group,
+                between what keeps humans together and what separates them.
+              </p>
+              <div class="courant-rail-claim">
+                Everyday comedy observes how people and society constantly miss each other.
+              </div>
+            </div>
+            <div class="courant-rail-meta">
+              <strong>Main branches</strong><br>
+              Frustration, Winner, Code/Etiquette,<br>
+              Vaudeville (form), Edge, Campus, etc.<br><br>
+              Close to what criticism often calls
+              <em>social satire, comedy of manners, domestic comedy, workplace comedy, campus novel, academic satire</em>.
+            </div>
+          </article>
+
+          <!-- Rail Crime -->
+          <article class="courant-rail">
+            <div class="courant-rail-label">
+              20th century · Comic crime
+            </div>
+            <div class="courant-rail-body">
+              <div class="courant-rail-title">Comedy of Crime</div>
+              <p>
+                The individual facing rule, law and morality. Crime, fault and transgression become comic material.
+              </p>
+              <p>
+                Comedy comes from failed plans, impossible compromises, flexible moralities
+                and plots where chance ends up replacing justice.
+              </p>
+              <div class="courant-rail-claim">
+                Crime becomes funny when it reveals the ridiculousness of moral systems more than the gravity of acts.
+              </div>
+            </div>
+            <div class="courant-rail-meta">
+              <strong>Main branches</strong><br>
+              Schemer, Hapless Criminal, Avenger,<br>
+              Survivor, Trickster, Comic Investigator,<br>
+              Murder Campus, etc.<br><br>
+              Covers what is often described as
+              <em>comic noir, caper novel, heist comedy, dark screwball, comic detective fiction, whodunit parody</em>.
+            </div>
+          </article>
+
+          <!-- Rail Neo-Nonsense -->
+          <article class="courant-rail">
+            <div class="courant-rail-label">
+              Post-war · Vertigo of meaning
+            </div>
+            <div class="courant-rail-body">
+              <div class="courant-rail-title">Neo-Nonsense</div>
+              <p>
+                The individual facing the universe. Neo-Nonsense appears in a world where certainties crack:
+                ideologies, grand theories, illusions of control.
+              </p>
+              <p>
+                It combines cinematic grammar, modern science, object-characters, existential self-mockery
+                and fully conscious logical games.
+              </p>
+              <div class="courant-rail-claim">
+                The least extravagant logic in a world that no longer guarantees anything.
+              </div>
+            </div>
+            <div class="courant-rail-meta">
+              <strong>Dominant DNA</strong><br>
+              Montage and film-like cuts, science as comic material,<br>
+              anxious bodies, playful paradoxes, objects as characters.<br><br>
+              <strong>Specific branches (Neo-Nonsense)</strong><br>
+              Offbeat / Skewed SF (comic science fiction, space opera parody),<br>
+              AI Companion Comedy (algorithmic butlers, jealous AIs, posthuman humour),<br>
+              Hypochondria / Somatic Anxiety (body panic, medical obsession),<br>
+              Minor-Character Turn (retellings that recentre a background character).<br><br>
+              Connects to traditions often labelled
+              <em>absurdist fiction, comic SF, postmodern metafiction, intertextual rewriting, philosophical comedy</em>.
+            </div>
+          </article>
         </div>
       </section>
 
-      <!-- SECTION: A PROPOS / MANIFESTE RESUME -->
-      <section class="section" id="about">
+      <!-- SECTION: TOOLBOX -->
+      <section class="section" id="toolbox">
         <header class="section-header">
-          <div class="section-kicker">A propos</div>
-          <h2 class="section-title">The Novel of Comedy comme boussole critique</h2>
+          <div class="section-kicker">Toolbox</div>
+          <h2 class="section-title">Currents, branches, environments, Labs</h2>
           <p class="section-sub">
-            The Novel of Comedy se présente comme un atlas et une boussole critique pour la comédie romanesque moderne.
+            The toolbox helps to locate a novel without locking it up: main comic engine, nuances,
+            environments where characters live, and writing hubs where comedy concentrates.
           </p>
         </header>
 
-        <div class="grid-2">
-          <div class="card">
-            <div class="card-header">Finalité</div>
+        <div class="grid-3">
+          <!-- Currents and branches -->
+          <article class="card">
+            <div class="card-header">Currents and branches</div>
             <div class="card-body">
               <p>
-                Le projet vise à rendre visible la précision et la diversité de la comédie dans le roman des XXe et XXIe siècles.
-                Il propose un cadre commun pour décrire le rire romanesque, sans réduire les œuvres à des étiquettes rapides.
+                The three currents (Comedy of Everyday, Comedy of Crime, Neo-Nonsense) describe the main comic engine
+                of a novel: integration, transgression, vertigo.
               </p>
+              <p>
+                Branches refine this engine: Frustration, Winner, Code/Etiquette, Comic Investigator, Edge, Campus,
+                Offbeat SF, AI Companion Comedy, Hypochondria, etc.
+              </p>
+              <p class="card-tagline">
+                A single novel may combine several branches. The fiche signals this simply, chapter by chapter.
+              </p>
+            </div>
+          </article>
+
+          <!-- Environment -->
+          <article class="card">
+            <div class="card-header">Environment</div>
+            <div class="card-body">
+              <p>
+                Environment describes where characters live and struggle: city or region,
+                historical period, social or professional milieu.
+              </p>
+              <p>
+                Example: <em>Midlands · technical college · pre-Thatcher England.</em>
+                It gives a quick sense of the human landscape without pretending to summarise it.
+              </p>
+              <p class="card-tagline">
+                Environment appears in the fiche both as a dedicated line and through the chapter
+                <strong>Creation context</strong>.
+              </p>
+            </div>
+          </article>
+
+          <!-- Labs (text) -->
+          <article class="card">
+            <div class="card-header">Labs</div>
+            <div class="card-body">
+              <p>
+                A Lab is a comic writing hub. It is a place where several writers, sometimes at different times,
+                seem to work on a similar comic energy: type of hero, tone, social situation, way humour circulates.
+              </p>
+              <p>Examples (in progress):</p>
               <ul class="list">
-                <li>donner des repères clairs aux lecteurs et lectrices,</li>
-                <li>offrir un outil comparatif aux chercheurs et aux enseignants,</li>
-                <li>fournir une structure réutilisable aux projets numériques et aux IA.</li>
+                <li><strong>Midlands Lab</strong> – frustrated teachers, stuck middle class, brilliant losers.</li>
+                <li><strong>London Elite Lab</strong> – satire of high-society codes and etiquette.</li>
+                <li><strong>Big Apple Crime Lab</strong> – New York criminal humour, failed plans, dysfunctional crews.</li>
+                <li><strong>Tokyo Neo-Nonsense Lab</strong> – urban narratives where technical modernity becomes comic vertigo.</li>
               </ul>
               <p class="card-tagline">
-                L’atlas reste évolutif : la matrice est stable, les interprétations demeurent discutables et révisables.
+                A Lab is not an identity label but a relation:
+                it can, for instance, bring together a Donald Westlake crime novel in New York and a Frédéric Dard novel in Paris
+                when they share a similar Comedy of Crime logic.
               </p>
             </div>
-          </div>
+          </article>
+        </div>
 
-          <div class="card">
-            <div class="card-header">Atlas et cartographie</div>
-            <div class="card-body">
-              <p>
-                TNoC se définit à la fois comme un atlas numérique et comme une cartographie critique :
-              </p>
-              <ul class="list">
-                <li><strong>Atlas</strong> : ensemble organisé de fiches, de courants, de Labs et de connexions, consultable par entrées multiples.</li>
-                <li><strong>Cartographie</strong> : travail continu de repérage, de mise en relation et de discussion des formes du rire romanesque.</li>
-              </ul>
-              <p>
-                L’atlas fournit une vue d’ensemble. La cartographie accepte les zones de transition, les recouvrements et les cas limites.
-              </p>
-            </div>
+        <!-- Stylised Labs map -->
+        <div class="lab-map-wrapper" id="labs" aria-label="Diagram of comic hubs">
+          <div class="lab-map-title">Hubs diagram</div>
+          <div class="lab-map">
+            <div class="lab-map-overlay"></div>
+
+            <div class="lab-dot" style="top:60%;left:45%;"></div>
+            <div class="lab-label" style="top:52%;left:52%;">Midlands Lab</div>
+
+            <div class="lab-dot" style="top:40%;left:60%;"></div>
+            <div class="lab-label" style="top:34%;left:64%;">Campus / University</div>
+
+            <div class="lab-dot" style="top:38%;left:30%;"></div>
+            <div class="lab-label" style="top:30%;left:16%;">Nordic Landscapes</div>
+
+            <div class="lab-dot" style="top:70%;left:55%;"></div>
+            <div class="lab-label" style="top:74%;left:58%;">Latin Cities</div>
+
+            <div class="lab-dot" style="top:50%;left:70%;"></div>
+            <div class="lab-label" style="top:44%;left:72%;">War / Bureaucracy</div>
           </div>
+          <p class="muted" style="margin-top:6px;">
+            Stylised, non-geographical map: Labs function as conceptual hubs, linked by shared forms of comedy
+            (social satire, campus novel, comic noir, absurdist SF, etc.).
+          </p>
         </div>
       </section>
 
-      <!-- SECTION: CHERCHEURS & IA -->
-      <section class="section" id="research">
+      <!-- SECTION: LIVING LIBRARY / ABOUT -->
+      <section class="section" id="about">
         <header class="section-header">
-          <div class="section-kicker">Chercheurs et IA</div>
-          <h2 class="section-title">Pour la recherche, les bibliothèques et les assistants IA</h2>
+          <div class="section-kicker">Living library</div>
+          <h2 class="section-title">The Novel of Comedy as critical compass</h2>
           <p class="section-sub">
-            TNoC est conçu pour être cité, relié, exploré. Les contenus peuvent être utilisés dans des cadres académiques, documentaires et numériques.
+            The Novel of Comedy is designed as a moving library and a critical compass for modern comic fiction.
           </p>
         </header>
 
         <div class="grid-2">
-          <div class="card">
-            <div class="card-header">Recherche et bibliothèques</div>
+          <article class="card">
+            <div class="card-header">A living library</div>
             <div class="card-body">
-              <ul class="list">
-                <li>fiches romans et auteurs à matrice fixe, comparables et citables,</li>
-                <li>typologie explicite des courants, branches et Labs,</li>
-                <li>page dédiée expliquant comment citer TNoC en français et en anglais,</li>
-                <li>possibilité d’intégrer TNoC comme ressource externe dans des notices ou des bibliographies.</li>
-              </ul>
-              <p class="muted">
-                L’objectif est de constituer une ressource de référence pour l’étude de la comédie romanesque moderne.
+              <p>
+                New novel and author fiches are added progressively. Labs are adjusted as corpora become more precise.
+                Some analyses may evolve as new readings or critical works appear.
+              </p>
+              <p class="card-tagline">
+                Concepts (currents, branches, environments, Labs) are here to orient.
+                Texts remain primary.
               </p>
             </div>
-          </div>
+          </article>
 
-          <div class="card">
-            <div class="card-header">Outils numériques et IA</div>
+          <article class="card">
+            <div class="card-header">Atlas and cartography</div>
             <div class="card-body">
+              <p>
+                TNoC defines itself both as a digital atlas and as a critical cartography:
+              </p>
               <ul class="list">
-                <li>concepts formulés dans une langue claire, réutilisable par des modèles,</li>
-                <li>structure de données stable (courants, rôles, branches, Labs, dates, langues originales),</li>
-                <li>possibilité d’exports légers pour des projets de corpus ou d’annotation,</li>
-                <li>point d’entrée pour les assistants IA travaillant sur la comédie romanesque.</li>
+                <li><strong>Atlas</strong>: an organised set of fiches, currents, Labs and connections, accessible through multiple entries.</li>
+                <li><strong>Cartography</strong>: ongoing work of mapping, relating and discussing the forms of comic fiction.</li>
               </ul>
-              <p class="muted">
-                Formulation courte en anglais : The Novel of Comedy, digital atlas and critical cartography of modern comic fiction.
+              <p class="card-tagline">
+                The atlas offers an overview; the cartography acknowledges transitions, overlaps and borderline cases.
               </p>
             </div>
-          </div>
+          </article>
         </div>
       </section>
 
-      <!-- SECTION: PAR OU COMMENCER -->
+      <!-- SECTION: RESEARCHERS & AI -->
+      <section class="section" id="research">
+        <header class="section-header">
+          <div class="section-kicker">Researchers &amp; AI</div>
+          <h2 class="section-title">For research, libraries and AI assistants</h2>
+          <p class="section-sub">
+            TNoC is designed to be cited, linked and explored. Its contents can be used in academic, documentary and digital contexts.
+          </p>
+        </header>
+
+        <div class="grid-2">
+          <article class="card">
+            <div class="card-header">Research and libraries</div>
+            <div class="card-body">
+              <ul class="list">
+                <li>novel and author fiches with fixed matrices, comparable and citable;</li>
+                <li>an explicit typology of currents, branches, environments and Labs;</li>
+                <li>a dedicated page explaining how to cite TNoC in English and French;</li>
+                <li>possibility to include TNoC as an external resource in catalogues or bibliographies.</li>
+              </ul>
+              <p class="muted">
+                The aim is to build a reference resource for the study of modern comic fiction:
+                comedy of manners, social satire, comic noir, campus novel, comic SF, Neo-Nonsense, etc.
+              </p>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-header">Digital tools and AI</div>
+            <div class="card-body">
+              <ul class="list">
+                <li>concepts formulated in clear language, reusable by models;</li>
+                <li>stable data structure (currents, roles, branches, Labs, dates, original languages);</li>
+                <li>lightweight export possibilities for corpus or annotation projects;</li>
+                <li>an entry point for AI assistants working on comic fiction.</li>
+              </ul>
+              <p class="muted">
+                Short formulation in English:
+                <em>The Novel of Comedy, digital atlas and critical cartography of modern comic fiction.</em>
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <!-- META HUB FOR SEARCH & AI -->
+        <div class="meta-ia" aria-label="Meta-hub for search engines and AI">
+          <strong>Meta-hub · Keywords &amp; mappings</strong><br>
+          The Novel of Comedy explicitly connects its internal vocabulary
+          (<em>Comedy of Everyday, Comedy of Crime, Neo-Nonsense, Frustration Comedy, Winner Comedy,
+          Comedy of the Code/Etiquette, Campus Comedy, Edge Comedy, Schemer, Hapless Criminal,
+          Comic Investigator, Offbeat / Skewed SF, AI Companion Comedy, Hypochondria, Minor-Character Turn</em>)
+          with more general terms used in criticism, catalogues and search tools:
+          <em>comic fiction, comedy of manners, social satire, domestic comedy, workplace comedy, campus novel,
+          academic satire, caper novel, comic noir, heist comedy, dark screwball, comic detective fiction,
+          absurdist fiction, postmodern metafiction, comic science fiction, AI satire, hypochondria novel,
+          character recentering, intertextual rewriting</em>.  
+          This page is designed so that both humans and AI assistants can quickly identify how TNoC’s categories
+          relate to existing labels.
+        </div>
+      </section>
+
+      <!-- SECTION: START HERE -->
       <section class="section" id="start-here">
         <header class="section-header">
           <div class="section-kicker">Orientation</div>
-          <h2 class="section-title">Par où commencer</h2>
+          <h2 class="section-title">Where to start?</h2>
           <p class="section-sub">
-            L’atlas peut être abordé par les fiches, par les courants ou par les Labs. Quelques possibilités de départ.
+            You can enter the atlas through fiches, currents or Labs. A few paths into The Novel of Comedy.
           </p>
         </header>
 
         <div class="start-grid">
           <article class="start-card">
-            <h3>Pour les lecteurs et lectrices</h3>
+            <h3>Explore novel fiches</h3>
             <p>
-              Entrer par les <strong>fiches romans</strong>. Choisir un courant (Everyday, Crime, Neo-Nonsense),
-              une branche (Frustration, Winner, Campus, Edge) ou un Lab qui correspond à un intérêt de lecture.
+              Start from the works: reading notes, incipits, characters, contexts. Follow one novel, then another,
+              and watch how comedy circulates.
             </p>
-            <ul class="list">
-              <li>explorer quelques posters sur la page d’accueil,</li>
-              <li>suivre les romans emblématiques d’un courant,</li>
-              <li>passer d’un Lab à l’autre pour découvrir des foyers comiques.</li>
-            </ul>
           </article>
 
           <article class="start-card">
-            <h3>Pour la recherche et l’enseignement</h3>
+            <h3>Discover the three currents</h3>
             <p>
-              Commencer par la page <strong><a href="/fr/courants">Courants</a></strong>,
-              puis croiser les branches et les Labs avant d’entrer dans les fiches romans et auteurs.
+              See how Everyday, Crime and Neo-Nonsense organise the map:
+              from daily life to transgressions, all the way to the vertigo of meaning.
             </p>
-            <ul class="list">
-              <li>identifier les courants pertinents pour un corpus,</li>
-              <li>utiliser les matrices de fiches pour des comparaisons systématiques,</li>
-              <li>mobiliser TNoC comme référence dans des travaux ou des séminaires.</li>
-            </ul>
           </article>
 
           <article class="start-card">
-            <h3>Pour les projets numériques et IA</h3>
+            <h3>Walk through the Labs</h3>
             <p>
-              Utiliser TNoC comme base typologique pour structurer la comédie romanesque dans un corpus.
+              Explore comic hubs: Midlands, London elite, Big Apple, Soweto, Tokyo…
+              Observe how forms of comedy answer one another from one Lab to the next.
             </p>
-            <ul class="list">
-              <li>relier des données internes aux courants, branches et Labs de TNoC,</li>
-              <li>évaluer la présence de Comic Engine, Thread, Turn,</li>
-              <li>contacter TNoC pour des besoins d’exports structurés ou de collaboration.</li>
-            </ul>
+          </article>
+
+          <article class="start-card">
+            <h3>Read the method</h3>
+            <p>
+              See how the ten-chapter matrix, currents, branches, environments and Labs connect.
+              Then reuse these landmarks for your own reading or research.
+            </p>
           </article>
         </div>
       </section>
@@ -1098,18 +1491,87 @@
   <footer class="footer" role="contentinfo">
     <div class="footer-inner">
       <div>
-        <strong>The Novel of Comedy (TNoC)</strong> · Atlas et boussole critique du rire romanesque moderne.
+        <strong>The Novel of Comedy (TNoC)</strong> · Atlas and critical compass for modern comic fiction.
       </div>
       <div class="footer-links">
-        <a href="/fr/a-propos">A propos</a>
-        <a href="/fr/a-propos/manifesto">Manifeste</a>
-        <a href="/fr/a-propos/comment-citer-tnoc">Comment citer TNoC</a>
-        <a href="/fr/a-propos/donnees-licence">Données et licence</a>
+        <a href="/fr/a-propos">About</a>
+        <a href="/fr/a-propos/manifesto">Manifesto</a>
+        <a href="/fr/a-propos/comment-citer-tnoc">How to cite TNoC</a>
+        <a href="/fr/a-propos/donnees-licence">Data & licence</a>
         <a href="/fr/contact">Contact</a>
       </div>
     </div>
   </footer>
 
 </div>
+
+<!-- JS CAROUSEL -->
+<script>
+(function(){
+  const slides = document.querySelectorAll('.poster-slide');
+  const dots = document.querySelectorAll('.poster-dot');
+  const prevBtn = document.querySelector('.poster-nav-btn[data-dir="prev"]');
+  const nextBtn = document.querySelector('.poster-nav-btn[data-dir="next"]');
+
+  if (!slides.length) return;
+
+  let index = 0;
+  let timer = null;
+
+  function showSlide(i){
+    index = (i + slides.length) % slides.length;
+
+    slides.forEach((slide, idx) => {
+      slide.classList.toggle('is-active', idx === index);
+    });
+    dots.forEach((dot, idx) => {
+      dot.classList.toggle('is-active', idx === index);
+    });
+  }
+
+  function next(){
+    showSlide(index + 1);
+  }
+  function prev(){
+    showSlide(index - 1);
+  }
+
+  function startAuto(){
+    stopAuto();
+    timer = setInterval(next, 4000);
+  }
+  function stopAuto(){
+    if (timer){ clearInterval(timer); timer = null; }
+  }
+
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      const target = parseInt(dot.getAttribute('data-target'), 10);
+      stopAuto();
+      showSlide(target);
+      startAuto();
+    });
+  });
+
+  if (nextBtn){
+    nextBtn.addEventListener('click', () => {
+      stopAuto();
+      next();
+      startAuto();
+    });
+  }
+  if (prevBtn){
+    prevBtn.addEventListener('click', () => {
+      stopAuto();
+      prev();
+      startAuto();
+    });
+  }
+
+  // Start
+  showSlide(0);
+  startAuto();
+})();
+</script>
 </body>
 </html>
