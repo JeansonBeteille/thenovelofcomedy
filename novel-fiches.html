@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Novel fiches – The Novel of Comedy (TNoC)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description"
+        content="Novel fiches for The Novel of Comedy (TNoC): a gallery of mapped comic novels, organised by title, current and decade.">
+  <style>
+    :root{
+      --bg:#0b0b0c;
+      --paper:#f7f5f0;
+      --ink:#1e1e1e;
+      --graphite:#2b2b2b;
+      --evergreen:#2E7D32;
+      --muted:rgba(0,0,0,.55);
+      --chip:rgba(0,0,0,.06);
+      --border:rgba(0,0,0,.14);
+      --card:#ffffff;
+      --shadow:0 1px 2px rgba(0,0,0,.04);
+    }
+
+    *{box-sizing:border-box}
+    html,body{
+      margin:0;
+      padding:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--ink);
+      background:var(--bg);
+    }
+    a{color:inherit;text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    .page-wrap{
+      min-height:100vh;
+      background:var(--bg);
+    }
+
+    /* TOP NAV */
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:20;
+      backdrop-filter:blur(10px);
+      background:rgba(11,11,12,.92);
+      color:#fff;
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .topbar-inner{
+      max-width:1120px;
+      margin:0 auto;
+      padding:10px 20px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .brand-mark{
+      width:34px;
+      height:34px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.18);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:600;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+      font-size:11px;
+      background:radial-gradient(circle at 0 0,rgba(255,255,255,.22),rgba(0,0,0,.7));
+    }
+    .brand-text{
+      display:flex;
+      flex-direction:column;
+      gap:1px;
+    }
+    .brand-title{
+      font-size:15px;
+      letter-spacing:.05em;
+      text-transform:uppercase;
+    }
+    .brand-sub{
+      font-size:11px;
+      opacity:.7;
+    }
+    .nav{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      font-size:13px;
+    }
+    .nav a{
+      opacity:.82;
+      padding:6px 0;
+      border-bottom:1px solid transparent;
+    }
+    .nav a:hover{
+      opacity:1;
+      text-decoration:none;
+    }
+    .nav a.is-primary{
+      padding:6px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.22);
+      font-size:12px;
+      border-bottom:none;
+    }
+    .nav a.is-current{
+      opacity:1;
+      border-bottom:1px solid rgba(255,255,255,.9);
+    }
+
+    @media(max-width:900px){
+      .topbar-inner{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+      .nav{
+        width:100%;
+        justify-content:flex-start;
+      }
+    }
+
+    /* HERO */
+    .hero{
+      background:var(--bg);
+      color:#fff;
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .hero-inner{
+      max-width:1120px;
+      margin:0 auto;
+      padding:36px 20px 26px;
+    }
+    .hero-kicker{
+      font-size:12px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      opacity:.9;
+    }
+    .hero-title{
+      font-size:22px;
+      line-height:1.4;
+      margin:10px 0 4px;
+      max-width:620px;
+    }
+    .hero-sub{
+      font-size:13px;
+      line-height:1.6;
+      max-width:620px;
+      opacity:.9;
+      margin:10px 0 10px;
+    }
+    .hero-note{
+      font-size:12px;
+      opacity:.8;
+      max-width:620px;
+    }
+
+    .hero-modes{
+      margin-top:14px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+    .hero-mode{
+      display:inline-flex;
+      align-items:center;
+      gap:7px;
+      padding:7px 12px;
+      border-radius:999px;
+      font-size:11px;
+      border:1px solid rgba(255,255,255,.28);
+      background:rgba(0,0,0,.25);
+      cursor:pointer;
+      text-decoration:none;
+      opacity:.9;
+    }
+    .hero-mode span{
+      font-size:10px;
+      opacity:.85;
+      text-transform:uppercase;
+      letter-spacing:.16em;
+    }
+    .hero-mode strong{
+      font-weight:600;
+    }
+
+    /* POSTER / GALLERY */
+    .poster-gallery{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:18px;
+      margin-top:10px;
+    }
+    @media(max-width:1024px){
+      .poster-gallery{
+        grid-template-columns:repeat(3,minmax(0,1fr));
+      }
+    }
+    @media(max-width:780px){
+      .poster-gallery{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
+    }
+    @media(max-width:520px){
+      .poster-gallery{
+        grid-template-columns:1fr;
+      }
+    }
+
+    .poster-card{
+      background:#111;
+      color:#f5f5f5;
+      border-radius:16px;
+      padding:10px 10px 12px;
+      border:1px solid rgba(255,255,255,.16);
+      box-shadow:0 8px 24px rgba(0,0,0,.45);
+      text-decoration:none;
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+      min-height:230px;
+    }
+    .poster-cover-box{
+      width:100%;
+      aspect-ratio:3/4;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,.25);
+      background:radial-gradient(circle at 20% 0,#555,#111);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:10px;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      opacity:.85;
+      overflow:hidden;
+      margin-bottom:4px;
+    }
+    .poster-cover-box img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+    .poster-tag{
+      font-size:10px;
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      opacity:.7;
+    }
+    .poster-title{
+      font-size:13px;
+      font-weight:600;
+    }
+    .poster-author{
+      font-size:11px;
+      opacity:.85;
+    }
+    .poster-meta{
+      font-size:11px;
+      opacity:.85;
+    }
+    .poster-punch{
+      font-size:11px;
+      font-style:italic;
+      opacity:.9;
+    }
+    .poster-tools{
+      margin-top:4px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:4px;
+      font-size:10px;
+    }
+    .tool-chip{
+      padding:3px 7px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.3);
+      background:rgba(0,0,0,.4);
+      white-space:nowrap;
+    }
+
+    /* MAIN CONTENT */
+    .main{
+      background:var(--paper);
+      min-height:60vh;
+    }
+    .main-inner{
+      max-width:1120px;
+      margin:0 auto;
+      padding:24px 20px 40px;
+    }
+    .section{
+      padding:24px 0;
+      border-bottom:1px solid rgba(0,0,0,.06);
+    }
+    .section:last-of-type{
+      border-bottom:none;
+      padding-bottom:10px;
+    }
+    .section-header{
+      margin-bottom:16px;
+    }
+    .section-kicker{
+      font-size:11px;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:var(--muted);
+    }
+    .section-title{
+      font-size:22px;
+      letter-spacing:.04em;
+      margin:4px 0;
+    }
+    .section-sub{
+      font-size:14px;
+      color:var(--muted);
+      max-width:720px;
+    }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:18px;
+    }
+    @media(max-width:900px){
+      .grid-2{
+        grid-template-columns:1fr;
+      }
+    }
+
+    .card{
+      background:var(--card);
+      border-radius:16px;
+      border:1px solid var(--border);
+      box-shadow:var(--shadow);
+      padding:16px 16px 14px;
+    }
+    .card-header{
+      font-weight:600;
+      font-size:15px;
+      margin-bottom:6px;
+    }
+    .card-body{
+      font-size:13px;
+      line-height:1.6;
+      color:var(--graphite);
+    }
+    .card-tagline{
+      font-size:12px;
+      color:var(--muted);
+      margin-top:6px;
+    }
+
+    .rail{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      margin-top:10px;
+    }
+    .rail-label{
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      color:var(--muted);
+    }
+    .rail-strip{
+      display:flex;
+      gap:8px;
+      overflow-x:auto;
+      padding-bottom:4px;
+    }
+    .rail-strip::-webkit-scrollbar{
+      height:6px;
+    }
+    .rail-strip::-webkit-scrollbar-track{
+      background:rgba(0,0,0,.03);
+    }
+    .rail-strip::-webkit-scrollbar-thumb{
+      background:rgba(0,0,0,.18);
+      border-radius:999px;
+    }
+    .rail-pill{
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background:#fff;
+      font-size:12px;
+      white-space:nowrap;
+      box-shadow:var(--shadow);
+    }
+
+    .decade-chip{
+      padding:7px 11px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      font-size:12px;
+      background:#fff;
+      box-shadow:var(--shadow);
+      white-space:nowrap;
+      text-decoration:none;
+    }
+    .decade-chip:hover{
+      text-decoration:none;
+      background:#f0ede4;
+    }
+    .decade-strip{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:10px;
+    }
+
+    .index-list{
+      margin:10px 0 0;
+      padding-left:18px;
+      font-size:13px;
+      color:var(--graphite);
+      columns:2;
+      column-gap:24px;
+    }
+    @media(max-width:780px){
+      .index-list{
+        columns:1;
+      }
+    }
+    .index-list li{
+      margin:2px 0 4px;
+      break-inside:avoid;
+    }
+
+    .muted{
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    .footer{
+      background:var(--bg);
+      color:#f5f5f5;
+      border-top:1px solid rgba(255,255,255,.08);
+    }
+    .footer-inner{
+      max-width:1120px;
+      margin:0 auto;
+      padding:18px 20px 22px;
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:space-between;
+      gap:12px;
+      font-size:12px;
+      opacity:.88;
+    }
+    .footer-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+    }
+
+    @media(max-width:600px){
+      .hero-inner{
+        padding:28px 16px 22px;
+      }
+      .section{
+        padding:20px 0;
+      }
+      .section-title{
+        font-size:20px;
+      }
+      .section-sub{
+        font-size:13px;
+      }
+      .card{
+        padding:14px 14px 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- TOP BAR -->
+  <header class="topbar" role="banner" aria-label="Main navigation">
+    <div class="topbar-inner">
+      <a href="index.html" class="brand" aria-label="The Novel of Comedy home">
+        <div class="brand-mark">TNoC</div>
+        <div class="brand-text">
+          <div class="brand-title">The Novel of Comedy</div>
+          <div class="brand-sub">Digital atlas & critical cartography of comic fiction</div>
+        </div>
+      </a>
+      <nav class="nav" aria-label="Navigation">
+        <a href="index.html">Home</a>
+        <a href="novel-fiches.html" class="is-current">Novel fiches</a>
+        <a href="#by-current">By current</a>
+        <a href="#by-decade">By decade</a>
+        <a href="#index">Index A–Z</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO (texte seul) -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-kicker">Novel fiches</div>
+        <h1 class="hero-title">A gallery of mapped comic novels</h1>
+        <p class="hero-sub">
+          Each novel fiche follows the same ten-chapter matrix: coordinates, reading note, back-cover pitch,
+          currents and branches, style, major characters, creation context, reception, making-of and legacy.
+        </p>
+        <p class="hero-note">
+          This page works like a gallery. You can walk through the posters, browse by current,
+          or use the alphabetical index. Each poster and each title leads to a full fiche.
+        </p>
+
+        <div class="hero-modes">
+          <a href="#gallery" class="hero-mode">
+            <span>View</span><strong>Gallery</strong>
+          </a>
+          <a href="#by-current" class="hero-mode">
+            <span>View</span><strong>By current</strong>
+          </a>
+          <a href="#index" class="hero-mode">
+            <span>View</span><strong>Index A–Z</strong>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT -->
+  <main class="main" aria-label="Novel fiches content">
+    <div class="main-inner">
+
+      <!-- SECTION: GALLERY -->
+      <section class="section" id="gallery">
+        <header class="section-header">
+          <div class="section-kicker">Visual gallery</div>
+          <h2 class="section-title">Posters for mapped novels</h2>
+          <p class="section-sub">
+            First series of posters based on the same model as the homepage hero:
+            dark background, space for the cover, coordinates, a short claim and toolbox chips
+            (currents, branches, Labs). Click any poster to enter the fiche.
+          </p>
+        </header>
+
+        <div class="poster-gallery" aria-label="Main gallery of novel posters">
+          <!-- 1. Wilt -->
+          <a href="/fr/fiche-roman/wilt-1976" class="poster-card">
+            <div class="poster-cover-box">
+              <!-- <img src="img/wilt31A.png" alt="Cover of Wilt"> -->
+              Cover
+            </div>
+            <div class="poster-tag">Everyday · Frustration · Campus</div>
+            <div class="poster-title">Wilt</div>
+            <div class="poster-author">Tom Sharpe</div>
+            <div class="poster-meta">Midlands · technical college · pre-Thatcher UK</div>
+            <div class="poster-punch">
+              Surviving through irony, ruling through failure.
+            </div>
+            <div class="poster-tools">
+              <span class="tool-chip">Comedy of Everyday</span>
+              <span class="tool-chip">Frustration</span>
+              <span class="tool-chip">Campus</span>
+              <span class="tool-chip">Midlands Lab</span>
+            </div>
+          </a>
+
+          <!-- 2. The Code of the Woosters -->
+          <a href="/fr/fiche-roman/the-code-of-the-woosters" class="poster-card">
+            <div class="poster-cover-box">
+              <!-- <img src="img/code-of-the-woosters.png" alt="Cover of The Code of the Woosters"> -->
+              Cover
+            </div>
+            <div class="poster-tag">Everyday · Code/Etiquette</div>
+            <div class="poster-title">The Code of the Woosters</div>
+            <div class="poster-author">P. G. Wodehouse</div>
+            <div class="poster-meta">London &amp; countryside · clubs · aunts</div>
+            <div class="poster-punch">
+              Etiquette as a perfectly calibrated engine for chaos.
+            </div>
+            <div class="poster-tools">
+              <span class="tool-chip">Code/Etiquette</span>
+              <span class="tool-chip">Vaudeville</span>
+              <span class="tool-chip">Domestic comedy</span>
+            </div>
+          </a>
+
+          <!-- 3. Lucky Jim -->
+          <a href="/fr/fiche-roman/lucky-jim-1954" class="poster-card">
+            <div class="poster-cover-box">
+              <!-- <img src="img/lucky-jim.png" alt="Cover of Lucky Jim"> -->
+              Cover
+            </div>
+            <div class="poster-tag">Everyday · Frustration · Campus</div>
+            <div class="poster-title">Lucky Jim</div>
+            <div class="poster-author">Kingsley Amis</div>
+            <div class="poster-meta">Redbrick university · lectures · rituals</div>
+            <div class="poster-punch">
+              A brilliant loser negotiating academic absurdities.
+            </div>
+            <div class="poster-tools">
+              <span class="tool-chip">Frustration</span>
+              <span class="tool-chip">Campus Comedy</span>
+            </div>
+          </a>
+
+          <!-- 4. The Girls of Slender Means -->
+          <a href="/fr/fiche-roman/the-girls-of-slender-means" class="poster-card">
+            <div class="poster-cover-box">
+              <!-- <img src="img/girls-of-slender-means.png" alt="Cover of The Girls of Slender Means"> -->
+              Cover
+            </div>
+            <div class="poster-tag">Everyday · Edge</div>
+            <div class="poster-title">The Girls of Slender Means</div>
+            <div class="poster-author">Muriel Spark</div>
+            <div class="poster-meta">London · post-war hostel · austerity</div>
+            <div class="poster-punch">
+              Lightness and catastrophe sharing the same narrow staircase.
+            </div>
+            <div class="poster-tools">
+              <span class="tool-chip">Edge Comedy</span>
+              <span class="tool-chip">Winner / Comeback tones</span>
+            </div>
+          </a>
+
+          <!-- 5. Money -->
+          <a href="/fr/fiche-roman/money-amis" class="poster-card">
+            <div class="poster-cover-box">
+              <!-- <img src="img/money.png" alt="Cover of Money"> -->
+              Cover
+            </div>
+            <div class="poster-tag">Everyday · Frustration · Edge</div>
+            <div class="poster-title">Money</div>
+            <div class="poster-author">Martin Amis</div>
+            <div class="poster-meta">London &amp; New York · advertising · excess</div>
+            <div class="poster-punch">
+              A comic anatomy of overconsumption and self-sabotage.
+            </div>
+            <div class="poster-tools">
+              <span class="tool-chip">Frustration</span>
+              <span class="tool-chip">Edge</span>
+            </div>
+          </a>
+
+          <!-- 6. The Bonfire of the Vanities -->
+          <a href="/fr/fiche-roman/bonfire-of-the-vanities" class="poster-card">
+            <div class="poster-cover-box">
+              <!-- <img src="img/bonfire-of-the-vanities.png" alt="Cover of The Bonfire of the Vanities"> -->
+              Cover
+            </div>
+            <div class="poster-tag">Everyday · Winner · Crime</div>
+            <div class="poster-title">Le Bûcher des vanités</div>
+            <div class="poster-author">Tom Wolfe</div>
+            <div class="poster-meta">New York · finance · media spectacle</div>
+            <div class="poster-punch">
+              Winner comedy pushed into full-blown social and media farce.
+            </div>
+            <div class="poster-tools">
+              <span class="tool-chip">Winner Comedy</span>
+              <span class="tool-chip">Comedy of Crime</span>
+              <span class="tool-chip">Big Apple Lab</span>
+            </div>
+          </a>
+
+          <!-- 7. James -->
+          <a href="/fr/fiche-roman/james-percival-everett" class="poster-card">
+            <div class="poster-cover-box">
+              <!-- <img src="img/james-percival-everett.png" alt="Cover of James"> -->
+              Cover
+            </div>
+            <div class="poster-tag">Neo-Nonsense · Edge · Minor-Character Turn</div>
+            <div class="poster-title">James</div>
+            <div class="poster-author">Percival Everett</div>
+            <div class="poster-meta">US South · canonical novel re-centred</div>
+            <div class="poster-punch">
+              A so-called minor character steps forward and rewrites the rules.
+            </div>
+            <div class="poster-tools">
+              <span class="tool-chip">Neo-Nonsense</span>
+              <span class="tool-chip">Minor-Character Turn</span>
+              <span class="tool-chip">Edge</span>
+            </div>
+          </a>
+
+          <!-- 8. Breakfast of Champions -->
+          <a href="/fr/fiche-roman/breakfast-of-champions" class="poster-card">
+            <div class="poster-cover-box">
+              <!-- <img src="img/breakfast-of-champions.png" alt="Cover of Breakfast of Champions"> -->
+              Cover
+            </div>
+            <div class="poster-tag">Neo-Nonsense · Meta</div>
+            <div class="poster-title">Breakfast of Champions</div>
+            <div class="poster-author">Kurt Vonnegut</div>
+            <div class="poster-meta">Midwest USA · media, science, drawings</div>
+            <div class="poster-punch">
+              A comic dismantling of narrative, realism and the author’s own toolbox.
+            </div>
+            <div class="poster-tools">
+              <span class="tool-chip">Neo-Nonsense</span>
+              <span class="tool-chip">Metafiction</span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- SECTION: BY CURRENT -->
+      <section class="section" id="by-current">
+        <header class="section-header">
+          <div class="section-kicker">By current</div>
+          <h2 class="section-title">Novel fiches by comic current</h2>
+          <p class="section-sub">
+            A quick overview of how the corpus spreads across the three main currents:
+            Comedy of Everyday, Comedy of Crime and Neo-Nonsense.
+          </p>
+        </header>
+
+        <div class="grid-2">
+          <!-- Everyday -->
+          <article class="card">
+            <div class="card-header">Comedy of Everyday</div>
+            <div class="card-body">
+              <p>
+                Everyday comedy follows individuals struggling with families, institutions, workplaces, neighbours
+                and codes of etiquette. Frustration, Winner, Code/Etiquette, Edge and Campus branches structure
+                many of these novels.
+              </p>
+              <div class="rail">
+                <div class="rail-label">Examples (selection)</div>
+                <div class="rail-strip">
+                  <a class="rail-pill" href="/fr/fiche-roman/the-code-of-the-woosters">The Code of the Woosters</a>
+                  <a class="rail-pill" href="/fr/fiche-roman/lucky-jim-1954">Lucky Jim</a>
+                  <a class="rail-pill" href="/fr/fiche-roman/wilt-1976">Wilt</a>
+                  <a class="rail-pill" href="/fr/fiche-roman/small-world">Small World</a>
+                  <a class="rail-pill" href="/fr/fiche-roman/the-girls-of-slender-means">The Girls of Slender Means</a>
+                  <a class="rail-pill" href="/fr/fiche-roman/the-old-devils">The Old Devils</a>
+                  <a class="rail-pill" href="/fr/fiche-roman/bonfire-of-the-vanities">Le Bûcher des vanités</a>
+                  <a class="rail-pill" href="/fr/fiche-roman/white-noise">White Noise</a>
+                  <a class="rail-pill" href="/fr/fiche-roman/testament-a-langlaise">Testament à l’anglaise</a>
+                </div>
+              </div>
+              <p class="card-tagline">
+                These fiches insist on repetition, rituals, friction between language and social codes,
+                and light forms of redemption.
+              </p>
+            </div>
+          </article>
+
+          <!-- Crime -->
+          <article class="card">
+            <div class="card-header">Comedy of Crime</div>
+            <div class="card-body">
+              <p>
+                Comedy of Crime treats fault, illegality and transgression as engines for humour:
+                plans that go wrong, desperate improvisations, comic investigators, crews that sabotage themselves.
+              </p>
+              <div class="rail">
+                <div class="rail-label">Examples (selection)</div>
+                <div class="rail-strip">
+                  <a class="rail-pill" href="/fr/fiche-roman/tourist-season">Tourist Season</a>
+                  <a class="rail-pill" href="/fr/fiche-roman/big-trouble">Big Trouble</a>
+                  <a class="rail-pill" href="/fr/fiche-roman/florida-roadkill">Florida Roadkill</a>
+                  <a class="rail-pill" href="/fr/fiche-roman/martians-go-home">Martians Go Home</a>
+                  <a class="rail-pill" href="/fr/fiche-roman/the-deep-blue-good-by">The Deep Blue Good-By</a>
+                  <a class="rail-pill" href="/fr/fiche-roman/slaves-of-new-york">Slaves of New York</a>
+                  <a class="rail-pill" href="/fr/fiche-roman/pulp">Pulp</a>
+                </div>
+              </div>
+              <p class="card-tagline">
+                The fiches highlight schemers, hapless criminals, survivors, tricksters and comic investigators.
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <div class="grid-2" style="margin-top:18px;">
+          <!-- Neo-Nonsense -->
+          <article class="card">
+            <div class="card-header">Neo-Nonsense</div>
+            <div class="card-body">
+              <p>
+                Neo-Nonsense emerges when grand narratives crack: science, technology and logic themselves
+                become comic materials. Narration borrows from cinema, diagrams, games and philosophical thought
+                experiments.
+              </p>
+              <div class="rail">
+                <div class="rail-label">Examples (selection)</div>
+                <div class="rail-strip">
+                  <a class="rail-pill" href="/fr/fiche-roman/white-noise">White Noise</a>
+                  <a class="rail-pill" href="/fr/fiche-roman/breakfast-of-champions">Breakfast of Champions</a>
+                  <a class="rail-pill" href="/fr/fiche-roman/flauberts-parrot">Flaubert’s Parrot</a>
+                  <a class="rail-pill" href="/fr/fiche-roman/generation-x">Generation X</a>
+                  <a class="rail-pill" href="/fr/fiche-roman/side-effects">Side Effects</a>
+                  <a class="rail-pill" href="/fr/fiche-roman/james-percival-everett">James</a>
+                  <a class="rail-pill" href="/fr/fiche-roman/martians-go-home">Martians Go Home</a>
+                </div>
+              </div>
+              <p class="card-tagline">
+                Fiches for this current insist on cinematic grammar, science as comic matter,
+                object-characters, hypochondria and logical paradoxes.
+              </p>
+            </div>
+          </article>
+
+          <!-- Mixed / hybrid -->
+          <article class="card">
+            <div class="card-header">Hybrids and mixed cases</div>
+            <div class="card-body">
+              <p>
+                Many novels circulate between currents: Everyday tinged with Crime,
+                Crime that slowly drifts into Neo-Nonsense, or campus novels inflected by Edge comedy.
+              </p>
+              <p>
+                In the fiches, this is indicated by combined tags:
+                for example <em>Everyday → Frustration + Comedy of Crime</em> or
+                <em>Neo-Nonsense with Edge branch</em>.
+              </p>
+              <p class="card-tagline">
+                The point is not to lock books into boxes, but to make explicit the main comic engines at work.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- SECTION: BY DECADE -->
+      <section class="section" id="by-decade">
+        <header class="section-header">
+          <div class="section-kicker">By decade</div>
+          <h2 class="section-title">A corpus that crosses generations</h2>
+          <p class="section-sub">
+            The novel fiches span several generations of modern comic fiction, from mid-20th-century campus
+            novels and social satire to contemporary Neo-Nonsense and re-readings of canonical works.
+          </p>
+        </header>
+
+        <article class="card">
+          <div class="card-header">Decade overview</div>
+          <div class="card-body">
+            <p>
+              Decade filters will allow readers to explore, for instance, a “1960s” shelf
+              or a “1990s” shelf of comic novels. For now, the page signals broad clusters:
+            </p>
+            <div class="decade-strip">
+              <a class="decade-chip" href="#dec-1930s-1950s">1930s–1950s</a>
+              <a class="decade-chip" href="#dec-1960s">1960s</a>
+              <a class="decade-chip" href="#dec-1970s">1970s</a>
+              <a class="decade-chip" href="#dec-1980s">1980s</a>
+              <a class="decade-chip" href="#dec-1990s">1990s</a>
+              <a class="decade-chip" href="#dec-2000s">2000s</a>
+              <a class="decade-chip" href="#dec-2010s">2010s</a>
+              <a class="decade-chip" href="#dec-2020s">2020s</a>
+            </div>
+            <p class="card-tagline" style="margin-top:10px;">
+              Later, each chip will open a dedicated shelf of posters for the corresponding decade.
+            </p>
+          </div>
+        </article>
+
+        <!-- Anchors for future decade shelves, avec titres cliquables -->
+        <p class="muted" id="dec-1930s-1950s" style="margin-top:12px;">
+          1930s–1950s · Early modern comedy of manners and campus fiction
+          (for instance <a href="/fr/fiche-roman/the-code-of-the-woosters">The Code of the Woosters</a>,
+          <a href="/fr/fiche-roman/lucky-jim-1954">Lucky Jim</a>).  
+        </p>
+        <p class="muted" id="dec-1960s">
+          1960s · Post-war irony, workplace and bureaucratic satire, first comic vertigo of modern institutions.
+        </p>
+        <p class="muted" id="dec-1970s">
+          1970s · Emergence of Edge tones, darker social comedies and early Neo-Nonsense tendencies.
+        </p>
+        <p class="muted" id="dec-1980s">
+          1980s · Corporate satire, urban excess, crime farce and “big city” laboratories of comedy
+          (for example <a href="/fr/fiche-roman/bonfire-of-the-vanities">Le Bûcher des vanités</a>).
+        </p>
+        <p class="muted" id="dec-1990s">
+          1990s · Globalised irony, post-Cold-War anxiety, hybrid forms between Everyday, Crime and Neo-Nonsense.
+        </p>
+        <p class="muted" id="dec-2000s">
+          2000s · Digital environments, new media and financial logics entering comic structures.
+        </p>
+        <p class="muted" id="dec-2010s">
+          2010s · Intensified focus on identity, bodies, health, and algorithmic environments as comic material.
+        </p>
+        <p class="muted" id="dec-2020s">
+          2020s · Renewed interest in re-centering minor characters, AI-adjacent humour and late-stage Neo-Nonsense.
+        </p>
+      </section>
+
+      <!-- SECTION: INDEX A–Z -->
+      <section class="section" id="index">
+        <header class="section-header">
+          <div class="section-kicker">Index</div>
+          <h2 class="section-title">Novel fiches · A–Z</h2>
+          <p class="section-sub">
+            Alphabetical list of novels already mapped or in preparation.
+            Each title uses its future fiche URL.
+          </p>
+        </header>
+
+        <ul class="index-list">
+          <li><a href="/fr/fiche-roman/the-code-of-the-woosters">The Code of the Woosters (Wodehouse)</a></li>
+          <li><a href="/fr/fiche-roman/lucky-jim-1954">Lucky Jim (Amis)</a></li>
+          <li><a href="/fr/fiche-roman/wilt-1976">Wilt (Sharpe)</a></li>
+          <li><a href="/fr/fiche-roman/small-world">Small World (Lodge)</a></li>
+          <li><a href="/fr/fiche-roman/poor-souls">Poor Souls</a></li>
+          <li><a href="/fr/fiche-roman/franz-et-francois">Franz et François (J. Rouaud)</a></li>
+          <li><a href="/fr/fiche-roman/bonfire-of-the-vanities">Le Bûcher des vanités (Wolfe)</a></li>
+          <li><a href="/fr/fiche-roman/the-sportswriter">The Sportswriter (Ford)</a></li>
+          <li><a href="/fr/fiche-roman/money-amis">Money (Amis)</a></li>
+          <li><a href="/fr/fiche-roman/bright-lights-big-city">Bright Lights, Big City (McInerney)</a></li>
+          <li><a href="/fr/fiche-roman/the-girls-of-slender-means">The Girls of Slender Means</a></li>
+          <li><a href="/fr/fiche-roman/flauberts-parrot">Flaubert’s Parrot (Barnes)</a></li>
+          <li><a href="/fr/fiche-roman/the-old-devils">The Old Devils (Amis père)</a></li>
+          <li><a href="/fr/fiche-roman/slaves-of-new-york">Slaves of New York (Janowitz)</a></li>
+          <li><a href="/fr/fiche-roman/babycakes">Babycakes (Maupin)</a></li>
+          <li><a href="/fr/fiche-roman/london-fields">London Fields (Amis)</a></li>
+          <li><a href="/fr/fiche-roman/the-player">The Player (Tobin)</a></li>
+          <li><a href="/fr/fiche-roman/james-percival-everett">James</a></li>
+          <li><a href="/fr/fiche-roman/the-hotel-new-hampshire">The Hotel New Hampshire</a></li>
+          <li><a href="/fr/fiche-roman/lequipee-malaise">L’équipée malaise</a></li>
+          <li><a href="/fr/fiche-roman/martians-go-home">Martians Go Home</a></li>
+          <li><a href="/fr/fiche-roman/side-effects">Side Effects</a></li>
+          <li><a href="/fr/fiche-roman/double-negative">Double Negative</a></li>
+          <li><a href="/fr/fiche-roman/generation-x">Generation X</a></li>
+          <li><a href="/fr/fiche-roman/white-noise">White Noise</a></li>
+          <li><a href="/fr/fiche-roman/big-trouble">Big Trouble</a></li>
+          <li><a href="/fr/fiche-roman/portnoys-complaint">Portnoy</a></li>
+          <li><a href="/fr/fiche-roman/de-guerre-lasse">De guerre lasse</a></li>
+          <li><a href="/fr/fiche-roman/good-behaviour">Good Behaviour</a></li>
+          <li><a href="/fr/fiche-roman/crepes-suzette">Crêpes Suzette</a></li>
+          <li><a href="/fr/fiche-roman/tourist-season">Tourist Season</a></li>
+          <li><a href="/fr/fiche-roman/the-deep-blue-good-by">The Deep Blue Good-By</a></li>
+          <li><a href="/fr/fiche-roman/the-commitments">The Commitments</a></li>
+          <li><a href="/fr/fiche-roman/florida-roadkill">Florida Roadkill</a></li>
+          <li><a href="/fr/fiche-roman/memoirs-of-a-mangy-lover">Memoirs of a Mangy Lover</a></li>
+          <li><a href="/fr/fiche-roman/breakfast-of-champions">Breakfast of Champions, or Goodbye, Blue Monday</a></li>
+          <li><a href="/fr/fiche-roman/comment-jai-rate-mes-vacances">Comment j’ai râté mes vacances (Geoff)</a></li>
+          <li><a href="/fr/fiche-roman/vous-descendez">Vous descendez? (Nick Hornby)</a></li>
+          <li><a href="/fr/fiche-roman/testament-a-langlaise">Testament à l’anglaise (Coe)</a></li>
+          <li><a href="/fr/fiche-roman/pulp">Pulp (Bukowski)</a></li>
+        </ul>
+
+        <p class="muted" style="margin-top:10px;">
+          New titles will appear here as the atlas expands.
+        </p>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-inner">
+      <div>
+        <strong>The Novel of Comedy (TNoC)</strong> · Atlas and critical compass for modern comic fiction.
+      </div>
+      <div class="footer-links">
+        <a href="/fr/a-propos">About</a>
+        <a href="/fr/a-propos/manifesto">Manifesto</a>
+        <a href="/fr/a-propos/comment-citer-tnoc">How to cite TNoC</a>
+        <a href="/fr/a-propos/donnees-licence">Data &amp; licence</a>
+        <a href="/fr/contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
