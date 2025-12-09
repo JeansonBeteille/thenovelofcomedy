@@ -252,7 +252,7 @@
       opacity:1;
     }
 
-    /* floating rail state */
+    /* état flottant : rail gauche */
     .toc-card.is-floating{
       position:fixed;
       top:16px;
@@ -324,6 +324,42 @@
       color:var(--muted);
       margin-top:4px;
       text-align:left;
+    }
+
+    /* BIO CARD (capsule strates de vie) */
+    .bio-card details{
+      padding:10px 14px 12px;
+    }
+    .bio-card summary{
+      list-style:none;
+      cursor:pointer;
+      font-size:12px;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:var(--muted);
+      display:flex;
+      align-items:center;
+    }
+    .bio-card summary::-webkit-details-marker{
+      display:none;
+    }
+    .bio-caret{
+      display:inline-block;
+      margin-right:8px;
+      transition:transform .2s ease;
+      font-size:10px;
+    }
+    .bio-card details[open] .bio-caret{
+      transform:rotate(90deg);
+    }
+    .bio-body{
+      margin-top:8px;
+      font-size:13px;
+      line-height:1.6;
+      color:var(--graphite);
+    }
+    .bio-body p{
+      margin:0 0 6px;
     }
 
     @media(max-width:900px){
@@ -417,14 +453,57 @@
           </div>
         </div>
 
+        <!-- BIO · STRATES DE VIE (capsule bonus, non listée dans le sommaire) -->
+        <article class="card bio-card" style="margin-top:16px;" id="bio">
+          <details>
+            <summary><span class="bio-caret">▶</span>Bio · Strates de vie</summary>
+            <div class="bio-body">
+              <p class="subheading">Enfance &amp; formation</p>
+              <p>
+                Né à Londres dans une famille de classe moyenne, Sharpe grandit entre un père pasteur anglican
+                aux convictions politiques tranchées et une Angleterre d’avant-guerre qui bascule rapidement
+                dans les bouleversements du XX<sup>e</sup> siècle. Après la scolarité, il passe par les Royal Marines
+                puis étudie l’histoire et l’anthropologie sociale à Cambridge.
+              </p>
+
+              <p class="subheading">Afrique du Sud : satire et rupture</p>
+              <p>
+                Dans les années 1950-1960, il part travailler en Afrique du Sud comme assistant social
+                et employé dans des institutions liées au régime d’apartheid. Il y découvre de l’intérieur
+                la brutalité bureaucratique du système, s’en moque dans des pièces satiriques, est arrêté puis expulsé.
+                Cet épisode devient l’un des grands réservoirs de rage et de matériau pour ses premiers romans.
+              </p>
+
+              <p class="subheading">Retour en Angleterre &amp; métier d’écrivain</p>
+              <p>
+                De retour au Royaume-Uni, il enseigne dans un technical college des Midlands – un étage en dessous
+                de l’université prestigieuse – tout en écrivant. C’est de ce poste un peu marginal que naîtront
+                les premiers livres qui le rendent célèbre, jusqu’au succès de la série <em>Wilt</em> et
+                des satires académiques et policières qui l’installent comme romancier à plein temps.
+              </p>
+
+              <p class="subheading">Exil catalan &amp; dernière période</p>
+              <p>
+                La fin de sa vie se déroule en Catalogne, à Llafranc, dans une semi-retraite active :
+                routine d’écriture, promenades, visites d’amis. Loin de l’Angleterre mais obsédé par elle,
+                il continue d’y situer ses farces institutionnelles. Les problèmes de santé se multiplient,
+                plusieurs projets restent inachevés, mais l’essentiel de l’œuvre est déjà en place.
+              </p>
+
+              <p class="muted">
+                Cette capsule biographique peut être enrichie au fil des recherches : correspondances, témoignages,
+                archives d’édition, entretiens tardifs…
+              </p>
+            </div>
+          </details>
+        </article>
+
         <!-- Sticky / floating TOC -->
         <nav class="card toc-card" aria-label="Sections in this fiche">
           <div class="toc-card-header">In this fiche</div>
           <div class="toc-card-body">
             <ul class="toc-list">
               <li><a href="#author-note">Author’s note</a></li>
-              <li><a href="#bio">Bio · Life strata</a></li>
-              <li><a href="#reading-lens">Reading lens</a></li>
               <li><a href="#currents">Comedy &amp; currents</a></li>
               <li><a href="#style">Style &amp; writing</a></li>
               <li><a href="#life">Life &amp; workshop</a></li>
@@ -432,7 +511,7 @@
               <li><a href="#friendships">Humorous friendships &amp; influences</a></li>
               <li><a href="#works">Selection</a></li>
               <li><a href="#reception">Reception</a></li>
-              <li><a href="#why">Conclusion</a></li>
+              <li><a href="#why">Reading lens · Why in the atlas?</a></li>
               <li><a href="#data">Data stub</a></li>
             </ul>
           </div>
@@ -476,119 +555,6 @@
               they help you see more clearly. Better still, they help you find a way through.
             </p>
             <p class="note-signature">A pity my ophthalmologist doesn’t prescribe that model… — TNoC</p>
-          </div>
-        </article>
-
-        <!-- Bio · Life strata -->
-        <article class="card" style="margin-top:16px;" id="bio">
-          <div class="card-header">
-            <h3>Bio · Life strata</h3>
-          </div>
-          <div class="card-body">
-            <p>
-              Rather than a full biography, this block sketches the main strata of Tom Sharpe’s life –
-              the layers that later feed his comic engines.
-            </p>
-
-            <p class="subheading">1928–1950 · Childhood, family and education</p>
-            <p>
-              Tom Sharpe was born in London in 1928 into a conservative, religious family.
-              His father was an Anglican clergyman with strong far-right sympathies, including open admiration
-              for Hitler before the war. The young Sharpe grew up under this heavy ideological roof,
-              whose moral rigidity and political blindness would later provide him with a reservoir
-              of characters to demolish.
-            </p>
-            <p>
-              After grammar school, he served in the Royal Marines for his national service.
-              He then studied History and Social Anthropology at Cambridge – disciplines that trained his eye
-              for institutions, rituals and group behaviour, all central to his later novels.
-            </p>
-
-            <p class="subheading">1951–1961 · South Africa: apprenticeship and rupture</p>
-            <p>
-              In the early 1950s, Sharpe left for South Africa and worked in several jobs
-              (social worker, photographer, teacher) in a country where apartheid was being systematised.
-              He began writing and staging satirical plays that attacked racism and state brutality.
-            </p>
-            <p>
-              In 1961, one of these plays and his links to anti-apartheid circles led to his arrest,
-              interrogation and expulsion from the country. This biographical rupture is decisive:
-              the South African years give him both political rage and first-hand experience
-              of institutional violence. His first two major novels, <em>Riotous Assembly</em> and
-              <em>Indecent Exposure</em>, are direct transpositions of that material into farce.
-            </p>
-
-            <p class="subheading">1961–1971 · Return to England, teaching and incubation</p>
-            <p>
-              Back in England, Sharpe settled in the Midlands and taught at a technical college.
-              This was not the glamorous, cloistered world of Oxbridge, but a more modest and tense ecosystem:
-              students with little interest in literature, an administration obsessed with forms
-              and performance indicators, teachers who felt stuck in a lower rung of the academic ladder.
-            </p>
-            <p>
-              This decade of teaching provided him with the raw material for <em>Wilt</em>:
-              the frustrations of a lecturer trapped in an institution that does not recognise him,
-              the distance between official rhetoric and lived reality, the petty humiliations of everyday life.
-              At this point, Sharpe still alternated between teaching and writing, slowly discovering
-              that his real “profession” would be to push this world into farce.
-            </p>
-
-            <p class="subheading">1971–1990 · Breakthrough, cycles and public image</p>
-            <p>
-              The publication of <em>Riotous Assembly</em> (1971) and <em>Indecent Exposure</em> (1973)
-              introduced him as a violent new satirical voice. <em>Porterhouse Blue</em> (1974),
-              <em>Blott on the Landscape</em> (1975) and especially <em>Wilt</em> (1976) installed him
-              in a recognisable niche: farces about institutions (police, university, local politics)
-              pushed to the edge of explosion.
-            </p>
-            <p>
-              Television adaptations, notably of <em>Porterhouse Blue</em>, made him more widely known.
-              His media persona was that of the gruff humourist, always ready with a brutal joke about authority.
-              Behind this image, however, was a meticulous craftsman who spent years tuning his plots.
-            </p>
-
-            <p class="subheading">1990–2013 · Catalan retreat and last years</p>
-            <p>
-              From the late 1980s onwards, Sharpe settled in Llafranc, on the Costa Brava in Catalonia.
-              Spain became both refuge and observatory: far from England, he continued to dissect British society
-              from a distance, in a house that functioned as both home and writing workshop.
-              Friends and students describe a routine made of writing, walks and conversations,
-              often punctuated by loud bursts of laughter at ideas that might or might not make it into the books.
-            </p>
-            <p>
-              Health problems (diabetes, mobility issues) gradually limited his energy and slowed his output.
-              Some planned books never saw the light of day, or survived only in abandoned drafts.
-              Until his death in 2013, however, he maintained the same demand:
-              either the comic mechanism works, or the pages go to the fire.
-            </p>
-          </div>
-        </article>
-
-        <!-- Reading lens -->
-        <article class="card" style="margin-top:16px;" id="reading-lens">
-          <div class="card-header">
-            <h3>Reading lens</h3>
-          </div>
-          <div class="card-body">
-            <p>
-              Tom Sharpe’s novels are made of antagonisms. Comedy is the central engine, the one that reveals
-              and flushes things out. His universe is populated by brilliant losers and self-satisfied idiots,
-              all passed through the scanner of systems that are already falling apart. Indecent rules and
-              nauseating ambitions collide head-on.
-            </p>
-            <p>
-              His characters try to “fix things” and only ever make them worse. This is the core of
-              Tom Sharpe’s humour.
-            </p>
-            <p>
-              He stands at the crossroads of social comedy and comic noir, where catastrophe is not an accident
-              but the normal operating mode of society.
-            </p>
-            <p>
-              Within the atlas, he becomes a textbook case:
-              a writer who shows how to turn frustration, individual or collective, not into a vague mood
-              but into a true comic engine, calibrated to the millimetre.
-            </p>
           </div>
         </article>
 
@@ -702,7 +668,7 @@
         <!-- Life & writing workshop -->
         <article class="card" style="margin-top:16px;" id="life">
           <div class="card-header">
-            <h3>Life &amp; writing workshop</h3>
+            <h3>Life &amp; workshop</h3>
           </div>
           <div class="card-body">
             <p>
@@ -967,12 +933,34 @@
           </div>
         </article>
 
-        <!-- Conclusion / Why on TNoC -->
+        <!-- Reading lens + Conclusion / Why on TNoC -->
         <article class="card" style="margin-top:16px;" id="why">
           <div class="card-header">
-            <h3>Conclusion · Why in the atlas?</h3>
+            <h3>Reading lens · Why in the atlas?</h3>
           </div>
           <div class="card-body">
+            <p class="subheading">Reading lens</p>
+            <p>
+              Tom Sharpe’s novels are made of antagonisms. Comedy is the central engine, the one that reveals
+              and flushes things out. His universe is populated by brilliant losers and self-satisfied idiots,
+              all passed through the scanner of systems that are already falling apart. Indecent rules and
+              nauseating ambitions collide head-on.
+            </p>
+            <p>
+              His characters try to “fix things” and only ever make them worse. This is the core of
+              Tom Sharpe’s humour.
+            </p>
+            <p>
+              He stands at the crossroads of social comedy and comic noir, where catastrophe is not an accident
+              but the normal operating mode of society.
+            </p>
+            <p>
+              Within the atlas, he becomes a textbook case:
+              a writer who shows how to turn frustration, individual or collective, not into a vague mood
+              but into a true comic engine, calibrated to the millimetre.
+            </p>
+
+            <p class="subheading">Why a full author fiche here?</p>
             <p>
               Why does Tom Sharpe have a full author fiche here, and not just a few scattered mentions?
             </p>
@@ -1053,13 +1041,13 @@
 </main>
 
 <script>
-  // Scrollspy + floating rail for the TOC
+  // Scrollspy + rail flottant pour le sommaire
   (function(){
     const toc = document.querySelector('.toc-card');
     const tocLinks = toc ? Array.from(toc.querySelectorAll('.toc-list a')) : [];
     if (!toc || !tocLinks.length) return;
 
-    // Sections for scrollspy
+    // Sections pour le scrollspy
     const sections = tocLinks
       .map(link => {
         const id = link.getAttribute('href').slice(1);
@@ -1089,7 +1077,7 @@
 
     sections.forEach(s => observer.observe(s.el));
 
-    // Floating rail behaviour
+    // Gestion du "rail" : le sommaire se détache et reste sur la gauche
     let tocTop = toc.getBoundingClientRect().top + window.pageYOffset;
     let tocLeft = toc.getBoundingClientRect().left;
 
@@ -1100,6 +1088,7 @@
         return;
       }
 
+      // recalculer la position horizontale à chaque resize
       const rect = toc.getBoundingClientRect();
       if (!toc.classList.contains('is-floating')){
         tocLeft = rect.left;
@@ -1117,6 +1106,7 @@
 
     window.addEventListener('scroll', updateTocPosition);
     window.addEventListener('resize', () => {
+      // remettre les mesures de base si on revient en haut
       if (!toc.classList.contains('is-floating')){
         tocTop = toc.getBoundingClientRect().top + window.pageYOffset;
         tocLeft = toc.getBoundingClientRect().left;
