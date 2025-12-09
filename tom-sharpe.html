@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -223,6 +223,25 @@
       letter-spacing:.16em;
       text-transform:uppercase;
       color:var(--muted);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:6px;
+    }
+    .toc-title{
+      white-space:nowrap;
+    }
+    .toc-current{
+      font-size:11px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:var(--graphite);
+      opacity:.85;
+      max-width:60%;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      white-space:nowrap;
+      text-align:right;
     }
     .toc-card-body{
       padding:10px 14px 12px;
@@ -252,7 +271,7 @@
       opacity:1;
     }
 
-    /* état flottant : rail gauche */
+    /* état flottant : rail gauche (desktop) */
     .toc-card.is-floating{
       position:fixed;
       top:16px;
@@ -362,11 +381,47 @@
       margin:0 0 6px;
     }
 
+    /* MOBILE ADAPTATIONS */
     @media(max-width:900px){
+      /* TOC = accordéon sticky en haut, plus de rail flottant */
+      .toc-card{
+        position:sticky;
+        top:0;
+        z-index:15;
+        margin-top:12px;
+      }
       .toc-card.is-floating{
         position:static;
         width:auto;
         box-shadow:var(--shadow);
+      }
+      .toc-card-header{
+        cursor:pointer;
+      }
+      .toc-card-header::after{
+        content:'▾';
+        font-size:11px;
+        color:var(--muted);
+      }
+      .toc-card.collapsed .toc-card-body{
+        display:none;
+      }
+      .toc-card.collapsed .toc-card-header::after{
+        content:'▸';
+      }
+
+      /* portrait réduit et centré */
+      .portrait{
+        max-width:240px;
+        margin:0 auto 8px;
+      }
+      .caption{
+        text-align:center;
+      }
+
+      /* la mention de section en cours peut prendre toute la largeur */
+      .toc-current{
+        max-width:100%;
       }
     }
 
@@ -413,7 +468,7 @@
         <div class="portrait">
           <img src="tomsh.jpg" alt="Portrait of Tom Sharpe">
         </div>
-        <div class="caption">Tom Sharpe · photograph, later years</div>
+        <div class="caption">Tom Sharpe · pencil drawing by B. Jeanson-Beteille</div>
 
         <!-- Identity & coordinates -->
         <div class="card" style="margin-top:16px;" id="identity">
@@ -500,10 +555,14 @@
 
         <!-- Sticky / floating TOC -->
         <nav class="card toc-card" aria-label="Sections in this fiche">
-          <div class="toc-card-header">In this fiche</div>
+          <div class="toc-card-header">
+            <span class="toc-title">In this fiche</span>
+            <span class="toc-current" aria-live="polite"></span>
+          </div>
           <div class="toc-card-body">
             <ul class="toc-list">
               <li><a href="#author-note">Author’s note</a></li>
+              <li><a href="#reading-lens">Reading lens</a></li>
               <li><a href="#currents">Comedy &amp; currents</a></li>
               <li><a href="#style">Style &amp; writing</a></li>
               <li><a href="#life">Life &amp; workshop</a></li>
@@ -511,7 +570,7 @@
               <li><a href="#friendships">Humorous friendships &amp; influences</a></li>
               <li><a href="#works">Selection</a></li>
               <li><a href="#reception">Reception</a></li>
-              <li><a href="#why">Reading lens · Why in the atlas?</a></li>
+              <li><a href="#why">Conclusion</a></li>
               <li><a href="#data">Data stub</a></li>
             </ul>
           </div>
@@ -555,6 +614,34 @@
               they help you see more clearly. Better still, they help you find a way through.
             </p>
             <p class="note-signature">A pity my ophthalmologist doesn’t prescribe that model… — TNoC</p>
+          </div>
+        </article>
+
+        <!-- Reading lens -->
+        <article class="card" style="margin-top:16px;" id="reading-lens">
+          <div class="card-header">
+            <h3>Reading lens</h3>
+          </div>
+          <div class="card-body">
+            <p>
+              Tom Sharpe’s novels are made of antagonisms. Comedy is the central engine, the one that reveals
+              and flushes things out. His universe is populated by brilliant losers and self-satisfied idiots,
+              all passed through the scanner of systems that are already falling apart. Indecent rules and
+              nauseating ambitions collide head-on.
+            </p>
+            <p>
+              His characters try to “fix things” and only ever make them worse. This is the core of
+              Tom Sharpe’s humour.
+            </p>
+            <p>
+              He stands at the crossroads of social comedy and comic noir, where catastrophe is not an accident
+              but the normal operating mode of society.
+            </p>
+            <p>
+              Within the atlas, he becomes a textbook case:
+              a writer who shows how to turn frustration, individual or collective, not into a vague mood
+              but into a true comic engine, calibrated to the millimetre.
+            </p>
           </div>
         </article>
 
@@ -933,34 +1020,12 @@
           </div>
         </article>
 
-        <!-- Reading lens + Conclusion / Why on TNoC -->
+        <!-- Conclusion / Why on TNoC -->
         <article class="card" style="margin-top:16px;" id="why">
           <div class="card-header">
-            <h3>Reading lens · Why in the atlas?</h3>
+            <h3>Conclusion · Why in the atlas?</h3>
           </div>
           <div class="card-body">
-            <p class="subheading">Reading lens</p>
-            <p>
-              Tom Sharpe’s novels are made of antagonisms. Comedy is the central engine, the one that reveals
-              and flushes things out. His universe is populated by brilliant losers and self-satisfied idiots,
-              all passed through the scanner of systems that are already falling apart. Indecent rules and
-              nauseating ambitions collide head-on.
-            </p>
-            <p>
-              His characters try to “fix things” and only ever make them worse. This is the core of
-              Tom Sharpe’s humour.
-            </p>
-            <p>
-              He stands at the crossroads of social comedy and comic noir, where catastrophe is not an accident
-              but the normal operating mode of society.
-            </p>
-            <p>
-              Within the atlas, he becomes a textbook case:
-              a writer who shows how to turn frustration, individual or collective, not into a vague mood
-              but into a true comic engine, calibrated to the millimetre.
-            </p>
-
-            <p class="subheading">Why a full author fiche here?</p>
             <p>
               Why does Tom Sharpe have a full author fiche here, and not just a few scattered mentions?
             </p>
@@ -1041,11 +1106,15 @@
 </main>
 
 <script>
-  // Scrollspy + rail flottant pour le sommaire
+  // Scrollspy + rail flottant + accordéon mobile
   (function(){
     const toc = document.querySelector('.toc-card');
-    const tocLinks = toc ? Array.from(toc.querySelectorAll('.toc-list a')) : [];
-    if (!toc || !tocLinks.length) return;
+    if (!toc) return;
+
+    const tocLinks = Array.from(toc.querySelectorAll('.toc-list a'));
+    if (!tocLinks.length) return;
+
+    const tocCurrent = toc.querySelector('.toc-current');
 
     // Sections pour le scrollspy
     const sections = tocLinks
@@ -1060,6 +1129,12 @@
       tocLinks.forEach(l => l.classList.remove('active'));
     }
 
+    function setCurrentFromLink(link){
+      if (!tocCurrent || !link) return;
+      const label = (link.textContent || '').trim();
+      tocCurrent.textContent = label ? '· ' + label : '';
+    }
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting){
@@ -1067,6 +1142,7 @@
           if (!match) return;
           clearActive();
           match.link.classList.add('active');
+          setCurrentFromLink(match.link);
         }
       });
     }, {
@@ -1077,7 +1153,7 @@
 
     sections.forEach(s => observer.observe(s.el));
 
-    // Gestion du "rail" : le sommaire se détache et reste sur la gauche
+    // Rail flottant (desktop seulement)
     let tocTop = toc.getBoundingClientRect().top + window.pageYOffset;
     let tocLeft = toc.getBoundingClientRect().left;
 
@@ -1088,7 +1164,6 @@
         return;
       }
 
-      // recalculer la position horizontale à chaque resize
       const rect = toc.getBoundingClientRect();
       if (!toc.classList.contains('is-floating')){
         tocLeft = rect.left;
@@ -1104,18 +1179,55 @@
       }
     }
 
+    // Accordéon mobile
+    const tocHeader = toc.querySelector('.toc-card-header');
+
+    function syncAccordionState(){
+      const isNarrow = window.matchMedia('(max-width: 900px)').matches;
+      if (isNarrow){
+        toc.classList.add('collapsed');
+      } else {
+        toc.classList.remove('collapsed');
+      }
+    }
+
+    if (tocHeader){
+      tocHeader.addEventListener('click', () => {
+        const isNarrow = window.matchMedia('(max-width: 900px)').matches;
+        if (isNarrow){
+          toc.classList.toggle('collapsed');
+        }
+      });
+    }
+
+    // Quand on clique sur un lien du sommaire en mobile, on replie l'accordéon
+    tocLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        const isNarrow = window.matchMedia('(max-width: 900px)').matches;
+        if (isNarrow){
+          toc.classList.add('collapsed');
+        }
+      });
+    });
+
     window.addEventListener('scroll', updateTocPosition);
     window.addEventListener('resize', () => {
-      // remettre les mesures de base si on revient en haut
       if (!toc.classList.contains('is-floating')){
         tocTop = toc.getBoundingClientRect().top + window.pageYOffset;
         tocLeft = toc.getBoundingClientRect().left;
       }
       updateTocPosition();
+      syncAccordionState();
     });
 
-    // init
+    // Init
     updateTocPosition();
+    syncAccordionState();
+
+    // Label initial si rien n'est encore intersecté
+    if (sections.length){
+      setCurrentFromLink(sections[0].link);
+    }
   })();
 </script>
 
