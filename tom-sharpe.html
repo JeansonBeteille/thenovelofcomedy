@@ -29,6 +29,10 @@
       color:var(--ink);
     }
 
+    html{
+      scroll-behavior:smooth;
+    }
+
     a{color:inherit;text-decoration:none}
     a:hover{text-decoration:underline}
 
@@ -210,7 +214,7 @@
       font-size:12px;
     }
 
-    /* TOC CARD (sommaire) */
+    /* TOC CARD (sommaire) — DESKTOP ONLY */
     .toc-card{
       margin-top:16px;
       font-size:13px;
@@ -271,7 +275,6 @@
       opacity:1;
     }
 
-    /* état flottant : rail gauche (desktop) */
     .toc-card.is-floating{
       position:fixed;
       top:16px;
@@ -381,33 +384,52 @@
       margin:0 0 6px;
     }
 
+    /* FICHE SECTIONS (chapitres) = DETAILS */
+    details.fiche-section{
+      margin-top:16px;
+      border-radius:16px;
+      border:1px solid var(--border);
+      background:var(--card);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    details.fiche-section:first-of-type{
+      margin-top:0;
+    }
+    .section-summary{
+      list-style:none;
+      cursor:pointer;
+      padding:12px 16px 8px;
+      font-size:15px;
+      font-weight:600;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+      border-bottom:1px solid var(--border);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:8px;
+    }
+    .section-summary::-webkit-details-marker{
+      display:none;
+    }
+    .section-summary-label{
+      flex:1;
+    }
+    .section-summary-icon{
+      font-size:11px;
+      color:var(--muted);
+      transition:transform .2s ease;
+    }
+    details.fiche-section[open] .section-summary-icon{
+      transform:rotate(90deg);
+    }
+
     /* MOBILE ADAPTATIONS */
     @media(max-width:900px){
-      /* TOC = accordéon sticky en haut, plus de rail flottant */
+      /* TOC: totalement caché sur mobile */
       .toc-card{
-        position:sticky;
-        top:0;
-        z-index:15;
-        margin-top:12px;
-      }
-      .toc-card.is-floating{
-        position:static;
-        width:auto;
-        box-shadow:var(--shadow);
-      }
-      .toc-card-header{
-        cursor:pointer;
-      }
-      .toc-card-header::after{
-        content:'▾';
-        font-size:11px;
-        color:var(--muted);
-      }
-      .toc-card.collapsed .toc-card-body{
         display:none;
-      }
-      .toc-card.collapsed .toc-card-header::after{
-        content:'▸';
       }
 
       /* portrait réduit et centré */
@@ -419,9 +441,13 @@
         text-align:center;
       }
 
-      /* la mention de section en cours peut prendre toute la largeur */
-      .toc-current{
-        max-width:100%;
+      /* sections = gros accordéon lisible */
+      details.fiche-section{
+        margin-top:12px;
+      }
+      .section-summary{
+        padding:14px 14px 10px;
+        font-size:15px;
       }
     }
 
@@ -508,7 +534,7 @@
           </div>
         </div>
 
-        <!-- BIO · STRATES DE VIE (capsule bonus, non listée dans le sommaire) -->
+        <!-- BIO · STRATES DE VIE -->
         <article class="card bio-card" style="margin-top:16px;" id="bio">
           <details>
             <summary><span class="bio-caret">▶</span>Bio · Strates de vie</summary>
@@ -553,7 +579,7 @@
           </details>
         </article>
 
-        <!-- Sticky / floating TOC -->
+        <!-- Sticky / floating TOC (desktop only) -->
         <nav class="card toc-card" aria-label="Sections in this fiche">
           <div class="toc-card-header">
             <span class="toc-title">In this fiche</span>
@@ -579,11 +605,13 @@
 
       <!-- MAIN COLUMN -->
       <section class="main" aria-label="Author fiche main content">
+
         <!-- Author note -->
-        <article class="card card-note" id="author-note">
-          <div class="card-header">
-            <h2>Author’s note</h2>
-          </div>
+        <details class="card card-note fiche-section" id="author-note" data-title="Author’s note" open>
+          <summary class="section-summary">
+            <span class="section-summary-label">Author’s note</span>
+            <span class="section-summary-icon">▸</span>
+          </summary>
           <div class="card-body">
             <p>
               A life’s worth of decades on Earth, or simply the time of disillusionment?
@@ -615,13 +643,14 @@
             </p>
             <p class="note-signature">A pity my ophthalmologist doesn’t prescribe that model… — TNoC</p>
           </div>
-        </article>
+        </details>
 
         <!-- Reading lens -->
-        <article class="card" style="margin-top:16px;" id="reading-lens">
-          <div class="card-header">
-            <h3>Reading lens</h3>
-          </div>
+        <details class="card fiche-section" id="reading-lens" data-title="Reading lens" open>
+          <summary class="section-summary">
+            <span class="section-summary-label">Reading lens</span>
+            <span class="section-summary-icon">▸</span>
+          </summary>
           <div class="card-body">
             <p>
               Tom Sharpe’s novels are made of antagonisms. Comedy is the central engine, the one that reveals
@@ -643,13 +672,14 @@
               but into a true comic engine, calibrated to the millimetre.
             </p>
           </div>
-        </article>
+        </details>
 
         <!-- Comedy & currents -->
-        <article class="card" style="margin-top:16px;" id="currents">
-          <div class="card-header">
-            <h3>Comedy &amp; currents</h3>
-          </div>
+        <details class="card fiche-section" id="currents" data-title="Comedy & currents" open>
+          <summary class="section-summary">
+            <span class="section-summary-label">Comedy &amp; currents</span>
+            <span class="section-summary-icon">▸</span>
+          </summary>
           <div class="card-body">
             <p>
               In this mapping, Sharpe is first and foremost a <strong>Comedy of Everyday</strong> writer:
@@ -696,13 +726,14 @@
               Comedy of Crime takes over: racist law and the police form the very heart of the society’s absurdity.
             </p>
           </div>
-        </article>
+        </details>
 
         <!-- Style & writing -->
-        <article class="card" style="margin-top:16px;" id="style">
-          <div class="card-header">
-            <h3>Style &amp; writing</h3>
-          </div>
+        <details class="card fiche-section" id="style" data-title="Style & writing" open>
+          <summary class="section-summary">
+            <span class="section-summary-label">Style &amp; writing</span>
+            <span class="section-summary-icon">▸</span>
+          </summary>
           <div class="card-body">
             <p>
               Sharpe’s prose reads like a near “anti-manual” of English humour. His sentences are dry,
@@ -750,13 +781,14 @@
               can be integrated into the novel without turning the text into a simple screenplay.
             </p>
           </div>
-        </article>
+        </details>
 
         <!-- Life & writing workshop -->
-        <article class="card" style="margin-top:16px;" id="life">
-          <div class="card-header">
-            <h3>Life &amp; workshop</h3>
-          </div>
+        <details class="card fiche-section" id="life" data-title="Life & workshop" open>
+          <summary class="section-summary">
+            <span class="section-summary-label">Life &amp; workshop</span>
+            <span class="section-summary-icon">▸</span>
+          </summary>
           <div class="card-body">
             <p>
               Before becoming a novelist, Sharpe worked in places where power and humiliation
@@ -792,15 +824,15 @@
               of acid satire.
             </p>
           </div>
-        </article>
+        </details>
 
         <!-- How he wrote -->
-        <article class="card" style="margin-top:16px;" id="workshop">
-          <div class="card-header">
-            <h3>How he wrote · Habits &amp; rituals</h3>
-          </div>
+        <details class="card fiche-section" id="workshop" data-title="How he wrote" open>
+          <summary class="section-summary">
+            <span class="section-summary-label">How he wrote · Habits &amp; rituals</span>
+            <span class="section-summary-icon">▸</span>
+          </summary>
           <div class="card-body">
-            <!-- Placeholder for your drawing -->
             <div class="workshop-visual">
               <div class="workshop-placeholder" aria-hidden="true"></div>
               <div class="workshop-caption">
@@ -855,13 +887,14 @@
               increasingly costly to maintain the same intensity. Each new book felt like a battle against wear.
             </p>
           </div>
-        </article>
+        </details>
 
         <!-- Humorous friendships & influences -->
-        <article class="card" style="margin-top:16px;" id="friendships">
-          <div class="card-header">
-            <h3>Humorous friendships &amp; influences</h3>
-          </div>
+        <details class="card fiche-section" id="friendships" data-title="Humorous friendships & influences" open>
+          <summary class="section-summary">
+            <span class="section-summary-label">Humorous friendships &amp; influences</span>
+            <span class="section-summary-icon">▸</span>
+          </summary>
           <div class="card-body">
             <p>
               Sharpe openly places himself in a British satirical tradition, while insisting on the difference
@@ -947,20 +980,20 @@
               <li><strong>Political experience</strong> – apartheid South Africa: feeds the rage and charge behind early books.</li>
             </ul>
           </div>
-        </article>
+        </details>
 
         <!-- Selection of works -->
-        <article class="card" style="margin-top:16px;" id="works">
-          <div class="card-header">
-            <h3>Selection · works in the atlas</h3>
-          </div>
+        <details class="card fiche-section" id="works" data-title="Selection" open>
+          <summary class="section-summary">
+            <span class="section-summary-label">Selection · works in the atlas</span>
+            <span class="section-summary-icon">▸</span>
+          </summary>
           <div class="card-body">
             <p class="muted">
               Not a full bibliography, but the core novels followed in the atlas, where comedy functions
               as a clear, mappable engine.
             </p>
             <ul>
-              <!-- TODO: update href values to actual novel fiche URLs -->
               <li><a href="#" title="Go to the fiche for Riotous Assembly"><em>Riotous Assembly</em> (1971)</a> – Crime current plus Everyday; satire of racist law as comic engine.</li>
               <li><a href="#" title="Go to the fiche for Indecent Exposure"><em>Indecent Exposure</em> (1973)</a> – direct sequel, institutional panic pushed further.</li>
               <li><a href="#" title="Go to the fiche for Porterhouse Blue"><em>Porterhouse Blue</em> (1974)</a> – Everyday; academic satire in an old Cambridge college.</li>
@@ -969,7 +1002,6 @@
               <li><a href="#" title="Go to the fiche for The Great Pursuit"><em>The Great Pursuit</em> (1977)</a> – relentless satire of the publishing world and of how “literary value” can be manufactured almost on demand.</li>
             </ul>
 
-            <!-- Optional covers grid: placeholders for now -->
             <div class="covers-grid" aria-label="Cover placeholders">
               <div>
                 <div class="cover-placeholder"></div>
@@ -985,13 +1017,14 @@
               </div>
             </div>
           </div>
-        </article>
+        </details>
 
         <!-- Reception & reputation -->
-        <article class="card" style="margin-top:16px;" id="reception">
-          <div class="card-header">
-            <h3>Reception &amp; reputation</h3>
-          </div>
+        <details class="card fiche-section" id="reception" data-title="Reception" open>
+          <summary class="section-summary">
+            <span class="section-summary-label">Reception &amp; reputation</span>
+            <span class="section-summary-icon">▸</span>
+          </summary>
           <div class="card-body">
             <p>
               Sharpe quickly found a wide readership in the UK and abroad. Middle-class frustration,
@@ -1018,13 +1051,14 @@
               have not disappeared.
             </p>
           </div>
-        </article>
+        </details>
 
         <!-- Conclusion / Why on TNoC -->
-        <article class="card" style="margin-top:16px;" id="why">
-          <div class="card-header">
-            <h3>Conclusion · Why in the atlas?</h3>
-          </div>
+        <details class="card fiche-section" id="why" data-title="Conclusion" open>
+          <summary class="section-summary">
+            <span class="section-summary-label">Conclusion · Why in the atlas?</span>
+            <span class="section-summary-icon">▸</span>
+          </summary>
           <div class="card-body">
             <p>
               Why does Tom Sharpe have a full author fiche here, and not just a few scattered mentions?
@@ -1079,13 +1113,14 @@
               we check whether and how it resonates with the “Sharpe line”.
             </p>
           </div>
-        </article>
+        </details>
 
         <!-- Data block -->
-        <article class="card" style="margin-top:16px;" id="data">
-          <div class="card-header">
-            <h3>Data · atlas stub</h3>
-          </div>
+        <details class="card fiche-section" id="data" data-title="Data stub" open>
+          <summary class="section-summary">
+            <span class="section-summary-label">Data · atlas stub</span>
+            <span class="section-summary-icon">▸</span>
+          </summary>
           <div class="card-body">
             <code class="mono">
 {"@type":"Person",
@@ -1099,42 +1134,36 @@
  "labs":"midlands"}
             </code>
           </div>
-        </article>
+        </details>
+
       </section>
     </div>
   </div>
 </main>
 
 <script>
-  // Scrollspy + rail flottant + accordéon mobile
-  (function(){
-    const toc = document.querySelector('.toc-card');
-    if (!toc) return;
+(function(){
+  const toc = document.querySelector('.toc-card');
+  const tocLinks = toc ? Array.from(toc.querySelectorAll('.toc-list a')) : [];
+  const tocCurrent = toc ? toc.querySelector('.toc-current') : null;
 
-    const tocLinks = Array.from(toc.querySelectorAll('.toc-list a'));
-    if (!tocLinks.length) return;
+  function clearActive(){
+    tocLinks.forEach(l => l.classList.remove('active'));
+  }
 
-    const tocCurrent = toc.querySelector('.toc-current');
+  function setCurrentFromLink(link){
+    if (!tocCurrent || !link) return;
+    const label = (link.textContent || '').trim();
+    tocCurrent.textContent = label ? '· ' + label : '';
+  }
 
-    // Sections pour le scrollspy
-    const sections = tocLinks
-      .map(link => {
-        const id = link.getAttribute('href').slice(1);
-        const el = document.getElementById(id);
-        return el ? { id, el, link } : null;
-      })
-      .filter(Boolean);
+  const sections = tocLinks.map(link => {
+    const id = link.getAttribute('href').slice(1);
+    const el = document.getElementById(id);
+    return el ? { id, el, link } : null;
+  }).filter(Boolean);
 
-    function clearActive(){
-      tocLinks.forEach(l => l.classList.remove('active'));
-    }
-
-    function setCurrentFromLink(link){
-      if (!tocCurrent || !link) return;
-      const label = (link.textContent || '').trim();
-      tocCurrent.textContent = label ? '· ' + label : '';
-    }
-
+  if (sections.length && toc){
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting){
@@ -1152,8 +1181,10 @@
     });
 
     sections.forEach(s => observer.observe(s.el));
+  }
 
-    // Rail flottant (desktop seulement)
+  // Floating rail (desktop)
+  if (toc){
     let tocTop = toc.getBoundingClientRect().top + window.pageYOffset;
     let tocLeft = toc.getBoundingClientRect().left;
 
@@ -1163,14 +1194,11 @@
         toc.classList.remove('is-floating');
         return;
       }
-
       const rect = toc.getBoundingClientRect();
       if (!toc.classList.contains('is-floating')){
         tocLeft = rect.left;
       }
-
       const scrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
-
       if (scrollY > tocTop - 16){
         toc.style.setProperty('--toc-left', tocLeft + 'px');
         toc.classList.add('is-floating');
@@ -1179,56 +1207,46 @@
       }
     }
 
-    // Accordéon mobile
-    const tocHeader = toc.querySelector('.toc-card-header');
-
-    function syncAccordionState(){
-      const isNarrow = window.matchMedia('(max-width: 900px)').matches;
-      if (isNarrow){
-        toc.classList.add('collapsed');
-      } else {
-        toc.classList.remove('collapsed');
-      }
-    }
-
-    if (tocHeader){
-      tocHeader.addEventListener('click', () => {
-        const isNarrow = window.matchMedia('(max-width: 900px)').matches;
-        if (isNarrow){
-          toc.classList.toggle('collapsed');
-        }
-      });
-    }
-
-    // Quand on clique sur un lien du sommaire en mobile, on replie l'accordéon
-    tocLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        const isNarrow = window.matchMedia('(max-width: 900px)').matches;
-        if (isNarrow){
-          toc.classList.add('collapsed');
-        }
-      });
-    });
-
     window.addEventListener('scroll', updateTocPosition);
     window.addEventListener('resize', () => {
-      if (!toc.classList.contains('is-floating')){
-        tocTop = toc.getBoundingClientRect().top + window.pageYOffset;
-        tocLeft = toc.getBoundingClientRect().left;
-      }
+      const rect = toc.getBoundingClientRect();
+      tocTop = rect.top + window.pageYOffset;
+      tocLeft = rect.left;
       updateTocPosition();
-      syncAccordionState();
     });
 
-    // Init
     updateTocPosition();
-    syncAccordionState();
 
-    // Label initial si rien n'est encore intersecté
     if (sections.length){
       setCurrentFromLink(sections[0].link);
     }
-  })();
+  }
+
+  // Mobile accordion behaviour for fiche sections
+  const ficheSections = Array.from(document.querySelectorAll('details.fiche-section'));
+  const mq = window.matchMedia('(max-width: 900px)');
+
+  function setAccordionMode(){
+    if (!ficheSections.length) return;
+    if (mq.matches){
+      ficheSections.forEach((d, idx) => d.open = (idx === 0));
+    } else {
+      ficheSections.forEach(d => d.open = true);
+    }
+  }
+
+  ficheSections.forEach(d => {
+    d.addEventListener('toggle', () => {
+      if (!mq.matches || !d.open) return;
+      ficheSections.forEach(other => {
+        if (other !== d) other.open = false;
+      });
+    });
+  });
+
+  mq.addEventListener('change', setAccordionMode);
+  setAccordionMode();
+})();
 </script>
 
 </body>
