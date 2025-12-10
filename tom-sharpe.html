@@ -88,7 +88,6 @@
       border-color:rgba(255,255,255,.22);
       color:#fff;
     }
-
     .hero-context{
       margin:14px 0 0;
       font-size:13px;
@@ -150,7 +149,6 @@
     .card-body p{
       margin:0 0 8px;
     }
-
     .card-note{
       background:#fffdf5;
       border-color:rgba(0,0,0,.18);
@@ -167,7 +165,7 @@
       text-align:right;
     }
 
-    /* LEFT COLUMN: portrait, identity, TOC */
+    /* LEFT COLUMN */
     .portrait{
       border-radius:12px;
       overflow:hidden;
@@ -204,13 +202,11 @@
       color:var(--muted);
       margin-bottom:2px;
     }
-
     .muted{
       color:var(--muted);
       font-size:12px;
     }
 
-    /* MINI CARTOUCHES Coordinates / Bio-strata */
     .mini-cards{
       display:flex;
       flex-wrap:wrap;
@@ -237,7 +233,7 @@
       color:var(--graphite);
     }
 
-    /* TOC CARD (sommaire) */
+    /* TOC */
     .toc-card{
       margin-top:16px;
       font-size:13px;
@@ -297,8 +293,6 @@
       color:var(--evergreen);
       opacity:1;
     }
-
-    /* état flottant : rail gauche (desktop) */
     .toc-card.is-floating{
       position:fixed;
       top:16px;
@@ -308,7 +302,7 @@
       box-shadow:0 4px 16px rgba(0,0,0,.12);
     }
 
-    /* SUBSECTIONS */
+    /* SUB ELEMENTS */
     .subheading{
       font-weight:600;
       font-size:14px;
@@ -320,7 +314,6 @@
     }
     li{margin:2px 0 4px;}
 
-    /* MONO BLOCK */
     .mono{
       font-family:ui-monospace,Menlo,Consolas,monospace;
       font-size:12px;
@@ -333,7 +326,6 @@
       white-space:pre;
     }
 
-    /* COVERS GRID (placeholders) */
     .covers-grid{
       display:grid;
       grid-template-columns:repeat(auto-fill,minmax(80px,1fr));
@@ -354,7 +346,6 @@
       text-align:center;
     }
 
-    /* Workshop drawing placeholder */
     .workshop-visual{
       margin-bottom:12px;
     }
@@ -372,7 +363,6 @@
       text-align:left;
     }
 
-    /* BIO CARD (capsule strates de vie) */
     .bio-card details{
       padding:10px 14px 12px;
     }
@@ -386,9 +376,7 @@
       display:flex;
       align-items:center;
     }
-    .bio-card summary::-webkit-details-marker{
-      display:none;
-    }
+    .bio-card summary::-webkit-details-marker{display:none;}
     .bio-caret{
       display:inline-block;
       margin-right:8px;
@@ -404,11 +392,8 @@
       line-height:1.6;
       color:var(--graphite);
     }
-    .bio-body p{
-      margin:0 0 6px;
-    }
+    .bio-body p{margin:0 0 6px;}
 
-    /* Reading lens chip in conclusion */
     .reading-chip{
       border-radius:12px;
       border:1px solid var(--border);
@@ -428,9 +413,7 @@
       color:var(--graphite);
     }
 
-    /* MOBILE ADAPTATIONS */
     @media(max-width:900px){
-      /* TOC = accordéon sticky en haut, plus de rail flottant */
       .toc-card{
         position:sticky;
         top:0;
@@ -456,20 +439,12 @@
       .toc-card.collapsed .toc-card-header::after{
         content:'▸';
       }
-
-      /* portrait réduit et centré */
       .portrait{
         max-width:240px;
         margin:0 auto 8px;
       }
-      .caption{
-        text-align:center;
-      }
-
-      /* la mention de section en cours peut prendre toute la largeur */
-      .toc-current{
-        max-width:100%;
-      }
+      .caption{text-align:center;}
+      .toc-current{max-width:100%;}
     }
 
     @media(max-width:600px){
@@ -511,13 +486,11 @@
     <div class="grid">
       <!-- LEFT COLUMN -->
       <aside class="left" aria-label="Identity and navigation">
-        <!-- Portrait -->
         <div class="portrait">
           <img src="tomsh.jpg" alt="Portrait of Tom Sharpe">
         </div>
         <div class="caption">Tom Sharpe · pencil drawing by B. Jeanson-Beteille</div>
 
-        <!-- Identity & coordinates -->
         <div class="card" style="margin-top:16px;" id="identity">
           <div class="card-header">
             <h3>Identity &amp; coordinates</h3>
@@ -553,7 +526,6 @@
               </li>
             </ul>
 
-            <!-- MINI CARTOUCHES -->
             <div class="mini-cards">
               <div class="mini-card">
                 <div class="mini-label">Coordinates</div>
@@ -571,7 +543,6 @@
           </div>
         </div>
 
-        <!-- BIO · STRATES DE VIE (capsule bonus, non listée dans le sommaire) -->
         <article class="card bio-card" style="margin-top:16px;" id="bio">
           <details>
             <summary><span class="bio-caret">▶</span>Bio · Strates de vie</summary>
@@ -616,7 +587,6 @@
           </details>
         </article>
 
-        <!-- Sticky / floating TOC -->
         <nav class="card toc-card" aria-label="Sections in this fiche">
           <div class="toc-card-header">
             <span class="toc-title">In this fiche</span>
@@ -625,7 +595,6 @@
           <div class="toc-card-body">
             <ul class="toc-list">
               <li><a href="#author-note">Author’s note</a></li>
-              <li><a href="#reading-lens">Reading lens</a></li>
               <li><a href="#currents">Comedy &amp; currents</a></li>
               <li><a href="#style">Style &amp; writing</a></li>
               <li><a href="#life">Life &amp; workshop</a></li>
@@ -633,7 +602,7 @@
               <li><a href="#friendships">Humorous friendships &amp; influences</a></li>
               <li><a href="#works">Selection</a></li>
               <li><a href="#reception">Reception</a></li>
-              <li><a href="#why">Conclusion</a></li>
+              <li><a href="#why">Reading lens · Why in the atlas?</a></li>
               <li><a href="#data">Data stub</a></li>
             </ul>
           </div>
@@ -642,7 +611,6 @@
 
       <!-- MAIN COLUMN -->
       <section class="main" aria-label="Author fiche main content">
-        <!-- Author note -->
         <article class="card card-note" id="author-note">
           <div class="card-header">
             <h2>Author’s note</h2>
@@ -680,35 +648,6 @@
           </div>
         </article>
 
-        <!-- Reading lens -->
-        <article class="card" style="margin-top:16px;" id="reading-lens">
-          <div class="card-header">
-            <h3>Reading lens</h3>
-          </div>
-          <div class="card-body">
-            <p>
-              Tom Sharpe’s novels are made of antagonisms. Comedy is the central engine, the one that reveals
-              and flushes things out. His universe is populated by brilliant losers and self-satisfied idiots,
-              all passed through the scanner of systems that are already falling apart. Indecent rules and
-              nauseating ambitions collide head-on.
-            </p>
-            <p>
-              His characters try to “fix things” and only ever make them worse. This is the core of
-              Tom Sharpe’s humour.
-            </p>
-            <p>
-              He stands at the crossroads of social comedy and comic noir, where catastrophe is not an accident
-              but the normal operating mode of society.
-            </p>
-            <p>
-              Within the atlas, he becomes a textbook case:
-              a writer who shows how to turn frustration, individual or collective, not into a vague mood
-              but into a true comic engine, calibrated to the millimetre.
-            </p>
-          </div>
-        </article>
-
-        <!-- Comedy & currents -->
         <article class="card" style="margin-top:16px;" id="currents">
           <div class="card-header">
             <h3>Comedy &amp; currents</h3>
@@ -761,7 +700,6 @@
           </div>
         </article>
 
-        <!-- Style & writing -->
         <article class="card" style="margin-top:16px;" id="style">
           <div class="card-header">
             <h3>Style &amp; writing</h3>
@@ -815,7 +753,6 @@
           </div>
         </article>
 
-        <!-- Life & writing workshop -->
         <article class="card" style="margin-top:16px;" id="life">
           <div class="card-header">
             <h3>Life &amp; workshop</h3>
@@ -857,13 +794,11 @@
           </div>
         </article>
 
-        <!-- How he wrote -->
         <article class="card" style="margin-top:16px;" id="workshop">
           <div class="card-header">
             <h3>How he wrote · Habits &amp; rituals</h3>
           </div>
           <div class="card-body">
-            <!-- Placeholder for your drawing -->
             <div class="workshop-visual">
               <div class="workshop-placeholder" aria-hidden="true"></div>
               <div class="workshop-caption">
@@ -920,7 +855,6 @@
           </div>
         </article>
 
-        <!-- Humorous friendships & influences -->
         <article class="card" style="margin-top:16px;" id="friendships">
           <div class="card-header">
             <h3>Humorous friendships &amp; influences</h3>
@@ -961,7 +895,6 @@
             </p>
 
             <p class="subheading">Novelists in the same orbit</p>
-
             <p><strong>Kingsley Amis – <em>Lucky Jim</em></strong></p>
             <p>
               Same kind of brilliant academic loser and almost functional logic of humiliation.
@@ -982,7 +915,6 @@
             </p>
 
             <p class="subheading">Cross-arts (film, TV, visual comedy)</p>
-
             <p><strong>The Marx Brothers</strong></p>
             <p>
               Cascading madness, accumulations of gags, joyful destruction of authority.
@@ -1012,7 +944,6 @@
           </div>
         </article>
 
-        <!-- Selection of works -->
         <article class="card" style="margin-top:16px;" id="works">
           <div class="card-header">
             <h3>Selection · works in the atlas</h3>
@@ -1023,7 +954,6 @@
               as a clear, mappable engine.
             </p>
             <ul>
-              <!-- TODO: update href values to actual novel fiche URLs -->
               <li><a href="#" title="Go to the fiche for Riotous Assembly"><em>Riotous Assembly</em> (1971)</a> – Crime current plus Everyday; satire of racist law as comic engine.</li>
               <li><a href="#" title="Go to the fiche for Indecent Exposure"><em>Indecent Exposure</em> (1973)</a> – direct sequel, institutional panic pushed further.</li>
               <li><a href="#" title="Go to the fiche for Porterhouse Blue"><em>Porterhouse Blue</em> (1974)</a> – Everyday; academic satire in an old Cambridge college.</li>
@@ -1032,7 +962,6 @@
               <li><a href="#" title="Go to the fiche for The Great Pursuit"><em>The Great Pursuit</em> (1977)</a> – relentless satire of the publishing world and of how “literary value” can be manufactured almost on demand.</li>
             </ul>
 
-            <!-- Optional covers grid: placeholders for now -->
             <div class="covers-grid" aria-label="Cover placeholders">
               <div>
                 <div class="cover-placeholder"></div>
@@ -1050,7 +979,6 @@
           </div>
         </article>
 
-        <!-- Reception & reputation -->
         <article class="card" style="margin-top:16px;" id="reception">
           <div class="card-header">
             <h3>Reception &amp; reputation</h3>
@@ -1083,13 +1011,12 @@
           </div>
         </article>
 
-        <!-- Conclusion / Why on TNoC -->
+        <!-- FINAL FUSED BLOCK -->
         <article class="card" style="margin-top:16px;" id="why">
           <div class="card-header">
-            <h3>Conclusion · Why in the atlas?</h3>
+            <h3>Reading lens · Why in the atlas?</h3>
           </div>
           <div class="card-body">
-            <!-- Reading lens cartouche résumé -->
             <div class="reading-chip">
               <div class="reading-chip-label">Reading lens</div>
               <div class="reading-chip-text">
@@ -1098,6 +1025,29 @@
               </div>
             </div>
 
+            <!-- Reading lens (texte complet) -->
+            <p>
+              Tom Sharpe’s novels are made of antagonisms. Comedy is the central engine, the one that reveals
+              and flushes things out. His universe is populated by brilliant losers and self-satisfied idiots,
+              all passed through the scanner of systems that are already falling apart. Indecent rules and
+              nauseating ambitions collide head-on.
+            </p>
+            <p>
+              His characters try to “fix things” and only ever make them worse. This is the core of
+              Tom Sharpe’s humour.
+            </p>
+            <p>
+              He stands at the crossroads of social comedy and comic noir, where catastrophe is not an accident
+              but the normal operating mode of society.
+            </p>
+            <p>
+              Within the atlas, he becomes a textbook case:
+              a writer who shows how to turn frustration, individual or collective, not into a vague mood
+              but into a true comic engine, calibrated to the millimetre.
+            </p>
+
+            <!-- Why in the atlas -->
+            <p class="subheading">Why a full author fiche?</p>
             <p>
               Why does Tom Sharpe have a full author fiche here, and not just a few scattered mentions?
             </p>
@@ -1153,7 +1103,6 @@
           </div>
         </article>
 
-        <!-- Data block -->
         <article class="card" style="margin-top:16px;" id="data">
           <div class="card-header">
             <h3>Data · atlas stub</h3>
@@ -1178,17 +1127,13 @@
 </main>
 
 <script>
-  // Scrollspy + rail flottant + accordéon mobile
   (function(){
     const toc = document.querySelector('.toc-card');
     if (!toc) return;
-
     const tocLinks = Array.from(toc.querySelectorAll('.toc-list a'));
     if (!tocLinks.length) return;
-
     const tocCurrent = toc.querySelector('.toc-current');
 
-    // Sections pour le scrollspy
     const sections = tocLinks
       .map(link => {
         const id = link.getAttribute('href').slice(1);
@@ -1200,7 +1145,6 @@
     function clearActive(){
       tocLinks.forEach(l => l.classList.remove('active'));
     }
-
     function setCurrentFromLink(link){
       if (!tocCurrent || !link) return;
       const label = (link.textContent || '').trim();
@@ -1225,7 +1169,6 @@
 
     sections.forEach(s => observer.observe(s.el));
 
-    // Rail flottant (desktop seulement)
     let tocTop = toc.getBoundingClientRect().top + window.pageYOffset;
     let tocLeft = toc.getBoundingClientRect().left;
 
@@ -1235,14 +1178,11 @@
         toc.classList.remove('is-floating');
         return;
       }
-
       const rect = toc.getBoundingClientRect();
       if (!toc.classList.contains('is-floating')){
         tocLeft = rect.left;
       }
-
       const scrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
-
       if (scrollY > tocTop - 16){
         toc.style.setProperty('--toc-left', tocLeft + 'px');
         toc.classList.add('is-floating');
@@ -1251,9 +1191,7 @@
       }
     }
 
-    // Accordéon mobile
     const tocHeader = toc.querySelector('.toc-card-header');
-
     function syncAccordionState(){
       const isNarrow = window.matchMedia('(max-width: 900px)').matches;
       if (isNarrow){
@@ -1272,7 +1210,6 @@
       });
     }
 
-    // Quand on clique sur un lien du sommaire en mobile, on replie l'accordéon
     tocLinks.forEach(link => {
       link.addEventListener('click', () => {
         const isNarrow = window.matchMedia('(max-width: 900px)').matches;
@@ -1292,11 +1229,8 @@
       syncAccordionState();
     });
 
-    // Init
     updateTocPosition();
     syncAccordionState();
-
-    // Label initial si rien n'est encore intersecté
     if (sections.length){
       setCurrentFromLink(sections[0].link);
     }
