@@ -423,6 +423,27 @@
       .toc-current{
         max-width:100%;
       }
+
+      /* ACCORDÉON SUR LES 10 CHAPITRES */
+      .section-card .card-header{
+        cursor:pointer;
+        position:relative;
+      }
+      .section-card .card-header::after{
+        content:'▾';
+        position:absolute;
+        right:16px;
+        top:50%;
+        transform:translateY(-50%);
+        font-size:12px;
+        color:var(--muted);
+      }
+      .section-card.collapsed .card-header::after{
+        content:'▸';
+      }
+      .section-card.collapsed .card-body{
+        display:none;
+      }
     }
 
     @media(max-width:600px){
@@ -562,7 +583,6 @@
           <div class="toc-card-body">
             <ul class="toc-list">
               <li><a href="#author-note">Author’s note</a></li>
-              <li><a href="#reading-lens">Reading lens</a></li>
               <li><a href="#currents">Comedy &amp; currents</a></li>
               <li><a href="#style">Style &amp; writing</a></li>
               <li><a href="#life">Life &amp; workshop</a></li>
@@ -570,7 +590,7 @@
               <li><a href="#friendships">Humorous friendships &amp; influences</a></li>
               <li><a href="#works">Selection</a></li>
               <li><a href="#reception">Reception</a></li>
-              <li><a href="#why">Conclusion</a></li>
+              <li><a href="#why">Reading lens · Why in the atlas?</a></li>
               <li><a href="#data">Data stub</a></li>
             </ul>
           </div>
@@ -580,7 +600,7 @@
       <!-- MAIN COLUMN -->
       <section class="main" aria-label="Author fiche main content">
         <!-- Author note -->
-        <article class="card card-note" id="author-note">
+        <article class="card card-note section-card" id="author-note">
           <div class="card-header">
             <h2>Author’s note</h2>
           </div>
@@ -617,36 +637,8 @@
           </div>
         </article>
 
-        <!-- Reading lens -->
-        <article class="card" style="margin-top:16px;" id="reading-lens">
-          <div class="card-header">
-            <h3>Reading lens</h3>
-          </div>
-          <div class="card-body">
-            <p>
-              Tom Sharpe’s novels are made of antagonisms. Comedy is the central engine, the one that reveals
-              and flushes things out. His universe is populated by brilliant losers and self-satisfied idiots,
-              all passed through the scanner of systems that are already falling apart. Indecent rules and
-              nauseating ambitions collide head-on.
-            </p>
-            <p>
-              His characters try to “fix things” and only ever make them worse. This is the core of
-              Tom Sharpe’s humour.
-            </p>
-            <p>
-              He stands at the crossroads of social comedy and comic noir, where catastrophe is not an accident
-              but the normal operating mode of society.
-            </p>
-            <p>
-              Within the atlas, he becomes a textbook case:
-              a writer who shows how to turn frustration, individual or collective, not into a vague mood
-              but into a true comic engine, calibrated to the millimetre.
-            </p>
-          </div>
-        </article>
-
         <!-- Comedy & currents -->
-        <article class="card" style="margin-top:16px;" id="currents">
+        <article class="card section-card" style="margin-top:16px;" id="currents">
           <div class="card-header">
             <h3>Comedy &amp; currents</h3>
           </div>
@@ -699,7 +691,7 @@
         </article>
 
         <!-- Style & writing -->
-        <article class="card" style="margin-top:16px;" id="style">
+        <article class="card section-card" style="margin-top:16px;" id="style">
           <div class="card-header">
             <h3>Style &amp; writing</h3>
           </div>
@@ -753,7 +745,7 @@
         </article>
 
         <!-- Life & writing workshop -->
-        <article class="card" style="margin-top:16px;" id="life">
+        <article class="card section-card" style="margin-top:16px;" id="life">
           <div class="card-header">
             <h3>Life &amp; workshop</h3>
           </div>
@@ -795,7 +787,7 @@
         </article>
 
         <!-- How he wrote -->
-        <article class="card" style="margin-top:16px;" id="workshop">
+        <article class="card section-card" style="margin-top:16px;" id="workshop">
           <div class="card-header">
             <h3>How he wrote · Habits &amp; rituals</h3>
           </div>
@@ -858,7 +850,7 @@
         </article>
 
         <!-- Humorous friendships & influences -->
-        <article class="card" style="margin-top:16px;" id="friendships">
+        <article class="card section-card" style="margin-top:16px;" id="friendships">
           <div class="card-header">
             <h3>Humorous friendships &amp; influences</h3>
           </div>
@@ -950,7 +942,7 @@
         </article>
 
         <!-- Selection of works -->
-        <article class="card" style="margin-top:16px;" id="works">
+        <article class="card section-card" style="margin-top:16px;" id="works">
           <div class="card-header">
             <h3>Selection · works in the atlas</h3>
           </div>
@@ -988,7 +980,7 @@
         </article>
 
         <!-- Reception & reputation -->
-        <article class="card" style="margin-top:16px;" id="reception">
+        <article class="card section-card" style="margin-top:16px;" id="reception">
           <div class="card-header">
             <h3>Reception &amp; reputation</h3>
           </div>
@@ -1020,12 +1012,34 @@
           </div>
         </article>
 
-        <!-- Conclusion / Why on TNoC -->
-        <article class="card" style="margin-top:16px;" id="why">
+        <!-- FINAL FUSED BLOCK -->
+        <article class="card section-card" style="margin-top:16px;" id="why">
           <div class="card-header">
-            <h3>Conclusion · Why in the atlas?</h3>
+            <h3>Reading lens · Why in the atlas?</h3>
           </div>
           <div class="card-body">
+            <!-- Reading lens -->
+            <p>
+              Tom Sharpe’s novels are made of antagonisms. Comedy is the central engine, the one that reveals
+              and flushes things out. His universe is populated by brilliant losers and self-satisfied idiots,
+              all passed through the scanner of systems that are already falling apart. Indecent rules and
+              nauseating ambitions collide head-on.
+            </p>
+            <p>
+              His characters try to “fix things” and only ever make them worse. This is the core of
+              Tom Sharpe’s humour.
+            </p>
+            <p>
+              He stands at the crossroads of social comedy and comic noir, where catastrophe is not an accident
+              but the normal operating mode of society.
+            </p>
+            <p>
+              Within the atlas, he becomes a textbook case:
+              a writer who shows how to turn frustration, individual or collective, not into a vague mood
+              but into a true comic engine, calibrated to the millimetre.
+            </p>
+
+            <p class="subheading">Why a full author fiche?</p>
             <p>
               Why does Tom Sharpe have a full author fiche here, and not just a few scattered mentions?
             </p>
@@ -1082,7 +1096,7 @@
         </article>
 
         <!-- Data block -->
-        <article class="card" style="margin-top:16px;" id="data">
+        <article class="card section-card" style="margin-top:16px;" id="data">
           <div class="card-header">
             <h3>Data · atlas stub</h3>
           </div>
@@ -1106,7 +1120,7 @@
 </main>
 
 <script>
-  // Scrollspy + rail flottant + accordéon mobile
+  // Scrollspy + rail flottant + accordéon mobile + accordéon sections
   (function(){
     const toc = document.querySelector('.toc-card');
     if (!toc) return;
@@ -1116,7 +1130,6 @@
 
     const tocCurrent = toc.querySelector('.toc-current');
 
-    // Sections pour le scrollspy
     const sections = tocLinks
       .map(link => {
         const id = link.getAttribute('href').slice(1);
@@ -1179,7 +1192,7 @@
       }
     }
 
-    // Accordéon mobile
+    // Accordéon mobile pour le TOC
     const tocHeader = toc.querySelector('.toc-card-header');
 
     function syncAccordionState(){
@@ -1200,13 +1213,52 @@
       });
     }
 
-    // Quand on clique sur un lien du sommaire en mobile, on replie l'accordéon
     tocLinks.forEach(link => {
       link.addEventListener('click', () => {
         const isNarrow = window.matchMedia('(max-width: 900px)').matches;
         if (isNarrow){
           toc.classList.add('collapsed');
         }
+      });
+    });
+
+    // ACCORDÉON SUR LES 10 CHAPITRES (section-card)
+    const sectionCards = Array.from(document.querySelectorAll('.section-card'));
+    const isMobile = () => window.matchMedia('(max-width: 900px)').matches;
+
+    function initSectionAccordion(){
+      if (!sectionCards.length) return;
+      if (!isMobile()){
+        // Desktop : tout ouvert
+        sectionCards.forEach(card => card.classList.remove('collapsed'));
+        return;
+      }
+      // Mobile : on ouvre seulement le premier chapitre
+      sectionCards.forEach((card, idx) => {
+        if (idx === 0){
+          card.classList.remove('collapsed');
+        } else {
+          card.classList.add('collapsed');
+        }
+      });
+    }
+
+    sectionCards.forEach(card => {
+      const header = card.querySelector('.card-header');
+      if (!header) return;
+      header.addEventListener('click', (e) => {
+        if (!isMobile()) return;
+        const wasOpen = !card.classList.contains('collapsed');
+
+        // Accordéon : ferme tout
+        sectionCards.forEach(c => c.classList.add('collapsed'));
+
+        // Si celui qu'on clique était déjà ouvert, on laisse tout fermé
+        if (wasOpen) return;
+
+        // Sinon on ouvre celui-ci
+        card.classList.remove('collapsed');
+        card.scrollIntoView({behavior:'smooth', block:'start'});
       });
     });
 
@@ -1218,13 +1270,14 @@
       }
       updateTocPosition();
       syncAccordionState();
+      initSectionAccordion();
     });
 
     // Init
     updateTocPosition();
     syncAccordionState();
+    initSectionAccordion();
 
-    // Label initial si rien n'est encore intersecté
     if (sections.length){
       setCurrentFromLink(sections[0].link);
     }
