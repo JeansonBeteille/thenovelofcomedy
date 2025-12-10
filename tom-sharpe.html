@@ -210,33 +210,6 @@
       font-size:12px;
     }
 
-    /* mini-cards (Coordinates, Bio strata) */
-    .mini-cards{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-      margin-top:10px;
-    }
-    .mini-card{
-      flex:1 1 120px;
-      border-radius:10px;
-      border:1px solid var(--border);
-      background:#f7f6f3;
-      padding:8px 9px;
-      font-size:12px;
-    }
-    .mini-label{
-      font-size:10px;
-      letter-spacing:.14em;
-      text-transform:uppercase;
-      color:var(--muted);
-      margin-bottom:3px;
-    }
-    .mini-text{
-      font-size:12px;
-      color:var(--graphite);
-    }
-
     /* TOC CARD (sommaire) */
     .toc-card{
       margin-top:16px;
@@ -408,26 +381,6 @@
       margin:0 0 6px;
     }
 
-    /* Reading lens chip */
-    .reading-chip{
-      border-radius:12px;
-      border:1px solid var(--border);
-      background:#faf7ef;
-      padding:8px 10px;
-      margin:0 0 10px;
-    }
-    .reading-chip-label{
-      font-size:10px;
-      letter-spacing:.16em;
-      text-transform:uppercase;
-      color:var(--muted);
-      margin-bottom:4px;
-    }
-    .reading-chip-text{
-      font-size:13px;
-      color:var(--graphite);
-    }
-
     /* MOBILE ADAPTATIONS */
     @media(max-width:900px){
       /* TOC = accordéon sticky en haut, plus de rail flottant */
@@ -552,21 +505,6 @@
                 carried by several strong novel cycles.
               </li>
             </ul>
-
-            <div class="mini-cards">
-              <div class="mini-card">
-                <div class="mini-label">Coordinates</div>
-                <div class="mini-text">
-                  Everyday + Crime · Frustration · Code/Etiquette · Midlands Lab
-                </div>
-              </div>
-              <div class="mini-card">
-                <div class="mini-label">Bio · life strata</div>
-                <div class="mini-text">
-                  London 1928 → South Africa (apartheid years) → Midlands college → Catalan exile
-                </div>
-              </div>
-            </div>
           </div>
         </div>
 
@@ -677,6 +615,8 @@
             <p class="note-signature">A pity my ophthalmologist doesn’t prescribe that model… — TNoC</p>
           </div>
         </article>
+
+        <!-- (Reading lens section SUPPRIMÉ, fusionné dans le bloc final) -->
 
         <!-- Comedy & currents -->
         <article class="card" style="margin-top:16px;" id="currents">
@@ -1020,54 +960,13 @@
           </div>
         </article>
 
-        <!-- Reception & reputation -->
-        <article class="card" style="margin-top:16px;" id="reception">
-          <div class="card-header">
-            <h3>Reception &amp; reputation</h3>
-          </div>
-          <div class="card-body">
-            <p>
-              Sharpe quickly found a wide readership in the UK and abroad. Middle-class frustration,
-              institutional hypocrisy and the feeling of being trapped are widely recognisable.
-              His books gained a reputation as “dangerous books”: too vulgar, too delighted by the idea
-              of blowing up respectable institutions.
-            </p>
-            <p>
-              For a long time, criticism hesitated between two positions:
-            </p>
-            <ul>
-              <li>
-                on one side, he was hailed as a continuer of the great British comic tradition,
-                a kind of Wodehouse on amphetamines;
-              </li>
-              <li>
-                on the other, he was reproached for cruelty, caricature and lack of psychological nuance.
-              </li>
-            </ul>
-            <p>
-              Reread today, the novels feel dated in their settings (pre-Thatcher England, apartheid)
-              and at the same time strikingly contemporary in their mechanisms. Institutions that pretend to
-              guarantee order and dignity, yet function like machines for producing panic and humiliation,
-              have not disappeared.
-            </p>
-          </div>
-        </article>
-
         <!-- FINAL FUSED BLOCK -->
         <article class="card" style="margin-top:16px;" id="why">
           <div class="card-header">
             <h3>Reading lens · Why in the atlas?</h3>
           </div>
           <div class="card-body">
-            <div class="reading-chip">
-              <div class="reading-chip-label">Reading lens</div>
-              <div class="reading-chip-text">
-                Brilliant losers trapped in collapsing institutions:
-                frustration as a comic engine at the junction of Everyday and Crime currents.
-              </div>
-            </div>
-
-            <!-- Reading lens (texte complet) -->
+            <!-- Reading lens (repris ici) -->
             <p>
               Tom Sharpe’s novels are made of antagonisms. Comedy is the central engine, the one that reveals
               and flushes things out. His universe is populated by brilliant losers and self-satisfied idiots,
@@ -1088,7 +987,6 @@
               but into a true comic engine, calibrated to the millimetre.
             </p>
 
-            <!-- Why in the atlas -->
             <p class="subheading">Why a full author fiche?</p>
             <p>
               Why does Tom Sharpe have a full author fiche here, and not just a few scattered mentions?
