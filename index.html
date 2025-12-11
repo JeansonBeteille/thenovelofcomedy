@@ -502,6 +502,89 @@
       font-size:15px;
     }
 
+    /* AUTHOR PORTRAITS GALLERY */
+    .author-gallery-section{
+      margin-top:10px;
+    }
+    .author-gallery-grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:18px;
+    }
+    @media(max-width:960px){
+      .author-gallery-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
+    }
+    @media(max-width:640px){
+      .author-gallery-grid{
+        grid-template-columns:1fr;
+      }
+    }
+    .author-face-card{
+      background:var(--card);
+      border-radius:16px;
+      border:1px solid var(--border);
+      box-shadow:var(--shadow);
+      padding:10px 10px 12px;
+      font-size:13px;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+    }
+    .author-face-card a{
+      text-decoration:none;
+      color:inherit;
+      display:block;
+    }
+    .author-face-card:hover{
+      transform:translateY(-2px);
+      box-shadow:0 6px 18px rgba(0,0,0,.08);
+      border-color:rgba(0,0,0,.16);
+    }
+    .author-portrait-thumb{
+      width:100%;
+      border-radius:12px;
+      overflow:hidden;
+      border:1px solid var(--border);
+      background:#f3f1ea;
+      position:relative;
+    }
+    .author-portrait-thumb::before{
+      content:"";
+      display:block;
+      padding-top:100%;
+    }
+    .author-portrait-thumb img{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+    .author-face-name{
+      font-weight:600;
+      font-size:14px;
+    }
+    .author-face-dates{
+      font-size:12px;
+      color:var(--muted);
+    }
+    .author-face-chips{
+      margin-top:4px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:6px;
+    }
+    .author-face-chips .chip{
+      font-size:11px;
+      padding:3px 8px;
+      background:var(--chip);
+      border:1px solid var(--border);
+      color:var(--graphite);
+    }
+
     /* LABS MAP */
     .lab-map-wrapper{
       margin-top:12px;
@@ -821,7 +904,7 @@
                data-slide="0"
                aria-label="Open the Wilt novel fiche">
               <div class="poster-cover">
-                <img src="img/wilt31A.png" alt="Cover of Wilt (Tom Sharpe)">
+                <img src="wilt31A.png.png" alt="Cover of Wilt (Tom Sharpe)">
               </div>
               <div class="poster-main">
                 <div class="poster-title">Wilt</div>
@@ -847,7 +930,7 @@
                data-slide="1"
                aria-label="Open the The Code of the Woosters novel fiche">
               <div class="poster-cover">
-                <img src="img/code-of-the-woosters.png" alt="Cover of The Code of the Woosters (P. G. Wodehouse)">
+                <img src="theco.png" alt="Cover of The Code of the Woosters (P. G. Wodehouse)">
               </div>
               <div class="poster-main">
                 <div class="poster-title">The Code of the Woosters</div>
@@ -927,7 +1010,7 @@
               <div class="poster-main">
                 <div style="display:flex;align-items:center;gap:10px;">
                   <div class="poster-cover" style="flex:0 0 80px;height:80px;border-radius:999px;">
-                    <img src="img/tom-sharpe-portrait.jpg" alt="Portrait of Tom Sharpe">
+                    <img src="tomsh.jpg" alt="Portrait of Tom Sharpe">
                   </div>
                   <div>
                     <div class="poster-title">Tom Sharpe</div>
@@ -1128,6 +1211,167 @@
           <a href="/fr/cartographie/roles-romans">Role of comedy within novels</a> and
           <a href="/fr/cartographie/profils-auteurs">Comic author profiles</a>.
         </p>
+      </section>
+
+      <!-- SECTION: AUTHOR GALLERY -->
+      <section class="section" id="author-gallery">
+        <header class="section-header">
+          <div class="section-kicker">Author portraits</div>
+          <h2 class="section-title">Nine faces in the atlas</h2>
+          <p class="section-sub">
+            A first mosaic of authors in The Novel of Comedy. Each hand-drawn portrait opens an author fiche
+            (when available) or a work-in-progress dossier.
+          </p>
+        </header>
+
+        <div class="author-gallery-section">
+          <div class="author-gallery-grid">
+            <!-- 1. Tom Sharpe -->
+            <article class="author-face-card">
+              <a href="tom-sharpe.html" aria-label="Open Tom Sharpe author fiche">
+                <div class="author-portrait-thumb">
+                  <img src="tomsh.jpg"
+                       alt="Hand-drawn portrait of Tom Sharpe">
+                </div>
+                <div class="author-face-name">Tom Sharpe</div>
+                <div class="author-face-dates">1928–2013 · UK</div>
+                <div class="author-face-chips">
+                  <span class="chip">Comedy of Everyday</span>
+                  <span class="chip">Comedy of Crime</span>
+                  <span class="chip">Frustration</span>
+                </div>
+              </a>
+            </article>
+
+            <!-- 2. Muriel Spark -->
+            <article class="author-face-card">
+              <a href="author-muriel-spark.html" aria-label="Open Muriel Spark author fiche">
+                <div class="author-portrait-thumb">
+                  <img src="img/author-muriel-spark.jpg"
+                       alt="Hand-drawn portrait of Muriel Spark">
+                </div>
+                <div class="author-face-name">Muriel Spark</div>
+                <div class="author-face-dates">1918–2006 · UK</div>
+                <div class="author-face-chips">
+                  <span class="chip">Comedy of Everyday</span>
+                  <span class="chip">Edge</span>
+                </div>
+              </a>
+            </article>
+
+            <!-- 3. Jean Echenoz -->
+            <article class="author-face-card">
+              <a href="author-jean-echenoz.html" aria-label="Open Jean Echenoz author fiche">
+                <div class="author-portrait-thumb">
+                  <img src="img/author-jean-echenoz.jpg"
+                       alt="Hand-drawn portrait of Jean Echenoz">
+                </div>
+                <div class="author-face-name">Jean Echenoz</div>
+                <div class="author-face-dates">1947– · France</div>
+                <div class="author-face-chips">
+                  <span class="chip">Neo-Nonsense</span>
+                  <span class="chip">Edge</span>
+                </div>
+              </a>
+            </article>
+
+            <!-- 4. Percival Everett -->
+            <article class="author-face-card">
+              <a href="author-percival-everett.html" aria-label="Open Percival Everett author fiche">
+                <div class="author-portrait-thumb">
+                  <img src="img/author-percival-everett.jpg"
+                       alt="Hand-drawn portrait of Percival Everett">
+                </div>
+                <div class="author-face-name">Percival Everett</div>
+                <div class="author-face-dates">1956– · US</div>
+                <div class="author-face-chips">
+                  <span class="chip">Neo-Nonsense</span>
+                  <span class="chip">Minor-Character Turn</span>
+                </div>
+              </a>
+            </article>
+
+            <!-- 5. Carl Hiaasen -->
+            <article class="author-face-card">
+              <a href="author-carl-hiaasen.html" aria-label="Open Carl Hiaasen author fiche">
+                <div class="author-portrait-thumb">
+                  <img src="img/author-carl-hiaasen.jpg"
+                       alt="Hand-drawn portrait of Carl Hiaasen">
+                </div>
+                <div class="author-face-name">Carl Hiaasen</div>
+                <div class="author-face-dates">1953– · US</div>
+                <div class="author-face-chips">
+                  <span class="chip">Comedy of Crime</span>
+                  <span class="chip">Hapless Criminal</span>
+                </div>
+              </a>
+            </article>
+
+            <!-- 6. Donald Westlake -->
+            <article class="author-face-card">
+              <a href="author-donald-westlake.html" aria-label="Open Donald Westlake author fiche">
+                <div class="author-portrait-thumb">
+                  <img src="img/author-donald-westlake.jpg"
+                       alt="Hand-drawn portrait of Donald Westlake">
+                </div>
+                <div class="author-face-name">Donald Westlake</div>
+                <div class="author-face-dates">1933–2008 · US</div>
+                <div class="author-face-chips">
+                  <span class="chip">Comedy of Crime</span>
+                  <span class="chip">Schemer / Caper</span>
+                </div>
+              </a>
+            </article>
+
+            <!-- 7. Douglas Adams -->
+            <article class="author-face-card">
+              <a href="author-douglas-adams.html" aria-label="Open Douglas Adams author fiche">
+                <div class="author-portrait-thumb">
+                  <img src="img/author-douglas-adams.jpg"
+                       alt="Hand-drawn portrait of Douglas Adams">
+                </div>
+                <div class="author-face-name">Douglas Adams</div>
+                <div class="author-face-dates">1952–2001 · UK</div>
+                <div class="author-face-chips">
+                  <span class="chip">Neo-Nonsense</span>
+                  <span class="chip">Offbeat SF</span>
+                </div>
+              </a>
+            </article>
+
+            <!-- 8. John Kennedy Toole -->
+            <article class="author-face-card">
+              <a href="author-john-kennedy-toole.html" aria-label="Open John Kennedy Toole author fiche">
+                <div class="author-portrait-thumb">
+                  <img src="img/author-john-kennedy-toole.jpg"
+                       alt="Hand-drawn portrait of John Kennedy Toole">
+                </div>
+                <div class="author-face-name">John Kennedy Toole</div>
+                <div class="author-face-dates">1937–1969 · US</div>
+                <div class="author-face-chips">
+                  <span class="chip">Comedy of Everyday</span>
+                  <span class="chip">Edge</span>
+                </div>
+              </a>
+            </article>
+
+            <!-- 9. Kurt Vonnegut -->
+            <article class="author-face-card">
+              <a href="author-kurt-vonnegut.html" aria-label="Open Kurt Vonnegut author fiche">
+                <div class="author-portrait-thumb">
+                  <img src="img/author-kurt-vonnegut.jpg"
+                       alt="Hand-drawn portrait of Kurt Vonnegut">
+                </div>
+                <div class="author-face-name">Kurt Vonnegut</div>
+                <div class="author-face-dates">1922–2007 · US</div>
+                <div class="author-face-chips">
+                  <span class="chip">Neo-Nonsense</span>
+                  <span class="chip">War &amp; memory</span>
+                </div>
+              </a>
+            </article>
+          </div>
+        </div>
       </section>
 
       <!-- SECTION: CURRENTS – RAILS -->
