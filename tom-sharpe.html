@@ -83,12 +83,11 @@
       border-radius:50%;
       background:var(--evergreen);
     }
-    .hero-chip{
+    .chip.hero-chip{
       background:rgba(255,255,255,.08);
       border-color:rgba(255,255,255,.22);
       color:#fff;
     }
-
     .hero-context{
       margin:14px 0 0;
       font-size:13px;
@@ -107,42 +106,30 @@
       padding:24px 20px 40px;
     }
 
-    .grid{
-      display:grid;
-      grid-template-columns:260px minmax(0,1fr);
-      gap:20px;
-      align-items:flex-start;
-    }
-    @media(max-width:900px){
-      .grid{
-        grid-template-columns:1fr;
-      }
-      .left,.main{
-        grid-column:1 / -1;
-      }
-    }
-
     /* CARDS */
     .card{
       background:var(--card);
       border-radius:16px;
       border:1px solid var(--border);
       box-shadow:var(--shadow);
-      overflow:hidden;
+      padding:16px 16px 14px;
+      margin-bottom:16px;
     }
     .card-header{
-      padding:14px 16px 10px;
-      border-bottom:1px solid var(--border);
-    }
-    .card-header h2,
-    .card-header h3{
-      margin:0;
-      font-size:16px;
-      letter-spacing:.04em;
+      margin:0 0 8px;
+      font-size:14px;
+      letter-spacing:.14em;
       text-transform:uppercase;
+      color:var(--muted);
+    }
+    .card-title-main{
+      font-size:18px;
+      letter-spacing:.04em;
+      text-transform:none;
+      color:var(--graphite);
+      margin:0 0 6px;
     }
     .card-body{
-      padding:14px 16px 16px;
       font-size:14px;
       line-height:1.6;
       color:var(--graphite);
@@ -150,14 +137,10 @@
     .card-body p{
       margin:0 0 8px;
     }
-
     .card-note{
       background:#fffdf5;
-      border-color:rgba(0,0,0,.18);
+      border-color:rgba(0,0,0,.16);
       box-shadow:0 2px 6px rgba(0,0,0,.08);
-    }
-    .card-note .card-body{
-      font-size:15px;
     }
     .note-signature{
       margin-top:8px;
@@ -166,8 +149,18 @@
       font-style:italic;
       text-align:right;
     }
+    .muted{
+      color:var(--muted);
+      font-size:12px;
+    }
 
-    /* LEFT COLUMN: portrait, identity, TOC */
+    /* PORTRAIT + NOTE */
+    .portrait-note{
+      display:grid;
+      grid-template-columns:260px minmax(0,1fr);
+      gap:18px;
+      align-items:flex-start;
+    }
     .portrait{
       border-radius:12px;
       overflow:hidden;
@@ -185,169 +178,22 @@
       color:var(--muted);
       margin-top:6px;
     }
-
-    .identity-list{
-      list-style:none;
-      padding:0;
-      margin:0;
-      font-size:13px;
-      color:var(--graphite);
-    }
-    .identity-list li{
-      margin:4px 0 6px;
-    }
-    .identity-label{
-      display:block;
-      font-size:11px;
-      text-transform:uppercase;
-      letter-spacing:.14em;
-      color:var(--muted);
-      margin-bottom:2px;
+    @media(max-width:800px){
+      .portrait-note{
+        grid-template-columns:1fr;
+      }
+      .caption{
+        text-align:center;
+      }
+      .portrait{
+        max-width:260px;
+        margin:0 auto;
+      }
     }
 
-    .muted{
-      color:var(--muted);
-      font-size:12px;
-    }
-
-    /* TOC CARD (sommaire) */
-    .toc-card{
-      margin-top:16px;
-      font-size:13px;
-      transition:transform .15s ease, box-shadow .15s ease;
-    }
-    .toc-card-header{
-      padding:10px 14px 6px;
-      border-bottom:1px solid var(--border);
-      font-size:12px;
-      letter-spacing:.16em;
-      text-transform:uppercase;
-      color:var(--muted);
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:6px;
-    }
-    .toc-title{
-      white-space:nowrap;
-    }
-    .toc-current{
-      font-size:11px;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-      color:var(--graphite);
-      opacity:.85;
-      max-width:60%;
-      overflow:hidden;
-      text-overflow:ellipsis;
-      white-space:nowrap;
-      text-align:right;
-    }
-    .toc-card-body{
-      padding:10px 14px 12px;
-    }
-    .toc-list{
-      list-style:none;
-      padding:0;
-      margin:0;
-    }
-    .toc-list li{
-      margin:4px 0;
-    }
-    .toc-list a{
-      text-decoration:none;
-      font-size:13px;
-      color:var(--graphite);
-      opacity:.85;
-      transition:color .15s ease, opacity .15s ease;
-    }
-    .toc-list a:hover{
-      opacity:1;
-      text-decoration:underline;
-    }
-    .toc-list a.active{
-      font-weight:600;
-      color:var(--evergreen);
-      opacity:1;
-    }
-
-    /* état flottant : rail gauche (desktop) */
-    .toc-card.is-floating{
-      position:fixed;
-      top:16px;
-      left:var(--toc-left, 20px);
-      width:220px;
-      z-index:20;
-      box-shadow:0 4px 16px rgba(0,0,0,.12);
-    }
-
-    /* SUBSECTIONS */
-    .subheading{
-      font-weight:600;
-      font-size:14px;
-      margin:10px 0 4px;
-    }
-    ul{
-      padding-left:18px;
-      margin:4px 0 8px;
-    }
-    li{margin:2px 0 4px;}
-
-    /* MONO BLOCK */
-    .mono{
-      font-family:ui-monospace,Menlo,Consolas,monospace;
-      font-size:12px;
-      background:#f5f5f5;
-      padding:6px 8px;
-      border-radius:8px;
-      border:1px solid var(--border);
-      display:block;
-      overflow-x:auto;
-      white-space:pre;
-    }
-
-    /* COVERS GRID (placeholders) */
-    .covers-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fill,minmax(80px,1fr));
-      gap:8px;
-      margin-top:10px;
-    }
-    .cover-placeholder{
-      width:100%;
-      padding-top:150%;
-      border-radius:8px;
-      border:1px dashed var(--border);
-      background:rgba(0,0,0,.02);
-    }
-    .cover-caption{
-      font-size:11px;
-      color:var(--muted);
-      margin-top:4px;
-      text-align:center;
-    }
-
-    /* Workshop drawing placeholder */
-    .workshop-visual{
-      margin-bottom:12px;
-    }
-    .workshop-placeholder{
-      width:100%;
-      padding-top:45%;
-      border-radius:12px;
-      border:1px dashed var(--border);
-      background:rgba(0,0,0,.02);
-    }
-    .workshop-caption{
-      font-size:11px;
-      color:var(--muted);
-      margin-top:4px;
-      text-align:left;
-    }
-
-    /* BIO CARD (capsule strates de vie) */
+    /* BIO CAPSULE */
     .bio-card details{
-      padding:10px 14px 12px;
+      margin:0;
     }
     .bio-card summary{
       list-style:none;
@@ -381,69 +227,145 @@
       margin:0 0 6px;
     }
 
-    /* MOBILE ADAPTATIONS */
-    @media(max-width:900px){
-      /* TOC = accordéon sticky en haut, plus de rail flottant */
-      .toc-card{
-        position:sticky;
-        top:0;
-        z-index:15;
-        margin-top:12px;
-      }
-      .toc-card.is-floating{
-        position:static;
-        width:auto;
-        box-shadow:var(--shadow);
-      }
-      .toc-card-header{
-        cursor:pointer;
-      }
-      .toc-card-header::after{
-        content:'▾';
-        font-size:11px;
-        color:var(--muted);
-      }
-      .toc-card.collapsed .toc-card-body{
-        display:none;
-      }
-      .toc-card.collapsed .toc-card-header::after{
-        content:'▸';
-      }
+    /* SOMMAIRE "IN THIS FICHE" */
+    .toc-list{
+      list-style:none;
+      padding:0;
+      margin:8px 0 0;
+      font-size:14px;
+    }
+    .toc-list li{
+      margin:2px 0 4px;
+    }
+    .toc-link{
+      display:block;
+      font-weight:600;
+      color:var(--graphite);
+      text-decoration:none;
+      padding:3px 0;
+    }
+    .toc-link span{
+      font-weight:400;
+      color:var(--muted);
+      font-size:12px;
+      margin-left:4px;
+    }
+    .toc-link:hover{
+      text-decoration:underline;
+    }
 
-      /* portrait réduit et centré */
-      .portrait{
-        max-width:240px;
-        margin:0 auto 8px;
-      }
-      .caption{
-        text-align:center;
-      }
+    /* ACCORDIONS (chapters) */
+    .accordion-card{
+      padding:0;
+      overflow:hidden;
+    }
+    .accordion{
+      border-radius:16px;
+    }
+    .accordion summary{
+      list-style:none;
+      cursor:pointer;
+      padding:12px 16px 10px;
+      border-bottom:1px solid var(--border);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:8px;
+      font-size:14px;
+      font-weight:600;
+      color:var(--graphite);
+    }
+    .accordion summary::-webkit-details-marker{
+      display:none;
+    }
+    .accordion-title{
+      letter-spacing:.04em;
+      text-transform:none;
+    }
+    .accordion-index{
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      color:var(--muted);
+    }
+    .accordion-caret{
+      font-size:11px;
+      color:var(--muted);
+      transition:transform .2s ease;
+    }
+    .accordion[open] .accordion-caret{
+      transform:rotate(90deg);
+    }
+    .accordion-body{
+      padding:12px 16px 14px;
+      font-size:14px;
+      line-height:1.6;
+      color:var(--graphite);
+    }
+    .accordion-body p{
+      margin:0 0 8px;
+    }
+    .subheading{
+      font-weight:600;
+      font-size:14px;
+      margin:10px 0 4px;
+    }
+    ul{
+      padding-left:18px;
+      margin:4px 0 8px;
+    }
+    li{margin:2px 0 4px;}
 
-      /* la mention de section en cours peut prendre toute la largeur */
-      .toc-current{
-        max-width:100%;
-      }
+    /* WORKSHOP VISUAL PLACEHOLDER */
+    .workshop-visual{
+      margin-bottom:12px;
+    }
+    .workshop-placeholder{
+      width:100%;
+      padding-top:45%;
+      border-radius:12px;
+      border:1px dashed var(--border);
+      background:rgba(0,0,0,.02);
+    }
+    .workshop-caption{
+      font-size:11px;
+      color:var(--muted);
+      margin-top:4px;
+      text-align:left;
+    }
 
-      /* ACCORDÉON SUR LES 10 CHAPITRES */
-      .section-card .card-header{
-        cursor:pointer;
-        position:relative;
-      }
-      .section-card .card-header::after{
-        content:'▾';
-        position:absolute;
-        right:16px;
-        top:50%;
-        transform:translateY(-50%);
-        font-size:12px;
-        color:var(--muted);
-      }
-      .section-card.collapsed .card-header::after{
-        content:'▸';
-      }
-      .section-card.collapsed .card-body{
-        display:none;
-      }
+    /* COVERS GRID */
+    .covers-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fill,minmax(80px,1fr));
+      gap:8px;
+      margin-top:10px;
+    }
+    .cover-placeholder{
+      width:100%;
+      padding-top:150%;
+      border-radius:8px;
+      border:1px dashed var(--border);
+      background:rgba(0,0,0,.02);
+    }
+    .cover-caption{
+      font-size:11px;
+      color:var(--muted);
+      margin-top:4px;
+      text-align:center;
+    }
+
+    /* MONO BLOCK */
+    .mono{
+      font-family:ui-monospace,Menlo,Consolas,monospace;
+      font-size:12px;
+      background:#f5f5f5;
+      padding:6px 8px;
+      border-radius:8px;
+      border:1px solid var(--border);
+      display:block;
+      overflow-x:auto;
+      white-space:pre;
     }
 
     @media(max-width:600px){
@@ -453,11 +375,14 @@
       .wrap-inner{
         padding:18px 16px 28px;
       }
-      .card-header{
-        padding:12px 12px 8px;
+      .card{
+        padding:14px 14px 12px;
       }
-      .card-body{
-        padding:12px 12px 14px;
+      .accordion summary{
+        padding:11px 14px 9px;
+      }
+      .accordion-body{
+        padding:11px 14px 12px;
       }
     }
   </style>
@@ -471,637 +396,692 @@
     <p class="hero-meta">1928–2013 · United Kingdom · English-language comic novelist</p>
     <div class="hero-chips">
       <span class="chip hero-chip"><span class="chip-dot"></span> Core Comedy · Comic engine</span>
-      <span class="chip hero-chip"><span class="chip-dot"></span> Cartography: Everyday + Crime</span>
-      <span class="chip hero-chip"><span class="chip-dot"></span> Lab: Midlands · Branch: Frustration</span>
+      <span class="chip hero-chip"><span class="chip-dot"></span> Comedy of Everyday + Crime</span>
+      <span class="chip hero-chip"><span class="chip-dot"></span> Midlands Lab · Frustration branch</span>
     </div>
     <p class="hero-context">
-      A digital atlas of comic fiction: authors mapped by currents, branches and labs rather than by a simple list of titles.
+      Comic novelist mapped through Frustration Comedy and collapsing institutions, between Everyday and Crime currents.
     </p>
   </div>
 </header>
 
 <main class="wrap">
   <div class="wrap-inner">
-    <div class="grid">
-      <!-- LEFT COLUMN -->
-      <aside class="left" aria-label="Identity and navigation">
-        <!-- Portrait -->
-        <div class="portrait">
-          <img src="tomsh.jpg" alt="Portrait of Tom Sharpe">
+
+    <!-- CARTOUCHE 1 · Portrait + Author's note -->
+    <section class="card card-note" id="author-note">
+      <div class="card-header">Opening · portrait & author’s note</div>
+      <div class="portrait-note">
+        <div>
+          <figure class="portrait">
+            <img src="tomsh.jpg" alt="Portrait of Tom Sharpe">
+          </figure>
+          <div class="caption">Tom Sharpe · pencil drawing by B. Jeanson-Beteille</div>
         </div>
-        <div class="caption">Tom Sharpe · pencil drawing by B. Jeanson-Beteille</div>
+        <div class="card-body">
+          <h2 class="card-title-main">Author’s note</h2>
+          <p>
+            A life’s worth of decades on Earth, or simply the time of disillusionment?
+          </p>
+          <p>
+            Right at the centre of his own gravity, Tom Sharpe shifts from teacher to writer.
+            Forty-two years of slow maturation (that odd little number again…).
+          </p>
+          <p>
+            A strong drink against apartheid, which earns him prison and then expulsion back to his homeland.
+            From the dark South African years to the misty Midlands of 1970s England,
+            he keeps firing satirical volleys. The brazenness of the mediocre fascinates him.
+            The alienation of the individual drives him furious.
+          </p>
+          <p>
+            Sharpe shoots in all directions: codes and etiquette that tape you down exactly where you never
+            wanted to be. The half-century that separates us from the first volume of the <em>Wilt</em> series
+            is one of those that bring us closer. Sideburns and flared trousers may have fallen away;
+            oppressions, on the other hand, cling on. Nothing really changes.
+          </p>
+          <p>
+            So don’t trust the face or the vague “has-been” impression. This is a writer who feels contemporary
+            in every age. Even in those still to come.
+          </p>
+          <p>
+            Beaumarchais hurried to laugh at everything, for fear of being obliged to weep.
+            Tom Sharpe chose the same pair of glasses. Put them on as well:
+            they help you see more clearly. Better still, they help you find a way through.
+          </p>
+          <p class="note-signature">A pity my ophthalmologist doesn’t prescribe that model… — TNoC</p>
+        </div>
+      </div>
+    </section>
 
-        <!-- Identity & coordinates -->
-        <div class="card" style="margin-top:16px;" id="identity">
-          <div class="card-header">
-            <h3>Identity &amp; coordinates</h3>
+    <!-- BIO · STRATES DE VIE (capsule hors sommaire) -->
+    <article class="card bio-card" id="bio">
+      <details>
+        <summary><span class="bio-caret">▶</span>Bio · Strates de vie</summary>
+        <div class="bio-body">
+          <p class="subheading">Enfance &amp; formation</p>
+          <p>
+            Né à Londres dans une famille de classe moyenne, Sharpe grandit entre un père pasteur anglican
+            aux convictions politiques tranchées et une Angleterre d’avant-guerre qui bascule rapidement
+            dans les bouleversements du XX<sup>e</sup> siècle. Après la scolarité, il passe par les Royal Marines
+            puis étudie l’histoire et l’anthropologie sociale à Cambridge.
+          </p>
+
+          <p class="subheading">Afrique du Sud : satire et rupture</p>
+          <p>
+            Dans les années 1950-1960, il part travailler en Afrique du Sud comme assistant social
+            et employé dans des institutions liées au régime d’apartheid. Il y découvre de l’intérieur
+            la brutalité bureaucratique du système, s’en moque dans des pièces satiriques, est arrêté puis expulsé.
+            Cet épisode devient l’un des grands réservoirs de rage et de matériau pour ses premiers romans.
+          </p>
+
+          <p class="subheading">Retour en Angleterre &amp; métier d’écrivain</p>
+          <p>
+            De retour au Royaume-Uni, il enseigne dans un technical college des Midlands – un étage en dessous
+            de l’université prestigieuse – tout en écrivant. C’est de ce poste un peu marginal que naîtront
+            les premiers livres qui le rendent célèbre, jusqu’au succès de la série <em>Wilt</em> et
+            des satires académiques et policières qui l’installent comme romancier à plein temps.
+          </p>
+
+          <p class="subheading">Exil catalan &amp; dernière période</p>
+          <p>
+            La fin de sa vie se déroule en Catalogne, à Llafranc, dans une semi-retraite active :
+            routine d’écriture, promenades, visites d’amis. Loin de l’Angleterre mais obsédé par elle,
+            il continue d’y situer ses farces institutionnelles. Les problèmes de santé se multiplient,
+            plusieurs projets restent inachevés, mais l’essentiel de l’œuvre est déjà en place.
+          </p>
+
+          <p class="muted">
+            Cette capsule biographique peut être enrichie au fil des recherches : correspondances, témoignages,
+            archives d’édition, entretiens tardifs…
+          </p>
+        </div>
+      </details>
+    </article>
+
+    <!-- IN THIS FICHE · SOMMAIRE -->
+    <nav class="card" aria-label="Sections in this fiche">
+      <div class="card-header">In this fiche</div>
+      <div class="card-body">
+        <p class="muted">
+          Ten stable chapters, identical from one author fiche to the next. Click to jump and open a section.
+        </p>
+        <ol class="toc-list">
+          <li><a class="toc-link" href="#sec-author-note" data-target="sec-author-note">Author’s note<span>Opening voice · TNoC</span></a></li>
+          <li><a class="toc-link" href="#sec-currents" data-target="sec-currents">Comedy &amp; currents<span>Mapping in Everyday / Crime</span></a></li>
+          <li><a class="toc-link" href="#sec-style" data-target="sec-style">Style &amp; writing<span>Sentence, rhythm, scene work</span></a></li>
+          <li><a class="toc-link" href="#sec-life" data-target="sec-life">Life &amp; workshop<span>Institutions as comic toolbox</span></a></li>
+          <li><a class="toc-link" href="#sec-workshop" data-target="sec-workshop">How he wrote<span>Habits, typewriter, rituals</span></a></li>
+          <li><a class="toc-link" href="#sec-friendships" data-target="sec-friendships">Humorous friendships &amp; influences<span>Traditions and neighbours</span></a></li>
+          <li><a class="toc-link" href="#sec-works" data-target="sec-works">Selection · works in the atlas<span>Key novels followed in detail</span></a></li>
+          <li><a class="toc-link" href="#sec-reception" data-target="sec-reception">Reception &amp; reputation<span>Readers, critics, posterity</span></a></li>
+          <li><a class="toc-link" href="#sec-why" data-target="sec-why">Reading lens · Why in the atlas?<span>Synthesis and cartographic role</span></a></li>
+          <li><a class="toc-link" href="#sec-data" data-target="sec-data">Data · atlas stub<span>Minimal structured data</span></a></li>
+        </ol>
+      </div>
+    </nav>
+
+    <!-- CHAPTER 1 · Author's note (rappel dans la matrice) -->
+    <section class="card accordion-card" id="sec-author-note">
+      <details class="accordion" open>
+        <summary>
+          <div>
+            <div class="accordion-index">Chapter 1</div>
+            <div class="accordion-title">Author’s note</div>
           </div>
-          <div class="card-body">
-            <ul class="identity-list">
-              <li>
-                <span class="identity-label">Name</span>
-                Tom Sharpe
-              </li>
-              <li>
-                <span class="identity-label">Dates</span>
-                Born 1928, London (United Kingdom)<br>
-                Died 2013, Llafranc (Spain)
-              </li>
-              <li>
-                <span class="identity-label">Language</span>
-                English (original language), widely translated across Europe
-              </li>
-              <li>
-                <span class="identity-label">Background / education</span>
-                British schooling · Royal Marines · History &amp; Social Anthropology (Cambridge)
-              </li>
-              <li>
-                <span class="identity-label">Professional life</span>
-                Social worker in South Africa (satire, arrest and expulsion) → back to England
-                (teacher in a technical college, then full-time novelist)
-              </li>
-              <li>
-                <span class="identity-label">Position in the atlas</span>
-                Core Comedy author: comedy sits at the centre of his work,
-                carried by several strong novel cycles.
-              </li>
-            </ul>
+          <span class="accordion-caret">▸</span>
+        </summary>
+        <div class="accordion-body">
+          <!-- On reprend le texte pour cohérence de matrice (même si déjà lu au-dessus) -->
+          <p>
+            A life’s worth of decades on Earth, or simply the time of disillusionment?
+          </p>
+          <p>
+            Right at the centre of his own gravity, Tom Sharpe shifts from teacher to writer.
+            Forty-two years of slow maturation (that odd little number again…).
+          </p>
+          <p>
+            A strong drink against apartheid, which earns him prison and then expulsion back to his homeland.
+            From the dark South African years to the misty Midlands of 1970s England,
+            he keeps firing satirical volleys. The brazenness of the mediocre fascinates him.
+            The alienation of the individual drives him furious.
+          </p>
+          <p>
+            Sharpe shoots in all directions: codes and etiquette that tape you down exactly where you never
+            wanted to be. The half-century that separates us from the first volume of the <em>Wilt</em> series
+            is one of those that bring us closer. Sideburns and flared trousers may have fallen away;
+            oppressions, on the other hand, cling on. Nothing really changes.
+          </p>
+          <p>
+            So don’t trust the face or the vague “has-been” impression. This is a writer who feels contemporary
+            in every age. Even in those still to come.
+          </p>
+          <p>
+            Beaumarchais hurried to laugh at everything, for fear of being obliged to weep.
+            Tom Sharpe chose the same pair of glasses. Put them on as well:
+            they help you see more clearly. Better still, they help you find a way through.
+          </p>
+          <p class="note-signature">A pity my ophthalmologist doesn’t prescribe that model… — TNoC</p>
+        </div>
+      </details>
+    </section>
+
+    <!-- CHAPTER 2 · Comedy & currents -->
+    <section class="card accordion-card" id="sec-currents">
+      <details class="accordion">
+        <summary>
+          <div>
+            <div class="accordion-index">Chapter 2</div>
+            <div class="accordion-title">Comedy &amp; currents</div>
+          </div>
+          <span class="accordion-caret">▸</span>
+        </summary>
+        <div class="accordion-body">
+          <p>
+            In this mapping, Sharpe is first and foremost a <strong>Comedy of Everyday</strong> writer:
+            the individual facing the group and the rules. The setting is often “ordinary” –
+            home, work, office, provincial town – but it is treated as a device, a small time-bomb.
+          </p>
+          <p>
+            At the same time, several books lean strongly towards <strong>Comedy of Crime</strong>,
+            from absurd investigations to unjustified chases. Policemen and authority figures are not just
+            ridiculous, they are the ones who manufacture chaos. Suspicion replaces proof; procedure replaces
+            judgement. The law starts hunting the wrong people, for the wrong reasons.
+          </p>
+
+          <p class="subheading">Dominant branches</p>
+          <p><strong>Frustration</strong></p>
+          <p>
+            Everyday life as a chain of micro-humiliations. Life does not move forward, or moves sideways.
+            Each attempt to take back control makes things worse. Frustration is not just a tone;
+            it is the basic narrative pattern.
+          </p>
+
+          <p><strong>Comedy of the Code/Etiquette</strong></p>
+          <p>
+            School rules, police protocols, good conduct and administrative hierarchies:
+            everything that was supposed to guarantee stability becomes a generator of absurdity.
+            The more characters cling to “procedure”, the faster the machine derails.
+          </p>
+
+          <p><strong>Vaudeville form</strong></p>
+          <p>
+            Plots multiply, misunderstandings follow one another. Scenes work like pieces of vaudeville,
+            but rooted in a very concrete twentieth century. Formica replaces wood-panelled salons.
+          </p>
+
+          <p class="subheading">Two key configurations</p>
+          <p>
+            In <em>Wilt</em>, Comedy of Everyday dominates: a technical-college lecturer stuck below
+            “legitimate” university status, a wife obsessed with self-development, neighbours who watch and comment.
+            The Crime affluent enters through the investigation and the suspicion that a marital fantasy
+            might have led to murder.
+          </p>
+          <p>
+            In the South African novels (<em>Riotous Assembly</em>, <em>Indecent Exposure</em>),
+            Comedy of Crime takes over: racist law and the police form the very heart of the society’s absurdity.
+          </p>
+        </div>
+      </details>
+    </section>
+
+    <!-- CHAPTER 3 · Style & writing -->
+    <section class="card accordion-card" id="sec-style">
+      <details class="accordion">
+        <summary>
+          <div>
+            <div class="accordion-index">Chapter 3</div>
+            <div class="accordion-title">Style &amp; writing</div>
+          </div>
+          <span class="accordion-caret">▸</span>
+        </summary>
+        <div class="accordion-body">
+          <p>
+            Sharpe’s prose reads like a near “anti-manual” of English humour. His sentences are dry,
+            deliberately not “beautiful”. He moves away from polished wit and sparkle,
+            as if the Sex Pistols had been invited to entertain the Queen of England.
+          </p>
+          <p>
+            The world he describes seems under-lit under a low sky. Madness simmers under pressure,
+            with a faint, persistent depression. Ideal ground for comic escalation.
+          </p>
+
+          <p class="subheading">Scene work</p>
+          <p>
+            Sharpe works like a director:
+          </p>
+          <ul>
+            <li>scenes are cut quickly,</li>
+            <li>the narrative camera slides from one character to another when anxiety peaks,</li>
+            <li>dialogues are closer to fights than to exchanges of information.</li>
+          </ul>
+          <p>
+            Several of his novels could be turned almost directly into storyboards.
+          </p>
+
+          <p class="subheading">Lines of force</p>
+          <p><strong>At sentence level</strong></p>
+          <p>
+            Short or segmented sentences, dry irony, very few metaphors, a lot of plain statement.
+          </p>
+
+          <p><strong>Dialogue</strong></p>
+          <p>
+            Interrogations, marital rows, staff meetings, insults. Each line is less about informing
+            than about pushing imbalance one step further.
+          </p>
+
+          <p><strong>Overall rhythm</strong></p>
+          <p>
+            Less a collection of self-contained scenes than a series of spirals:
+            a situation jams, then expands until it contaminates all the others.
+          </p>
+
+          <p>
+            For the cartographers, Sharpe is an important example of how cinematic grammar
+            can be integrated into the novel without turning the text into a simple screenplay.
+          </p>
+        </div>
+      </details>
+    </section>
+
+    <!-- CHAPTER 4 · Life & workshop -->
+    <section class="card accordion-card" id="sec-life">
+      <details class="accordion">
+        <summary>
+          <div>
+            <div class="accordion-index">Chapter 4</div>
+            <div class="accordion-title">Life &amp; workshop</div>
+          </div>
+          <span class="accordion-caret">▸</span>
+        </summary>
+        <div class="accordion-body">
+          <p>
+            Before becoming a novelist, Sharpe worked in places where power and humiliation
+            are not abstract concepts. In South Africa, he saw apartheid from inside the institutions
+            that applied it, and suffered the consequences for mocking it. Back in England, he taught
+            in a technical college, far from the prestige of Oxford or Cambridge.
+          </p>
+          <p>
+            In this reading, that professional path is not background decoration.
+            It is the raw material of his comic devices.
+          </p>
+
+          <ul>
+            <li>
+              The technical college becomes a laboratory of failed meritocracy:
+              lecturers pushed out of the university system, students physically present but mentally elsewhere,
+              an administration more obsessed with paperwork than with teaching.
+            </li>
+            <li>
+              The police station becomes a machine for turning misunderstandings into moral panic:
+              obsession with guilt, accumulation of trivial details elevated to the rank of proof.
+            </li>
+            <li>
+              The small provincial town becomes a concentrate of resentment:
+              overblown local ambitions, neighbourly jealousies.
+            </li>
+          </ul>
+
+          <p>
+            The biography works as a toolbox rather than a master key.
+            The aim is not to match a specific real episode to a specific scene, but to understand how
+            experiences of institutional violence and social stagnation are compressed into mechanisms
+            of acid satire.
+          </p>
+        </div>
+      </details>
+    </section>
+
+    <!-- CHAPTER 5 · How he wrote -->
+    <section class="card accordion-card" id="sec-workshop">
+      <details class="accordion">
+        <summary>
+          <div>
+            <div class="accordion-index">Chapter 5</div>
+            <div class="accordion-title">How he wrote · Habits &amp; rituals</div>
+          </div>
+          <span class="accordion-caret">▸</span>
+        </summary>
+        <div class="accordion-body">
+          <div class="workshop-visual">
+            <div class="workshop-placeholder" aria-hidden="true"></div>
+            <div class="workshop-caption">
+              Placeholder for drawing: Sharpe at his desk / wide shot of the writing room.
+            </div>
+          </div>
+
+          <p class="subheading">1. The old machine versus the screen</p>
+          <p>
+            For a long time, Sharpe resisted the computer. He wrote his novels on a robust, noisy,
+            almost archaic typewriter, which he preferred to any word processor. When he tried a computer,
+            he said he felt the text turning into a manipulable image on a screen, whereas on the machine
+            every keystroke engaged him physically and morally in the sentence.
+          </p>
+
+          <p class="subheading">2. The 1,500-page barbecue</p>
+          <p>
+            In the mid-1990s, living in Catalonia, he struggled with a new <em>Wilt</em> novel
+            that never satisfied him: 1,500 typed pages, corrected, annotated. One evening, exasperated by what
+            he considered a failure, he carried the piles of manuscript into the garden, lit the barbecue
+            and burned them methodically, as one might sacrifice a sick animal to save the rest of the herd.
+          </p>
+
+          <p class="subheading">3. Nancy as first evening audience</p>
+          <p>
+            Sharpe often said he trusted theories less than the sound of his wife Nancy’s laughter.
+            The ritual was simple: in the evening, she read the day’s pages in bed. If she burst out laughing,
+            the passage was safe. If she stayed silent, he knew he would have to rework or cut.
+          </p>
+
+          <p class="subheading">4. Notebooks, journals and the impossible autobiography</p>
+          <p>
+            Behind the public image of the explosive humourist, there is a meticulous Sharpe who accumulated notes
+            and work journals. The Tom Sharpe Chair at the University of Girona mentions notebooks where he recorded
+            dreams, South African memories, sketches of scenes and attempts at autobiography, always abandoned midway.
+            He admitted he could not write his life because it seemed too painful and chaotic.
+          </p>
+
+          <p class="subheading">5. Catalan exile as workshop</p>
+          <p>
+            At the end of his life, his “office” moved. Sharpe lived and worked in Llafranc, on the Costa Brava,
+            in a house where light, sea and distance from England became working tools as much as pen and paper.
+            Testimonies describe a simple, almost monastic routine: writing, walks, visits from friends,
+            and an exiled gaze on British society, which he continued to demolish through fiction from a small
+            Catalan town.
+          </p>
+
+          <p class="subheading">6. Slow worker of catastrophe</p>
+          <p>
+            Despite the violent energy of his plots, Sharpe did not write quickly. Some novels took years
+            to find their form. In late interviews he evokes health problems and growing fatigue that made it
+            increasingly costly to maintain the same intensity. Each new book felt like a battle against wear.
+          </p>
+        </div>
+      </details>
+    </section>
+
+    <!-- CHAPTER 6 · Humorous friendships & influences -->
+    <section class="card accordion-card" id="sec-friendships">
+      <details class="accordion">
+        <summary>
+          <div>
+            <div class="accordion-index">Chapter 6</div>
+            <div class="accordion-title">Humorous friendships &amp; influences</div>
+          </div>
+          <span class="accordion-caret">▸</span>
+        </summary>
+        <div class="accordion-body">
+          <p>
+            Sharpe openly places himself in a British satirical tradition, while insisting on the difference
+            of tone and brutality between his work and that of his models.
+          </p>
+
+          <p class="subheading">Claimed traditions and authors</p>
+          <p>
+            He sees himself in the line of English satirists and humourists, in particular
+            <strong>P. G. Wodehouse</strong> and <strong>Evelyn Waugh</strong>, whose farce and construction
+            of situations pushed to absurdity he admires and adapts.
+          </p>
+          <p>
+            His personal library preserved in Spain confirms that Wodehouse, Waugh and also adventure novelist
+            <strong>John Buchan</strong> are among the authors that formed him. From them he takes the taste
+            for social comedy, campus satire and plots that can suddenly flare up.
+          </p>
+
+          <p class="subheading">Difference of tone: from rapier to machete</p>
+          <p>
+            Critics often present him as an heir of Wodehouse and Waugh, but Sharpe himself stresses a sharper,
+            more brutal register. Where his predecessors handle the rapier, he jokes that he works with a machete:
+            same farce tradition, less polish, more blows to the system, and a much dirtier sense of humour.
+          </p>
+
+          <p class="subheading">Biographical sources and deeper influences</p>
+          <p>
+            Sharpe attributes much of his black humour to stories told by First World War veterans
+            he heard as a child, their jokes on the edge of death leaving a lasting impression.
+          </p>
+          <p>
+            His decade in apartheid South Africa forms another explicit matrix: his early satirical novels grow
+            out of rage at the system and transform political experience into explosive farce.
+          </p>
+
+          <p class="subheading">Novelists in the same orbit</p>
+
+          <p><strong>Kingsley Amis – <em>Lucky Jim</em></strong></p>
+          <p>
+            Same kind of brilliant academic loser and almost functional logic of humiliation.
+            Sharpe pushes both violence and grotesque further.
+          </p>
+
+          <p><strong>David Lodge – academic / provincial cycle</strong> (<em>Changing Places</em>, <em>Small World</em>…)</p>
+          <p>
+            Rituals, etiquette, conferences, status games. Where Lodge keeps a certain tenderness
+            for his world, Sharpe is more interested in the moment when the decor cracks.
+          </p>
+
+          <p><strong>Frédéric Dard</strong></p>
+          <p>
+            Same observation: people are monstrous in their excesses, authorities rarely more dignified.
+            Dard works through orality and bravado. Sharpe favours dry sentences and escalation devices.
+            Both turn ordinary cruelty into a system.
+          </p>
+
+          <p class="subheading">Cross-arts (film, TV, visual comedy)</p>
+
+          <p><strong>The Marx Brothers</strong></p>
+          <p>
+            Cascading madness, accumulations of gags, joyful destruction of authority.
+            Sharpe translates this energy into prose, especially in crowd scenes and interrogations
+            that turn into absurd processions.
+          </p>
+
+          <p><strong>Mel Brooks</strong></p>
+          <p>
+            Aggressive parody of power and ideology. The South African novels work along a similar line:
+            state apparatus turned into derision to the point of absurdity, without softening.
+          </p>
+
+          <p><strong>John Cleese – <em>Fawlty Towers</em></strong></p>
+          <p>
+            The same mechanics of unstoppable escalation, the same obsession with ridiculous procedure
+            and incompetent authority. A closed setting where order is proclaimed and chaos is produced.
+          </p>
+
+          <p class="subheading">Influence snapshot</p>
+          <ul>
+            <li><strong>Satirical tradition</strong> – Wodehouse, Waugh: models for social farce and comedy of manners.</li>
+            <li><strong>Popular / adventure fiction</strong> – John Buchan: taste for action, rhythm, explosive plots.</li>
+            <li><strong>War humour</strong> – stories from WWI veterans: source of macabre, offhand jokes.</li>
+            <li><strong>Political experience</strong> – apartheid South Africa: feeds the rage and charge behind early books.</li>
+          </ul>
+        </div>
+      </details>
+    </section>
+
+    <!-- CHAPTER 7 · Selection -->
+    <section class="card accordion-card" id="sec-works">
+      <details class="accordion">
+        <summary>
+          <div>
+            <div class="accordion-index">Chapter 7</div>
+            <div class="accordion-title">Selection · works in the atlas</div>
+          </div>
+          <span class="accordion-caret">▸</span>
+        </summary>
+        <div class="accordion-body">
+          <p class="muted">
+            Not a full bibliography, but the core novels followed in the atlas, where comedy functions
+            as a clear, mappable engine.
+          </p>
+          <ul>
+            <!-- TODO: update href values to actual novel fiche URLs -->
+            <li><a href="#" title="Go to the fiche for Riotous Assembly"><em>Riotous Assembly</em> (1971)</a> – Crime current plus Everyday; satire of racist law as comic engine.</li>
+            <li><a href="#" title="Go to the fiche for Indecent Exposure"><em>Indecent Exposure</em> (1973)</a> – direct sequel, institutional panic pushed further.</li>
+            <li><a href="#" title="Go to the fiche for Porterhouse Blue"><em>Porterhouse Blue</em> (1974)</a> – Everyday; academic satire in an old Cambridge college.</li>
+            <li><a href="#" title="Go to the fiche for Blott on the Landscape"><em>Blott on the Landscape</em> (1975)</a> – Everyday / Crime; small local interests, large-scale farce.</li>
+            <li><a href="#" title="Go to the fiche for Wilt"><em>Wilt</em> (1976)</a> – Everyday; frustration, code/etiquette and vaudeville structure around a “Midlands campus”.</li>
+            <li><a href="#" title="Go to the fiche for The Great Pursuit"><em>The Great Pursuit</em> (1977)</a> – relentless satire of the publishing world and of how “literary value” can be manufactured almost on demand.</li>
+          </ul>
+
+          <!-- Optional covers grid: placeholders for now -->
+          <div class="covers-grid" aria-label="Cover placeholders">
+            <div>
+              <div class="cover-placeholder"></div>
+              <div class="cover-caption">Cover · Riotous Assembly</div>
+            </div>
+            <div>
+              <div class="cover-placeholder"></div>
+              <div class="cover-caption">Cover · Porterhouse Blue</div>
+            </div>
+            <div>
+              <div class="cover-placeholder"></div>
+              <div class="cover-caption">Cover · Wilt</div>
+            </div>
           </div>
         </div>
+      </details>
+    </section>
 
-        <!-- BIO · STRATES DE VIE (capsule bonus, non listée dans le sommaire) -->
-        <article class="card bio-card" style="margin-top:16px;" id="bio">
-          <details>
-            <summary><span class="bio-caret">▶</span>Bio · Strates de vie</summary>
-            <div class="bio-body">
-              <p class="subheading">Enfance &amp; formation</p>
-              <p>
-                Né à Londres dans une famille de classe moyenne, Sharpe grandit entre un père pasteur anglican
-                aux convictions politiques tranchées et une Angleterre d’avant-guerre qui bascule rapidement
-                dans les bouleversements du XX<sup>e</sup> siècle. Après la scolarité, il passe par les Royal Marines
-                puis étudie l’histoire et l’anthropologie sociale à Cambridge.
-              </p>
-
-              <p class="subheading">Afrique du Sud : satire et rupture</p>
-              <p>
-                Dans les années 1950-1960, il part travailler en Afrique du Sud comme assistant social
-                et employé dans des institutions liées au régime d’apartheid. Il y découvre de l’intérieur
-                la brutalité bureaucratique du système, s’en moque dans des pièces satiriques, est arrêté puis expulsé.
-                Cet épisode devient l’un des grands réservoirs de rage et de matériau pour ses premiers romans.
-              </p>
-
-              <p class="subheading">Retour en Angleterre &amp; métier d’écrivain</p>
-              <p>
-                De retour au Royaume-Uni, il enseigne dans un technical college des Midlands – un étage en dessous
-                de l’université prestigieuse – tout en écrivant. C’est de ce poste un peu marginal que naîtront
-                les premiers livres qui le rendent célèbre, jusqu’au succès de la série <em>Wilt</em> et
-                des satires académiques et policières qui l’installent comme romancier à plein temps.
-              </p>
-
-              <p class="subheading">Exil catalan &amp; dernière période</p>
-              <p>
-                La fin de sa vie se déroule en Catalogne, à Llafranc, dans une semi-retraite active :
-                routine d’écriture, promenades, visites d’amis. Loin de l’Angleterre mais obsédé par elle,
-                il continue d’y situer ses farces institutionnelles. Les problèmes de santé se multiplient,
-                plusieurs projets restent inachevés, mais l’essentiel de l’œuvre est déjà en place.
-              </p>
-
-              <p class="muted">
-                Cette capsule biographique peut être enrichie au fil des recherches : correspondances, témoignages,
-                archives d’édition, entretiens tardifs…
-              </p>
-            </div>
-          </details>
-        </article>
-
-        <!-- Sticky / floating TOC -->
-        <nav class="card toc-card" aria-label="Sections in this fiche">
-          <div class="toc-card-header">
-            <span class="toc-title">In this fiche</span>
-            <span class="toc-current" aria-live="polite"></span>
+    <!-- CHAPTER 8 · Reception -->
+    <section class="card accordion-card" id="sec-reception">
+      <details class="accordion">
+        <summary>
+          <div>
+            <div class="accordion-index">Chapter 8</div>
+            <div class="accordion-title">Reception &amp; reputation</div>
           </div>
-          <div class="toc-card-body">
-            <ul class="toc-list">
-              <li><a href="#author-note">Author’s note</a></li>
-              <li><a href="#currents">Comedy &amp; currents</a></li>
-              <li><a href="#style">Style &amp; writing</a></li>
-              <li><a href="#life">Life &amp; workshop</a></li>
-              <li><a href="#workshop">How he wrote</a></li>
-              <li><a href="#friendships">Humorous friendships &amp; influences</a></li>
-              <li><a href="#works">Selection</a></li>
-              <li><a href="#reception">Reception</a></li>
-              <li><a href="#why">Reading lens · Why in the atlas?</a></li>
-              <li><a href="#data">Data stub</a></li>
-            </ul>
+          <span class="accordion-caret">▸</span>
+        </summary>
+        <div class="accordion-body">
+          <p>
+            Sharpe quickly found a wide readership in the UK and abroad. Middle-class frustration,
+            institutional hypocrisy and the feeling of being trapped are widely recognisable.
+            His books gained a reputation as “dangerous books”: too vulgar, too delighted by the idea
+            of blowing up respectable institutions.
+          </p>
+          <p>
+            For a long time, criticism hesitated between two positions:
+          </p>
+          <ul>
+            <li>
+              on one side, he was hailed as a continuer of the great British comic tradition,
+              a kind of Wodehouse on amphetamines;
+            </li>
+            <li>
+              on the other, he was reproached for cruelty, caricature and lack of psychological nuance.
+            </li>
+          </ul>
+          <p>
+            Reread today, the novels feel dated in their settings (pre-Thatcher England, apartheid)
+            and at the same time strikingly contemporary in their mechanisms. Institutions that pretend to
+            guarantee order and dignity, yet function like machines for producing panic and humiliation,
+            have not disappeared.
+          </p>
+        </div>
+      </details>
+    </section>
+
+    <!-- CHAPTER 9 · Reading lens + Why in the atlas -->
+    <section class="card accordion-card" id="sec-why">
+      <details class="accordion">
+        <summary>
+          <div>
+            <div class="accordion-index">Chapter 9</div>
+            <div class="accordion-title">Reading lens · Why in the atlas?</div>
           </div>
-        </nav>
-      </aside>
+          <span class="accordion-caret">▸</span>
+        </summary>
+        <div class="accordion-body">
+          <p class="subheading">Reading lens</p>
+          <p>
+            Tom Sharpe’s novels are made of antagonisms. Comedy is the central engine, the one that reveals
+            and flushes things out. His universe is populated by brilliant losers and self-satisfied idiots,
+            all passed through the scanner of systems that are already falling apart. Indecent rules and
+            nauseating ambitions collide head-on.
+          </p>
+          <p>
+            His characters try to “fix things” and only ever make them worse. This is the core of
+            Tom Sharpe’s humour.
+          </p>
+          <p>
+            He stands at the crossroads of social comedy and comic noir, where catastrophe is not an accident
+            but the normal operating mode of society.
+          </p>
+          <p>
+            Within the atlas, he becomes a textbook case:
+            a writer who shows how to turn frustration, individual or collective, not into a vague mood
+            but into a true comic engine, calibrated to the millimetre.
+          </p>
 
-      <!-- MAIN COLUMN -->
-      <section class="main" aria-label="Author fiche main content">
-        <!-- Author note -->
-        <article class="card card-note section-card" id="author-note">
-          <div class="card-header">
-            <h2>Author’s note</h2>
+          <p class="subheading">Why in the atlas?</p>
+          <p>
+            Why does Tom Sharpe have a full author fiche here, and not just a few scattered mentions?
+          </p>
+          <p>
+            Because he brings together three rare criteria.
+          </p>
+          <ul>
+            <li>
+              <strong>A clearly identifiable comic engine</strong><br>
+              Frustration plus collapsing institutions is not just a climate.
+              It is a precise mechanism that can be described, compared and transmitted.
+            </li>
+            <li>
+              <strong>A sufficiently concentrated corpus</strong><br>
+              Several important novels work this engine from different angles.
+              This allows us to speak of a real “comic oeuvre”, not of an isolated accident.
+            </li>
+            <li>
+              <strong>A bridge between currents</strong><br>
+              He connects Comedy of Everyday and Comedy of Crime.
+              In Sharpe, the everyday turns into potential crime as soon as the institution enters the scene.
+            </li>
+          </ul>
+
+          <p class="subheading">His place in the atlas</p>
+          <p>
+            Within the atlas, Sharpe plays several roles.
+          </p>
+
+          <p class="subheading">Reference point for Frustration Comedy</p>
+          <p>
+            How far can frustration be pushed as a comic engine before it collapses into mere bitterness?
+            Sharpe offers a useful point of balance – or imbalance – for positioning other authors.
+          </p>
+
+          <p class="subheading">Model of failing institutions</p>
+          <p>
+            His novels serve as landmarks for reading fictions where institutions
+            (school, police, administration) generate comedy simply by applying their own programme.
+          </p>
+
+          <p class="subheading">Example of cinematic grammar in the novel</p>
+          <p>
+            He is a key case of montage and visual gag logic absorbed into prose
+            that still remains, stubbornly, the novel form.
+          </p>
+
+          <p>
+            In practice, in the Midlands Lab and neighbouring hubs, Sharpe is one of the main calibration points.
+            As soon as a new novel stages a brilliant loser, an overheating institution and an administrative spiral,
+            we check whether and how it resonates with the “Sharpe line”.
+          </p>
+        </div>
+      </details>
+    </section>
+
+    <!-- CHAPTER 10 · Data stub -->
+    <section class="card accordion-card" id="sec-data">
+      <details class="accordion">
+        <summary>
+          <div>
+            <div class="accordion-index">Chapter 10</div>
+            <div class="accordion-title">Data · atlas stub</div>
           </div>
-          <div class="card-body">
-            <p>
-              A life’s worth of decades on Earth, or simply the time of disillusionment?
-            </p>
-            <p>
-              Right at the centre of his own gravity, Tom Sharpe shifts from teacher to writer.
-              Forty-two years of slow maturation (that odd little number again…).
-            </p>
-            <p>
-              A strong drink against apartheid, which earns him prison and then expulsion back to his homeland.
-              From the dark South African years to the misty Midlands of 1970s England,
-              he keeps firing satirical volleys. The brazenness of the mediocre fascinates him.
-              The alienation of the individual drives him furious.
-            </p>
-            <p>
-              Sharpe shoots in all directions: codes and etiquette that tape you down exactly where you never
-              wanted to be. The half-century that separates us from the first volume of the <em>Wilt</em> series
-              is one of those that bring us closer. Sideburns and flared trousers may have fallen away;
-              oppressions, on the other hand, cling on. Nothing really changes.
-            </p>
-            <p>
-              So don’t trust the face or the vague “has-been” impression. This is a writer who feels contemporary
-              in every age. Even in those still to come.
-            </p>
-            <p>
-              Beaumarchais hurried to laugh at everything, for fear of being obliged to weep.
-              Tom Sharpe chose the same pair of glasses. Put them on as well:
-              they help you see more clearly. Better still, they help you find a way through.
-            </p>
-            <p class="note-signature">A pity my ophthalmologist doesn’t prescribe that model… — TNoC</p>
-          </div>
-        </article>
-
-        <!-- Comedy & currents -->
-        <article class="card section-card" style="margin-top:16px;" id="currents">
-          <div class="card-header">
-            <h3>Comedy &amp; currents</h3>
-          </div>
-          <div class="card-body">
-            <p>
-              In this mapping, Sharpe is first and foremost a <strong>Comedy of Everyday</strong> writer:
-              the individual facing the group and the rules. The setting is often “ordinary” –
-              home, work, office, provincial town – but it is treated as a device, a small time-bomb.
-            </p>
-            <p>
-              At the same time, several books lean strongly towards <strong>Comedy of Crime</strong>,
-              from absurd investigations to unjustified chases. Policemen and authority figures are not just
-              ridiculous, they are the ones who manufacture chaos. Suspicion replaces proof; procedure replaces
-              judgement. The law starts hunting the wrong people, for the wrong reasons.
-            </p>
-
-            <p class="subheading">Dominant branches</p>
-            <p><strong>Frustration</strong></p>
-            <p>
-              Everyday life as a chain of micro-humiliations. Life does not move forward, or moves sideways.
-              Each attempt to take back control makes things worse. Frustration is not just a tone;
-              it is the basic narrative pattern.
-            </p>
-
-            <p><strong>Comedy of the Code/Etiquette</strong></p>
-            <p>
-              School rules, police protocols, good conduct and administrative hierarchies:
-              everything that was supposed to guarantee stability becomes a generator of absurdity.
-              The more characters cling to “procedure”, the faster the machine derails.
-            </p>
-
-            <p><strong>Vaudeville form</strong></p>
-            <p>
-              Plots multiply, misunderstandings follow one another. Scenes work like pieces of vaudeville,
-              but rooted in a very concrete twentieth century. Formica replaces wood-panelled salons.
-            </p>
-
-            <p class="subheading">Two key configurations</p>
-            <p>
-              In <em>Wilt</em>, Comedy of Everyday dominates: a technical-college lecturer stuck below
-              “legitimate” university status, a wife obsessed with self-development, neighbours who watch and comment.
-              The Crime affluent enters through the investigation and the suspicion that a marital fantasy
-              might have led to murder.
-            </p>
-            <p>
-              In the South African novels (<em>Riotous Assembly</em>, <em>Indecent Exposure</em>),
-              Comedy of Crime takes over: racist law and the police form the very heart of the society’s absurdity.
-            </p>
-          </div>
-        </article>
-
-        <!-- Style & writing -->
-        <article class="card section-card" style="margin-top:16px;" id="style">
-          <div class="card-header">
-            <h3>Style &amp; writing</h3>
-          </div>
-          <div class="card-body">
-            <p>
-              Sharpe’s prose reads like a near “anti-manual” of English humour. His sentences are dry,
-              deliberately not “beautiful”. He moves away from polished wit and sparkle,
-              as if the Sex Pistols had been invited to entertain the Queen of England.
-            </p>
-            <p>
-              The world he describes seems under-lit under a low sky. Madness simmers under pressure,
-              with a faint, persistent depression. Ideal ground for comic escalation.
-            </p>
-
-            <p class="subheading">Scene work</p>
-            <p>
-              Sharpe works like a director:
-            </p>
-            <ul>
-              <li>scenes are cut quickly,</li>
-              <li>the narrative camera slides from one character to another when anxiety peaks,</li>
-              <li>dialogues are closer to fights than to exchanges of information.</li>
-            </ul>
-            <p>
-              Several of his novels could be turned almost directly into storyboards.
-            </p>
-
-            <p class="subheading">Lines of force</p>
-            <p><strong>At sentence level</strong></p>
-            <p>
-              Short or segmented sentences, dry irony, very few metaphors, a lot of plain statement.
-            </p>
-
-            <p><strong>Dialogue</strong></p>
-            <p>
-              Interrogations, marital rows, staff meetings, insults. Each line is less about informing
-              than about pushing imbalance one step further.
-            </p>
-
-            <p><strong>Overall rhythm</strong></p>
-            <p>
-              Less a collection of self-contained scenes than a series of spirals:
-              a situation jams, then expands until it contaminates all the others.
-            </p>
-
-            <p>
-              For the cartographers, Sharpe is an important example of how cinematic grammar
-              can be integrated into the novel without turning the text into a simple screenplay.
-            </p>
-          </div>
-        </article>
-
-        <!-- Life & writing workshop -->
-        <article class="card section-card" style="margin-top:16px;" id="life">
-          <div class="card-header">
-            <h3>Life &amp; workshop</h3>
-          </div>
-          <div class="card-body">
-            <p>
-              Before becoming a novelist, Sharpe worked in places where power and humiliation
-              are not abstract concepts. In South Africa, he saw apartheid from inside the institutions
-              that applied it, and suffered the consequences for mocking it. Back in England, he taught
-              in a technical college, far from the prestige of Oxford or Cambridge.
-            </p>
-            <p>
-              In this reading, that professional path is not background decoration.
-              It is the raw material of his comic devices.
-            </p>
-
-            <ul>
-              <li>
-                The technical college becomes a laboratory of failed meritocracy:
-                lecturers pushed out of the university system, students physically present but mentally elsewhere,
-                an administration more obsessed with paperwork than with teaching.
-              </li>
-              <li>
-                The police station becomes a machine for turning misunderstandings into moral panic:
-                obsession with guilt, accumulation of trivial details elevated to the rank of proof.
-              </li>
-              <li>
-                The small provincial town becomes a concentrate of resentment:
-                overblown local ambitions, neighbourly jealousies.
-              </li>
-            </ul>
-
-            <p>
-              The biography works as a toolbox rather than a master key.
-              The aim is not to match a specific real episode to a specific scene, but to understand how
-              experiences of institutional violence and social stagnation are compressed into mechanisms
-              of acid satire.
-            </p>
-          </div>
-        </article>
-
-        <!-- How he wrote -->
-        <article class="card section-card" style="margin-top:16px;" id="workshop">
-          <div class="card-header">
-            <h3>How he wrote · Habits &amp; rituals</h3>
-          </div>
-          <div class="card-body">
-            <!-- Placeholder for your drawing -->
-            <div class="workshop-visual">
-              <div class="workshop-placeholder" aria-hidden="true"></div>
-              <div class="workshop-caption">
-                Placeholder for drawing: Sharpe at his desk / wide shot of the writing room.
-              </div>
-            </div>
-
-            <p class="subheading">1. The old machine versus the screen</p>
-            <p>
-              For a long time, Sharpe resisted the computer. He wrote his novels on a robust, noisy,
-              almost archaic typewriter, which he preferred to any word processor. When he tried a computer,
-              he said he felt the text turning into a manipulable image on a screen, whereas on the machine
-              every keystroke engaged him physically and morally in the sentence.
-            </p>
-
-            <p class="subheading">2. The 1,500-page barbecue</p>
-            <p>
-              In the mid-1990s, living in Catalonia, he struggled with a new <em>Wilt</em> novel
-              that never satisfied him: 1,500 typed pages, corrected, annotated. One evening, exasperated by what
-              he considered a failure, he carried the piles of manuscript into the garden, lit the barbecue
-              and burned them methodically, as one might sacrifice a sick animal to save the rest of the herd.
-            </p>
-
-            <p class="subheading">3. Nancy as first evening audience</p>
-            <p>
-              Sharpe often said he trusted theories less than the sound of his wife Nancy’s laughter.
-              The ritual was simple: in the evening, she read the day’s pages in bed. If she burst out laughing,
-              the passage was safe. If she stayed silent, he knew he would have to rework or cut.
-            </p>
-
-            <p class="subheading">4. Notebooks, journals and the impossible autobiography</p>
-            <p>
-              Behind the public image of the explosive humourist, there is a meticulous Sharpe who accumulated notes
-              and work journals. The Tom Sharpe Chair at the University of Girona mentions notebooks where he recorded
-              dreams, South African memories, sketches of scenes and attempts at autobiography, always abandoned midway.
-              He admitted he could not write his life because it seemed too painful and chaotic.
-            </p>
-
-            <p class="subheading">5. Catalan exile as workshop</p>
-            <p>
-              At the end of his life, his “office” moved. Sharpe lived and worked in Llafranc, on the Costa Brava,
-              in a house where light, sea and distance from England became working tools as much as pen and paper.
-              Testimonies describe a simple, almost monastic routine: writing, walks, visits from friends,
-              and an exiled gaze on British society, which he continued to demolish through fiction from a small
-              Catalan town.
-            </p>
-
-            <p class="subheading">6. Slow worker of catastrophe</p>
-            <p>
-              Despite the violent energy of his plots, Sharpe did not write quickly. Some novels took years
-              to find their form. In late interviews he evokes health problems and growing fatigue that made it
-              increasingly costly to maintain the same intensity. Each new book felt like a battle against wear.
-            </p>
-          </div>
-        </article>
-
-        <!-- Humorous friendships & influences -->
-        <article class="card section-card" style="margin-top:16px;" id="friendships">
-          <div class="card-header">
-            <h3>Humorous friendships &amp; influences</h3>
-          </div>
-          <div class="card-body">
-            <p>
-              Sharpe openly places himself in a British satirical tradition, while insisting on the difference
-              of tone and brutality between his work and that of his models.
-            </p>
-
-            <p class="subheading">Claimed traditions and authors</p>
-            <p>
-              He sees himself in the line of English satirists and humourists, in particular
-              <strong>P. G. Wodehouse</strong> and <strong>Evelyn Waugh</strong>, whose farce and construction
-              of situations pushed to absurdity he admires and adapts.
-            </p>
-            <p>
-              His personal library preserved in Spain confirms that Wodehouse, Waugh and also adventure novelist
-              <strong>John Buchan</strong> are among the authors that formed him. From them he takes the taste
-              for social comedy, campus satire and plots that can suddenly flare up.
-            </p>
-
-            <p class="subheading">Difference of tone: from rapier to machete</p>
-            <p>
-              Critics often present him as an heir of Wodehouse and Waugh, but Sharpe himself stresses a sharper,
-              more brutal register. Where his predecessors handle the rapier, he jokes that he works with a machete:
-              same farce tradition, less polish, more blows to the system, and a much dirtier sense of humour.
-            </p>
-
-            <p class="subheading">Biographical sources and deeper influences</p>
-            <p>
-              Sharpe attributes much of his black humour to stories told by First World War veterans
-              he heard as a child, their jokes on the edge of death leaving a lasting impression.
-            </p>
-            <p>
-              His decade in apartheid South Africa forms another explicit matrix: his early satirical novels grow
-              out of rage at the system and transform political experience into explosive farce.
-            </p>
-
-            <p class="subheading">Novelists in the same orbit</p>
-
-            <p><strong>Kingsley Amis – <em>Lucky Jim</em></strong></p>
-            <p>
-              Same kind of brilliant academic loser and almost functional logic of humiliation.
-              Sharpe pushes both violence and grotesque further.
-            </p>
-
-            <p><strong>David Lodge – academic / provincial cycle</strong> (<em>Changing Places</em>, <em>Small World</em>…)</p>
-            <p>
-              Rituals, etiquette, conferences, status games. Where Lodge keeps a certain tenderness
-              for his world, Sharpe is more interested in the moment when the decor cracks.
-            </p>
-
-            <p><strong>Frédéric Dard</strong></p>
-            <p>
-              Same observation: people are monstrous in their excesses, authorities rarely more dignified.
-              Dard works through orality and bravado. Sharpe favours dry sentences and escalation devices.
-              Both turn ordinary cruelty into a system.
-            </p>
-
-            <p class="subheading">Cross-arts (film, TV, visual comedy)</p>
-
-            <p><strong>The Marx Brothers</strong></p>
-            <p>
-              Cascading madness, accumulations of gags, joyful destruction of authority.
-              Sharpe translates this energy into prose, especially in crowd scenes and interrogations
-              that turn into absurd processions.
-            </p>
-
-            <p><strong>Mel Brooks</strong></p>
-            <p>
-              Aggressive parody of power and ideology. The South African novels work along a similar line:
-              state apparatus turned into derision to the point of absurdity, without softening.
-            </p>
-
-            <p><strong>John Cleese – <em>Fawlty Towers</em></strong></p>
-            <p>
-              The same mechanics of unstoppable escalation, the same obsession with ridiculous procedure
-              and incompetent authority. A closed setting where order is proclaimed and chaos is produced.
-            </p>
-
-            <p class="subheading">Influence snapshot</p>
-            <ul>
-              <li><strong>Satirical tradition</strong> – Wodehouse, Waugh: models for social farce and comedy of manners.</li>
-              <li><strong>Popular / adventure fiction</strong> – John Buchan: taste for action, rhythm, explosive plots.</li>
-              <li><strong>War humour</strong> – stories from WWI veterans: source of macabre, offhand jokes.</li>
-              <li><strong>Political experience</strong> – apartheid South Africa: feeds the rage and charge behind early books.</li>
-            </ul>
-          </div>
-        </article>
-
-        <!-- Selection of works -->
-        <article class="card section-card" style="margin-top:16px;" id="works">
-          <div class="card-header">
-            <h3>Selection · works in the atlas</h3>
-          </div>
-          <div class="card-body">
-            <p class="muted">
-              Not a full bibliography, but the core novels followed in the atlas, where comedy functions
-              as a clear, mappable engine.
-            </p>
-            <ul>
-              <!-- TODO: update href values to actual novel fiche URLs -->
-              <li><a href="#" title="Go to the fiche for Riotous Assembly"><em>Riotous Assembly</em> (1971)</a> – Crime current plus Everyday; satire of racist law as comic engine.</li>
-              <li><a href="#" title="Go to the fiche for Indecent Exposure"><em>Indecent Exposure</em> (1973)</a> – direct sequel, institutional panic pushed further.</li>
-              <li><a href="#" title="Go to the fiche for Porterhouse Blue"><em>Porterhouse Blue</em> (1974)</a> – Everyday; academic satire in an old Cambridge college.</li>
-              <li><a href="#" title="Go to the fiche for Blott on the Landscape"><em>Blott on the Landscape</em> (1975)</a> – Everyday / Crime; small local interests, large-scale farce.</li>
-              <li><a href="#" title="Go to the fiche for Wilt"><em>Wilt</em> (1976)</a> – Everyday; frustration, code/etiquette and vaudeville structure around a “Midlands campus”.</li>
-              <li><a href="#" title="Go to the fiche for The Great Pursuit"><em>The Great Pursuit</em> (1977)</a> – relentless satire of the publishing world and of how “literary value” can be manufactured almost on demand.</li>
-            </ul>
-
-            <!-- Optional covers grid: placeholders for now -->
-            <div class="covers-grid" aria-label="Cover placeholders">
-              <div>
-                <div class="cover-placeholder"></div>
-                <div class="cover-caption">Cover · Riotous Assembly</div>
-              </div>
-              <div>
-                <div class="cover-placeholder"></div>
-                <div class="cover-caption">Cover · Porterhouse Blue</div>
-              </div>
-              <div>
-                <div class="cover-placeholder"></div>
-                <div class="cover-caption">Cover · Wilt</div>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <!-- Reception & reputation -->
-        <article class="card section-card" style="margin-top:16px;" id="reception">
-          <div class="card-header">
-            <h3>Reception &amp; reputation</h3>
-          </div>
-          <div class="card-body">
-            <p>
-              Sharpe quickly found a wide readership in the UK and abroad. Middle-class frustration,
-              institutional hypocrisy and the feeling of being trapped are widely recognisable.
-              His books gained a reputation as “dangerous books”: too vulgar, too delighted by the idea
-              of blowing up respectable institutions.
-            </p>
-            <p>
-              For a long time, criticism hesitated between two positions:
-            </p>
-            <ul>
-              <li>
-                on one side, he was hailed as a continuer of the great British comic tradition,
-                a kind of Wodehouse on amphetamines;
-              </li>
-              <li>
-                on the other, he was reproached for cruelty, caricature and lack of psychological nuance.
-              </li>
-            </ul>
-            <p>
-              Reread today, the novels feel dated in their settings (pre-Thatcher England, apartheid)
-              and at the same time strikingly contemporary in their mechanisms. Institutions that pretend to
-              guarantee order and dignity, yet function like machines for producing panic and humiliation,
-              have not disappeared.
-            </p>
-          </div>
-        </article>
-
-        <!-- FINAL FUSED BLOCK -->
-        <article class="card section-card" style="margin-top:16px;" id="why">
-          <div class="card-header">
-            <h3>Reading lens · Why in the atlas?</h3>
-          </div>
-          <div class="card-body">
-            <!-- Reading lens -->
-            <p>
-              Tom Sharpe’s novels are made of antagonisms. Comedy is the central engine, the one that reveals
-              and flushes things out. His universe is populated by brilliant losers and self-satisfied idiots,
-              all passed through the scanner of systems that are already falling apart. Indecent rules and
-              nauseating ambitions collide head-on.
-            </p>
-            <p>
-              His characters try to “fix things” and only ever make them worse. This is the core of
-              Tom Sharpe’s humour.
-            </p>
-            <p>
-              He stands at the crossroads of social comedy and comic noir, where catastrophe is not an accident
-              but the normal operating mode of society.
-            </p>
-            <p>
-              Within the atlas, he becomes a textbook case:
-              a writer who shows how to turn frustration, individual or collective, not into a vague mood
-              but into a true comic engine, calibrated to the millimetre.
-            </p>
-
-            <p class="subheading">Why a full author fiche?</p>
-            <p>
-              Why does Tom Sharpe have a full author fiche here, and not just a few scattered mentions?
-            </p>
-            <p>
-              Because he brings together three rare criteria.
-            </p>
-            <ul>
-              <li>
-                <strong>A clearly identifiable comic engine</strong><br>
-                Frustration plus collapsing institutions is not just a climate.
-                It is a precise mechanism that can be described, compared and transmitted.
-              </li>
-              <li>
-                <strong>A sufficiently concentrated corpus</strong><br>
-                Several important novels work this engine from different angles.
-                This allows us to speak of a real “comic oeuvre”, not of an isolated accident.
-              </li>
-              <li>
-                <strong>A bridge between currents</strong><br>
-                He connects Comedy of Everyday and Comedy of Crime.
-                In Sharpe, the everyday turns into potential crime as soon as the institution enters the scene.
-              </li>
-            </ul>
-
-            <p class="subheading">His place in the atlas</p>
-            <p>
-              Within the atlas, Sharpe plays several roles.
-            </p>
-
-            <p class="subheading">Reference point for Frustration Comedy</p>
-            <p>
-              How far can frustration be pushed as a comic engine before it collapses into mere bitterness?
-              Sharpe offers a useful point of balance – or imbalance – for positioning other authors.
-            </p>
-
-            <p class="subheading">Model of failing institutions</p>
-            <p>
-              His novels serve as landmarks for reading fictions where institutions
-              (school, police, administration) generate comedy simply by applying their own programme.
-            </p>
-
-            <p class="subheading">Example of cinematic grammar in the novel</p>
-            <p>
-              He is a key case of montage and visual gag logic absorbed into prose
-              that still remains, stubbornly, the novel form.
-            </p>
-
-            <p>
-              In practice, in the Midlands Lab and neighbouring hubs, Sharpe is one of the main calibration points.
-              As soon as a new novel stages a brilliant loser, an overheating institution and an administrative spiral,
-              we check whether and how it resonates with the “Sharpe line”.
-            </p>
-          </div>
-        </article>
-
-        <!-- Data block -->
-        <article class="card section-card" style="margin-top:16px;" id="data">
-          <div class="card-header">
-            <h3>Data · atlas stub</h3>
-          </div>
-          <div class="card-body">
-            <code class="mono">
+          <span class="accordion-caret">▸</span>
+        </summary>
+        <div class="accordion-body">
+          <code class="mono">
 {"@type":"Person",
  "name":"Tom Sharpe",
  "birthYear":"1928",
@@ -1111,176 +1091,35 @@
  "branches":"frustration,code,vaudeville",
  "affluents":"crime",
  "labs":"midlands"}
-            </code>
-          </div>
-        </article>
-      </section>
-    </div>
+          </code>
+        </div>
+      </details>
+    </section>
+
   </div>
 </main>
 
 <script>
-  // Scrollspy + rail flottant + accordéon mobile + accordéon sections
+  // Sommaire -> ouvre l'accordéon correspondant automatiquement
   (function(){
-    const toc = document.querySelector('.toc-card');
-    if (!toc) return;
+    const links = document.querySelectorAll('.toc-link');
+    links.forEach(link => {
+      link.addEventListener('click', function(e){
+        const targetId = this.getAttribute('data-target');
+        if (!targetId) return;
 
-    const tocLinks = Array.from(toc.querySelectorAll('.toc-list a'));
-    if (!tocLinks.length) return;
+        const section = document.getElementById(targetId);
+        if (!section) return;
 
-    const tocCurrent = toc.querySelector('.toc-current');
-
-    const sections = tocLinks
-      .map(link => {
-        const id = link.getAttribute('href').slice(1);
-        const el = document.getElementById(id);
-        return el ? { id, el, link } : null;
-      })
-      .filter(Boolean);
-
-    function clearActive(){
-      tocLinks.forEach(l => l.classList.remove('active'));
-    }
-
-    function setCurrentFromLink(link){
-      if (!tocCurrent || !link) return;
-      const label = (link.textContent || '').trim();
-      tocCurrent.textContent = label ? '· ' + label : '';
-    }
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting){
-          const match = sections.find(s => s.el === entry.target);
-          if (!match) return;
-          clearActive();
-          match.link.classList.add('active');
-          setCurrentFromLink(match.link);
+        const details = section.querySelector('details.accordion');
+        if (details){
+          details.open = true;
         }
-      });
-    }, {
-      root: null,
-      rootMargin: '-45% 0px -50% 0px',
-      threshold: 0.2
-    });
 
-    sections.forEach(s => observer.observe(s.el));
-
-    // Rail flottant (desktop seulement)
-    let tocTop = toc.getBoundingClientRect().top + window.pageYOffset;
-    let tocLeft = toc.getBoundingClientRect().left;
-
-    function updateTocPosition(){
-      const isNarrow = window.matchMedia('(max-width: 900px)').matches;
-      if (isNarrow){
-        toc.classList.remove('is-floating');
-        return;
-      }
-
-      const rect = toc.getBoundingClientRect();
-      if (!toc.classList.contains('is-floating')){
-        tocLeft = rect.left;
-      }
-
-      const scrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
-
-      if (scrollY > tocTop - 16){
-        toc.style.setProperty('--toc-left', tocLeft + 'px');
-        toc.classList.add('is-floating');
-      } else {
-        toc.classList.remove('is-floating');
-      }
-    }
-
-    // Accordéon mobile pour le TOC
-    const tocHeader = toc.querySelector('.toc-card-header');
-
-    function syncAccordionState(){
-      const isNarrow = window.matchMedia('(max-width: 900px)').matches;
-      if (isNarrow){
-        toc.classList.add('collapsed');
-      } else {
-        toc.classList.remove('collapsed');
-      }
-    }
-
-    if (tocHeader){
-      tocHeader.addEventListener('click', () => {
-        const isNarrow = window.matchMedia('(max-width: 900px)').matches;
-        if (isNarrow){
-          toc.classList.toggle('collapsed');
-        }
-      });
-    }
-
-    tocLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        const isNarrow = window.matchMedia('(max-width: 900px)').matches;
-        if (isNarrow){
-          toc.classList.add('collapsed');
-        }
+        // Laisser le navigateur gérer le scroll vers l'ancre
+        // (on ne fait pas preventDefault ici pour garder le comportement naturel)
       });
     });
-
-    // ACCORDÉON SUR LES 10 CHAPITRES (section-card)
-    const sectionCards = Array.from(document.querySelectorAll('.section-card'));
-    const isMobile = () => window.matchMedia('(max-width: 900px)').matches;
-
-    function initSectionAccordion(){
-      if (!sectionCards.length) return;
-      if (!isMobile()){
-        // Desktop : tout ouvert
-        sectionCards.forEach(card => card.classList.remove('collapsed'));
-        return;
-      }
-      // Mobile : on ouvre seulement le premier chapitre
-      sectionCards.forEach((card, idx) => {
-        if (idx === 0){
-          card.classList.remove('collapsed');
-        } else {
-          card.classList.add('collapsed');
-        }
-      });
-    }
-
-    sectionCards.forEach(card => {
-      const header = card.querySelector('.card-header');
-      if (!header) return;
-      header.addEventListener('click', (e) => {
-        if (!isMobile()) return;
-        const wasOpen = !card.classList.contains('collapsed');
-
-        // Accordéon : ferme tout
-        sectionCards.forEach(c => c.classList.add('collapsed'));
-
-        // Si celui qu'on clique était déjà ouvert, on laisse tout fermé
-        if (wasOpen) return;
-
-        // Sinon on ouvre celui-ci
-        card.classList.remove('collapsed');
-        card.scrollIntoView({behavior:'smooth', block:'start'});
-      });
-    });
-
-    window.addEventListener('scroll', updateTocPosition);
-    window.addEventListener('resize', () => {
-      if (!toc.classList.contains('is-floating')){
-        tocTop = toc.getBoundingClientRect().top + window.pageYOffset;
-        tocLeft = toc.getBoundingClientRect().left;
-      }
-      updateTocPosition();
-      syncAccordionState();
-      initSectionAccordion();
-    });
-
-    // Init
-    updateTocPosition();
-    syncAccordionState();
-    initSectionAccordion();
-
-    if (sections.length){
-      setCurrentFromLink(sections[0].link);
-    }
   })();
 </script>
 
