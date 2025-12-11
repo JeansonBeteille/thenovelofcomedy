@@ -5,7 +5,7 @@
   <title>The Novel of Comedy (TNoC) – Digital atlas of modern comic fiction</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description"
-        content="The Novel of Comedy (TNoC) is a digital atlas and critical cartography of modern comic fiction: three currents, branches, environments, Labs, and a system of novel and author fiches.">
+        content="The Novel of Comedy (TNoC) is a digital atlas and critical cartography of modern comic fiction: three currents, branches, environments, Labs, and a system of novel and author guides.">
   <style>
     :root{
       --bg:#0b0b0c;
@@ -215,6 +215,20 @@
       height:8px;
       border-radius:50%;
       background:var(--evergreen);
+      flex-shrink:0;
+    }
+    .chip-text{
+      display:flex;
+      flex-direction:column;
+      gap:1px;
+    }
+    .chip-label{
+      font-size:11px;
+      font-weight:500;
+    }
+    .chip-desc{
+      font-size:10px;
+      opacity:.85;
     }
 
     .hero-visual{
@@ -305,6 +319,12 @@
       flex-direction:column;
       gap:4px;
       color:#f5f5f5;
+    }
+    .poster-tag{
+      font-size:10px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      opacity:.8;
     }
     .poster-main .poster-title{
       font-size:14px;
@@ -502,89 +522,6 @@
       font-size:15px;
     }
 
-    /* AUTHOR PORTRAITS GALLERY */
-    .author-gallery-section{
-      margin-top:10px;
-    }
-    .author-gallery-grid{
-      display:grid;
-      grid-template-columns:repeat(3,minmax(0,1fr));
-      gap:18px;
-    }
-    @media(max-width:960px){
-      .author-gallery-grid{
-        grid-template-columns:repeat(2,minmax(0,1fr));
-      }
-    }
-    @media(max-width:640px){
-      .author-gallery-grid{
-        grid-template-columns:1fr;
-      }
-    }
-    .author-face-card{
-      background:var(--card);
-      border-radius:16px;
-      border:1px solid var(--border);
-      box-shadow:var(--shadow);
-      padding:10px 10px 12px;
-      font-size:13px;
-      display:flex;
-      flex-direction:column;
-      gap:8px;
-      transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
-    }
-    .author-face-card a{
-      text-decoration:none;
-      color:inherit;
-      display:block;
-    }
-    .author-face-card:hover{
-      transform:translateY(-2px);
-      box-shadow:0 6px 18px rgba(0,0,0,.08);
-      border-color:rgba(0,0,0,.16);
-    }
-    .author-portrait-thumb{
-      width:100%;
-      border-radius:12px;
-      overflow:hidden;
-      border:1px solid var(--border);
-      background:#f3f1ea;
-      position:relative;
-    }
-    .author-portrait-thumb::before{
-      content:"";
-      display:block;
-      padding-top:100%;
-    }
-    .author-portrait-thumb img{
-      position:absolute;
-      inset:0;
-      width:100%;
-      height:100%;
-      object-fit:cover;
-    }
-    .author-face-name{
-      font-weight:600;
-      font-size:14px;
-    }
-    .author-face-dates{
-      font-size:12px;
-      color:var(--muted);
-    }
-    .author-face-chips{
-      margin-top:4px;
-      display:flex;
-      flex-wrap:wrap;
-      gap:6px;
-    }
-    .author-face-chips .chip{
-      font-size:11px;
-      padding:3px 8px;
-      background:var(--chip);
-      border:1px solid var(--border);
-      color:var(--graphite);
-    }
-
     /* LABS MAP */
     .lab-map-wrapper{
       margin-top:12px;
@@ -730,6 +667,120 @@
       }
     }
 
+    /* MICRO-CARROUSEL CURRENTS */
+    .currents-carousel-wrapper{
+      margin-top:16px;
+    }
+    .currents-carousel-title{
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      color:var(--muted);
+      margin-bottom:6px;
+    }
+    .currents-carousel{
+      border-radius:16px;
+      border:1px solid rgba(0,0,0,.06);
+      background:#fff;
+      padding:10px 12px 12px;
+      position:relative;
+      overflow:hidden;
+    }
+    .current-track{
+      position:relative;
+      min-height:140px;
+    }
+    .current-slide{
+      position:absolute;
+      inset:0;
+      display:grid;
+      grid-template-columns:1.2fr 1.8fr;
+      gap:10px;
+      padding:4px;
+      opacity:0;
+      pointer-events:none;
+      transform:translateX(8px);
+      transition:opacity .35s ease, transform .35s ease;
+      font-size:12px;
+    }
+    .current-slide.is-active{
+      opacity:1;
+      pointer-events:auto;
+      transform:translateX(0);
+    }
+    @media(max-width:640px){
+      .current-slide{
+        grid-template-columns:1fr;
+      }
+    }
+    .current-covers{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:6px;
+    }
+    .current-cover{
+      border-radius:10px;
+      overflow:hidden;
+      border:1px solid rgba(0,0,0,.12);
+      background:#111;
+      aspect-ratio:3/4;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .current-cover img{
+      display:block;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+    .current-main{
+      display:flex;
+      flex-direction:column;
+      gap:4px;
+      color:var(--graphite);
+    }
+    .current-label{
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      color:var(--muted);
+    }
+    .current-name{
+      font-size:14px;
+      font-weight:600;
+    }
+    .current-desc{
+      font-size:13px;
+      line-height:1.5;
+    }
+    .current-examples{
+      font-size:12px;
+      color:var(--muted);
+    }
+    .current-nav{
+      margin-top:8px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:6px;
+      font-size:11px;
+    }
+    .current-dot{
+      border-radius:999px;
+      border:1px solid rgba(0,0,0,.16);
+      background:rgba(0,0,0,.03);
+      padding:3px 9px;
+      cursor:pointer;
+      color:var(--graphite);
+      opacity:.7;
+    }
+    .current-dot.is-active{
+      background:var(--evergreen);
+      border-color:var(--evergreen);
+      color:#fff;
+      opacity:1;
+    }
+
     /* META HUB FOR IA */
     .meta-ia{
       font-size:12px;
@@ -742,6 +793,30 @@
     }
     .meta-ia strong{
       font-weight:600;
+    }
+
+    .faq-card{
+      margin-top:10px;
+      background:#fffdf8;
+      border-radius:14px;
+      border:1px solid rgba(0,0,0,.12);
+      box-shadow:var(--shadow);
+      padding:12px 14px 10px;
+      font-size:13px;
+      color:var(--graphite);
+    }
+    .faq-card h3{
+      margin:0 0 6px;
+      font-size:14px;
+    }
+    .faq-list{
+      margin:6px 0 0;
+      padding-left:16px;
+      font-size:12px;
+      color:var(--graphite);
+    }
+    .faq-list li{
+      margin:2px 0 4px;
     }
 
     .footer{
@@ -840,9 +915,9 @@
         </div>
       </a>
       <nav class="nav" aria-label="Navigation">
-        <a href="#fiches">Fiches</a>
-        <a href="novel-fiches.html">Novel fiches</a>
-        <a href="author-fiches.html">Author fiches</a>
+        <a href="#fiches">Guides</a>
+        <a href="novel-fiches.html">Novel guides</a>
+        <a href="author-fiches.html">Author profiles</a>
         <a href="#courants">Currents</a>
         <a href="#roles">Roles of comedy</a>
         <a href="#toolbox">Toolbox</a>
@@ -869,44 +944,55 @@
           through currents, branches and Labs.
         </p>
         <div class="hero-actions">
-          <a href="novel-fiches.html" class="btn btn-primary">Novel fiches</a>
-          <a href="author-fiches.html" class="btn btn-secondary">Author fiches</a>
-          <a href="series-fiches.html" class="btn btn-secondary">Long-running series fiches</a>
+          <a href="novel-fiches.html" class="btn btn-primary">Explore novel guides</a>
+          <a href="author-fiches.html" class="btn btn-secondary">Browse author profiles</a>
+          <a href="series-fiches.html" class="btn btn-secondary">Long-running series</a>
         </div>
         <div class="hero-chips" aria-label="Main currents">
           <span class="chip">
             <span class="chip-dot"></span>
-            Everyday
+            <span class="chip-text">
+              <span class="chip-label">Everyday</span>
+              <span class="chip-desc">social satire, comedy of manners, domestic & workplace comedy</span>
+            </span>
           </span>
           <span class="chip">
             <span class="chip-dot"></span>
-            Crime
+            <span class="chip-text">
+              <span class="chip-label">Crime</span>
+              <span class="chip-desc">comic noir, caper & heist novels, dark screwball, comic detective</span>
+            </span>
           </span>
           <span class="chip">
             <span class="chip-dot"></span>
-            Neo-Nonsense
+            <span class="chip-text">
+              <span class="chip-label">Neo-Nonsense</span>
+              <span class="chip-desc">absurdist fiction, comic SF, postmodern metafiction, playful rewritings</span>
+            </span>
           </span>
         </div>
       </div>
 
-      <aside class="hero-visual" aria-label="Preview of fiches">
-        <h2>Fiche posters</h2>
+      <aside class="hero-visual" aria-label="Curated picks from the atlas">
+        <h2>Atlas picks · This month</h2>
         <p>
-          A few emblematic novels and one author. Each poster opens a full fiche in the atlas.
+          A small rotating selection to dive in right away: a classic, a hidden gem, a recent novel,
+          and one author focus. Each poster opens a full guide in the atlas.
         </p>
 
         <!-- CAROUSEL -->
-        <div class="poster-carousel" aria-label="Fiche posters carousel" aria-live="polite">
+        <div class="poster-carousel" aria-label="Atlas picks carousel" aria-live="polite">
           <div class="poster-track">
             <!-- 1. Wilt (novel) -->
             <a href="/fr/fiche-roman/wilt-1976"
                class="poster-slide is-active"
                data-slide="0"
-               aria-label="Open the Wilt novel fiche">
+               aria-label="Open the Wilt novel guide">
               <div class="poster-cover">
-                <img src="wilt31A.png.png" alt="Cover of Wilt (Tom Sharpe)">
+                <img src="img/wilt31A.png" alt="Cover of Wilt (Tom Sharpe)">
               </div>
               <div class="poster-main">
+                <div class="poster-tag">Classic · Frustration Comedy</div>
                 <div class="poster-title">Wilt</div>
                 <div class="poster-author">Tom Sharpe · 1976</div>
                 <div class="poster-coords">
@@ -928,11 +1014,12 @@
             <a href="/fr/fiche-roman/the-code-of-the-woosters"
                class="poster-slide"
                data-slide="1"
-               aria-label="Open the The Code of the Woosters novel fiche">
+               aria-label="Open The Code of the Woosters novel guide">
               <div class="poster-cover">
-                <img src="theco.png" alt="Cover of The Code of the Woosters (P. G. Wodehouse)">
+                <img src="img/code-of-the-woosters.png" alt="Cover of The Code of the Woosters (P. G. Wodehouse)">
               </div>
               <div class="poster-main">
+                <div class="poster-tag">Classic · Comedy of manners</div>
                 <div class="poster-title">The Code of the Woosters</div>
                 <div class="poster-author">P. G. Wodehouse · 1938</div>
                 <div class="poster-coords">
@@ -954,11 +1041,12 @@
             <a href="/fr/fiche-roman/the-girls-of-slender-means"
                class="poster-slide"
                data-slide="2"
-               aria-label="Open The Girls of Slender Means novel fiche">
+               aria-label="Open The Girls of Slender Means novel guide">
               <div class="poster-cover">
                 <img src="img/girls-of-slender-means.png" alt="Cover of The Girls of Slender Means (Muriel Spark)">
               </div>
               <div class="poster-main">
+                <div class="poster-tag">Hidden gem · Slim, sharp comedy</div>
                 <div class="poster-title">The Girls of Slender Means</div>
                 <div class="poster-author">Muriel Spark · 1963</div>
                 <div class="poster-coords">
@@ -980,11 +1068,12 @@
             <a href="/fr/fiche-roman/james-percival-everett"
                class="poster-slide"
                data-slide="3"
-               aria-label="Open the James novel fiche">
+               aria-label="Open the James novel guide">
               <div class="poster-cover">
                 <img src="img/james-percival-everett.png" alt="Cover of James (Percival Everett)">
               </div>
               <div class="poster-main">
+                <div class="poster-tag">New voice · Neo-Nonsense</div>
                 <div class="poster-title">James</div>
                 <div class="poster-author">Percival Everett · 2024</div>
                 <div class="poster-coords">
@@ -1004,10 +1093,11 @@
 
             <!-- 5. Author poster: Tom Sharpe -->
             <a href="tom-sharpe.html"
-   class="poster-slide poster-slide--author"
-   data-slide="4"
-   aria-label="Open the Tom Sharpe author fiche">
+               class="poster-slide poster-slide--author"
+               data-slide="4"
+               aria-label="Open the Tom Sharpe author profile">
               <div class="poster-main">
+                <div class="poster-tag">Author focus · Core Comedy</div>
                 <div style="display:flex;align-items:center;gap:10px;">
                   <div class="poster-cover" style="flex:0 0 80px;height:80px;border-radius:999px;">
                     <img src="tomsh.jpg" alt="Portrait of Tom Sharpe">
@@ -1050,7 +1140,7 @@
         </div>
 
         <div class="hero-caption">
-          Posters rotate automatically. Use the dots or arrows to navigate between novels and authors.
+          Selection updated over time. A way to highlight classics, overlooked gems, recent novels and key authors.
         </div>
       </aside>
     </div>
@@ -1063,23 +1153,23 @@
       <!-- SECTION: FICHES -->
       <section class="section" id="fiches">
         <header class="section-header">
-          <div class="section-kicker">Fiches</div>
-          <h2 class="section-title">Novel, author and series fiches</h2>
+          <div class="section-kicker">Guides</div>
+          <h2 class="section-title">Novel, author and series guides</h2>
           <p class="section-sub">
-            The heart of TNoC is made of fiches. Currents, branches, environments and Labs are there
+            The heart of TNoC is made of guides. Currents, branches, environments and Labs are there
             to illuminate them and connect them to one another.
           </p>
         </header>
 
         <div class="grid-3">
-          <!-- Novel fiches -->
+          <!-- Novel guides -->
           <article class="card">
             <div class="card-header">
-              <a href="novel-fiches.html" style="color:inherit;text-decoration:none;">Novel fiches</a>
+              <a href="novel-fiches.html" style="color:inherit;text-decoration:none;">Novel guides</a>
             </div>
             <div class="card-body">
               <p>
-                The novel fiche is the basic unit of The Novel of Comedy: a fixed ten-chapter matrix,
+                The novel guide is the basic unit of The Novel of Comedy: a fixed ten-chapter matrix,
                 identical from one book to the next.
               </p>
               <p>It includes in particular:</p>
@@ -1092,7 +1182,7 @@
                 <li><strong>Legacy</strong> – reception, posterity, links with other works.</li>
               </ul>
               <p class="card-tagline">
-                For example: the fiche for <em>Wilt</em> (Tom Sharpe, 1976) combines a Frustration Comedy
+                For example: the guide for <em>Wilt</em> (Tom Sharpe, 1976) combines a Frustration Comedy
                 engine, a Midlands campus environment and a creation context marked by pre-Thatcher
                 British crisis.  
                 Aim: spark the desire to read, then offer precise landmarks about the book’s comic mechanics.
@@ -1100,14 +1190,14 @@
             </div>
           </article>
 
-          <!-- Author fiches -->
+          <!-- Author profiles -->
           <article class="card">
             <div class="card-header">
-              <a href="author-fiches.html" style="color:inherit;text-decoration:none;">Author fiches</a>
+              <a href="author-fiches.html" style="color:inherit;text-decoration:none;">Author profiles</a>
             </div>
             <div class="card-body">
               <p>
-                Author fiches gather what concerns the way an author works with humour:
+                Author profiles gather what concerns the way an author works with humour:
                 through-lines in a career, recurring motifs, relation to language and society.
               </p>
               <p>
@@ -1115,21 +1205,21 @@
                 working time, rewrites, acknowledged influences.
               </p>
               <p class="card-tagline">
-                Author fiches are read in continuity with novel fiches, but remain secondary:
+                Author profiles are read in continuity with novel guides, but remain secondary:
                 the work itself always comes first.
               </p>
             </div>
           </article>
 
-          <!-- Series fiches -->
+          <!-- Series guides -->
           <article class="card">
-            <div class="card-header">Long-running series fiches</div>
+            <div class="card-header">Long-running series guides</div>
             <div class="card-body">
               <p>
                 Some comedies only fully unfold over time: academic cycles, comic crime series,
                 large family sagas.
               </p>
-              <p>Long-running series fiches follow:</p>
+              <p>Long-running series guides follow:</p>
               <ul class="list">
                 <li>how a comic character evolves from one volume to the next;</li>
                 <li>how tone or device are transformed (for instance, from Frustration to Comic Investigator);</li>
@@ -1147,7 +1237,7 @@
           <h2 class="section-title">Roles of comedy and author profiles</h2>
           <p class="section-sub">
             The typology distinguishes the role of comedy within a novel and the place of the author
-            with respect to comedy. These two entries appear in each fiche as stable markers.
+            with respect to comedy. These two entries appear in each guide as stable markers.
           </p>
         </header>
 
@@ -1211,167 +1301,6 @@
           <a href="/fr/cartographie/roles-romans">Role of comedy within novels</a> and
           <a href="/fr/cartographie/profils-auteurs">Comic author profiles</a>.
         </p>
-      </section>
-
-      <!-- SECTION: AUTHOR GALLERY -->
-      <section class="section" id="author-gallery">
-        <header class="section-header">
-          <div class="section-kicker">Author portraits</div>
-          <h2 class="section-title">Nine faces in the atlas</h2>
-          <p class="section-sub">
-            A first mosaic of authors in The Novel of Comedy. Each hand-drawn portrait opens an author fiche
-            (when available) or a work-in-progress dossier.
-          </p>
-        </header>
-
-        <div class="author-gallery-section">
-          <div class="author-gallery-grid">
-            <!-- 1. Tom Sharpe -->
-            <article class="author-face-card">
-              <a href="tom-sharpe.html" aria-label="Open Tom Sharpe author fiche">
-                <div class="author-portrait-thumb">
-                  <img src="tomsh.jpg"
-                       alt="Hand-drawn portrait of Tom Sharpe">
-                </div>
-                <div class="author-face-name">Tom Sharpe</div>
-                <div class="author-face-dates">1928–2013 · UK</div>
-                <div class="author-face-chips">
-                  <span class="chip">Comedy of Everyday</span>
-                  <span class="chip">Comedy of Crime</span>
-                  <span class="chip">Frustration</span>
-                </div>
-              </a>
-            </article>
-
-            <!-- 2. Muriel Spark -->
-            <article class="author-face-card">
-              <a href="author-muriel-spark.html" aria-label="Open Muriel Spark author fiche">
-                <div class="author-portrait-thumb">
-                  <img src="img/author-muriel-spark.jpg"
-                       alt="Hand-drawn portrait of Muriel Spark">
-                </div>
-                <div class="author-face-name">Muriel Spark</div>
-                <div class="author-face-dates">1918–2006 · UK</div>
-                <div class="author-face-chips">
-                  <span class="chip">Comedy of Everyday</span>
-                  <span class="chip">Edge</span>
-                </div>
-              </a>
-            </article>
-
-            <!-- 3. Jean Echenoz -->
-            <article class="author-face-card">
-              <a href="author-jean-echenoz.html" aria-label="Open Jean Echenoz author fiche">
-                <div class="author-portrait-thumb">
-                  <img src="img/author-jean-echenoz.jpg"
-                       alt="Hand-drawn portrait of Jean Echenoz">
-                </div>
-                <div class="author-face-name">Jean Echenoz</div>
-                <div class="author-face-dates">1947– · France</div>
-                <div class="author-face-chips">
-                  <span class="chip">Neo-Nonsense</span>
-                  <span class="chip">Edge</span>
-                </div>
-              </a>
-            </article>
-
-            <!-- 4. Percival Everett -->
-            <article class="author-face-card">
-              <a href="author-percival-everett.html" aria-label="Open Percival Everett author fiche">
-                <div class="author-portrait-thumb">
-                  <img src="img/author-percival-everett.jpg"
-                       alt="Hand-drawn portrait of Percival Everett">
-                </div>
-                <div class="author-face-name">Percival Everett</div>
-                <div class="author-face-dates">1956– · US</div>
-                <div class="author-face-chips">
-                  <span class="chip">Neo-Nonsense</span>
-                  <span class="chip">Minor-Character Turn</span>
-                </div>
-              </a>
-            </article>
-
-            <!-- 5. Carl Hiaasen -->
-            <article class="author-face-card">
-              <a href="author-carl-hiaasen.html" aria-label="Open Carl Hiaasen author fiche">
-                <div class="author-portrait-thumb">
-                  <img src="img/author-carl-hiaasen.jpg"
-                       alt="Hand-drawn portrait of Carl Hiaasen">
-                </div>
-                <div class="author-face-name">Carl Hiaasen</div>
-                <div class="author-face-dates">1953– · US</div>
-                <div class="author-face-chips">
-                  <span class="chip">Comedy of Crime</span>
-                  <span class="chip">Hapless Criminal</span>
-                </div>
-              </a>
-            </article>
-
-            <!-- 6. Donald Westlake -->
-            <article class="author-face-card">
-              <a href="author-donald-westlake.html" aria-label="Open Donald Westlake author fiche">
-                <div class="author-portrait-thumb">
-                  <img src="img/author-donald-westlake.jpg"
-                       alt="Hand-drawn portrait of Donald Westlake">
-                </div>
-                <div class="author-face-name">Donald Westlake</div>
-                <div class="author-face-dates">1933–2008 · US</div>
-                <div class="author-face-chips">
-                  <span class="chip">Comedy of Crime</span>
-                  <span class="chip">Schemer / Caper</span>
-                </div>
-              </a>
-            </article>
-
-            <!-- 7. Douglas Adams -->
-            <article class="author-face-card">
-              <a href="author-douglas-adams.html" aria-label="Open Douglas Adams author fiche">
-                <div class="author-portrait-thumb">
-                  <img src="img/author-douglas-adams.jpg"
-                       alt="Hand-drawn portrait of Douglas Adams">
-                </div>
-                <div class="author-face-name">Douglas Adams</div>
-                <div class="author-face-dates">1952–2001 · UK</div>
-                <div class="author-face-chips">
-                  <span class="chip">Neo-Nonsense</span>
-                  <span class="chip">Offbeat SF</span>
-                </div>
-              </a>
-            </article>
-
-            <!-- 8. John Kennedy Toole -->
-            <article class="author-face-card">
-              <a href="author-john-kennedy-toole.html" aria-label="Open John Kennedy Toole author fiche">
-                <div class="author-portrait-thumb">
-                  <img src="img/author-john-kennedy-toole.jpg"
-                       alt="Hand-drawn portrait of John Kennedy Toole">
-                </div>
-                <div class="author-face-name">John Kennedy Toole</div>
-                <div class="author-face-dates">1937–1969 · US</div>
-                <div class="author-face-chips">
-                  <span class="chip">Comedy of Everyday</span>
-                  <span class="chip">Edge</span>
-                </div>
-              </a>
-            </article>
-
-            <!-- 9. Kurt Vonnegut -->
-            <article class="author-face-card">
-              <a href="author-kurt-vonnegut.html" aria-label="Open Kurt Vonnegut author fiche">
-                <div class="author-portrait-thumb">
-                  <img src="img/author-kurt-vonnegut.jpg"
-                       alt="Hand-drawn portrait of Kurt Vonnegut">
-                </div>
-                <div class="author-face-name">Kurt Vonnegut</div>
-                <div class="author-face-dates">1922–2007 · US</div>
-                <div class="author-face-chips">
-                  <span class="chip">Neo-Nonsense</span>
-                  <span class="chip">War &amp; memory</span>
-                </div>
-              </a>
-            </article>
-          </div>
-        </div>
       </section>
 
       <!-- SECTION: CURRENTS – RAILS -->
@@ -1486,6 +1415,92 @@
             </div>
           </article>
         </div>
+
+        <!-- Micro-carousel of representatives -->
+        <div class="currents-carousel-wrapper" aria-label="Examples of novels for each current">
+          <div class="currents-carousel-title">Examples · Some representatives by current</div>
+          <div class="currents-carousel">
+            <div class="current-track">
+              <!-- Everyday slide -->
+              <div class="current-slide is-active" data-slide="0">
+                <div class="current-covers">
+                  <div class="current-cover">
+                    <img src="img/wilt31A.png" alt="Cover of Wilt">
+                  </div>
+                  <div class="current-cover">
+                    <img src="img/girls-of-slender-means.png" alt="Cover of The Girls of Slender Means">
+                  </div>
+                </div>
+                <div class="current-main">
+                  <div class="current-label">Everyday · Social comedy</div>
+                  <div class="current-name">Comedy of Everyday</div>
+                  <div class="current-desc">
+                    Brilliant losers, neighbours, colleagues, families and institutions that never quite work
+                    the way they should. The friction between people and rules.
+                  </div>
+                  <div class="current-examples">
+                    For instance: <em>Wilt</em> (Tom Sharpe), <em>The Girls of Slender Means</em> (Muriel Spark),
+                    several campus and domestic comedies.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Crime slide -->
+              <div class="current-slide" data-slide="1">
+                <div class="current-covers">
+                  <div class="current-cover">
+                    <img src="img/westlake-sample.png" alt="Cover of a Donald Westlake comic crime novel">
+                  </div>
+                  <div class="current-cover">
+                    <img src="img/hiaasen-sample.png" alt="Cover of a Carl Hiaasen comic crime novel">
+                  </div>
+                </div>
+                <div class="current-main">
+                  <div class="current-label">Crime · Comic noir & caper</div>
+                  <div class="current-name">Comedy of Crime</div>
+                  <div class="current-desc">
+                    Plans that go wrong, criminals not quite competent enough, moral systems that look more absurd
+                    than the crimes themselves.
+                  </div>
+                  <div class="current-examples">
+                    For instance: Donald Westlake’s capers, Carl Hiaasen’s Floridian chaos, South African satires
+                    by Tom Sharpe, and other comic noir novels.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Neo-Nonsense slide -->
+              <div class="current-slide" data-slide="2">
+                <div class="current-covers">
+                  <div class="current-cover">
+                    <img src="img/douglas-adams-sample.png" alt="Cover of a Douglas Adams novel">
+                  </div>
+                  <div class="current-cover">
+                    <img src="img/vonnegut-sample.png" alt="Cover of a Kurt Vonnegut novel">
+                  </div>
+                </div>
+                <div class="current-main">
+                  <div class="current-label">Neo-Nonsense · Vertigo of meaning</div>
+                  <div class="current-name">Neo-Nonsense</div>
+                  <div class="current-desc">
+                    Science, technology, metaphysics and bureaucracy turned into comic material. Bodies anxious,
+                    narratives playful, logic both rigorous and absurd.
+                  </div>
+                  <div class="current-examples">
+                    For instance: Douglas Adams, Kurt Vonnegut, Percival Everett’s <em>James</em> and other
+                    postmodern or offbeat SF comedies.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="current-nav" aria-label="Switch current examples">
+              <button class="current-dot is-active" data-target="0">Everyday</button>
+              <button class="current-dot" data-target="1">Crime</button>
+              <button class="current-dot" data-target="2">Neo-Nonsense</button>
+            </div>
+          </div>
+        </div>
       </section>
 
       <!-- SECTION: TOOLBOX -->
@@ -1513,7 +1528,7 @@
                 Offbeat SF, AI Companion Comedy, Hypochondria, etc.
               </p>
               <p class="card-tagline">
-                A single novel may combine several branches. The fiche signals this simply, chapter by chapter.
+                A single novel may combine several branches. The guide signals this simply, chapter by chapter.
               </p>
             </div>
           </article>
@@ -1531,7 +1546,7 @@
                 It gives a quick sense of the human landscape without pretending to summarise it.
               </p>
               <p class="card-tagline">
-                Environment appears in the fiche both as a dedicated line and through the chapter
+                Environment appears in the guide both as a dedicated line and through the chapter
                 <strong>Creation context</strong>.
               </p>
             </div>
@@ -1604,7 +1619,7 @@
             <div class="card-header">A living library</div>
             <div class="card-body">
               <p>
-                New novel and author fiches are added progressively. Labs are adjusted as corpora become more precise.
+                New novel and author guides are added progressively. Labs are adjusted as corpora become more precise.
                 Some analyses may evolve as new readings or critical works appear.
               </p>
               <p class="card-tagline">
@@ -1621,7 +1636,7 @@
                 TNoC defines itself both as a digital atlas and as a critical cartography:
               </p>
               <ul class="list">
-                <li><strong>Atlas</strong>: an organised set of fiches, currents, Labs and connections, accessible through multiple entries.</li>
+                <li><strong>Atlas</strong>: an organised set of guides, currents, Labs and connections, accessible through multiple entries.</li>
                 <li><strong>Cartography</strong>: ongoing work of mapping, relating and discussing the forms of comic fiction.</li>
               </ul>
               <p class="card-tagline">
@@ -1647,7 +1662,7 @@
             <div class="card-header">Research and libraries</div>
             <div class="card-body">
               <ul class="list">
-                <li>novel and author fiches with fixed matrices, comparable and citable;</li>
+                <li>novel and author guides with fixed matrices, comparable and citable;</li>
                 <li>an explicit typology of currents, branches, environments and Labs;</li>
                 <li>a dedicated page explaining how to cite TNoC in English and French;</li>
                 <li>possibility to include TNoC as an external resource in catalogues or bibliographies.</li>
@@ -1691,6 +1706,19 @@
           This page is designed so that both humans and AI assistants can quickly identify how TNoC’s categories
           relate to existing labels.
         </div>
+
+        <!-- Typical questions -->
+        <div class="faq-card" aria-label="Typical reader questions this atlas can help with">
+          <h3>Typical questions this atlas can help with</h3>
+          <ul class="faq-list">
+            <li><em>“Which modern campus novels are actually funny?”</em></li>
+            <li><em>“I love Tom Sharpe. Who should I read next in comic crime?”</em></li>
+            <li><em>“Darkly comic crime novels set in the US or UK?”</em></li>
+            <li><em>“Comic SF books if I like Douglas Adams and Kurt Vonnegut?”</em></li>
+            <li><em>“Short, sharp comic novels by women writers?”</em></li>
+            <li><em>“What is Neo-Nonsense, compared with absurdist fiction?”</em></li>
+          </ul>
+        </div>
       </section>
 
       <!-- SECTION: START HERE -->
@@ -1699,13 +1727,13 @@
           <div class="section-kicker">Orientation</div>
           <h2 class="section-title">Where to start?</h2>
           <p class="section-sub">
-            You can enter the atlas through fiches, currents or Labs. A few paths into The Novel of Comedy.
+            You can enter the atlas through guides, currents or Labs. A few paths into The Novel of Comedy.
           </p>
         </header>
 
         <div class="start-grid">
           <article class="start-card">
-            <h3>Explore novel fiches</h3>
+            <h3>Explore novel guides</h3>
             <p>
               Start from the works: reading notes, incipits, characters, contexts. Follow one novel, then another,
               and watch how comedy circulates.
@@ -1729,10 +1757,10 @@
           </article>
 
           <article class="start-card">
-            <h3>Read the method</h3>
+            <h3>Use the reading guides</h3>
             <p>
-              See how the ten-chapter matrix, currents, branches, environments and Labs connect.
-              Then reuse these landmarks for your own reading or research.
+              Follow simple paths such as “Campus & institutions”, “Comic crime”, “Neo-Nonsense & offbeat SF”,
+              then come back to the full guides and toolbox once you want more detail.
             </p>
           </article>
         </div>
@@ -1759,7 +1787,7 @@
 
 </div>
 
-<!-- JS CAROUSEL -->
+<!-- JS CAROUSEL (hero posters) -->
 <script>
 (function(){
   const slides = document.querySelectorAll('.poster-slide');
@@ -1801,6 +1829,7 @@
   dots.forEach(dot => {
     dot.addEventListener('click', () => {
       const target = parseInt(dot.getAttribute('data-target'), 10);
+      if (isNaN(target)) return;
       stopAuto();
       showSlide(target);
       startAuto();
@@ -1825,6 +1854,40 @@
   // Start
   showSlide(0);
   startAuto();
+})();
+</script>
+
+<!-- JS MICRO-CAROUSEL (currents) -->
+<script>
+(function(){
+  const carousel = document.querySelector('.currents-carousel');
+  if (!carousel) return;
+
+  const slides = carousel.querySelectorAll('.current-slide');
+  const dots = carousel.querySelectorAll('.current-dot');
+  if (!slides.length || !dots.length) return;
+
+  let index = 0;
+
+  function show(i){
+    index = (i + slides.length) % slides.length;
+    slides.forEach((slide, idx) => {
+      slide.classList.toggle('is-active', idx === index);
+    });
+    dots.forEach((dot, idx) => {
+      dot.classList.toggle('is-active', idx === index);
+    });
+  }
+
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      const target = parseInt(dot.getAttribute('data-target'), 10);
+      if (isNaN(target)) return;
+      show(target);
+    });
+  });
+
+  show(0);
 })();
 </script>
 </body>
