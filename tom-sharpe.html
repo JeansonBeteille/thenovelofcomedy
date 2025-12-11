@@ -187,6 +187,9 @@
     /* BIO CARD (capsule strates de vie) */
     .bio-card{
       margin-top:16px;
+      background:#f3f1ea;
+      border-radius:16px;
+      border:1px solid rgba(0,0,0,.2);
     }
     .bio-card details{
       padding:10px 14px 12px;
@@ -251,7 +254,6 @@
       letter-spacing:.16em;
       text-transform:uppercase;
       color:var(--muted);
-      cursor:default;
     }
     .toolbox-title{
       white-space:nowrap;
@@ -322,7 +324,7 @@
       margin:0 0 8px;
     }
 
-    /* Mobile: repli du cartouche entier */
+    /* Mobile: possibilité de replier le cartouche entier (mais pas par défaut) */
     @media(max-width:900px){
       .toolbox-header{
         cursor:pointer;
@@ -372,6 +374,24 @@
       display:block;
       overflow-x:auto;
       white-space:pre;
+    }
+
+    /* Placeholder visuel atelier (comme avant) */
+    .workshop-visual{
+      margin-bottom:12px;
+    }
+    .workshop-placeholder{
+      width:100%;
+      padding-top:45%;
+      border-radius:12px;
+      border:1px dashed var(--border);
+      background:rgba(0,0,0,.02);
+    }
+    .workshop-caption{
+      font-size:11px;
+      color:var(--muted);
+      margin-top:4px;
+      text-align:left;
     }
   </style>
 </head>
@@ -439,9 +459,9 @@
       </div>
     </article>
 
-    <!-- BIO · STRATES DE VIE -->
+    <!-- BIO · STRATES DE VIE (fermée par défaut, couleur différente) -->
     <article class="card bio-card" id="bio">
-      <details open>
+      <details>
         <summary><span class="bio-caret">▶</span>Bio · Strates de vie</summary>
         <div class="bio-body">
           <p class="subheading">Enfance &amp; formation</p>
@@ -484,7 +504,7 @@
       </details>
     </article>
 
-    <!-- TOOLBOX 2–10 : accordéons internes -->
+    <!-- TOOLBOX 2–10 : accordéons internes, tous repliés par défaut -->
     <section class="card toolbox-card" id="toolbox" aria-label="Toolbox chapters">
       <div class="toolbox-header">
         <span class="toolbox-title">In the toolbox</span>
@@ -499,7 +519,7 @@
         <div class="toolbox-accordion">
 
           <!-- 2. Comedy & currents -->
-          <details class="toolbox-item" id="currents" open>
+          <details class="toolbox-item" id="currents">
             <summary>
               <span class="toolbox-label">2. Comedy &amp; currents</span>
               <span class="toolbox-caret">▶</span>
@@ -976,26 +996,17 @@
 </main>
 
 <script>
-  // Gestion de la toolbox : repli mobile + label "current chapter"
+  // Gestion de la toolbox : repli manuel mobile + label "current chapter"
   (function(){
     const toolbox = document.querySelector('.toolbox-card');
     if (!toolbox) return;
 
     const header = toolbox.querySelector('.toolbox-header');
-    const body = toolbox.querySelector('.toolbox-body');
     const currentLabel = toolbox.querySelector('.toolbox-current');
     const items = Array.from(toolbox.querySelectorAll('.toolbox-item'));
 
     function isMobile(){
       return window.matchMedia('(max-width: 900px)').matches;
-    }
-
-    function syncAccordionState(){
-      if (isMobile()){
-        toolbox.classList.add('collapsed');
-      } else {
-        toolbox.classList.remove('collapsed');
-      }
     }
 
     if (header){
@@ -1022,10 +1033,7 @@
       d.addEventListener('toggle', updateCurrent);
     });
 
-    window.addEventListener('resize', syncAccordionState);
-
-    // Init
-    syncAccordionState();
+    // Init : aucun chapitre ouvert par défaut
     updateCurrent();
   })();
 </script>
