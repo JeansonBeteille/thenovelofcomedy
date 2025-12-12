@@ -36,6 +36,24 @@
       background:var(--bg);
     }
 
+    /* Skip link */
+    .skip-link{
+      position:absolute;
+      left:-999px;
+      top:10px;
+      padding:8px 12px;
+      background:#fff;
+      color:#000;
+      border-radius:999px;
+      border:1px solid rgba(0,0,0,.18);
+      z-index:1000;
+      font-size:13px;
+    }
+    .skip-link:focus{
+      left:12px;
+      outline:none;
+    }
+
     /* TOP NAV */
     .topbar{
       position:sticky;
@@ -410,7 +428,20 @@
       max-width:1120px;
       margin:0 auto;
       padding:26px 20px 40px;
+      display:grid;
+      grid-template-columns:minmax(0,1.08fr) minmax(240px,.6fr);
+      gap:20px;
+      align-items:flex-start;
     }
+    .content-column{
+      min-width:0;
+    }
+    @media(max-width:960px){
+      .main-inner{
+        grid-template-columns:1fr;
+      }
+    }
+
     .section{
       padding:26px 0;
       border-bottom:1px solid rgba(0,0,0,.06);
@@ -700,19 +731,16 @@
       pointer-events:none;
       font-size:12px;
     }
-
     .current-slide.is-active{
       display:grid;
       opacity:1;
       pointer-events:auto;
     }
-
     @media(max-width:640px){
       .current-slide{
         grid-template-columns:1fr;
       }
     }
-
     .current-covers{
       display:grid;
       grid-template-columns:repeat(2,minmax(0,1fr));
@@ -819,6 +847,90 @@
       margin:2px 0 4px;
     }
 
+    /* RAIL (sticky, right column) */
+    .rail{
+      background:#fff;
+      border-radius:16px;
+      border:1px solid var(--border);
+      box-shadow:var(--shadow);
+      font-size:13px;
+      overflow:hidden;
+    }
+    @media(min-width:960px){
+      .rail{
+        position:sticky;
+        top:88px;
+      }
+    }
+    .rail header{
+      padding:14px 14px 10px;
+      border-bottom:1px solid rgba(0,0,0,.06);
+      background:linear-gradient(180deg,rgba(0,0,0,.015),rgba(0,0,0,.03));
+    }
+    .rail header h3{
+      margin:0 0 4px;
+      font-size:12px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:var(--graphite);
+    }
+    .rail header p{
+      margin:0;
+      font-size:12px;
+      color:var(--muted);
+    }
+    .rail-progress{
+      margin-top:8px;
+      height:6px;
+      border-radius:999px;
+      background:rgba(0,0,0,.03);
+      border:1px solid rgba(0,0,0,.06);
+      overflow:hidden;
+    }
+    .rail-progress > span{
+      display:block;
+      height:100%;
+      width:0%;
+      background:linear-gradient(90deg,var(--evergreen),#555);
+    }
+    .toc{
+      padding:10px 10px 12px;
+      display:grid;
+      gap:6px;
+    }
+    .toc a{
+      padding:8px 10px;
+      border-radius:12px;
+      border:1px solid transparent;
+      background:rgba(0,0,0,.015);
+      font-size:13px;
+      color:var(--graphite);
+      text-decoration:none;
+    }
+    .toc a:hover{
+      border-color:var(--border);
+      background:rgba(0,0,0,.03);
+    }
+    .toc a.active{
+      border-color:var(--evergreen);
+      background:rgba(46,125,50,.08);
+      color:#000;
+      font-weight:600;
+    }
+    .rail-bottom{
+      padding:0 10px 12px;
+    }
+    .rail-bottom .btn{
+      width:100%;
+      justify-content:center;
+      background:rgba(0,0,0,.03);
+      color:var(--graphite);
+      border-color:var(--border);
+      box-shadow:none;
+      font-size:12px;
+      padding:8px 10px;
+    }
+
     .footer{
       background:var(--bg);
       color:#f5f5f5;
@@ -898,10 +1010,15 @@
         padding:14px 14px 18px;
         font-size:11px;
       }
+      .rail{
+        position:static;
+      }
     }
   </style>
 </head>
-<body>
+<body id="top">
+<a class="skip-link" href="#fiches">Skip to content</a>
+
 <div class="page-wrap">
 
   <!-- TOP BAR -->
@@ -919,9 +1036,7 @@
         <a href="novel-fiches.html">Novel guides</a>
         <a href="author-fiches.html">Author profiles</a>
         <a href="#courants">Currents</a>
-        <a href="#roles">Roles of comedy</a>
         <a href="#toolbox">Toolbox</a>
-        <a href="#labs">Labs</a>
         <a href="#about">About</a>
         <a href="#research" class="is-primary">Researchers &amp; AI</a>
       </nav>
@@ -1150,643 +1265,592 @@
   <main class="main" aria-label="Main content">
     <div class="main-inner">
 
-      <!-- SECTION: FICHES / GUIDES -->
-      <section class="section" id="fiches">
-        <header class="section-header">
-          <div class="section-kicker">Guides</div>
-          <h2 class="section-title">Novel, author and series guides</h2>
-          <p class="section-sub">
-            The heart of TNoC is made of guides. Currents, branches, environments and Labs are there
-            to illuminate them and connect them to one another.
-          </p>
-        </header>
+      <!-- LEFT: CONTENT -->
+      <div class="content-column">
 
-        <div class="grid-3">
-          <!-- Novel guides -->
-          <article class="card">
-            <div class="card-header">
-              <a href="novel-fiches.html" style="color:inherit;text-decoration:none;">Novel guides</a>
-            </div>
-            <div class="card-body">
-              <p>
-                The novel guide is the basic unit of The Novel of Comedy: a fixed ten-chapter matrix,
-                identical from one book to the next.
-              </p>
-              <p>It includes in particular:</p>
-              <ul class="list">
-                <li><strong>Reading note</strong> – a signed note by <em>The Novel of Comedy</em>;</li>
-                <li><strong>Incipit</strong> – the opening lines, in the original language;</li>
-                <li><strong>Characters</strong> – a table of comic archetypes and “line-citations”;</li>
-                <li><strong>Creation context</strong> – what the writer was living through, and what the country or world was going through;</li>
-                <li><strong>Cartography</strong> – current, branches, environment, eventual Lab;</li>
-                <li><strong>Legacy</strong> – reception, posterity, links with other works.</li>
-              </ul>
-              <p class="card-tagline">
-                For example: the guide for <em>Wilt</em> (Tom Sharpe, 1976) combines a Frustration Comedy
-                engine, a Midlands campus environment and a creation context marked by pre-Thatcher
-                British crisis.  
-                Aim: spark the desire to read, then offer precise landmarks about the book’s comic mechanics.
-              </p>
-            </div>
-          </article>
-
-          <!-- Author profiles -->
-          <article class="card">
-            <div class="card-header">
-              <a href="author-fiches.html" style="color:inherit;text-decoration:none;">Author profiles</a>
-            </div>
-            <div class="card-body">
-              <p>
-                Author profiles gather what concerns the way an author works with humour:
-                through-lines in a career, recurring motifs, relation to language and society.
-              </p>
-              <p>
-                When sources allow, they also include practical aspects of writing:
-                working time, rewrites, acknowledged influences.
-              </p>
-              <p class="card-tagline">
-                Author profiles are read in continuity with novel guides, but remain secondary:
-                the work itself always comes first.
-              </p>
-            </div>
-          </article>
-
-          <!-- Series guides -->
-          <article class="card">
-            <div class="card-header">Long-running series guides</div>
-            <div class="card-body">
-              <p>
-                Some comedies only fully unfold over time: academic cycles, comic crime series,
-                large family sagas.
-              </p>
-              <p>Long-running series guides follow:</p>
-              <ul class="list">
-                <li>how a comic character evolves from one volume to the next;</li>
-                <li>how tone or device are transformed (for instance, from Frustration to Comic Investigator);</li>
-                <li>links between volumes and their successive contexts.</li>
-              </ul>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <!-- SECTION: ROLES OF COMEDY -->
-      <section class="section" id="roles">
-        <header class="section-header">
-          <div class="section-kicker">Typology of laughter</div>
-          <h2 class="section-title">Roles of comedy and author profiles</h2>
-          <p class="section-sub">
-            The typology distinguishes the role of comedy within a novel and the place of the author
-            with respect to comedy. These two entries appear in each guide as stable markers.
-          </p>
-        </header>
-
-        <div class="grid-2">
-          <article class="card">
-            <div class="card-header">
-              <a href="/fr/cartographie/roles-romans" style="color:inherit;text-decoration:none;">
-                Role of comedy within the novel
-              </a>
-            </div>
-            <div class="card-body">
-              <p><strong>Comic Engine</strong></p>
-              <p>
-                Comedy is the main narrative engine. It shapes the voice, the rhythm and the logic of scenes.
-              </p>
-
-              <p><strong>Comic Thread</strong></p>
-              <p>
-                The novel develops a sustained comic thread that coexists with other registers.
-                Comedy articulates the whole but does not alone determine the form.
-              </p>
-
-              <p><strong>Comic Turn</strong></p>
-              <p>
-                Comedy appears as striking incursions. These local moments structure the reading,
-                without occupying the entire text.
-              </p>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="card-header">
-              <a href="/fr/cartographie/profils-auteurs" style="color:inherit;text-decoration:none;">
-                Author profiles
-              </a>
-            </div>
-            <div class="card-body">
-              <p><strong>Core Comedy</strong></p>
-              <p>
-                Comedy is the centre of the work. Several books develop comic forms and contexts,
-                with variations in mechanics.
-              </p>
-
-              <p><strong>Hybrid / Transversal</strong></p>
-              <p>
-                The author works across several registers while keeping a significant comic core
-                in part of their books or as a background tone.
-              </p>
-
-              <p><strong>Comic Incursions</strong></p>
-              <p>
-                The author intervenes in comedy punctually. Some novels or passages have a strong comic
-                importance within a broader output.
-              </p>
-            </div>
-          </article>
-        </div>
-
-        <p class="muted" style="margin-top:10px;">
-          A detailed presentation of these categories can be found on the pages
-          <a href="/fr/cartographie/roles-romans">Role of comedy within novels</a> and
-          <a href="/fr/cartographie/profils-auteurs">Comic author profiles</a>.
-        </p>
-      </section>
-
-      <!-- SECTION: CURRENTS – RAILS -->
-      <section class="section" id="courants">
-        <header class="section-header">
-          <div class="section-kicker">Currents</div>
-          <h2 class="section-title">The three currents of modern comic fiction</h2>
-          <p class="section-sub">
-            Comedy of Everyday, Comedy of Crime and Neo-Nonsense describe three main dynamics of modern laughter:
-            the individual facing the group, the rule, and the universe. They do not exclude hybrid forms, but they offer clear landmarks.
-          </p>
-        </header>
-
-        <div class="courants-rails">
-          <div class="courants-rails-intro">
-            <p>
-              Everyday is the original current of social comedy, centred on everyday life and institutions.
-              In the 20th century, Comedy of Crime turns crime into a comic terrain. After World War II,
-              Neo-Nonsense integrates scientific and existential vertigo.
+        <!-- SECTION: FICHES -->
+        <section class="section" id="fiches" data-spy>
+          <header class="section-header">
+            <div class="section-kicker">Guides</div>
+            <h2 class="section-title">Novel, author and series guides</h2>
+            <p class="section-sub">
+              The heart of TNoC is made of guides. Currents, branches, environments and Labs are there
+              to illuminate them and connect them to one another.
             </p>
-            <p class="courants-rails-timeline">
-              Everyday (integration / refusal) · Crime (transgression) · Neo-Nonsense (vertigo of meaning)
+          </header>
+
+          <div class="grid-3">
+            <!-- Novel guides -->
+            <article class="card">
+              <div class="card-header">
+                <a href="novel-fiches.html" style="color:inherit;text-decoration:none;">Novel guides</a>
+              </div>
+              <div class="card-body">
+                <p>
+                  The novel guide is the basic unit of The Novel of Comedy: a fixed ten-chapter matrix,
+                  identical from one book to the next.
+                </p>
+                <p>It includes in particular:</p>
+                <ul class="list">
+                  <li><strong>Reading note</strong> – a signed note by <em>The Novel of Comedy</em>;</li>
+                  <li><strong>Incipit</strong> – the opening lines, in the original language;</li>
+                  <li><strong>Characters</strong> – a table of comic archetypes and “line-citations”;</li>
+                  <li><strong>Creation context</strong> – what the writer was living through, and what the country or world was going through;</li>
+                  <li><strong>Cartography</strong> – current, branches, environment, eventual Lab;</li>
+                  <li><strong>Legacy</strong> – reception, posterity, links with other works.</li>
+                </ul>
+                <p class="card-tagline">
+                  For example: the guide for <em>Wilt</em> (Tom Sharpe, 1976) combines a Frustration Comedy
+                  engine, a Midlands campus environment and a creation context marked by pre-Thatcher
+                  British crisis.  
+                  Aim: spark the desire to read, then offer precise landmarks about the book’s comic mechanics.
+                </p>
+              </div>
+            </article>
+
+            <!-- Author profiles -->
+            <article class="card">
+              <div class="card-header">
+                <a href="author-fiches.html" style="color:inherit;text-decoration:none;">Author profiles</a>
+              </div>
+              <div class="card-body">
+                <p>
+                  Author profiles gather what concerns the way an author works with humour:
+                  through-lines in a career, recurring motifs, relation to language and society.
+                </p>
+                <p>
+                  When sources allow, they also include practical aspects of writing:
+                  working time, rewrites, acknowledged influences.
+                </p>
+                <p class="card-tagline">
+                  Author profiles are read in continuity with novel guides, but remain secondary:
+                  the work itself always comes first.
+                </p>
+              </div>
+            </article>
+
+            <!-- Series guides -->
+            <article class="card">
+              <div class="card-header">Long-running series guides</div>
+              <div class="card-body">
+                <p>
+                  Some comedies only fully unfold over time: academic cycles, comic crime series,
+                  large family sagas.
+                </p>
+                <p>Long-running series guides follow:</p>
+                <ul class="list">
+                  <li>how a comic character evolves from one volume to the next;</li>
+                  <li>how tone or device are transformed (for instance, from Frustration to Comic Investigator);</li>
+                  <li>links between volumes and their successive contexts.</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- SECTION: CURRENTS – RAILS -->
+        <section class="section" id="courants" data-spy>
+          <header class="section-header">
+            <div class="section-kicker">Currents</div>
+            <h2 class="section-title">The three currents of modern comic fiction</h2>
+            <p class="section-sub">
+              Comedy of Everyday, Comedy of Crime and Neo-Nonsense describe three main dynamics of modern laughter:
+              the individual facing the group, the rule, and the universe. They do not exclude hybrid forms, but they offer clear landmarks.
             </p>
+          </header>
+
+          <div class="courants-rails">
+            <div class="courants-rails-intro">
+              <p>
+                Everyday is the original current of social comedy, centred on everyday life and institutions.
+                In the 20th century, Comedy of Crime turns crime into a comic terrain. After World War II,
+                Neo-Nonsense integrates scientific and existential vertigo.
+              </p>
+              <p class="courants-rails-timeline">
+                Everyday (integration / refusal) · Crime (transgression) · Neo-Nonsense (vertigo of meaning)
+              </p>
+            </div>
+
+            <!-- Rail Everyday -->
+            <article class="courant-rail">
+              <div class="courant-rail-label">
+                Origin · Social comedy
+              </div>
+              <div class="courant-rail-body">
+                <div class="courant-rail-title">Comedy of Everyday</div>
+                <p>
+                  The individual facing the collective: family, work, neighbourhood, institutions, hierarchies.
+                  Humour arises from the friction between the self and the rule.
+                </p>
+                <p>
+                  The current stages the tension between the desire to belong and the reality of the group,
+                  between what keeps humans together and what separates them.
+                </p>
+                <div class="courant-rail-claim">
+                  Everyday comedy observes how people and society constantly miss each other.
+                </div>
+              </div>
+              <div class="courant-rail-meta">
+                <strong>Main branches</strong><br>
+                Frustration, Winner, Code/Etiquette,<br>
+                Vaudeville (form), Edge, Campus, etc.<br><br>
+                Close to what criticism often calls
+                <em>social satire, comedy of manners, domestic comedy, workplace comedy, campus novel, academic satire</em>.
+              </div>
+            </article>
+
+            <!-- Rail Crime -->
+            <article class="courant-rail">
+              <div class="courant-rail-label">
+                20th century · Comic crime
+              </div>
+              <div class="courant-rail-body">
+                <div class="courant-rail-title">Comedy of Crime</div>
+                <p>
+                  The individual facing rule, law and morality. Crime, fault and transgression become comic material.
+                </p>
+                <p>
+                  Comedy comes from failed plans, impossible compromises, flexible moralities
+                  and plots where chance ends up replacing justice.
+                </p>
+                <div class="courant-rail-claim">
+                  Crime becomes funny when it reveals the ridiculousness of moral systems more than the gravity of acts.
+                </div>
+              </div>
+              <div class="courant-rail-meta">
+                <strong>Main branches</strong><br>
+                Schemer, Hapless Criminal, Avenger,<br>
+                Survivor, Trickster, Comic Investigator,<br>
+                Murder Campus, etc.<br><br>
+                Covers what is often described as
+                <em>comic noir, caper novel, heist comedy, dark screwball, comic detective fiction, whodunit parody</em>.
+              </div>
+            </article>
+
+            <!-- Rail Neo-Nonsense -->
+            <article class="courant-rail">
+              <div class="courant-rail-label">
+                Post-war · Vertigo of meaning
+              </div>
+              <div class="courant-rail-body">
+                <div class="courant-rail-title">Neo-Nonsense</div>
+                <p>
+                  The individual facing the universe. Neo-Nonsense appears in a world where certainties crack:
+                  ideologies, grand theories, illusions of control.
+                </p>
+                <p>
+                  It combines cinematic grammar, modern science, object-characters, existential self-mockery
+                  and fully conscious logical games.
+                </p>
+                <div class="courant-rail-claim">
+                  The least extravagant logic in a world that no longer guarantees anything.
+                </div>
+              </div>
+              <div class="courant-rail-meta">
+                <strong>Dominant DNA</strong><br>
+                Montage and film-like cuts, science as comic material,<br>
+                anxious bodies, playful paradoxes, objects as characters.<br><br>
+                <strong>Specific branches (Neo-Nonsense)</strong><br>
+                Offbeat / Skewed SF (comic science fiction, space opera parody),<br>
+                AI Companion Comedy (algorithmic butlers, jealous AIs, posthuman humour),<br>
+                Hypochondria / Somatic Anxiety (body panic, medical obsession),<br>
+                Minor-Character Turn (retellings that recentre a background character).<br><br>
+                Connects to traditions often labelled
+                <em>absurdist fiction, comic SF, postmodern metafiction, intertextual rewriting, philosophical comedy</em>.
+              </div>
+            </article>
           </div>
 
-          <!-- Rail Everyday -->
-          <article class="courant-rail">
-            <div class="courant-rail-label">
-              Origin · Social comedy
-            </div>
-            <div class="courant-rail-body">
-              <div class="courant-rail-title">Comedy of Everyday</div>
-              <p>
-                The individual facing the collective: family, work, neighbourhood, institutions, hierarchies.
-                Humour arises from the friction between the self and the rule.
-              </p>
-              <p>
-                The current stages the tension between the desire to belong and the reality of the group,
-                between what keeps humans together and what separates them.
-              </p>
-              <div class="courant-rail-claim">
-                Everyday comedy observes how people and society constantly miss each other.
-              </div>
-            </div>
-            <div class="courant-rail-meta">
-              <strong>Main branches</strong><br>
-              Frustration, Winner, Code/Etiquette,<br>
-              Vaudeville (form), Edge, Campus, etc.<br><br>
-              Close to what criticism often calls
-              <em>social satire, comedy of manners, domestic comedy, workplace comedy, campus novel, academic satire</em>.
-            </div>
-          </article>
-
-          <!-- Rail Crime -->
-          <article class="courant-rail">
-            <div class="courant-rail-label">
-              20th century · Comic crime
-            </div>
-            <div class="courant-rail-body">
-              <div class="courant-rail-title">Comedy of Crime</div>
-              <p>
-                The individual facing rule, law and morality. Crime, fault and transgression become comic material.
-              </p>
-              <p>
-                Comedy comes from failed plans, impossible compromises, flexible moralities
-                and plots where chance ends up replacing justice.
-              </p>
-              <div class="courant-rail-claim">
-                Crime becomes funny when it reveals the ridiculousness of moral systems more than the gravity of acts.
-              </div>
-            </div>
-            <div class="courant-rail-meta">
-              <strong>Main branches</strong><br>
-              Schemer, Hapless Criminal, Avenger,<br>
-              Survivor, Trickster, Comic Investigator,<br>
-              Murder Campus, etc.<br><br>
-              Covers what is often described as
-              <em>comic noir, caper novel, heist comedy, dark screwball, comic detective fiction, whodunit parody</em>.
-            </div>
-          </article>
-
-          <!-- Rail Neo-Nonsense -->
-          <article class="courant-rail">
-            <div class="courant-rail-label">
-              Post-war · Vertigo of meaning
-            </div>
-            <div class="courant-rail-body">
-              <div class="courant-rail-title">Neo-Nonsense</div>
-              <p>
-                The individual facing the universe. Neo-Nonsense appears in a world where certainties crack:
-                ideologies, grand theories, illusions of control.
-              </p>
-              <p>
-                It combines cinematic grammar, modern science, object-characters, existential self-mockery
-                and fully conscious logical games.
-              </p>
-              <div class="courant-rail-claim">
-                The least extravagant logic in a world that no longer guarantees anything.
-              </div>
-            </div>
-            <div class="courant-rail-meta">
-              <strong>Dominant DNA</strong><br>
-              Montage and film-like cuts, science as comic material,<br>
-              anxious bodies, playful paradoxes, objects as characters.<br><br>
-              <strong>Specific branches (Neo-Nonsense)</strong><br>
-              Offbeat / Skewed SF (comic science fiction, space opera parody),<br>
-              AI Companion Comedy (algorithmic butlers, jealous AIs, posthuman humour),<br>
-              Hypochondria / Somatic Anxiety (body panic, medical obsession),<br>
-              Minor-Character Turn (retellings that recentre a background character).<br><br>
-              Connects to traditions often labelled
-              <em>absurdist fiction, comic SF, postmodern metafiction, intertextual rewriting, philosophical comedy</em>.
-            </div>
-          </article>
-        </div>
-
-        <!-- Micro-carousel of representatives -->
-        <div class="currents-carousel-wrapper" aria-label="Examples of novels for each current">
-          <div class="currents-carousel-title">Examples · Some representatives by current</div>
-          <div class="currents-carousel">
-            <div class="current-track">
-              <!-- Everyday slide -->
-              <div class="current-slide is-active" data-slide="0">
-                <div class="current-covers">
-                  <div class="current-cover">
-                    <img src="img/wilt31A.png" alt="Cover of Wilt">
+          <!-- Micro-carousel of representatives -->
+          <div class="currents-carousel-wrapper" aria-label="Examples of novels for each current">
+            <div class="currents-carousel-title">Examples · Some representatives by current</div>
+            <div class="currents-carousel">
+              <div class="current-track">
+                <!-- Everyday slide -->
+                <div class="current-slide is-active" data-slide="0">
+                  <div class="current-covers">
+                    <div class="current-cover">
+                      <img src="img/wilt31A.png" alt="Cover of Wilt">
+                    </div>
+                    <div class="current-cover">
+                      <img src="img/girls-of-slender-means.png" alt="Cover of The Girls of Slender Means">
+                    </div>
                   </div>
-                  <div class="current-cover">
-                    <img src="img/girls-of-slender-means.png" alt="Cover of The Girls of Slender Means">
+                  <div class="current-main">
+                    <div class="current-label">Everyday · Social comedy</div>
+                    <div class="current-name">Comedy of Everyday</div>
+                    <div class="current-desc">
+                      Brilliant losers, neighbours, colleagues, families and institutions that never quite work
+                      the way they should. The friction between people and rules.
+                    </div>
+                    <div class="current-examples">
+                      For instance: <em>Wilt</em> (Tom Sharpe), <em>The Girls of Slender Means</em> (Muriel Spark),
+                      several campus and domestic comedies.
+                    </div>
                   </div>
                 </div>
-                <div class="current-main">
-                  <div class="current-label">Everyday · Social comedy</div>
-                  <div class="current-name">Comedy of Everyday</div>
-                  <div class="current-desc">
-                    Brilliant losers, neighbours, colleagues, families and institutions that never quite work
-                    the way they should. The friction between people and rules.
+
+                <!-- Crime slide -->
+                <div class="current-slide" data-slide="1">
+                  <div class="current-covers">
+                    <div class="current-cover">
+                      <img src="img/westlake-sample.png" alt="Cover of a Donald Westlake comic crime novel">
+                    </div>
+                    <div class="current-cover">
+                      <img src="img/hiaasen-sample.png" alt="Cover of a Carl Hiaasen comic crime novel">
+                    </div>
                   </div>
-                  <div class="current-examples">
-                    For instance: <em>Wilt</em> (Tom Sharpe), <em>The Girls of Slender Means</em> (Muriel Spark),
-                    several campus and domestic comedies.
+                  <div class="current-main">
+                    <div class="current-label">Crime · Comic noir & caper</div>
+                    <div class="current-name">Comedy of Crime</div>
+                    <div class="current-desc">
+                      Plans that go wrong, criminals not quite competent enough, moral systems that look more absurd
+                      than the crimes themselves.
+                    </div>
+                    <div class="current-examples">
+                      For instance: Donald Westlake’s capers, Carl Hiaasen’s Floridian chaos, South African satires
+                      by Tom Sharpe, and other comic noir novels.
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Neo-Nonsense slide -->
+                <div class="current-slide" data-slide="2">
+                  <div class="current-covers">
+                    <div class="current-cover">
+                      <img src="img/douglas-adams-sample.png" alt="Cover of a Douglas Adams novel">
+                    </div>
+                    <div class="current-cover">
+                      <img src="img/vonnegut-sample.png" alt="Cover of a Kurt Vonnegut novel">
+                    </div>
+                  </div>
+                  <div class="current-main">
+                    <div class="current-label">Neo-Nonsense · Vertigo of meaning</div>
+                    <div class="current-name">Neo-Nonsense</div>
+                    <div class="current-desc">
+                      Science, technology, metaphysics and bureaucracy turned into comic material. Bodies anxious,
+                      narratives playful, logic both rigorous and absurd.
+                    </div>
+                    <div class="current-examples">
+                      For instance: Douglas Adams, Kurt Vonnegut, Percival Everett’s <em>James</em> and other
+                      postmodern or offbeat SF comedies.
+                    </div>
                   </div>
                 </div>
               </div>
 
-              <!-- Crime slide -->
-              <div class="current-slide" data-slide="1">
-                <div class="current-covers">
-                  <div class="current-cover">
-                    <img src="img/westlake-sample.png" alt="Cover of a Donald Westlake comic crime novel">
-                  </div>
-                  <div class="current-cover">
-                    <img src="img/hiaasen-sample.png" alt="Cover of a Carl Hiaasen comic crime novel">
-                  </div>
-                </div>
-                <div class="current-main">
-                  <div class="current-label">Crime · Comic noir & caper</div>
-                  <div class="current-name">Comedy of Crime</div>
-                  <div class="current-desc">
-                    Plans that go wrong, criminals not quite competent enough, moral systems that look more absurd
-                    than the crimes themselves.
-                  </div>
-                  <div class="current-examples">
-                    For instance: Donald Westlake’s capers, Carl Hiaasen’s Floridian chaos, South African satires
-                    by Tom Sharpe, and other comic noir novels.
-                  </div>
-                </div>
+              <div class="current-nav" aria-label="Switch current examples">
+                <button class="current-dot is-active" data-target="0">Everyday</button>
+                <button class="current-dot" data-target="1">Crime</button>
+                <button class="current-dot" data-target="2">Neo-Nonsense</button>
               </div>
-
-              <!-- Neo-Nonsense slide -->
-              <div class="current-slide" data-slide="2">
-                <div class="current-covers">
-                  <div class="current-cover">
-                    <img src="img/douglas-adams-sample.png" alt="Cover of a Douglas Adams novel">
-                  </div>
-                  <div class="current-cover">
-                    <img src="img/vonnegut-sample.png" alt="Cover of a Kurt Vonnegut novel">
-                  </div>
-                </div>
-                <div class="current-main">
-                  <div class="current-label">Neo-Nonsense · Vertigo of meaning</div>
-                  <div class="current-name">Neo-Nonsense</div>
-                  <div class="current-desc">
-                    Science, technology, metaphysics and bureaucracy turned into comic material. Bodies anxious,
-                    narratives playful, logic both rigorous and absurd.
-                  </div>
-                  <div class="current-examples">
-                    For instance: Douglas Adams, Kurt Vonnegut, Percival Everett’s <em>James</em> and other
-                    postmodern or offbeat SF comedies.
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="current-nav" aria-label="Switch current examples">
-              <button class="current-dot is-active" data-target="0">Everyday</button>
-              <button class="current-dot" data-target="1">Crime</button>
-              <button class="current-dot" data-target="2">Neo-Nonsense</button>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- SECTION: TOOLBOX -->
-      <section class="section" id="toolbox">
-        <header class="section-header">
-          <div class="section-kicker">Toolbox</div>
-          <h2 class="section-title">Currents, branches, environments, Labs</h2>
-          <p class="section-sub">
-            The toolbox helps to locate a novel without locking it up: main comic engine, nuances,
-            environments where characters live, and writing hubs where comedy concentrates.
-          </p>
-        </header>
+        <!-- SECTION: TOOLBOX (role / environment / labs) -->
+        <section class="section" id="toolbox" data-spy>
+          <header class="section-header">
+            <div class="section-kicker">Toolbox</div>
+            <h2 class="section-title">Toolbox for reading the guides</h2>
+            <p class="section-sub">
+              Alongside the three currents, the toolbox gathers recurring entries used in each guide:
+              the role played by comedy within the novel, the environment where characters live,
+              and the Labs where comic writing concentrates.
+            </p>
+          </header>
 
-        <div class="grid-3">
-          <!-- Currents and branches -->
-          <article class="card">
-            <div class="card-header">Currents and branches</div>
-            <div class="card-body">
-              <p>
-                The three currents (Comedy of Everyday, Comedy of Crime, Neo-Nonsense) describe the main comic engine
-                of a novel: integration, transgression, vertigo.
-              </p>
-              <p>
-                Branches refine this engine: Frustration, Winner, Code/Etiquette, Comic Investigator, Edge, Campus,
-                Offbeat SF, AI Companion Comedy, Hypochondria, etc.
-              </p>
-              <p class="card-tagline">
-                A single novel may combine several branches. The guide signals this simply, chapter by chapter.
-              </p>
-            </div>
-          </article>
+          <div class="grid-3">
+            <!-- Role of comedy -->
+            <article class="card">
+              <div class="card-header">
+                <a href="/fr/cartographie/roles-romans" style="color:inherit;text-decoration:none;">
+                  Role of comedy within the novel
+                </a>
+              </div>
+              <div class="card-body">
+                <p><strong>Comic Engine</strong></p>
+                <p>
+                  Comedy is the main narrative engine. It shapes the voice, the rhythm and the logic of scenes.
+                </p>
 
-          <!-- Environment -->
-          <article class="card">
-            <div class="card-header">Environment</div>
-            <div class="card-body">
-              <p>
-                Environment describes where characters live and struggle: city or region,
-                historical period, social or professional milieu.
-              </p>
-              <p>
-                Example: <em>Midlands · technical college · pre-Thatcher England.</em>
-                It gives a quick sense of the human landscape without pretending to summarise it.
-              </p>
-              <p class="card-tagline">
-                Environment appears in the guide both as a dedicated line and through the chapter
-                <strong>Creation context</strong>.
-              </p>
-            </div>
-          </article>
+                <p><strong>Comic Thread</strong></p>
+                <p>
+                  The novel develops a sustained comic thread that coexists with other registers.
+                  Comedy articulates the whole but does not alone determine the form.
+                </p>
 
-          <!-- Labs (text) -->
-          <article class="card">
-            <div class="card-header">Labs</div>
-            <div class="card-body">
-              <p>
-                A Lab is a comic writing hub. It is a place where several writers, sometimes at different times,
-                seem to work on a similar comic energy: type of hero, tone, social situation, way humour circulates.
-              </p>
-              <p>Examples (in progress):</p>
-              <ul class="list">
-                <li><strong>Midlands Lab</strong> – frustrated teachers, stuck middle class, brilliant losers.</li>
-                <li><strong>London Elite Lab</strong> – satire of high-society codes and etiquette.</li>
-                <li><strong>Big Apple Crime Lab</strong> – New York criminal humour, failed plans, dysfunctional crews.</li>
-                <li><strong>Tokyo Neo-Nonsense Lab</strong> – urban narratives where technical modernity becomes comic vertigo.</li>
-              </ul>
-              <p class="card-tagline">
-                A Lab is not an identity label but a relation:
-                it can, for instance, bring together a Donald Westlake crime novel in New York and a Frédéric Dard novel in Paris
-                when they share a similar Comedy of Crime logic.
-              </p>
-            </div>
-          </article>
-        </div>
+                <p><strong>Comic Turn</strong></p>
+                <p>
+                  Comedy appears as striking incursions. These local moments structure the reading,
+                  without occupying the entire text.
+                </p>
 
-        <!-- Stylised Labs map -->
-        <div class="lab-map-wrapper" id="labs" aria-label="Diagram of comic hubs">
-          <div class="lab-map-title">Hubs diagram</div>
-          <div class="lab-map">
-            <div class="lab-map-overlay"></div>
+                <p class="card-tagline">
+                  Each guide indicates the role of comedy in a stable way, so that two very different novels
+                  can still be compared on this point.
+                </p>
+              </div>
+            </article>
 
-            <div class="lab-dot" style="top:60%;left:45%;"></div>
-            <div class="lab-label" style="top:52%;left:52%;">Midlands Lab</div>
+            <!-- Environment -->
+            <article class="card">
+              <div class="card-header">Environment</div>
+              <div class="card-body">
+                <p>
+                  Environment describes where characters live and struggle: city or region,
+                  historical period, social or professional milieu.
+                </p>
+                <p>
+                  Example: <em>Midlands · technical college · pre-Thatcher England.</em>
+                  It gives a quick sense of the human landscape without pretending to summarise it.
+                </p>
+                <p class="card-tagline">
+                  Environment appears in the guide both as a dedicated line and through the chapter
+                  <strong>Creation context</strong>.
+                </p>
+              </div>
+            </article>
 
-            <div class="lab-dot" style="top:40%;left:60%;"></div>
-            <div class="lab-label" style="top:34%;left:64%;">Campus / University</div>
-
-            <div class="lab-dot" style="top:38%;left:30%;"></div>
-            <div class="lab-label" style="top:30%;left:16%;">Nordic Landscapes</div>
-
-            <div class="lab-dot" style="top:70%;left:55%;"></div>
-            <div class="lab-label" style="top:74%;left:58%;">Latin Cities</div>
-
-            <div class="lab-dot" style="top:50%;left:70%;"></div>
-            <div class="lab-label" style="top:44%;left:72%;">War / Bureaucracy</div>
+            <!-- Labs -->
+            <article class="card">
+              <div class="card-header">Labs</div>
+              <div class="card-body">
+                <p>
+                  A Lab is a comic writing hub. It is a place where several writers, sometimes at different times,
+                  seem to work on a similar comic energy: type of hero, tone, social situation, way humour circulates.
+                </p>
+                <p>Examples (in progress):</p>
+                <ul class="list">
+                  <li><strong>Midlands Lab</strong> – frustrated teachers, stuck middle class, brilliant losers.</li>
+                  <li><strong>London Elite Lab</strong> – satire of high-society codes and etiquette.</li>
+                  <li><strong>Big Apple Crime Lab</strong> – New York criminal humour, failed plans, dysfunctional crews.</li>
+                  <li><strong>Tokyo Neo-Nonsense Lab</strong> – urban narratives where technical modernity becomes comic vertigo.</li>
+                </ul>
+                <p class="card-tagline">
+                  A Lab is not an identity label but a relation:
+                  it can, for instance, bring together a Donald Westlake crime novel in New York and a Frédéric Dard novel in Paris
+                  when they share a similar Comedy of Crime logic.
+                </p>
+              </div>
+            </article>
           </div>
-          <p class="muted" style="margin-top:6px;">
-            Stylised, non-geographical map: Labs function as conceptual hubs, linked by shared forms of comedy
-            (social satire, campus novel, comic noir, absurdist SF, etc.).
-          </p>
-        </div>
-      </section>
 
-      <!-- SECTION: LIVING LIBRARY / ABOUT -->
-      <section class="section" id="about">
-        <header class="section-header">
-          <div class="section-kicker">Living library</div>
-          <h2 class="section-title">The Novel of Comedy as critical compass</h2>
-          <p class="section-sub">
-            The Novel of Comedy is designed as a moving library and a critical compass for modern comic fiction.
-          </p>
-        </header>
+          <!-- Stylised Labs map -->
+          <div class="lab-map-wrapper" id="labs" aria-label="Diagram of comic hubs">
+            <div class="lab-map-title">Hubs diagram</div>
+            <div class="lab-map">
+              <div class="lab-map-overlay"></div>
 
-        <div class="grid-2">
-          <article class="card">
-            <div class="card-header">A living library</div>
-            <div class="card-body">
+              <div class="lab-dot" style="top:60%;left:45%;"></div>
+              <div class="lab-label" style="top:52%;left:52%;">Midlands Lab</div>
+
+              <div class="lab-dot" style="top:40%;left:60%;"></div>
+              <div class="lab-label" style="top:34%;left:64%;">Campus / University</div>
+
+              <div class="lab-dot" style="top:38%;left:30%;"></div>
+              <div class="lab-label" style="top:30%;left:16%;">Nordic Landscapes</div>
+
+              <div class="lab-dot" style="top:70%;left:55%;"></div>
+              <div class="lab-label" style="top:74%;left:58%;">Latin Cities</div>
+
+              <div class="lab-dot" style="top:50%;left:70%;"></div>
+              <div class="lab-label" style="top:44%;left:72%;">War / Bureaucracy</div>
+            </div>
+            <p class="muted" style="margin-top:6px;">
+              Stylised, non-geographical map: Labs function as conceptual hubs, linked by shared forms of comedy
+              (social satire, campus novel, comic noir, absurdist SF, etc.).
+            </p>
+          </div>
+        </section>
+
+        <!-- SECTION: LIVING LIBRARY / ABOUT -->
+        <section class="section" id="about" data-spy>
+          <header class="section-header">
+            <div class="section-kicker">Living library</div>
+            <h2 class="section-title">The Novel of Comedy as critical compass</h2>
+            <p class="section-sub">
+              The Novel of Comedy is designed as a moving library and a critical compass for modern comic fiction.
+            </p>
+          </header>
+
+          <div class="grid-2">
+            <article class="card">
+              <div class="card-header">A living library</div>
+              <div class="card-body">
+                <p>
+                  New novel and author guides are added progressively. Labs are adjusted as corpora become more precise.
+                  Some analyses may evolve as new readings or critical works appear.
+                </p>
+                <p class="card-tagline">
+                  Concepts (currents, branches, environments, Labs) are here to orient.
+                  Texts remain primary.
+                </p>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card-header">Atlas and cartography</div>
+              <div class="card-body">
+                <p>
+                  TNoC defines itself both as a digital atlas and as a critical cartography:
+                </p>
+                <ul class="list">
+                  <li><strong>Atlas</strong>: an organised set of guides, currents, Labs and connections, accessible through multiple entries.</li>
+                  <li><strong>Cartography</strong>: ongoing work of mapping, relating and discussing the forms of comic fiction.</li>
+                </ul>
+                <p class="card-tagline">
+                  The atlas offers an overview; the cartography acknowledges transitions, overlaps and borderline cases.
+                </p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- SECTION: RESEARCHERS & AI -->
+        <section class="section" id="research" data-spy>
+          <header class="section-header">
+            <div class="section-kicker">Researchers &amp; AI</div>
+            <h2 class="section-title">For research, libraries and AI assistants</h2>
+            <p class="section-sub">
+              TNoC is designed to be cited, linked and explored. Its contents can be used in academic, documentary and digital contexts.
+            </p>
+          </header>
+
+          <div class="grid-2">
+            <article class="card">
+              <div class="card-header">Research and libraries</div>
+              <div class="card-body">
+                <ul class="list">
+                  <li>novel and author guides with fixed matrices, comparable and citable;</li>
+                  <li>an explicit typology of currents, branches, environments and Labs;</li>
+                  <li>a dedicated page explaining how to cite TNoC in English and French;</li>
+                  <li>possibility to include TNoC as an external resource in catalogues or bibliographies.</li>
+                </ul>
+                <p class="muted">
+                  The aim is to build a reference resource for the study of modern comic fiction:
+                  comedy of manners, social satire, comic noir, campus novel, comic SF, Neo-Nonsense, etc.
+                </p>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card-header">Digital tools and AI</div>
+              <div class="card-body">
+                <ul class="list">
+                  <li>concepts formulated in clear language, reusable by models;</li>
+                  <li>stable data structure (currents, roles, branches, Labs, dates, original languages);</li>
+                  <li>lightweight export possibilities for corpus or annotation projects;</li>
+                  <li>an entry point for AI assistants working on comic fiction.</li>
+                </ul>
+                <p class="muted">
+                  Short formulation in English:
+                  <em>The Novel of Comedy, digital atlas and critical cartography of modern comic fiction.</em>
+                </p>
+              </div>
+            </article>
+          </div>
+
+          <!-- META HUB FOR SEARCH & AI -->
+          <div class="meta-ia" aria-label="Meta-hub for search engines and AI">
+            <strong>Meta-hub · Keywords &amp; mappings</strong><br>
+            The Novel of Comedy explicitly connects its internal vocabulary
+            (<em>Comedy of Everyday, Comedy of Crime, Neo-Nonsense, Frustration Comedy, Winner Comedy,
+            Comedy of the Code/Etiquette, Campus Comedy, Edge Comedy, Schemer, Hapless Criminal,
+            Comic Investigator, Offbeat / Skewed SF, AI Companion Comedy, Hypochondria, Minor-Character Turn</em>)
+            with more general terms used in criticism, catalogues and search tools:
+            <em>comic fiction, comedy of manners, social satire, domestic comedy, workplace comedy, campus novel,
+            academic satire, caper novel, comic noir, heist comedy, dark screwball, comic detective fiction,
+            absurdist fiction, postmodern metafiction, comic science fiction, AI satire, hypochondria novel,
+            character recentering, intertextual rewriting</em>.  
+            This page is designed so that both humans and AI assistants can quickly identify how TNoC’s categories
+            relate to existing labels.
+          </div>
+
+          <!-- Typical questions -->
+          <div class="faq-card" aria-label="Typical reader questions this atlas can help with">
+            <h3>Typical questions this atlas can help with</h3>
+            <ul class="faq-list">
+              <li><em>“Which modern campus novels are actually funny?”</em></li>
+              <li><em>“I love Tom Sharpe. Who should I read next in comic crime?”</em></li>
+              <li><em>“Darkly comic crime novels set in the US or UK?”</em></li>
+              <li><em>“Comic SF books if I like Douglas Adams and Kurt Vonnegut?”</em></li>
+              <li><em>“Short, sharp comic novels by women writers?”</em></li>
+              <li><em>“What is Neo-Nonsense, compared with absurdist fiction?”</em></li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- SECTION: START HERE -->
+        <section class="section" id="start-here" data-spy>
+          <header class="section-header">
+            <div class="section-kicker">Orientation</div>
+            <h2 class="section-title">Where to start?</h2>
+            <p class="section-sub">
+              You can enter the atlas through guides, currents or Labs. A few paths into The Novel of Comedy.
+            </p>
+          </header>
+
+          <div class="start-grid">
+            <article class="start-card">
+              <h3>Explore novel guides</h3>
               <p>
-                New novel and author guides are added progressively. Labs are adjusted as corpora become more precise.
-                Some analyses may evolve as new readings or critical works appear.
+                Start from the works: reading notes, incipits, characters, contexts. Follow one novel, then another,
+                and watch how comedy circulates.
               </p>
-              <p class="card-tagline">
-                Concepts (currents, branches, environments, Labs) are here to orient.
-                Texts remain primary.
-              </p>
-            </div>
-          </article>
+            </article>
 
-          <article class="card">
-            <div class="card-header">Atlas and cartography</div>
-            <div class="card-body">
+            <article class="start-card">
+              <h3>Discover the three currents</h3>
               <p>
-                TNoC defines itself both as a digital atlas and as a critical cartography:
+                See how Everyday, Crime and Neo-Nonsense organise the map:
+                from daily life to transgressions, all the way to the vertigo of meaning.
               </p>
-              <ul class="list">
-                <li><strong>Atlas</strong>: an organised set of guides, currents, Labs and connections, accessible through multiple entries.</li>
-                <li><strong>Cartography</strong>: ongoing work of mapping, relating and discussing the forms of comic fiction.</li>
-              </ul>
-              <p class="card-tagline">
-                The atlas offers an overview; the cartography acknowledges transitions, overlaps and borderline cases.
-              </p>
-            </div>
-          </article>
-        </div>
-      </section>
+            </article>
 
-      <!-- SECTION: RESEARCHERS & AI -->
-      <section class="section" id="research">
-        <header class="section-header">
-          <div class="section-kicker">Researchers &amp; AI</div>
-          <h2 class="section-title">For research, libraries and AI assistants</h2>
-          <p class="section-sub">
-            TNoC is designed to be cited, linked and explored. Its contents can be used in academic, documentary and digital contexts.
-          </p>
+            <article class="start-card">
+              <h3>Walk through the Labs</h3>
+              <p>
+                Explore comic hubs: Midlands, London elite, Big Apple, Soweto, Tokyo…
+                Observe how forms of comedy answer one another from one Lab to the next.
+              </p>
+            </article>
+
+            <article class="start-card">
+              <h3>Use the reading guides</h3>
+              <p>
+                Follow simple paths such as “Campus & institutions”, “Comic crime”, “Neo-Nonsense & offbeat SF”,
+                then come back to the full guides and toolbox once you want more detail.
+              </p>
+            </article>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- RIGHT: RAIL -->
+      <aside class="rail" aria-label="In this page">
+        <header>
+          <h3>In this page</h3>
+          <p>Short path through the atlas homepage.</p>
+          <div class="rail-progress" aria-label="Reading progress"><span></span></div>
         </header>
 
-        <div class="grid-2">
-          <article class="card">
-            <div class="card-header">Research and libraries</div>
-            <div class="card-body">
-              <ul class="list">
-                <li>novel and author guides with fixed matrices, comparable and citable;</li>
-                <li>an explicit typology of currents, branches, environments and Labs;</li>
-                <li>a dedicated page explaining how to cite TNoC in English and French;</li>
-                <li>possibility to include TNoC as an external resource in catalogues or bibliographies.</li>
-              </ul>
-              <p class="muted">
-                The aim is to build a reference resource for the study of modern comic fiction:
-                comedy of manners, social satire, comic noir, campus novel, comic SF, Neo-Nonsense, etc.
-              </p>
-            </div>
-          </article>
+        <nav class="toc" id="toc">
+          <a href="#fiches">Guides</a>
+          <a href="#courants">Currents</a>
+          <a href="#toolbox">Toolbox</a>
+          <a href="#about">About</a>
+          <a href="#research">Researchers &amp; AI</a>
+          <a href="#start-here">Where to start?</a>
+        </nav>
 
-          <article class="card">
-            <div class="card-header">Digital tools and AI</div>
-            <div class="card-body">
-              <ul class="list">
-                <li>concepts formulated in clear language, reusable by models;</li>
-                <li>stable data structure (currents, roles, branches, Labs, dates, original languages);</li>
-                <li>lightweight export possibilities for corpus or annotation projects;</li>
-                <li>an entry point for AI assistants working on comic fiction.</li>
-              </ul>
-              <p class="muted">
-                Short formulation in English:
-                <em>The Novel of Comedy, digital atlas and critical cartography of modern comic fiction.</em>
-              </p>
-            </div>
-          </article>
+        <div class="rail-bottom">
+          <a class="btn" href="#top">
+            ↑ Back to top
+          </a>
         </div>
-
-        <!-- META HUB FOR SEARCH & AI -->
-        <div class="meta-ia" aria-label="Meta-hub for search engines and AI">
-          <strong>Meta-hub · Keywords &amp; mappings</strong><br>
-          The Novel of Comedy explicitly connects its internal vocabulary
-          (<em>Comedy of Everyday, Comedy of Crime, Neo-Nonsense, Frustration Comedy, Winner Comedy,
-          Comedy of the Code/Etiquette, Campus Comedy, Edge Comedy, Schemer, Hapless Criminal,
-          Comic Investigator, Offbeat / Skewed SF, AI Companion Comedy, Hypochondria, Minor-Character Turn</em>)
-          with more general terms used in criticism, catalogues and search tools:
-          <em>comic fiction, comedy of manners, social satire, domestic comedy, workplace comedy, campus novel,
-          academic satire, caper novel, comic noir, heist comedy, dark screwball, comic detective fiction,
-          absurdist fiction, postmodern metafiction, comic science fiction, AI satire, hypochondria novel,
-          character recentering, intertextual rewriting</em>.  
-          This page is designed so that both humans and AI assistants can quickly identify how TNoC’s categories
-          relate to existing labels.
-        </div>
-
-        <!-- Typical questions -->
-        <div class="faq-card" aria-label="Typical reader questions this atlas can help with">
-          <h3>Typical questions this atlas can help with</h3>
-          <ul class="faq-list">
-            <li><em>“Which modern campus novels are actually funny?”</em></li>
-            <li><em>“I love Tom Sharpe. Who should I read next in comic crime?”</em></li>
-            <li><em>“Darkly comic crime novels set in the US or UK?”</em></li>
-            <li><em>“Comic SF books if I like Douglas Adams and Kurt Vonnegut?”</em></li>
-            <li><em>“Short, sharp comic novels by women writers?”</em></li>
-            <li><em>“What is Neo-Nonsense, compared with absurdist fiction?”</em></li>
-          </ul>
-        </div>
-      </section>
-
-      <!-- SECTION: START HERE (reading paths) -->
-      <section class="section" id="start-here">
-        <header class="section-header">
-          <div class="section-kicker">Orientation</div>
-          <h2 class="section-title">Where to start?</h2>
-          <p class="section-sub">
-            You can enter the atlas through guides, currents or Labs.  
-            A few concrete reading paths if you are wondering “what should I read next?”.
-          </p>
-        </header>
-
-        <div class="start-grid">
-          <!-- Path 1 -->
-          <article class="start-card">
-            <h3>Campus & institutions</h3>
-            <p>
-              If you like frustrated teachers, bureaucracies and people trapped in systems,
-              start with <em>Wilt</em> (Frustration Comedy, campus, Midlands Lab) and other
-              Comedy of Everyday novels tagged <strong>Campus</strong> or <strong>Frustration</strong>.
-            </p>
-            <p class="muted">
-              Typical question: “Which modern campus novels are actually funny?”
-            </p>
-          </article>
-
-          <!-- Path 2 -->
-          <article class="start-card">
-            <h3>Comic crime & dark screwball</h3>
-            <p>
-              For heists that go wrong, hapless criminals and moral systems that look absurd,
-              follow the <strong>Comedy of Crime</strong> current: Donald Westlake, Carl Hiaasen,
-              Tom Sharpe’s South African novels and other caper or comic noir stories.
-            </p>
-            <p class="muted">
-              Typical question: “Darkly comic crime novels set in the US or UK?”
-            </p>
-          </article>
-
-          <!-- Path 3 -->
-          <article class="start-card">
-            <h3>Neo-Nonsense & offbeat SF</h3>
-            <p>
-              If you are drawn to Douglas Adams, Kurt Vonnegut or Percival Everett’s
-              <em>James</em>, use the <strong>Neo-Nonsense</strong> current and branches such as
-              <strong>Offbeat / Skewed SF</strong> or <strong>Minor-Character Turn</strong> to
-              navigate comic science fiction and postmodern rewritings.
-            </p>
-            <p class="muted">
-              Typical question: “Comic SF books if I like Douglas Adams and Kurt Vonnegut?”
-            </p>
-          </article>
-
-          <!-- Path 4 -->
-          <article class="start-card">
-            <h3>Short, sharp novels & women writers</h3>
-            <p>
-              For slim, precise comedies that can be read in a few evenings, follow guides for
-              short novels and women writers – for instance Muriel Spark’s
-              <em>The Girls of Slender Means</em> and other Edge or Winner comedies.
-            </p>
-            <p class="muted">
-              Typical question: “Short, sharp comic novels by women writers?”
-            </p>
-          </article>
-        </div>
-      </section>
+      </aside>
 
     </div>
   </main>
@@ -1912,5 +1976,48 @@
   show(0);
 })();
 </script>
+
+<!-- JS SCROLLSPY + PROGRESS (rail) -->
+<script>
+(function(){
+  const links = Array.from(document.querySelectorAll('#toc a'));
+  const sections = Array.from(document.querySelectorAll('[data-spy]'));
+  const bar = document.querySelector('.rail-progress > span');
+
+  // Progress bar
+  function updateProgress(){
+    if(!bar) return;
+    const doc = document.documentElement;
+    const scrollTop = doc.scrollTop || document.body.scrollTop;
+    const scrollHeight = doc.scrollHeight - doc.clientHeight;
+    const pct = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+    bar.style.width = Math.max(0, Math.min(100, pct)) + "%";
+  }
+  window.addEventListener('scroll', updateProgress, { passive:true });
+  updateProgress();
+
+  // Scrollspy
+  if(!('IntersectionObserver' in window) || links.length===0 || sections.length===0) return;
+
+  const byId = new Map(links.map(a => [a.getAttribute('href').slice(1), a]));
+  function setActive(id){
+    links.forEach(a => {
+      const targetId = a.getAttribute('href').slice(1);
+      a.classList.toggle('active', targetId === id);
+    });
+  }
+
+  const io = new IntersectionObserver((entries)=>{
+    const v = entries
+      .filter(e=>e.isIntersecting)
+      .sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];
+    if(v) setActive(v.target.id);
+  }, { rootMargin:"-30% 0px -55% 0px", threshold:[.1,.25,.4] });
+
+  sections.forEach(s => io.observe(s));
+  if(sections[0]) setActive(sections[0].id);
+})();
+</script>
+
 </body>
 </html>
