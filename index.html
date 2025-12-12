@@ -687,37 +687,32 @@
       overflow:hidden;
     }
     .current-track{
-  position:relative;
-}
+      position:relative;
+    }
 
-/* Slides empilées naturellement, seule la slide active est visible */
-.current-slide{
-  position:relative;
-  display:none;
-  grid-template-columns:1.2fr 1.8fr;
-  gap:10px;
-  padding:4px;
-  opacity:0;
-  pointer-events:none;
-  font-size:12px;
-}
+    .current-slide{
+      position:relative;
+      display:none;
+      grid-template-columns:1.2fr 1.8fr;
+      gap:10px;
+      padding:4px;
+      opacity:0;
+      pointer-events:none;
+      font-size:12px;
+    }
 
-.current-slide.is-active{
-  display:grid;
-  opacity:1;
-  pointer-events:auto;
-}
+    .current-slide.is-active{
+      display:grid;
+      opacity:1;
+      pointer-events:auto;
+    }
 
-@media(max-width:640px){
-  .current-slide{
-    grid-template-columns:1fr;
-  }
-}
     @media(max-width:640px){
       .current-slide{
         grid-template-columns:1fr;
       }
     }
+
     .current-covers{
       display:grid;
       grid-template-columns:repeat(2,minmax(0,1fr));
@@ -1155,7 +1150,7 @@
   <main class="main" aria-label="Main content">
     <div class="main-inner">
 
-      <!-- SECTION: FICHES -->
+      <!-- SECTION: FICHES / GUIDES -->
       <section class="section" id="fiches">
         <header class="section-header">
           <div class="section-kicker">Guides</div>
@@ -1726,46 +1721,68 @@
         </div>
       </section>
 
-      <!-- SECTION: START HERE -->
+      <!-- SECTION: START HERE (reading paths) -->
       <section class="section" id="start-here">
         <header class="section-header">
           <div class="section-kicker">Orientation</div>
           <h2 class="section-title">Where to start?</h2>
           <p class="section-sub">
-            You can enter the atlas through guides, currents or Labs. A few paths into The Novel of Comedy.
+            You can enter the atlas through guides, currents or Labs.  
+            A few concrete reading paths if you are wondering “what should I read next?”.
           </p>
         </header>
 
         <div class="start-grid">
+          <!-- Path 1 -->
           <article class="start-card">
-            <h3>Explore novel guides</h3>
+            <h3>Campus & institutions</h3>
             <p>
-              Start from the works: reading notes, incipits, characters, contexts. Follow one novel, then another,
-              and watch how comedy circulates.
+              If you like frustrated teachers, bureaucracies and people trapped in systems,
+              start with <em>Wilt</em> (Frustration Comedy, campus, Midlands Lab) and other
+              Comedy of Everyday novels tagged <strong>Campus</strong> or <strong>Frustration</strong>.
+            </p>
+            <p class="muted">
+              Typical question: “Which modern campus novels are actually funny?”
             </p>
           </article>
 
+          <!-- Path 2 -->
           <article class="start-card">
-            <h3>Discover the three currents</h3>
+            <h3>Comic crime & dark screwball</h3>
             <p>
-              See how Everyday, Crime and Neo-Nonsense organise the map:
-              from daily life to transgressions, all the way to the vertigo of meaning.
+              For heists that go wrong, hapless criminals and moral systems that look absurd,
+              follow the <strong>Comedy of Crime</strong> current: Donald Westlake, Carl Hiaasen,
+              Tom Sharpe’s South African novels and other caper or comic noir stories.
+            </p>
+            <p class="muted">
+              Typical question: “Darkly comic crime novels set in the US or UK?”
             </p>
           </article>
 
+          <!-- Path 3 -->
           <article class="start-card">
-            <h3>Walk through the Labs</h3>
+            <h3>Neo-Nonsense & offbeat SF</h3>
             <p>
-              Explore comic hubs: Midlands, London elite, Big Apple, Soweto, Tokyo…
-              Observe how forms of comedy answer one another from one Lab to the next.
+              If you are drawn to Douglas Adams, Kurt Vonnegut or Percival Everett’s
+              <em>James</em>, use the <strong>Neo-Nonsense</strong> current and branches such as
+              <strong>Offbeat / Skewed SF</strong> or <strong>Minor-Character Turn</strong> to
+              navigate comic science fiction and postmodern rewritings.
+            </p>
+            <p class="muted">
+              Typical question: “Comic SF books if I like Douglas Adams and Kurt Vonnegut?”
             </p>
           </article>
 
+          <!-- Path 4 -->
           <article class="start-card">
-            <h3>Use the reading guides</h3>
+            <h3>Short, sharp novels & women writers</h3>
             <p>
-              Follow simple paths such as “Campus & institutions”, “Comic crime”, “Neo-Nonsense & offbeat SF”,
-              then come back to the full guides and toolbox once you want more detail.
+              For slim, precise comedies that can be read in a few evenings, follow guides for
+              short novels and women writers – for instance Muriel Spark’s
+              <em>The Girls of Slender Means</em> and other Edge or Winner comedies.
+            </p>
+            <p class="muted">
+              Typical question: “Short, sharp comic novels by women writers?”
             </p>
           </article>
         </div>
