@@ -687,27 +687,32 @@
       overflow:hidden;
     }
     .current-track{
-      position:relative;
-      min-height:140px;
-    }
-    .current-slide{
-      position:absolute;
-      inset:0;
-      display:grid;
-      grid-template-columns:1.2fr 1.8fr;
-      gap:10px;
-      padding:4px;
-      opacity:0;
-      pointer-events:none;
-      transform:translateX(8px);
-      transition:opacity .35s ease, transform .35s ease;
-      font-size:12px;
-    }
-    .current-slide.is-active{
-      opacity:1;
-      pointer-events:auto;
-      transform:translateX(0);
-    }
+  position:relative;
+}
+
+/* Slides empilées naturellement, seule la slide active est visible */
+.current-slide{
+  position:relative;
+  display:none;
+  grid-template-columns:1.2fr 1.8fr;
+  gap:10px;
+  padding:4px;
+  opacity:0;
+  pointer-events:none;
+  font-size:12px;
+}
+
+.current-slide.is-active{
+  display:grid;
+  opacity:1;
+  pointer-events:auto;
+}
+
+@media(max-width:640px){
+  .current-slide{
+    grid-template-columns:1fr;
+  }
+}
     @media(max-width:640px){
       .current-slide{
         grid-template-columns:1fr;
