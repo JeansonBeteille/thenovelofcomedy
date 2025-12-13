@@ -497,22 +497,23 @@
   <!-- TOP BAR -->
   <header class="topbar" role="banner" aria-label="Main navigation">
     <div class="topbar-inner">
-      <a href="../index.html" class="brand" aria-label="The Novel of Comedy home">
+      <a href="index.html" class="brand" aria-label="The Novel of Comedy home">
         <div class="brand-mark">TNoC</div>
         <div class="brand-text">
           <div class="brand-title">The Novel of Comedy</div>
           <div class="brand-sub">Digital atlas & critical cartography of comic fiction</div>
         </div>
       </a>
+
       <nav class="nav" aria-label="Navigation">
-        <a href="../index.html#fiches">Guides</a>
-        <a href="../novel-fiches.html">Novel guides</a>
-        <a href="../author-fiches.html">Author profiles</a>
-        <a href="../index.html#courants">Currents</a>
-        <a href="../index.html#toolbox">Toolbox</a>
-        <a href="./" class="is-active">Method</a>
-        <a href="../index.html#about">About</a>
-        <a href="../index.html#research" class="is-primary">Researchers &amp; AI</a>
+        <a href="index.html#fiches">Guides</a>
+        <a href="novel-fiches.html">Novel guides</a>
+        <a href="author-profiles.html">Author profiles</a>
+        <a href="index.html#courants">Currents</a>
+        <a href="index.html#toolbox">Toolbox</a>
+        <a href="method.html" class="is-active">Method</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#research" class="is-primary">Researchers &amp; AI</a>
       </nav>
     </div>
   </header>
@@ -1012,10 +1013,10 @@ The Novel of Comedy (TNoC). “Method & Standard.” Version v1.0 (Last revised 
         <strong>The Novel of Comedy (TNoC)</strong> · Method & Standard.
       </div>
       <div class="footer-links">
-        <a href="./">Method</a>
-        <a href="../index.html#about">About</a>
-        <a href="../index.html#research">Researchers &amp; AI</a>
-        <a href="../index.html">Home</a>
+        <a href="method.html">Method</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#research">Researchers &amp; AI</a>
+        <a href="index.html">Home</a>
       </div>
     </div>
   </footer>
@@ -1028,8 +1029,7 @@ The Novel of Comedy (TNoC). “Method & Standard.” Version v1.0 (Last revised 
   const el = document.getElementById('accessedDate');
   if(!el) return;
   const d = new Date();
-  const iso = d.toISOString().slice(0,10);
-  el.textContent = iso;
+  el.textContent = d.toISOString().slice(0,10);
 })();
 </script>
 
