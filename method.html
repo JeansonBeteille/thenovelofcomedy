@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Method & Standard — The Novel of Comedy (TNoC)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description"
+        content="Method and Standard for The Novel of Comedy (TNoC): taxonomy, matrices, versioning, and citation format for a critical atlas of modern comic fiction.">
+
+  <style>
+    :root{
+      --bg:#0b0b0c;
+      --paper:#f7f5f0;
+      --ink:#1e1e1e;
+      --graphite:#2b2b2b;
+      --evergreen:#2E7D32;
+      --muted:rgba(0,0,0,.55);
+      --chip:rgba(0,0,0,.06);
+      --border:rgba(0,0,0,.14);
+      --card:#ffffff;
+      --shadow:0 1px 2px rgba(0,0,0,.04);
+      --line:rgba(0,0,0,.12);
+    }
+
+    *{box-sizing:border-box}
+    html,body{
+      margin:0;
+      padding:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--ink);
+      background:var(--bg);
+    }
+    a{color:inherit;text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    .page-wrap{ min-height:100vh; background:var(--bg); }
+
+    /* Skip link */
+    .skip-link{
+      position:absolute; left:-999px; top:10px;
+      padding:8px 12px; background:#fff; color:#000;
+      border-radius:999px; border:1px solid rgba(0,0,0,.18);
+      z-index:1000; font-size:13px;
+    }
+    .skip-link:focus{ left:12px; outline:none; }
+
+    /* TOP NAV */
+    .topbar{
+      position:sticky; top:0; z-index:20;
+      backdrop-filter:blur(10px);
+      background:rgba(11,11,12,.92);
+      color:#fff;
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .topbar-inner{
+      max-width:1120px;
+      margin:0 auto;
+      padding:10px 20px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .brand-mark{
+      width:34px; height:34px; border-radius:12px;
+      border:1px solid rgba(255,255,255,.18);
+      display:flex; align-items:center; justify-content:center;
+      font-weight:600; letter-spacing:.06em; text-transform:uppercase;
+      font-size:11px;
+      background:radial-gradient(circle at 0 0,rgba(255,255,255,.22),rgba(0,0,0,.7));
+    }
+    .brand-text{ display:flex; flex-direction:column; gap:1px; }
+    .brand-title{ font-size:15px; letter-spacing:.05em; text-transform:uppercase; }
+    .brand-sub{ font-size:11px; opacity:.7; }
+
+    .nav{
+      display:flex; flex-wrap:wrap; gap:12px;
+      font-size:13px;
+    }
+    .nav a{ opacity:.82; padding:6px 0; }
+    .nav a:hover{ opacity:1; text-decoration:none; }
+    .nav a.is-primary{
+      padding:6px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.22);
+      font-size:12px;
+    }
+    .nav a.is-active{
+      opacity:1;
+      border-bottom:2px solid rgba(46,125,50,.85);
+      padding-bottom:4px;
+    }
+
+    @media(max-width:900px){
+      .topbar-inner{ flex-direction:column; align-items:flex-start; }
+      .nav{ width:100%; justify-content:flex-start; }
+    }
+
+    /* HERO */
+    .hero{
+      background:var(--bg);
+      color:#fff;
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .hero-inner{
+      max-width:1120px;
+      margin:0 auto;
+      padding:40px 20px 32px;
+      display:grid;
+      grid-template-columns:1.35fr 1fr;
+      gap:32px;
+      align-items:center;
+    }
+    @media(max-width:960px){
+      .hero-inner{ grid-template-columns:1fr; }
+    }
+    .hero-kicker{
+      font-size:12px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      opacity:.9;
+    }
+    .hero-title{
+      font-size:22px;
+      line-height:1.35;
+      margin:10px 0 6px;
+      max-width:640px;
+    }
+    .hero-sub{
+      font-size:13px;
+      line-height:1.65;
+      max-width:600px;
+      opacity:.9;
+      margin:10px 0 12px;
+    }
+    .hero-actions{
+      margin-top:14px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:9px 14px;
+      border-radius:999px;
+      font-size:13px;
+      border:1px solid transparent;
+      cursor:pointer;
+      text-decoration:none;
+      white-space:nowrap;
+    }
+    .btn-primary{ background:#fff; color:#000; border-color:rgba(255,255,255,.03); }
+    .btn-secondary{ background:rgba(0,0,0,.2); border-color:rgba(255,255,255,.3); color:#fff; }
+
+    .hero-visual{
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.18);
+      padding:16px 18px 14px;
+      background:radial-gradient(circle at 0 0,rgba(255,255,255,.12),rgba(0,0,0,.92));
+      box-shadow:0 12px 40px rgba(0,0,0,.7);
+    }
+    .hero-visual h2{
+      margin:0 0 6px;
+      font-size:14px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      opacity:.9;
+    }
+    .hero-visual p{
+      margin:2px 0 10px;
+      font-size:13px;
+      opacity:.85;
+      line-height:1.55;
+    }
+    .pill-row{ display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
+    .pill{
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.22);
+      background:rgba(0,0,0,.35);
+      font-size:11px;
+      color:#f5f5f5;
+      opacity:.92;
+    }
+    .pill-dot{
+      width:8px; height:8px; border-radius:50%;
+      background:var(--evergreen);
+      box-shadow:0 0 0 5px rgba(46,125,50,.18);
+      flex-shrink:0;
+    }
+
+    /* MAIN WRAP */
+    .main{
+      background:var(--paper);
+      min-height:65vh;
+    }
+    .main-inner{
+      max-width:1120px;
+      margin:0 auto;
+      padding:26px 20px 40px;
+      display:grid;
+      grid-template-columns:minmax(0,1.08fr) minmax(240px,.6fr);
+      gap:20px;
+      align-items:flex-start;
+    }
+    .content-column{ min-width:0; }
+    @media(max-width:960px){
+      .main-inner{ grid-template-columns:1fr; }
+    }
+
+    .section{
+      padding:26px 0;
+      border-bottom:1px solid rgba(0,0,0,.06);
+    }
+    .section:last-of-type{
+      border-bottom:none;
+      padding-bottom:10px;
+    }
+    .section-header{ margin-bottom:16px; }
+    .section-kicker{
+      font-size:11px;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:var(--muted);
+    }
+    .section-title{
+      font-size:24px;
+      letter-spacing:.04em;
+      margin:4px 0;
+    }
+    .section-sub{
+      font-size:14px;
+      color:var(--muted);
+      max-width:780px;
+      line-height:1.6;
+    }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:18px;
+    }
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:18px;
+    }
+    @media(max-width:900px){
+      .grid-2,.grid-3{ grid-template-columns:1fr; }
+    }
+
+    .card{
+      background:var(--card);
+      border-radius:16px;
+      border:1px solid var(--border);
+      box-shadow:var(--shadow);
+      padding:16px 16px 14px;
+    }
+    .card-header{
+      font-weight:600;
+      font-size:15px;
+      margin-bottom:6px;
+    }
+    .card-body{
+      font-size:13px;
+      line-height:1.65;
+      color:var(--graphite);
+    }
+    .card-body p{ margin:0 0 8px; }
+    .card-tagline{
+      font-size:12px;
+      color:var(--muted);
+      margin-top:8px;
+      line-height:1.6;
+    }
+    .list{
+      margin:8px 0 0;
+      padding-left:17px;
+      font-size:13px;
+      color:var(--graphite);
+    }
+    .list li{ margin:2px 0 6px; }
+
+    .chip-row{ display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:6px 10px;
+      border-radius:999px;
+      background:var(--chip);
+      border:1px solid rgba(0,0,0,.12);
+      font-size:11px;
+      color:var(--graphite);
+      font-weight:600;
+      white-space:nowrap;
+    }
+    .chip i{
+      width:8px; height:8px; border-radius:50%;
+      background:var(--evergreen);
+      display:inline-block;
+    }
+
+    /* RAIL (sticky) */
+    .rail{
+      background:#fff;
+      border-radius:16px;
+      border:1px solid var(--border);
+      box-shadow:var(--shadow);
+      font-size:13px;
+      overflow:hidden;
+    }
+    @media(min-width:960px){
+      .rail{ position:sticky; top:88px; }
+    }
+    .rail header{
+      padding:14px 14px 10px;
+      border-bottom:1px solid rgba(0,0,0,.06);
+      background:linear-gradient(180deg,rgba(0,0,0,.015),rgba(0,0,0,.03));
+    }
+    .rail header h3{
+      margin:0 0 4px;
+      font-size:12px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:var(--graphite);
+    }
+    .rail header p{ margin:0; font-size:12px; color:var(--muted); }
+    .rail-progress{
+      margin-top:8px;
+      height:6px;
+      border-radius:999px;
+      background:rgba(0,0,0,.03);
+      border:1px solid rgba(0,0,0,.06);
+      overflow:hidden;
+    }
+    .rail-progress > span{
+      display:block;
+      height:100%;
+      width:0%;
+      background:linear-gradient(90deg,var(--evergreen),#555);
+    }
+    .toc{
+      padding:10px 10px 12px;
+      display:grid;
+      gap:6px;
+    }
+    .toc a{
+      padding:8px 10px;
+      border-radius:12px;
+      border:1px solid transparent;
+      background:rgba(0,0,0,.015);
+      font-size:13px;
+      color:var(--graphite);
+      text-decoration:none;
+    }
+    .toc a:hover{
+      border-color:var(--border);
+      background:rgba(0,0,0,.03);
+    }
+    .toc a.active{
+      border-color:var(--evergreen);
+      background:rgba(46,125,50,.08);
+      color:#000;
+      font-weight:600;
+    }
+    .rail-bottom{ padding:0 10px 12px; }
+    .rail-bottom .btn{
+      width:100%;
+      justify-content:center;
+      background:rgba(0,0,0,.03);
+      color:var(--graphite);
+      border-color:var(--border);
+      box-shadow:none;
+      font-size:12px;
+      padding:8px 10px;
+    }
+
+    /* TNoC FOOT (metadata / cite) */
+    .tnoc-foot{
+      margin-top:34px;
+      padding:22px 18px;
+      background:var(--paper);
+      color:var(--ink);
+      border-top:1px solid var(--line);
+      border-radius:16px;
+    }
+    .tnoc-foot__grid{
+      display:grid;
+      gap:16px;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+    }
+    @media (max-width: 900px){ .tnoc-foot__grid{ grid-template-columns:1fr; } }
+    .tnoc-foot__title{
+      margin:0 0 10px 0;
+      font:600 13px/1.2 Inter, system-ui, sans-serif;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:var(--graphite);
+    }
+    .tnoc-foot__dl{ margin:0; display:grid; gap:8px; }
+    .tnoc-foot__dl > div{ display:grid; grid-template-columns:120px 1fr; gap:10px; }
+    .tnoc-foot__dl dt{ color:var(--muted); font:500 13px/1.4 Inter, system-ui, sans-serif; }
+    .tnoc-foot__dl dd{ margin:0; font:500 13px/1.4 Inter, system-ui, sans-serif; }
+    .tnoc-foot__path{ margin:0 0 10px 0; font:600 14px/1.35 Inter, system-ui, sans-serif; }
+    .tnoc-foot__meta .chip{
+      background:rgba(0,0,0,.03);
+      border-color:rgba(0,0,0,.12);
+      font-weight:700;
+    }
+    .tnoc-foot__cite{ margin-top:14px; }
+    .tnoc-foot__citebox{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:10px;
+      background:rgba(255,255,255,.55);
+    }
+    .tnoc-foot__citebox code{
+      display:block;
+      white-space:pre-wrap;
+      font:500 12.5px/1.45 ui-monospace, SFMono-Regular, Menlo, monospace;
+      color:var(--graphite);
+    }
+    .tnoc-foot__copy{
+      flex:0 0 auto;
+      border:1px solid var(--line);
+      background:#fff;
+      border-radius:12px;
+      padding:10px 12px;
+      cursor:pointer;
+      font:700 12px/1 Inter, system-ui, sans-serif;
+    }
+    .tnoc-foot__sources{ margin-top:14px; }
+    .tnoc-foot__ol{
+      margin:0;
+      padding-left:18px;
+      color:var(--graphite);
+      font:500 13px/1.5 Inter, system-ui, sans-serif;
+    }
+
+    /* FOOTER */
+    .footer{
+      background:var(--bg);
+      color:#f5f5f5;
+      border-top:1px solid rgba(255,255,255,.08);
+    }
+    .footer-inner{
+      max-width:1120px;
+      margin:0 auto;
+      padding:18px 20px 22px;
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:space-between;
+      gap:12px;
+      font-size:12px;
+      opacity:.88;
+    }
+    .footer-links{ display:flex; flex-wrap:wrap; gap:12px; }
+
+    @media(max-width:600px){
+      .hero-inner{ padding:28px 16px 22px; }
+      .hero-title{ font-size:20px; }
+      .hero-sub{ font-size:13px; line-height:1.55; max-width:none; }
+      .main-inner{ padding:20px 16px 28px; }
+      .section{ padding:20px 0; }
+      .section-title{ font-size:22px; }
+      .section-sub{ font-size:13px; }
+      .card{ padding:14px 14px 12px; }
+      .card-body{ font-size:13px; }
+      .card-header{ font-size:14px; }
+      .topbar-inner{ padding:8px 14px; }
+      .nav{ font-size:12px; gap:10px; }
+      .footer-inner{ padding:14px 14px 18px; font-size:11px; }
+      .rail{ position:static; }
+    }
+  </style>
+</head>
+
+<body id="top">
+<a class="skip-link" href="#method">Skip to content</a>
+
+<div class="page-wrap">
+
+  <!-- TOP BAR -->
+  <header class="topbar" role="banner" aria-label="Main navigation">
+    <div class="topbar-inner">
+      <a href="../index.html" class="brand" aria-label="The Novel of Comedy home">
+        <div class="brand-mark">TNoC</div>
+        <div class="brand-text">
+          <div class="brand-title">The Novel of Comedy</div>
+          <div class="brand-sub">Digital atlas & critical cartography of comic fiction</div>
+        </div>
+      </a>
+      <nav class="nav" aria-label="Navigation">
+        <a href="../index.html#fiches">Guides</a>
+        <a href="../novel-fiches.html">Novel guides</a>
+        <a href="../author-fiches.html">Author profiles</a>
+        <a href="../index.html#courants">Currents</a>
+        <a href="../index.html#toolbox">Toolbox</a>
+        <a href="./" class="is-active">Method</a>
+        <a href="../index.html#about">About</a>
+        <a href="../index.html#research" class="is-primary">Researchers &amp; AI</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" aria-label="Method hero">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-kicker">Method & Standard</div>
+        <h1 class="hero-title">
+          A stable vocabulary, a fixed matrix, and a citation-ready atlas.
+        </h1>
+        <p class="hero-sub">
+          This page explains how TNoC works: what it is (and is not), how the taxonomy is defined,
+          how novel and author guides stay comparable, and how to cite and track revisions over time.
+        </p>
+        <div class="hero-actions">
+          <a href="#standard" class="btn btn-primary">Read the Standard v1.0</a>
+          <a href="#citing" class="btn btn-secondary">Cite & versioning</a>
+        </div>
+      </div>
+
+      <aside class="hero-visual" aria-label="Method quick facts">
+        <h2>Quick facts</h2>
+        <p>
+          The goal is not to “rank” comedy, but to make it <em>readable</em>: devices, tones, environments,
+          and how laughter circulates between works.
+        </p>
+        <div class="pill-row" aria-label="Method pillars">
+          <span class="pill"><span class="pill-dot"></span>Stable taxonomy</span>
+          <span class="pill"><span class="pill-dot"></span>Fixed matrices</span>
+          <span class="pill"><span class="pill-dot"></span>Traceable claims</span>
+          <span class="pill"><span class="pill-dot"></span>Versioned pages</span>
+        </div>
+        <p style="margin-top:10px;opacity:.78;font-size:11px;line-height:1.6;">
+          TNoC Standard is versioned (v1.0, v1.1…). Each guide page also has its own page version and a “Last revised” date.
+        </p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- MAIN -->
+  <main class="main" aria-label="Main content">
+    <div class="main-inner">
+
+      <!-- LEFT: CONTENT -->
+      <div class="content-column" id="method">
+
+        <!-- 1 -->
+        <section class="section" id="what" data-spy>
+          <header class="section-header">
+            <div class="section-kicker">1 · Identity</div>
+            <h2 class="section-title">What TNoC is</h2>
+            <p class="section-sub">
+              The Novel of Comedy is a digital atlas and a critical cartography of modern comic fiction (1900–today).
+              It maps works through a stable vocabulary so they can be compared without flattening their differences.
+            </p>
+          </header>
+
+          <div class="grid-3">
+            <article class="card">
+              <div class="card-header">An atlas</div>
+              <div class="card-body">
+                A structured library of novel guides, author profiles and series guides,
+                designed to be navigated through multiple entry points.
+              </div>
+              <div class="card-tagline">Works first. Context second. Concepts as navigation.</div>
+            </article>
+            <article class="card">
+              <div class="card-header">A cartography</div>
+              <div class="card-body">
+                A method that relates works to one another: currents, branches, environments and Labs.
+                The map evolves as the corpus grows.
+              </div>
+              <div class="card-tagline">Not a list: a graph of relations.</div>
+            </article>
+            <article class="card">
+              <div class="card-header">A reading tool</div>
+              <div class="card-body">
+                A practical framework for readers, teachers, librarians, journalists and researchers:
+                clear terms, citable pages, stable scaffolds.
+              </div>
+              <div class="card-tagline">A shared language for talking about comic fiction.</div>
+            </article>
+          </div>
+        </section>
+
+        <!-- 2 -->
+        <section class="section" id="not" data-spy>
+          <header class="section-header">
+            <div class="section-kicker">2 · Boundaries</div>
+            <h2 class="section-title">What TNoC is not</h2>
+            <p class="section-sub">
+              Authority starts with limits. TNoC avoids three common traps.
+            </p>
+          </header>
+
+          <div class="grid-2">
+            <article class="card">
+              <div class="card-header">Not a ranking site</div>
+              <div class="card-body">
+                <p>
+                  TNoC does not aim to crown “the funniest novels”.
+                  It describes <em>how</em> comedy works, under which constraints, in which environments.
+                </p>
+                <p class="card-tagline">No Top 100. Yes: mechanisms, tone, and lineage.</p>
+              </div>
+            </article>
+            <article class="card">
+              <div class="card-header">Not an AI-generated encyclopedia</div>
+              <div class="card-body">
+                <p>
+                  TNoC is editorially accountable: each page follows a fixed structure,
+                  states its taxonomy path, and is revised over time.
+                </p>
+                <p class="card-tagline">Consistency + traceability over improvisation.</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- 3 -->
+        <section class="section" id="principles" data-spy>
+          <header class="section-header">
+            <div class="section-kicker">3 · Principles</div>
+            <h2 class="section-title">Core principles</h2>
+            <p class="section-sub">
+              The project is built to last: coherent, legible, and revisable.
+            </p>
+          </header>
+
+          <div class="grid-3">
+            <article class="card">
+              <div class="card-header">Coherence over volume</div>
+              <div class="card-body">
+                A smaller canon, internally consistent, is more useful than a larger, unstable list.
+              </div>
+            </article>
+            <article class="card">
+              <div class="card-header">Traceable claims</div>
+              <div class="card-body">
+                Whenever possible: sources, context, and clear separation between fact and interpretation.
+              </div>
+            </article>
+            <article class="card">
+              <div class="card-header">Stable vocabulary</div>
+              <div class="card-body">
+                Terms are defined once and reused everywhere: the same word means the same thing across the atlas.
+              </div>
+            </article>
+          </div>
+
+          <div class="chip-row" aria-label="Signature traits">
+            <span class="chip"><i></i> alternating breath / ellipse</span>
+            <span class="chip"><i></i> subtle irony (not goofy)</span>
+            <span class="chip"><i></i> sensory micro-details</span>
+            <span class="chip"><i></i> comparison-friendly scaffolds</span>
+          </div>
+        </section>
+
+        <!-- 4 -->
+        <section class="section" id="taxonomy" data-spy>
+          <header class="section-header">
+            <div class="section-kicker">4 · Vocabulary</div>
+            <h2 class="section-title">The taxonomy</h2>
+            <p class="section-sub">
+              TNoC’s taxonomy is designed to be human-readable and machine-usable, without becoming a spreadsheet culture.
+            </p>
+          </header>
+
+          <div class="grid-2">
+            <article class="card">
+              <div class="card-header">Core units</div>
+              <div class="card-body">
+                <ul class="list">
+                  <li><strong>Current</strong>: one of the three main dynamics (Everyday / Crime / Neo-Nonsense).</li>
+                  <li><strong>Affluent</strong>: a major branch inside a current (e.g., Frustration, Code/Etiquette).</li>
+                  <li><strong>Lab</strong>: a recurring hub where several works converge (place, milieu, energy).</li>
+                  <li><strong>Environment</strong>: the human landscape (country, period, milieu, institutions).</li>
+                </ul>
+              </div>
+            </article>
+            <article class="card">
+              <div class="card-header">Modifiers</div>
+              <div class="card-body">
+                <ul class="list">
+                  <li><strong>Teinte</strong>: a tonal tint (sharp, tender, corrosive, airy, bleak, etc.).</li>
+                  <li><strong>Flags</strong>: quick markers (campus, bureaucracy, farce, body anxiety, etc.).</li>
+                  <li><strong>Weight</strong>: how central a trait is in the work (primary / secondary / accent).</li>
+                </ul>
+                <p class="card-tagline">
+                  Modifiers help precision without multiplying categories endlessly.
+                </p>
+              </div>
+            </article>
+          </div>
+
+          <article class="card" style="margin-top:18px;">
+            <div class="card-header">Example (compact)</div>
+            <div class="card-body">
+              <p style="margin:0 0 8px;">
+                <strong>Wilt</strong> might be mapped as:
+                <em>Comedy of Everyday → Frustration → Midlands Lab</em>,
+                with environment <em>UK · technical college · pre-Thatcher England</em>,
+                plus flags like <em>campus</em>, <em>institution meltdown</em>.
+              </p>
+              <p class="card-tagline">
+                The point is not to “label” the book but to make connections legible across the atlas.
+              </p>
+            </div>
+          </article>
+        </section>
+
+        <!-- 5 -->
+        <section class="section" id="matrices" data-spy>
+          <header class="section-header">
+            <div class="section-kicker">5 · Structure</div>
+            <h2 class="section-title">The matrices</h2>
+            <p class="section-sub">
+              Guides remain comparable because they follow fixed scaffolds. The structure is a method.
+            </p>
+          </header>
+
+          <div class="grid-2">
+            <article class="card">
+              <div class="card-header">Novel guides</div>
+              <div class="card-body">
+                <p>
+                  Each novel guide follows a fixed ten-chapter matrix (the “Wilt-10” scaffold),
+                  identical from one book to the next.
+                </p>
+                <p class="card-tagline">
+                  Same headings → meaningful comparisons → less hand-wavy criticism.
+                </p>
+              </div>
+            </article>
+            <article class="card">
+              <div class="card-header">Author profiles</div>
+              <div class="card-body">
+                <p>
+                  Author profiles follow their own stable matrix: how humour works across a career,
+                  through-lines, devices, relation to language and society.
+                </p>
+                <p class="card-tagline">
+                  The work remains primary: author pages serve reading, not mythology.
+                </p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- 6 -->
+        <section class="section" id="decisions" data-spy>
+          <header class="section-header">
+            <div class="section-kicker">6 · Editorial method</div>
+            <h2 class="section-title">How we decide</h2>
+            <p class="section-sub">
+              TNoC aims for clear, revisable judgement: what is observed in the text, what is inferred, what is debated.
+            </p>
+          </header>
+
+          <div class="grid-3">
+            <article class="card">
+              <div class="card-header">Text evidence</div>
+              <div class="card-body">
+                Scenes, devices, rhythm, voice, recurring comic situations: what the page objectively supports.
+              </div>
+            </article>
+            <article class="card">
+              <div class="card-header">Context</div>
+              <div class="card-body">
+                What the writer and the country/world were living through, when it helps explain the comic engine.
+              </div>
+            </article>
+            <article class="card">
+              <div class="card-header">Comparables</div>
+              <div class="card-body">
+                Links to other works are stated as relations, not equivalences: proximity on one axis, distance on another.
+              </div>
+            </article>
+          </div>
+
+          <article class="card" style="margin-top:18px;">
+            <div class="card-header">Borderlines</div>
+            <div class="card-body">
+              <p>
+                Some works are hybrids or shift current over time. TNoC accepts borderline mapping:
+                the goal is not purity, but usefulness.
+              </p>
+              <p class="card-tagline">
+                When a page changes, the change is logged through versioning.
+              </p>
+            </div>
+          </article>
+        </section>
+
+        <!-- 7 -->
+        <section class="section" id="citing" data-spy>
+          <header class="section-header">
+            <div class="section-kicker">7 · Institution layer</div>
+            <h2 class="section-title">Citing & versioning</h2>
+            <p class="section-sub">
+              A reference site must be citable. TNoC pages show a stable ID, a page version, and a “Last revised” date.
+            </p>
+          </header>
+
+          <div class="grid-2">
+            <article class="card">
+              <div class="card-header">Cite this page</div>
+              <div class="card-body">
+                Use the “Cite this page” block at the bottom of each guide.
+                It provides a one-line citation designed for English bibliographies.
+              </div>
+              <div class="card-tagline">A light “DOI-like” habit, without pretending to be a DOI.</div>
+            </article>
+            <article class="card">
+              <div class="card-header">Versioning</div>
+              <div class="card-body">
+                <ul class="list">
+                  <li><strong>Standard version</strong>: the global vocabulary (v1.0, v1.1…).</li>
+                  <li><strong>Page version</strong>: each guide’s own revision line (v1.2…).</li>
+                  <li><strong>Last revised</strong>: the date a page was last edited.</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- 8 -->
+        <section class="section" id="roadmap" data-spy>
+          <header class="section-header">
+            <div class="section-kicker">8 · Growth</div>
+            <h2 class="section-title">Roadmap (editorial)</h2>
+            <p class="section-sub">
+              TNoC grows by deepening corpora, clarifying Labs, and refining connections — not by speed-publishing.
+            </p>
+          </header>
+
+          <div class="grid-3">
+            <article class="card">
+              <div class="card-header">Canon core</div>
+              <div class="card-body">
+                Build a small set of “anchor” works per current, then expand around them with comparables and counterpoints.
+              </div>
+            </article>
+            <article class="card">
+              <div class="card-header">Labs refinement</div>
+              <div class="card-body">
+                Labs become clearer only after enough works are mapped: they are discovered, then stabilized.
+              </div>
+            </article>
+            <article class="card">
+              <div class="card-header">Corrections policy</div>
+              <div class="card-body">
+                Revisions are normal: the important part is to track them, keep coherence, and remain citable.
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- STANDARD v1.0 (anchor) -->
+        <section class="section" id="standard" data-spy>
+          <header class="section-header">
+            <div class="section-kicker">Appendix · Standard</div>
+            <h2 class="section-title">TNoC Standard v1.0</h2>
+            <p class="section-sub">
+              The baseline vocabulary and page metadata used across the atlas.
+              This is the “institution layer” that makes pages comparable and citable.
+            </p>
+          </header>
+
+          <div class="grid-2">
+            <article class="card">
+              <div class="card-header">Mandatory fields (all guides)</div>
+              <div class="card-body">
+                <ul class="list">
+                  <li><strong>TNoC ID</strong> (stable identifier)</li>
+                  <li><strong>Taxonomy path</strong> (Current → Affluent → Lab, when applicable)</li>
+                  <li><strong>Mode</strong> (ISO / Narrative)</li>
+                  <li><strong>Matrix</strong> (Novel / Author scaffold)</li>
+                  <li><strong>Standard version</strong> + <strong>Page version</strong> + <strong>Last revised</strong></li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card-header">Recommended fields</div>
+              <div class="card-body">
+                <ul class="list">
+                  <li><strong>Environment</strong> (country / period / milieu)</li>
+                  <li><strong>Teinte</strong>, <strong>Flags</strong>, <strong>Weight</strong></li>
+                  <li><strong>Sources</strong> (3–10 items)</li>
+                  <li><strong>Status</strong> (Canonical / Working draft)</li>
+                </ul>
+                <p class="card-tagline">
+                  Recommended fields strengthen trust without turning a guide into a bureaucracy.
+                </p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- TNoC metadata footer -->
+        <footer class="tnoc-foot" aria-label="TNoC method page metadata">
+          <div class="tnoc-foot__grid">
+            <section class="tnoc-foot__block">
+              <h3 class="tnoc-foot__title">Provenance</h3>
+              <dl class="tnoc-foot__dl">
+                <div><dt>TNoC ID</dt><dd>tnoc:method:standard</dd></div>
+                <div><dt>Page</dt><dd>Method & Standard</dd></div>
+                <div><dt>Mode</dt><dd>ISO</dd></div>
+                <div><dt>Matrix</dt><dd>Institution layer</dd></div>
+              </dl>
+            </section>
+
+            <section class="tnoc-foot__block">
+              <h3 class="tnoc-foot__title">Taxonomy</h3>
+              <p class="tnoc-foot__path">Institutional layer → Standard → Method</p>
+              <p class="tnoc-foot__meta">
+                <span class="chip">Teinte: Clear</span>
+                <span class="chip">Flags: Citation, Versioning</span>
+                <span class="chip">Weight: Primary</span>
+              </p>
+            </section>
+
+            <section class="tnoc-foot__block">
+              <h3 class="tnoc-foot__title">Version</h3>
+              <dl class="tnoc-foot__dl">
+                <div><dt>Standard</dt><dd>TNoC Standard v1.0</dd></div>
+                <div><dt>Page version</dt><dd>v1.0</dd></div>
+                <div><dt>Last revised</dt><dd>2025-12-13</dd></div>
+                <div><dt>Status</dt><dd>Canonical</dd></div>
+              </dl>
+            </section>
+          </div>
+
+          <section class="tnoc-foot__cite">
+            <h3 class="tnoc-foot__title">Cite this page</h3>
+            <div class="tnoc-foot__citebox">
+              <code id="citeText">
+The Novel of Comedy (TNoC). “Method & Standard.” Version v1.0 (Last revised 2025-12-13). Accessed <span id="accessedDate"></span>.
+              </code>
+              <button class="tnoc-foot__copy" type="button" onclick="(function(){
+                const t=document.getElementById('citeText').innerText.trim();
+                navigator.clipboard.writeText(t);
+                const b=document.querySelector('.tnoc-foot__copy');
+                b.textContent='Copied';
+                setTimeout(()=>b.textContent='Copy',1100);
+              })()">Copy</button>
+            </div>
+          </section>
+
+          <section class="tnoc-foot__sources">
+            <h3 class="tnoc-foot__title">Sources</h3>
+            <ol class="tnoc-foot__ol">
+              <li>TNoC internal editorial standard (v1.0), maintained across guides.</li>
+              <li>Public-facing methodology: stable vocabulary, fixed matrices, revision history.</li>
+              <li>Site design constraints: “paper + graphite” readability, institutional citability.</li>
+            </ol>
+          </section>
+        </footer>
+
+      </div>
+
+      <!-- RIGHT: RAIL -->
+      <aside class="rail" aria-label="In this page">
+        <header>
+          <h3>In this page</h3>
+          <p>Method, taxonomy, matrices, citing.</p>
+          <div class="rail-progress" aria-label="Reading progress"><span></span></div>
+        </header>
+
+        <nav class="toc" id="toc">
+          <a href="#what">What TNoC is</a>
+          <a href="#not">What TNoC is not</a>
+          <a href="#principles">Core principles</a>
+          <a href="#taxonomy">The taxonomy</a>
+          <a href="#matrices">The matrices</a>
+          <a href="#decisions">How we decide</a>
+          <a href="#citing">Citing & versioning</a>
+          <a href="#roadmap">Roadmap</a>
+          <a href="#standard">Standard v1.0</a>
+        </nav>
+
+        <div class="rail-bottom">
+          <a class="btn" href="#top">↑ Back to top</a>
+        </div>
+      </aside>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-inner">
+      <div>
+        <strong>The Novel of Comedy (TNoC)</strong> · Method & Standard.
+      </div>
+      <div class="footer-links">
+        <a href="./">Method</a>
+        <a href="../index.html#about">About</a>
+        <a href="../index.html#research">Researchers &amp; AI</a>
+        <a href="../index.html">Home</a>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<!-- JS: set accessed date -->
+<script>
+(function(){
+  const el = document.getElementById('accessedDate');
+  if(!el) return;
+  const d = new Date();
+  const iso = d.toISOString().slice(0,10);
+  el.textContent = iso;
+})();
+</script>
+
+<!-- JS SCROLLSPY + PROGRESS (rail) -->
+<script>
+(function(){
+  const links = Array.from(document.querySelectorAll('#toc a'));
+  const sections = Array.from(document.querySelectorAll('[data-spy]'));
+  const bar = document.querySelector('.rail-progress > span');
+
+  function updateProgress(){
+    if(!bar) return;
+    const doc = document.documentElement;
+    const scrollTop = doc.scrollTop || document.body.scrollTop;
+    const scrollHeight = doc.scrollHeight - doc.clientHeight;
+    const pct = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+    bar.style.width = Math.max(0, Math.min(100, pct)) + "%";
+  }
+  window.addEventListener('scroll', updateProgress, { passive:true });
+  updateProgress();
+
+  if(!('IntersectionObserver' in window) || links.length===0 || sections.length===0) return;
+
+  function setActive(id){
+    links.forEach(a => {
+      const targetId = a.getAttribute('href').slice(1);
+      a.classList.toggle('active', targetId === id);
+    });
+  }
+
+  const io = new IntersectionObserver((entries)=>{
+    const v = entries
+      .filter(e=>e.isIntersecting)
+      .sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];
+    if(v) setActive(v.target.id);
+  }, { rootMargin:"-30% 0px -55% 0px", threshold:[.1,.25,.4] });
+
+  sections.forEach(s => io.observe(s));
+  if(sections[0]) setActive(sections[0].id);
+})();
+</script>
+
+</body>
+</html>
