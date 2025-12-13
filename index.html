@@ -310,27 +310,20 @@
       grid-template-columns:1fr;
       text-align:left;
     }
-    @media(max-width:640px){
-      .poster-slide{
-        grid-template-columns:1fr;
-      }
-    }
-
-    .poster-cover{
-      border-radius:12px;
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,.28);
-      background:#111;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    }
-    .poster-cover img{
-      display:block;
-      width:100%;
-      height:100%;
-      object-fit:cover;
-    }
+    /* ✅ FIX mobile: give the cover a real height in the hero carousel */
+@media(max-width:640px){
+  .poster-track{
+    min-height: 430px; /* cover + text stacked */
+  }
+  .poster-cover{
+    height: 240px;     /* adjust 220–280px depending on taste */
+  }
+  .poster-cover img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
+}
 
     .poster-main{
       display:flex;
