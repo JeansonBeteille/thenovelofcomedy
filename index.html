@@ -310,20 +310,27 @@
       grid-template-columns:1fr;
       text-align:left;
     }
-    /* ✅ FIX mobile: give the cover a real height in the hero carousel */
-@media(max-width:640px){
-  .poster-track{
-    min-height: 430px; /* cover + text stacked */
-  }
-  .poster-cover{
-    height: 240px;     /* adjust 220–280px depending on taste */
-  }
-  .poster-cover img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-  }
-}
+    @media(max-width:640px){
+      .poster-slide{
+        grid-template-columns:1fr;
+      }
+    }
+
+    .poster-cover{
+      border-radius:12px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.28);
+      background:#111;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .poster-cover img{
+      display:block;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
 
     .poster-main{
       display:flex;
@@ -972,11 +979,12 @@
             Comedy is one of the most precise ways of reading reality.
           </p>
           <p class="hero-totem-sign">— The Novel of Comedy</p>
+
+          <!-- ✅ UPDATED TEXT -->
           <p class="hero-sub">
-            A digital atlas of modern comic novels (1900–today).
-            Start with a few concrete books – <em>Wilt</em>, <em>The Code of the Woosters</em>,
-            <em>The Girls of Slender Means</em>, <em>James</em> – then follow how each one is mapped
-            through currents, branches and Labs.
+            Welcome to the great adventure of literary comedy. Famous novels or hidden ones. Celebrated authors or overlooked ones.<br>
+            A slow wander through words and styles. A living library, to compare and recognise the forms of humour.<br>
+            TNoC’s currents, branches, environments and Labs serve the texts. They offer a way of reading. They open paths.
           </p>
 
           <div class="hero-actions">
@@ -1027,8 +1035,7 @@
                  data-slide="0"
                  aria-label="Open the Wilt novel guide">
                 <div class="poster-cover">
-                  <!-- ✅ fix: remove double .png -->
-                  <img src="wilt31A.png.png" alt="Cover of Wilt (Tom Sharpe)">
+                  <img src="wilt31A.png" alt="Cover of Wilt (Tom Sharpe)">
                 </div>
                 <div class="poster-main">
                   <div class="poster-tag">Classic · Frustration Comedy</div>
@@ -1082,7 +1089,6 @@
                  data-slide="2"
                  aria-label="Open The Girls of Slender Means novel guide">
                 <div class="poster-cover">
-                  <!-- ⚠️ si tu n’as pas le fichier, remplace par ton vrai nom -->
                   <img src="img/girls-of-slender-means.png" alt="Cover of The Girls of Slender Means (Muriel Spark)">
                 </div>
                 <div class="poster-main">
@@ -1110,7 +1116,6 @@
                  data-slide="3"
                  aria-label="Open the James novel guide">
                 <div class="poster-cover">
-                  <!-- ⚠️ si tu n’as pas le fichier, remplace par ton vrai nom -->
                   <img src="img/james-percival-everett.png" alt="Cover of James (Percival Everett)">
                 </div>
                 <div class="poster-main">
@@ -1141,7 +1146,6 @@
                   <div class="poster-tag">Author focus · Core Comedy</div>
                   <div style="display:flex;align-items:center;gap:10px;">
                     <div class="poster-cover" style="flex:0 0 80px;height:80px;border-radius:999px;">
-                      <!-- ⚠️ si tu n’as pas le fichier, remplace par ton vrai nom -->
                       <img src="tomsh.jpg" alt="Portrait of Tom Sharpe">
                     </div>
                     <div>
@@ -1377,7 +1381,7 @@
                   <div class="current-slide is-active" data-slide="0">
                     <div class="current-covers">
                       <div class="current-cover">
-                        <img src="wilt31A.png.png" alt="Cover of Wilt (Tom Sharpe)">
+                        <img src="wilt31A.png" alt="Cover of Wilt (Tom Sharpe)">
                       </div>
                       <div class="current-cover">
                         <img src="img/girls-of-slender-means.png" alt="Cover of The Girls of Slender Means">
@@ -1685,7 +1689,6 @@
         </div>
         <div class="footer-links">
           <a href="method.html">Method</a>
-          <!-- garde ces liens si tu crées ces pages/dossiers plus tard -->
           <a href="fr/a-propos">About</a>
           <a href="fr/a-propos/manifesto">Manifesto</a>
           <a href="fr/a-propos/comment-citer-tnoc">How to cite TNoC</a>
