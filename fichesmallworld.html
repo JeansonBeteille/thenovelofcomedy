@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Small World (1984) . Novel fiche | The Novel of Comedy (TNoC)</title>
+  <meta name="description" content="Novel fiche for Small World (David Lodge, 1984) in The Novel of Comedy. Reading note, incipit, characters, context, cartography, reception, connections, bonus and data." />
+
+  <meta property="og:title" content="Small World (1984) . Novel fiche | The Novel of Comedy (TNoC)" />
+  <meta property="og:description" content="A TNoC novel fiche. Reading note, incipit, characters, context, cartography, reception, connections, bonus and data." />
+  <meta property="og:type" content="article" />
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Book",
+    "name":"Small World . An Academic Romance",
+    "author":{"@type":"Person","name":"David Lodge"},
+    "datePublished":"1984",
+    "inLanguage":"en",
+    "publisher":{"@type":"Organization","name":"Secker & Warburg"},
+    "isPartOf":{"@type":"CreativeWorkSeries","name":"The Rummidge Trilogy"},
+    "about":["Comic fiction","Campus novel","Satire","Academic comedy","Postmodern pastiche"]
+  }
+  </script>
+
+  <style>
+    :root{
+      --bg:#0b0b0c;
+      --paper:#f7f5f0;
+      --ink:#1e1e1e;
+      --graphite:#2b2b2b;
+      --evergreen:#2E7D32;
+      --muted:rgba(0,0,0,.55);
+      --border:rgba(0,0,0,.14);
+      --card:#ffffff;
+      --shadow:0 1px 2px rgba(0,0,0,.04);
+      --soft:rgba(0,0,0,.06);
+    }
+
+    *{box-sizing:border-box}
+    html,body{
+      margin:0; padding:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--ink);
+      background:var(--bg);
+    }
+    img{max-width:100%;height:auto;display:block}
+    a{color:inherit;text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    .skip-link{
+      position:absolute; left:-999px; top:10px;
+      padding:8px 12px; background:#fff; color:#000;
+      border-radius:999px; border:1px solid rgba(0,0,0,.18);
+      z-index:1000; font-size:13px;
+    }
+    .skip-link:focus{ left:12px; outline:none; }
+
+    .topbar{
+      position:sticky; top:0; z-index:30;
+      backdrop-filter:blur(10px);
+      background:rgba(11,11,12,.92);
+      color:#fff;
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .topbar-inner{
+      max-width:1120px;
+      margin:0 auto;
+      padding:10px 20px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+    }
+    .brand{ display:flex; align-items:center; gap:10px; }
+    .brand-mark{
+      width:34px; height:34px; border-radius:12px;
+      border:1px solid rgba(255,255,255,.18);
+      display:flex; align-items:center; justify-content:center;
+      font-weight:700; letter-spacing:.06em; text-transform:uppercase;
+      font-size:11px;
+      background:radial-gradient(circle at 0 0,rgba(255,255,255,.22),rgba(0,0,0,.7));
+    }
+    .brand-text{display:flex;flex-direction:column;gap:1px}
+    .brand-title{font-size:15px;letter-spacing:.05em;text-transform:uppercase}
+    .brand-sub{font-size:11px;opacity:.7}
+
+    .nav{ display:flex; flex-wrap:wrap; gap:12px; font-size:13px; }
+    .nav a{opacity:.82;padding:6px 0}
+    .nav a:hover{opacity:1;text-decoration:none}
+    .nav a.is-primary{
+      padding:6px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.22);
+      font-size:12px;
+      opacity:1;
+    }
+    @media(max-width:900px){
+      .topbar-inner{flex-direction:column;align-items:flex-start}
+      .nav{width:100%;justify-content:flex-start}
+    }
+
+    .hero{
+      background:var(--bg);
+      color:#fff;
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .hero-inner{
+      max-width:1120px;
+      margin:0 auto;
+      padding:26px 20px 20px;
+      display:grid;
+      grid-template-columns:1.35fr .85fr;
+      gap:18px;
+      align-items:center;
+    }
+    @media(max-width:960px){ .hero-inner{grid-template-columns:1fr} }
+
+    .breadcrumbs{ font-size:12px; opacity:.78; margin-bottom:8px; }
+    .breadcrumbs a{opacity:.9}
+    .breadcrumbs span{opacity:.6;margin:0 6px}
+
+    .hero-kicker{
+      font-size:12px;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      opacity:.9;
+    }
+    .hero-title{
+      font-size:clamp(28px,4vw,42px);
+      margin:6px 0 6px;
+      line-height:1.1;
+    }
+    .hero-meta{
+      font-size:13px;
+      line-height:1.6;
+      opacity:.86;
+      max-width:740px;
+    }
+
+    .hero-chips{ margin-top:12px; display:flex; flex-wrap:wrap; gap:6px; font-size:11px; }
+    .chip{
+      padding:5px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.22);
+      background:rgba(0,0,0,.35);
+      color:#f5f5f5;
+      white-space:nowrap;
+    }
+    .chip strong{font-weight:700}
+    .hero-actions{ margin-top:12px; display:flex; flex-wrap:wrap; gap:8px; }
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:9px 14px;
+      border-radius:999px;
+      font-size:13px;
+      border:1px solid transparent;
+      cursor:pointer;
+      text-decoration:none;
+      white-space:nowrap;
+    }
+    .btn-primary{background:#fff;color:#000;border-color:rgba(255,255,255,.03)}
+    .btn-secondary{background:rgba(0,0,0,.2);border-color:rgba(255,255,255,.3);color:#fff}
+
+    .hero-cover{
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.18);
+      background:radial-gradient(circle at 0 0,rgba(255,255,255,.12),rgba(0,0,0,.92));
+      box-shadow:0 12px 40px rgba(0,0,0,.7);
+      overflow:hidden;
+      padding:12px;
+    }
+    .cover-frame{
+      border-radius:14px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.20);
+      background:#111;
+      aspect-ratio:3/4;
+      min-height:260px;
+      display:flex;align-items:center;justify-content:center;
+    }
+    .cover-frame img{width:100%;height:100%;object-fit:cover}
+    .hero-cover-caption{
+      margin-top:10px;
+      font-size:11px;
+      opacity:.75;
+      line-height:1.5;
+    }
+    @media(max-width:600px){
+      .cover-frame{min-height:340px;}
+    }
+
+    .page{ background:var(--paper); min-height:65vh; }
+    .main-inner{
+      max-width:1120px;
+      margin:0 auto;
+      padding:22px 20px 44px;
+      display:grid;
+      grid-template-columns:minmax(0,1.08fr) minmax(240px,.56fr);
+      gap:18px;
+      align-items:start;
+    }
+    @media(max-width:960px){ .main-inner{grid-template-columns:1fr;} }
+
+    .section{ padding:18px 0; border-bottom:1px solid rgba(0,0,0,.06); }
+    .section:last-of-type{border-bottom:none;padding-bottom:6px}
+    .section-head{ margin-bottom:12px; }
+    .section-kicker{
+      font-size:11px;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:var(--muted);
+    }
+    .section-title{ margin:4px 0 0; font-size:22px; letter-spacing:.02em; }
+
+    .card{
+      background:var(--card);
+      border-radius:16px;
+      border:1px solid var(--border);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .card-body{
+      padding:14px 16px 16px;
+      font-size:14px;
+      line-height:1.65;
+      color:var(--graphite);
+    }
+    .card-body p{margin:0 0 10px}
+    .muted{color:var(--muted);font-size:13px}
+
+    .intro-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+      align-items:start;
+      margin-top:10px;
+    }
+    @media(max-width:860px){ .intro-grid{grid-template-columns:1fr;} }
+
+    .coords{
+      background:#fffdf5;
+      border:1px solid rgba(0,0,0,.14);
+      border-radius:14px;
+      padding:12px 12px 10px;
+    }
+    .coords h4{
+      margin:0 0 8px;
+      font-size:12px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:rgba(0,0,0,.7);
+    }
+    .coords ul{list-style:none;padding:0;margin:0;display:grid;gap:6px;font-size:13px}
+    .coords b{font-weight:700}
+    .coords a{ text-decoration:underline; text-decoration-color:rgba(0,0,0,.25); }
+
+    .snapshot{
+      background:#fffdf5;
+      border:1px solid rgba(0,0,0,.18);
+      box-shadow:0 2px 6px rgba(0,0,0,.06);
+      border-radius:14px;
+      padding:12px 12px 10px;
+    }
+    .snapshot .lede{font-weight:700;margin:0 0 8px}
+    .quote{
+      margin:10px 0;
+      padding-left:14px;
+      border-left:3px solid rgba(0,0,0,.14);
+      font-style:italic;
+      color:#444;
+    }
+    .signature{
+      margin-top:10px;
+      font-size:13px;
+      color:var(--muted);
+      font-style:italic;
+      text-align:right;
+    }
+
+    .incipit-layout{
+      display:grid;
+      grid-template-columns:1.6fr .9fr;
+      gap:14px;
+      align-items:start;
+    }
+    @media(max-width:700px){ .incipit-layout{grid-template-columns:1fr;} }
+    .incipit-caption{ font-size:12px; color:var(--muted); margin:0 0 6px; }
+    .incipit-block{
+      margin:0;
+      padding-left:12px;
+      border-left:3px solid rgba(0,0,0,.14);
+      font-style:italic;
+      color:#444;
+    }
+
+    .author-box{
+      border:1px solid rgba(0,0,0,.14);
+      border-radius:14px;
+      padding:10px;
+      background:rgba(0,0,0,.02);
+      display:flex;
+      gap:10px;
+      align-items:center;
+    }
+    .author-portrait{
+      width:64px;height:64px;border-radius:14px;
+      border:1px solid rgba(0,0,0,.14);
+      overflow:hidden; background:#111; flex:0 0 auto;
+    }
+    .author-portrait img{width:100%;height:100%;object-fit:cover}
+    .author-meta{line-height:1.25}
+    .author-meta .name{font-weight:700}
+    .author-meta .dates{font-size:12px;color:var(--muted)}
+    .author-meta .link{font-size:12px;text-decoration:underline;text-decoration-color:rgba(0,0,0,.25)}
+
+    table{ width:100%; border-collapse:collapse; font-size:14px; }
+    th,td{
+      padding:10px 8px;
+      border-bottom:1px solid rgba(0,0,0,.12);
+      text-align:left;
+      vertical-align:top;
+    }
+    th{
+      font-size:12px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:rgba(0,0,0,.65);
+    }
+    td em{color:#444}
+
+    details{
+      border-top:1px dashed rgba(0,0,0,.16);
+      padding-top:10px;
+      margin-top:10px;
+    }
+    summary{
+      list-style:none;
+      cursor:pointer;
+      font-weight:700;
+      font-size:14px;
+    }
+    summary::-webkit-details-marker{display:none}
+    .caret{display:inline-block;margin-right:6px;transition:transform .2s ease}
+    details[open] .caret{transform:rotate(90deg)}
+
+    .tip{position:relative;border-bottom:1px dotted #888;cursor:help}
+    .tip:hover::after{
+      content:attr(data-tip);
+      position:absolute; left:0; top:calc(100% + 6px);
+      background:#111; color:#fff;
+      padding:8px 10px; border-radius:8px;
+      font-size:12px; min-width:220px; max-width:68vw;
+      z-index:10; box-shadow:0 6px 18px rgba(0,0,0,.22);
+    }
+
+    .list{margin:6px 0 0;padding-left:18px}
+    .list li{margin:2px 0 6px}
+
+    .mono{
+      font-family:ui-monospace,Menlo,Consolas,monospace;
+      font-size:12px;
+      background:#f5f5f5;
+      padding:10px 10px;
+      border-radius:12px;
+      border:1px solid rgba(0,0,0,.14);
+      display:block;
+      white-space:pre-wrap;
+      word-break:break-word;
+    }
+
+    .rail{
+      background:#fff;
+      border-radius:16px;
+      border:1px solid var(--border);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      font-size:13px;
+    }
+    @media(min-width:960px){ .rail{position:sticky;top:88px;} }
+    .rail header{
+      padding:14px 14px 10px;
+      border-bottom:1px solid rgba(0,0,0,.06);
+      background:linear-gradient(180deg,rgba(0,0,0,.015),rgba(0,0,0,.03));
+    }
+    .rail header h3{
+      margin:0 0 4px;
+      font-size:12px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:var(--graphite);
+    }
+    .rail header p{margin:0;font-size:12px;color:var(--muted)}
+    .rail-progress{
+      margin-top:8px;
+      height:6px;
+      border-radius:999px;
+      background:rgba(0,0,0,.03);
+      border:1px solid rgba(0,0,0,.06);
+      overflow:hidden;
+    }
+    .rail-progress > span{
+      display:block;height:100%;width:0%;
+      background:linear-gradient(90deg,var(--evergreen),#555);
+    }
+    .toc{ padding:10px 10px 12px; display:grid; gap:6px; }
+    .toc a{
+      padding:8px 10px;
+      border-radius:12px;
+      border:1px solid transparent;
+      background:rgba(0,0,0,.015);
+      color:var(--graphite);
+      text-decoration:none;
+    }
+    .toc a:hover{border-color:rgba(0,0,0,.12);background:rgba(0,0,0,.03)}
+    .toc a.active{
+      border-color:var(--evergreen);
+      background:rgba(46,125,50,.08);
+      color:#000;
+      font-weight:800;
+    }
+    .rail-bottom{padding:0 10px 12px}
+    .rail-bottom .btn{
+      width:100%;
+      background:rgba(0,0,0,.03);
+      color:var(--graphite);
+      border:1px solid rgba(0,0,0,.12);
+      box-shadow:none;
+      font-size:12px;
+      padding:8px 10px;
+    }
+
+    .footer{
+      background:var(--bg);
+      color:#f5f5f5;
+      border-top:1px solid rgba(255,255,255,.08);
+    }
+    .footer-inner{
+      max-width:1120px;
+      margin:0 auto;
+      padding:18px 20px 22px;
+      display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
+      font-size:12px;
+      opacity:.88;
+    }
+    .footer-links{display:flex;flex-wrap:wrap;gap:12px}
+
+    @media(max-width:600px){
+      .hero-inner{padding:22px 16px 16px}
+      .main-inner{padding:18px 16px 32px}
+    }
+  </style>
+</head>
+
+<body id="top">
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <header class="topbar" role="banner" aria-label="Main navigation">
+    <div class="topbar-inner">
+      <a href="index.html" class="brand" aria-label="The Novel of Comedy home">
+        <div class="brand-mark">TNoC</div>
+        <div class="brand-text">
+          <div class="brand-title">The Novel of Comedy</div>
+          <div class="brand-sub">Digital atlas and critical cartography of comic fiction</div>
+        </div>
+      </a>
+
+      <nav class="nav" aria-label="Navigation">
+        <a href="index.html#fiches">Guides</a>
+        <a href="novel-fiches.html" class="is-primary">Novel guides</a>
+        <a href="author-profiles.html">Author profiles</a>
+        <a href="series-fiches.html">Series</a>
+        <a href="method.html">Method</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" aria-label="Small World hero">
+    <div class="hero-inner">
+      <div>
+        <div class="breadcrumbs" aria-label="Breadcrumbs">
+          <a href="index.html">Home</a><span>›</span>
+          <a href="novel-fiches.html">Novel guides</a><span>›</span>
+          <span>Small World (1984)</span>
+        </div>
+
+        <div class="hero-kicker">Novel fiche . Comedy of Everyday</div>
+        <h1 class="hero-title">Small World</h1>
+        <div class="hero-meta">
+          David Lodge . 1984 . Secker &amp; Warburg . The Rummidge Trilogy (2/3)<br>
+          Environment: 1980s . international universities . airports, hotels, auditoriums
+        </div>
+
+        <div class="hero-chips" aria-label="Cartography summary">
+          <span class="chip"><strong>Current:</strong>&nbsp;Everyday</span>
+          <span class="chip"><strong>Branch:</strong>&nbsp;Campus</span>
+          <span class="chip"><strong>Branch:</strong>&nbsp;Code and etiquette</span>
+          <span class="chip"><strong>Environment:</strong>&nbsp;Global academic circuit</span>
+          <span class="chip"><strong>Role:</strong>&nbsp;Comic engine</span>
+          <span class="chip"><strong>Lab:</strong>&nbsp;Midlands . Rummidge</span>
+        </div>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#reading-note">Start reading</a>
+          <a class="btn btn-secondary" href="author-profiles.html">Open author profile</a>
+          <a class="btn btn-secondary" href="series-fiches.html">Open series hub</a>
+        </div>
+      </div>
+
+      <aside class="hero-cover" aria-label="Cover panel">
+        <div class="cover-frame">
+          <!-- Put your cover file here -->
+          <img src="img/small-world-cover.png" alt="Cover of Small World (David Lodge, 1984)">
+        </div>
+        <div class="hero-cover-caption">
+          Note: update the image path to match your GitHub folder.
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <main class="page" id="content" aria-label="Main content">
+    <div class="main-inner">
+
+      <div>
+
+        <section class="section" id="reading-note" data-spy>
+          <header class="section-head">
+            <div class="section-kicker">1 . Reading note</div>
+            <h2 class="section-title">Reading note</h2>
+          </header>
+
+          <div class="card">
+            <div class="card-body">
+              <div class="intro-grid">
+                <div class="snapshot">
+                  <p class="lede">
+  At Rummidge, Professor Swallow’s first attempt at hosting an international literary congress goes downhill fast: star speakers cancel, spring snowstorms hit, food and lodging are strictly student-grade. What remains is a cast of rivals: the formidable Zapp, who prefers his conferences under the sun, the ingenuous Persse McGarrigle and above all the alluring Angelica Pabst.
+</p>
+<p>
+  From low-rent panels to tangled desires, a rumor about a UNESCO chair suddenly ignites everyone’s ambitions.
+</p>
+<p>
+  Published in 1984, <em>Small World</em> followed <em>Changing Places</em> (1975) and preceded <em>Nice Work</em> (1988). Lodge, himself a literary scholar, turned the campus novel into a full-blown comedy with international reach.
+</p>
+                  <p class="signature">TNoC.</p>
+
+                  <details>
+                    <summary><span class="caret">▶</span> Publisher blurb . Fourth cover</summary>
+                    <div style="padding-top:10px;">
+                      <p class="muted">
+                      
+                      <p>
+                        <em> Philip Swallow, Morris Zapp, Persse McGarrigle and the lovely Angelica are the jet-propelled academics who are on the move, in the air and on the make in David Lodge’s satirical Small World. It is a world of glamorous travel and high excitement, where stuffy lecture rooms are swapped for lush corners of the globe, and romance is in the air.</em>
+                      </p>
+                    </div>
+                  </details>
+                </div>
+
+                <aside class="coords" aria-label="Coordinates box">
+                  <h4>Coordinates</h4>
+                  <ul>
+                    <li><b>Title</b> . <em>Small World . An Academic Romance</em></li>
+                    <li><b>Author</b> . David Lodge (1935 to ) . <a href="author-profiles.html">Author profiles</a></li>
+                    <li><b>Publication</b> . 1984 . Secker &amp; Warburg</li>
+                    <li><b>Cycle</b> . The Rummidge Trilogy . After <em>Changing Places</em> . Before <em>Nice Work</em></li>
+                    <li><b>Setting</b> . 1980s . international universities . non-places</li>
+                    <li><b>Original language</b> . English (UK)</li>
+                    <li><b>TNoC ID</b> . <span style="font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;">tnoc:novel:small-world:1984</span></li>
+                  </ul>
+                </aside>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="incipit" data-spy>
+          <header class="section-head">
+            <div class="section-kicker">2 . Incipit</div>
+            <h2 class="section-title">Incipit</h2>
+          </header>
+
+          <div class="card">
+            <div class="card-body">
+              <div class="incipit-layout">
+                <div>
+                  <p class="incipit-caption">Opening lines (original edition). 
+                  <p class="incipit-block">
+                    <em>
+                      “APRIL is the cruellest month,” Persse McGarrigle thought, watching unreasonable snow crusting the lawns and flowerbeds of the Rummidge campus.
+                    </em>
+                  </p>
+
+                 
+                    
+                </div>
+
+                <aside class="author-box" aria-label="Author box">
+                  <div class="author-portrait">
+                    <img src="img/david-lodge-portrait.jpg" alt="Portrait of David Lodge">
+                  </div>
+                  <div class="author-meta">
+                    <div class="name">David Lodge</div>
+                    <div class="dates">1935 to</div>
+                    <div class="link"><a href="author-profiles.html">Open author profile</a></div>
+                  </div>
+                </aside>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="characters" data-spy>
+          <header class="section-head">
+            <div class="section-kicker">3 . Characters</div>
+            <h2 class="section-title">Major characters</h2>
+          </header>
+
+          <div class="card">
+            <div class="card-body">
+              <table role="table" aria-label="Characters and comic archetypes">
+                <thead>
+                  <tr>
+                    <th>Character</th>
+                    <th>Comic archetype</th>
+                    <th>Axis . Lab function</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Persse McGarrigle</td>
+                    <td>Candid knight</td>
+                    <td>Brilliant loser logic . Midlands entry point</td>
+                  </tr>
+                  <tr>
+                    <td>Philip Swallow</td>
+                    <td>Institutional survivor</td>
+                    <td>Medium campus satire . tender bad faith</td>
+                  </tr>
+                  <tr>
+                    <td>Morris Zapp</td>
+                    <td>Hypermodern strategist</td>
+                    <td>International code satire . gag machine</td>
+                  </tr>
+                  <tr>
+                    <td>Angelica Pabst</td>
+                    <td>Quest object</td>
+                    <td>Grail figure . rare and unreachable surface</td>
+                  </tr>
+                  <tr>
+                    <td>Fulvia Morgana</td>
+                    <td>Jovial manipulator</td>
+                    <td>Myth parody . structural wink emitter</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="context" data-spy>
+          <header class="section-head">
+            <div class="section-kicker">4 . Context</div>
+            <h2 class="section-title">Context of writing</h2>
+          </header>
+
+          <div class="card">
+            <div class="card-body">
+              <p>
+                Lodge wrote <em>Small World</em> as academic conferences expanded into a global routine.
+                The novel converts that routine into plot. Movement becomes the stage. Airports and hotels replace the campus courtyard.
+              </p>
+              <p>
+                Rummidge anchors the book’s Midlands energy, but the comic engine is internationalised.
+                The local academic satire is stretched into a world circuit where prestige, desire and titles circulate faster than ideas.
+              </p>
+              <p class="quote">
+                Here, the university is not only a place. It is a network of rituals, badges and opportunities that keeps running even when meaning thins out.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="style" data-spy>
+          <header class="section-head">
+            <div class="section-kicker">5 . Style</div>
+            <h2 class="section-title">Style and writing</h2>
+          </header>
+
+          <div class="card">
+            <div class="card-body">
+              <h3 style="margin:0 0 8px;font-size:16px;">Voice and rhythm</h3>
+              <ul class="list">
+                <li><strong>Crossed polyphony</strong>. A crowded cast and shifting viewpoints. Internal and external angles. A fast alternation between dialogue, institutions, desire and meta-literary play.</li>
+                <li><strong>Epic pastiche</strong>. The structure mimics a quest romance, then degrades it into a chase for recognition, papers, sex, chairs, invitations.</li>
+                <li><strong>Mobility as satire</strong>. Travel becomes a substitute for incarnation. The comic effect comes from non-places, repeated rituals and the loss of a stable “home”.</li>
+              </ul>
+
+              <details>
+                <summary><span class="caret">▶</span> Optional quotes policy</summary>
+                <div style="padding-top:10px;">
+                  <p class="muted">
+                    You said it clearly. Only original quotes. If we do not have them, we leave blank.
+                    You can paste one or two verified quotes here later.
+                  </p>
+                  <ul class="list">
+                    <li><em>[Paste verified quote here.]</em></li>
+                    <li><em>[Paste verified quote here.]</em></li>
+                  </ul>
+                </div>
+              </details>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="cartography" data-spy>
+          <header class="section-head">
+            <div class="section-kicker">6 . Cartography</div>
+            <h2 class="section-title">Cartography</h2>
+          </header>
+
+          <div class="card">
+            <div class="card-body">
+              <p class="muted" style="margin-top:0;">
+                Cartography path: Current → Branch → Environment → Role. Labs are optional hubs.
+              </p>
+
+              <p>
+                <strong>Current</strong> . Comedy of Everyday. The individual facing institutions, hierarchies, collective rituals and social codes.
+              </p>
+
+              <p>
+                <strong>Branch</strong> .
+                <span class="tip" data-tip="Academic life as a recognisable stage. Panels, departments, reputations, corridors.">Campus</span> .
+                <span class="tip" data-tip="Rituals, badges, manners. A comedy of titles and procedures, expanded worldwide.">Code and etiquette</span> .
+                <span class="tip" data-tip="Quest structure used as a comic engine. Myth becomes conference schedule.">Pastiche quest</span>.
+              </p>
+
+              <p>
+                <strong>Environment</strong> . 1980s. Global academic circuit. Hotels, airports, auditoriums. Cities as interchangeable backdrops.
+              </p>
+
+              <p>
+                <strong>Role</strong> .
+                <span class="tip" data-tip="Comedy shapes architecture, rhythm and scene logic.">Comic engine</span>.
+              </p>
+
+              <p>
+                <strong>Lab</strong> . Midlands Lab. Rummidge as anchor. Provincial institution observed with affectionate cruelty, then projected onto the international stage.
+              </p>
+
+              <details>
+                <summary><span class="caret">▶</span> Position in The Novel of Comedy atlas</summary>
+                <div style="padding-top:10px;">
+                  <ul class="list">
+                    <li><strong>Anchor</strong>. A major model for the campus novel turned into global choreography.</li>
+                    <li><strong>Bridge</strong>. From Midlands everyday friction to an international comedy of codes.</li>
+                    <li><strong>Signal</strong>. Postmodern structure used as a readable engine, not as pure decoration.</li>
+                  </ul>
+                </div>
+              </details>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="reception" data-spy>
+          <header class="section-head">
+            <div class="section-kicker">7 . Reception</div>
+            <h2 class="section-title">Reception and legacy</h2>
+          </header>
+
+          <div class="card">
+            <div class="card-body">
+              <h3 style="margin:0 0 8px;font-size:16px;">Early reviews (1984)</h3>
+
+              <p class="muted" style="margin:0 0 10px;">
+                Note: to avoid long verbatim reproductions, we keep very short excerpts and summarise the rest.
+                If you want full quotes, paste them from your own clipping.
+              </p>
+
+              <p class="quote">
+                “Among recent portrayals of the literary establishment at work and play,I can think of none so consistently entertaining or, in an odd way, so genially fair minded”<br>
+                <span class="muted">Joel Conarroe, <em>The Washington Post Book World</em> (1984). Summary: consistently entertaining, surprisingly fair-minded in its portrait of the literary establishment.</span>
+              </p>
+
+              <p class="quote">
+                “A three-ring circus of academic drollery.”<br>
+                <span class="muted">Don Cryer, <em>Newsday</em> (1984). Summary: devilishly sophisticated entertainment; jokes work beyond specialists; witty dialogue plus a plot that keeps turning; sympathy for human foolishness.</span>
+              </p>
+
+              <h3 style="margin:14px 0 8px;font-size:16px;">Legacy within TNoC</h3>
+              <ul class="list">
+                <li><strong>Model</strong>. Campus as a ritual machine that produces mobility, rivalry and comic misunderstanding.</li>
+                <li><strong>Lens</strong>. The quest form upgraded into a modern code comedy of status and circulation.</li>
+                <li><strong>Warning</strong>. When everything moves, comedy can saturate. Excess becomes part of the point.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="friendships" data-spy>
+          <header class="section-head">
+            <div class="section-kicker">8 . Connections</div>
+            <h2 class="section-title">Humor friendships and cross-arts echoes</h2>
+          </header>
+
+          <div class="card">
+            <div class="card-body">
+              <h3 style="margin:0 0 8px;font-size:16px;">In the atlas of novels</h3>
+              <ul class="list">
+                <li><strong>Malcolm Bradbury . <em>The History Man</em></strong>. Campus satire as social x-ray. Darker, more abrasive.</li>
+                <li><strong>Kingsley Amis . <em>Lucky Jim</em></strong>. The brilliant loser prototype. Lodge expands the stage.</li>
+                <li><strong>A. S. Byatt . <em>Possession</em></strong>. Academic code and literary chase. Different register, similar magnetism of scholarship rituals.</li>
+              </ul>
+
+              <h3 style="margin:14px 0 8px;font-size:16px;">Cross-arts echoes</h3>
+<ul class="list">
+  <li><strong>British TV comedy</strong> · <em>Yes Minister</em> / <em>Yes, Prime Minister</em> (bureaucracy as plot engine), <em>The Thin Blue Line</em> (police grotesque).</li>
+  <li><strong>Comics / BD</strong> · <em>Gaston Lagaffe</em> (object-catalyst inside an institution), <em>Iznogoud</em> (power-code obsession + backfiring schemes).</li>
+  <li><strong>Cinema</strong> · <em>Clockwise</em> (Cleese: schedule + institution → pure escalation), <em>A Fish Called Wanda</em> (lies/misreadings as farce mechanics), <em>Burn After Reading</em> (stupidity + misunderstanding as narrative accelerators).</li>
+</ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="bonus" data-spy>
+          <header class="section-head">
+            <div class="section-kicker">9 . Bonus</div>
+            <h2 class="section-title">Bonus and workshop notes</h2>
+          </header>
+
+          <div class="card">
+            <div class="card-body">
+              <details open>
+                <summary><span class="caret">▶</span> Author’s Note (Lodge) . Key takeaways</summary>
+                <div style="padding-top:10px;">
+                  <ul class="list">
+                    <li>Lodge clarifies the real and the invented. Rummidge is fictional, built from recognisable English geography without mapping one-to-one onto a single city.</li>
+                    <li>Many universities, places and delegates are invented, or combined, to avoid mistaken identifications.</li>
+                    <li>He admits drawing on conference material and programmes for realistic texture, while keeping characters imaginary.</li>
+                    <li>He acknowledges information and hints received from colleagues and friends, too many to list individually.</li>
+                    <li>He mentions a small set of background reading used for details and inspiration, alongside lived academic experience.</li>
+                  </ul>
+                  <p class="muted" style="margin-top:8px;">
+                    This note is gold for TNoC: it confirms the method. Realistic texture, disguised referential anchors, and a deliberate refusal of direct roman-à-clef identification.
+                  </p>
+                </div>
+              </details>
+
+              <details>
+                <summary><span class="caret">
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="data" data-spy>
+          <header class="section-head">
+            <div class="section-kicker">10 . Data</div>
+            <h2 class="section-title">Data (TNoC mapping snippet)</h2>
+          </header>
+
+          <div class="card">
+            <div class="card-body">
+              <code class="mono">
+{"@type":"Book",
+ "name":"Small World : An Academic Romance",
+ "author":"David Lodge",
+ "year":"1984",
+ "current":"everyday",
+ "branch":["campus","code-etiquette","pastiche-quest"],
+ "environment":"1980s . global academic circuit . non-places",
+ "role":"comic-engine",
+ "lab":"midlands"}
+              </code>
+              <p class="muted" style="margin-top:10px;">
+                Internal snippet used for cartography and cross-references.
+              </p>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <aside class="rail" aria-label="In this fiche">
+        <header>
+          <h3>In this fiche</h3>
+          <p>Small World (1984) . 10-section matrix</p>
+          <div class="rail-progress" aria-label="Reading progress"><span></span></div>
+        </header>
+        <nav class="toc" id="toc">
+          <a href="#reading-note">1 . Reading note</a>
+          <a href="#incipit">2 . Incipit</a>
+          <a href="#characters">3 . Characters</a>
+          <a href="#context">4 . Context</a>
+          <a href="#style">5 . Style</a>
+          <a href="#cartography">6 . Cartography</a>
+          <a href="#reception">7 . Reception</a>
+          <a href="#friendships">8 . Connections</a>
+          <a href="#bonus">9 . Bonus</a>
+          <a href="#data">10 . Data</a>
+        </nav>
+        <div class="rail-bottom">
+          <a class="btn" href="#top">↑ Back to top</a>
+        </div>
+      </aside>
+
+    </div>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="footer-inner">
+      <div><strong>The Novel of Comedy (TNoC)</strong> . Novel fiche</div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="novel-fiches.html">Novel guides</a>
+        <a href="author-profiles.html">Author profiles</a>
+        <a href="series-fiches.html">Series</a>
+        <a href="method.html">Method</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  (function(){
+    const links = Array.from(document.querySelectorAll('#toc a'));
+    const sections = Array.from(document.querySelectorAll('[data-spy]'));
+    const bar = document.querySelector('.rail-progress > span');
+
+    function getHashId(href){
+      if(!href) return "";
+      const i = href.indexOf('#');
+      return i === -1 ? "" : href.slice(i+1);
+    }
+
+    function updateProgress(){
+      if(!bar) return;
+      const doc = document.documentElement;
+      const scrollTop = doc.scrollTop || document.body.scrollTop;
+      const scrollHeight = doc.scrollHeight - doc.clientHeight;
+      const pct = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+      bar.style.width = Math.max(0, Math.min(100, pct)) + "%";
+    }
+
+    function setActiveFromScroll(){
+      if(!links.length || !sections.length) return;
+      const scrollTop = window.scrollY || window.pageYOffset;
+      const offset = 140;
+      let activeId = sections[0].id;
+
+      sections.forEach(section => {
+        if (scrollTop + offset >= section.offsetTop) activeId = section.id;
+      });
+
+      links.forEach(link => {
+        const targetId = getHashId(link.getAttribute('href'));
+        link.classList.toggle('active', targetId === activeId);
+      });
+    }
+
+    window.addEventListener('scroll', updateProgress, { passive:true });
+    window.addEventListener('scroll', setActiveFromScroll, { passive:true });
+    window.addEventListener('resize', setActiveFromScroll);
+
+    updateProgress();
+    setActiveFromScroll();
+  })();
+  </script>
+
+</body>
+</html>
