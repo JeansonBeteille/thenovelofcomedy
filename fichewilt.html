@@ -5,14 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Wilt (1976) — Novel fiche | The Novel of Comedy (TNoC)</title>
-  <meta name="description" content="Novel fiche for Wilt (Tom Sharpe, 1976) in The Novel of Comedy: reading note, incipit, characters, context, cartography (Comedy of Everyday, Frustration, Midlands Lab), reception and legacy." />
+  <meta name="description" content="Novel fiche for Wilt (Tom Sharpe, 1976) in The Novel of Comedy. Reading note, incipit, characters, context, style, cartography path (Current, Branch, Environment, Role), reception and legacy." />
 
-  <!-- Basic social -->
   <meta property="og:title" content="Wilt (1976) — Novel fiche | The Novel of Comedy (TNoC)" />
-  <meta property="og:description" content="A TNoC novel fiche: reading note, incipit, characters, context, cartography, reception & legacy." />
+  <meta property="og:description" content="A TNoC novel fiche: reading note, incipit, characters, context, style, cartography, reception and legacy." />
   <meta property="og:type" content="article" />
 
-  <!-- JSON-LD (light, stable) -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -52,7 +50,6 @@
     a{color:inherit;text-decoration:none}
     a:hover{text-decoration:underline}
 
-    /* Skip link */
     .skip-link{
       position:absolute; left:-999px; top:10px;
       padding:8px 12px; background:#fff; color:#000;
@@ -61,7 +58,6 @@
     }
     .skip-link:focus{ left:12px; outline:none; }
 
-    /* TOP NAV (same spirit as index/method) */
     .topbar{
       position:sticky; top:0; z-index:30;
       backdrop-filter:blur(10px);
@@ -111,7 +107,6 @@
       .nav{width:100%;justify-content:flex-start}
     }
 
-    /* HERO */
     .hero{
       background:var(--bg);
       color:#fff;
@@ -185,7 +180,6 @@
     .btn-primary{background:#fff;color:#000;border-color:rgba(255,255,255,.03)}
     .btn-secondary{background:rgba(0,0,0,.2);border-color:rgba(255,255,255,.3);color:#fff}
 
-    /* Hero cover panel */
     .hero-cover{
       border-radius:18px;
       border:1px solid rgba(255,255,255,.18);
@@ -211,10 +205,9 @@
       line-height:1.5;
     }
     @media(max-width:600px){
-      .cover-frame{min-height:340px;} /* IMPORTANT: mobile cover not “a thin line” */
+      .cover-frame{min-height:340px;}
     }
 
-    /* PAGE WRAP */
     .page{
       background:var(--paper);
       min-height:65vh;
@@ -230,15 +223,12 @@
     }
     @media(max-width:960px){ .main-inner{grid-template-columns:1fr;} }
 
-    /* Cards + sections */
     .section{
       padding:18px 0;
       border-bottom:1px solid rgba(0,0,0,.06);
     }
     .section:last-of-type{border-bottom:none;padding-bottom:6px}
-    .section-head{
-      margin-bottom:12px;
-    }
+    .section-head{margin-bottom:12px}
     .section-kicker{
       font-size:11px;
       letter-spacing:.16em;
@@ -267,7 +257,6 @@
     .card-body p{margin:0 0 10px}
     .muted{color:var(--muted);font-size:13px}
 
-    /* Intro compact grid inside Reading note */
     .intro-grid{
       display:grid;
       grid-template-columns:1fr 1fr;
@@ -302,13 +291,6 @@
       padding:12px 12px 10px;
     }
     .snapshot .lede{font-weight:700;margin:0 0 8px}
-    .quote{
-      margin:10px 0;
-      padding-left:14px;
-      border-left:3px solid rgba(0,0,0,.14);
-      font-style:italic;
-      color:#444;
-    }
     .signature{
       margin-top:10px;
       font-size:13px;
@@ -317,7 +299,6 @@
       text-align:right;
     }
 
-    /* Incipit layout */
     .incipit-layout{
       display:grid;
       grid-template-columns:1.6fr .9fr;
@@ -357,12 +338,7 @@
     .author-meta .dates{font-size:12px;color:var(--muted)}
     .author-meta .link{font-size:12px;text-decoration:underline;text-decoration-color:rgba(0,0,0,.25)}
 
-    /* Table */
-    table{
-      width:100%;
-      border-collapse:collapse;
-      font-size:14px;
-    }
+    table{width:100%;border-collapse:collapse;font-size:14px}
     th,td{
       padding:10px 8px;
       border-bottom:1px solid rgba(0,0,0,.12);
@@ -372,7 +348,6 @@
     th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:rgba(0,0,0,.65)}
     td em{color:#444}
 
-    /* Details */
     details{
       border-top:1px dashed rgba(0,0,0,.16);
       padding-top:10px;
@@ -388,7 +363,6 @@
     .caret{display:inline-block;margin-right:6px;transition:transform .2s ease}
     details[open] .caret{transform:rotate(90deg)}
 
-    /* Tooltip */
     .tip{position:relative;border-bottom:1px dotted #888;cursor:help}
     .tip:hover::after{
       content:attr(data-tip);
@@ -399,11 +373,9 @@
       z-index:10; box-shadow:0 6px 18px rgba(0,0,0,.22);
     }
 
-    /* Lists */
     .list{margin:6px 0 0;padding-left:18px}
     .list li{margin:2px 0 6px}
 
-    /* Data code */
     .mono{
       font-family:ui-monospace,Menlo,Consolas,monospace;
       font-size:12px;
@@ -416,7 +388,6 @@
       word-break:break-word;
     }
 
-    /* Right rail */
     .rail{
       background:#fff;
       border-radius:16px;
@@ -451,10 +422,7 @@
       display:block;height:100%;width:0%;
       background:linear-gradient(90deg,var(--evergreen),#555);
     }
-    .toc{
-      padding:10px 10px 12px;
-      display:grid; gap:6px;
-    }
+    .toc{padding:10px 10px 12px;display:grid;gap:6px}
     .toc a{
       padding:8px 10px;
       border-radius:12px;
@@ -481,7 +449,6 @@
       padding:8px 10px;
     }
 
-    /* Footer */
     .footer{
       background:var(--bg);
       color:#f5f5f5;
@@ -507,7 +474,6 @@
 <body id="top">
   <a class="skip-link" href="#content">Skip to content</a>
 
-  <!-- TOP BAR -->
   <header class="topbar" role="banner" aria-label="Main navigation">
     <div class="topbar-inner">
       <a href="index.html" class="brand" aria-label="The Novel of Comedy home">
@@ -528,7 +494,6 @@
     </div>
   </header>
 
-  <!-- HERO -->
   <section class="hero" aria-label="Wilt hero">
     <div class="hero-inner">
       <div>
@@ -538,19 +503,20 @@
           <span>Wilt (1976)</span>
         </div>
 
-        <div class="hero-kicker">Novel fiche · Comedy of Everyday</div>
+        <div class="hero-kicker">Novel fiche. Comedy of Everyday</div>
         <h1 class="hero-title">Wilt</h1>
         <div class="hero-meta">
           Tom Sharpe · 1976 · Secker &amp; Warburg · <span class="muted" style="color:rgba(255,255,255,.72)">Wilt Saga (1/5)</span><br>
-          Environment: Midlands · technical college · pre-Thatcher England
+          Environment. Midlands · technical college · pre Thatcher England
         </div>
 
         <div class="hero-chips" aria-label="Cartography summary">
-          <span class="chip"><strong>Role:</strong>&nbsp;Comic engine</span>
-          <span class="chip"><strong>DNA:</strong>&nbsp;Frustration</span>
-          <span class="chip"><strong>DNA:</strong>&nbsp;Code/Etiquette</span>
-          <span class="chip"><strong>Form:</strong>&nbsp;Vaudeville</span>
-          <span class="chip"><strong>Lab:</strong>&nbsp;Midlands</span>
+          <span class="chip"><strong>Current</strong> · Comedy of Everyday</span>
+          <span class="chip"><strong>Branch</strong> · Frustration</span>
+          <span class="chip"><strong>Branch</strong> · Code and etiquette</span>
+          <span class="chip"><strong>Environment</strong> · Midlands</span>
+          <span class="chip"><strong>Role</strong> · Comic engine</span>
+          <span class="chip"><strong>Lab</strong> · Midlands Lab</span>
         </div>
 
         <div class="hero-actions">
@@ -562,21 +528,19 @@
 
       <aside class="hero-cover" aria-label="Cover panel">
         <div class="cover-frame">
-          <img src="wilt31A.png" alt="Cover of Wilt (Tom Sharpe, 1976)">
+          <img src="wilt31A.png.png" alt="Cover of Wilt (Tom Sharpe, 1976)">
         </div>
-        <div class="hero-cover-caption"></div>
+        <div class="hero-cover-caption">
+        </div>
       </aside>
     </div>
   </section>
 
-  <!-- PAGE -->
   <main class="page" id="content" aria-label="Main content">
     <div class="main-inner">
 
-      <!-- LEFT COLUMN -->
       <div>
 
-        <!-- 1 · Reading note -->
         <section class="section" id="reading-note" data-spy>
           <header class="section-head">
             <div class="section-kicker">1 · Reading note</div>
@@ -589,26 +553,25 @@
                 <div class="snapshot">
                   <p class="lede">
                     What connects a literature teacher in a miserable technical college, the fantasy of making his wife vanish,
-                    endless walks with the family dog, and a blow-up doll buried in the back garden? Henry Wilt.
+                    endless walks with the family dog, and a blow up doll buried in the back garden? Henry Wilt.
                   </p>
                   <p>
-                    Tom Sharpe launches an escalation farce: every attempt by Wilt to “fix” something makes everything worse.
-                    Provincial England becomes a laboratory where institutions self-destruct at the slightest spark.
+                    Tom Sharpe launches an escalation farce. Every attempt by Wilt to fix something makes everything worse.
+                    Provincial England becomes a laboratory where institutions self destruct at the slightest spark.
                   </p>
-                  <p class="quote">In Sharpe’s England, failure is not an accident. It is the baseline.</p>
-                  <p class="signature">The Novel of Comedy</p>
+                  <p class="signature">TNoC.</p>
                 </div>
 
                 <aside class="coords" aria-label="Coordinates box">
                   <h4>Coordinates</h4>
                   <ul>
-                    <li><b>Title</b> <em>Wilt</em></li>
-                    <li><b>Author</b> Tom Sharpe (1928–2013) <a href="author-profiles.html">Author profiles</a></li>
-                    <li><b>Publication</b> 1976 Secker &amp; Warburg</li>
-                    <li><b>Series</b> Wilt Saga (1/5) <a href="series-fiches.html">Series hub</a></li>
-                    <li><b>Setting</b> Midlands technical college pre-Thatcher England</li>
-                    <li><b>Original language</b> English (UK)</li>
-                    <li><b>TNoC ID</b> <span style="font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;">tnoc:novel:wilt:1976</span></li>
+                    <li><b>Title</b> · <em>Wilt</em></li>
+                    <li><b>Author</b> · Tom Sharpe (1928–2013) · <a href="author-profiles.html">Author profiles</a></li>
+                    <li><b>Publication</b> · 1976 · Secker &amp; Warburg</li>
+                    <li><b>Series</b> · Wilt Saga (1/5) · <a href="series-fiches.html">Series hub</a></li>
+                    <li><b>Setting</b> · Midlands · technical college · pre Thatcher England</li>
+                    <li><b>Original language</b> · English (UK)</li>
+                    <li><b>TNoC ID</b> · <span style="font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;">tnoc:novel:wilt:1976</span></li>
                   </ul>
                 </aside>
               </div>
@@ -616,7 +579,6 @@
           </div>
         </section>
 
-        <!-- 2 · Incipit -->
         <section class="section" id="incipit" data-spy>
           <header class="section-head">
             <div class="section-kicker">2 · Incipit</div>
@@ -652,7 +614,6 @@
           </div>
         </section>
 
-        <!-- 3 · Major characters -->
         <section class="section" id="characters" data-spy>
           <header class="section-head">
             <div class="section-kicker">3 · Characters</div>
@@ -686,21 +647,16 @@
                     <td>Moral obsession, procedural paranoia, class resentment</td>
                   </tr>
                   <tr>
-                    <td>Mr &amp; Mrs Pringsheim</td>
+                    <td>Mr and Mrs Pringsheim</td>
                     <td>Caricatured modernity</td>
-                    <td>American liberal surface, intrusive “openness”</td>
+                    <td>American liberal surface, intrusive openness</td>
                   </tr>
                 </tbody>
               </table>
-
-              <p class="muted" style="margin-top:10px;">
-                Note: quotes appear only as verbatim excerpts in the “Style” section when available.
-              </p>
             </div>
           </div>
         </section>
 
-        <!-- 4 · Context of writing -->
         <section class="section" id="context" data-spy>
           <header class="section-head">
             <div class="section-kicker">4 · Context</div>
@@ -711,62 +667,59 @@
             <div class="card-body">
               <p>
                 Before returning to England, Sharpe had been imprisoned and expelled from South Africa for mocking
-                apartheid in his plays and political activities. Back in the UK, he teaches in a technical college
-                a place where he feels both over-qualified and economically trapped.
+                apartheid in his plays and political activities. Back in the UK, he teaches in a technical college.
+                A place where he feels both over qualified and economically trapped.
               </p>
               <p>
-                Wilt’s college is a direct transposition of this frustration: endless meetings, incompetent but secure
+                Wilt’s college is a direct transposition of this frustration. Endless meetings, incompetent but secure
                 colleagues, students who do not want to be there, and an institution permanently short of money.
-                Sharpe reworks his own anger into a controlled machine of humiliation.
+                Sharpe reworks anger into a controlled machine of humiliation.
               </p>
-              <p class="quote">“Wilt was the revenge of a teacher trapped among the stupid and the over-confident.”</p>
               <p>
-                The economic and political background pre-Thatcher crisis, erosion of public services, provincial
-                stagnation remains mostly offstage but colours every decision: nobody expects improvement, only the
+                The economic and political background. Pre Thatcher crisis, erosion of public services, provincial
+                stagnation. It remains mostly offstage but colours every decision. Nobody expects improvement, only the
                 next bureaucratic disaster.
               </p>
             </div>
           </div>
         </section>
 
-        <!-- 5 · Style & writing -->
         <section class="section" id="style" data-spy>
           <header class="section-head">
             <div class="section-kicker">5 · Style</div>
-            <h2 class="section-title">Style &amp; writing</h2>
+            <h2 class="section-title">Style and writing</h2>
           </header>
 
           <div class="card">
             <div class="card-body">
               <h3 style="margin:0 0 8px;font-size:16px;">Voice and rhythm</h3>
               <ul class="list">
-                <li><strong>Language</strong> dry, sharp, unadorned; humour without lyricism.</li>
-                <li><strong>Irony</strong> constant but rarely signposted; the narration lets situations condemn themselves.</li>
-                <li><strong>Rhythm</strong> successive crescendos, alternating suffocating interiors and chaotic outdoor scenes.</li>
+                <li><strong>Language</strong>: dry, sharp, unadorned. Humour without lyricism.</li>
+                <li><strong>Irony</strong>: constant but rarely signposted. The narration lets situations condemn themselves.</li>
+                <li><strong>Rhythm</strong>: successive crescendos, alternating suffocating interiors and chaotic outdoor scenes.</li>
               </ul>
 
               <details>
                 <summary><span class="caret">▶</span> Comic mechanics</summary>
                 <div style="padding-top:10px;">
                   <ul class="list">
-                    <li><strong>Escalation structure</strong> each attempt by Wilt to regain control triggers a new misunderstanding.</li>
-                    <li><strong>Institutional meltdown</strong> committees, interrogations and procedures accelerate the chaos.</li>
-                    <li><strong>Physical comedy</strong> the blow-up doll works as an object-catalyst: no psychology, only consequences.</li>
+                    <li><strong>Escalation structure</strong>: each attempt by Wilt to regain control triggers a new misunderstanding.</li>
+                    <li><strong>Institutional meltdown</strong>: committees, interrogations and procedures accelerate the chaos.</li>
+                    <li><strong>Physical comedy</strong>: the blow up doll works as an object catalyst. No psychology, only consequences.</li>
                   </ul>
                 </div>
               </details>
 
-              <h3 style="margin:14px 0 8px;font-size:16px;">Tone samples</h3>
-              <ul class="list">
-                <li>Life was one long lesson in humiliation.</li>
-                <li>Some men fought the system. Wilt tried not to trip over it.</li>
-                <li>Wilt had long ceased to expect logic from life. He settled for survival.</li>
-              </ul>
+              <details>
+                <summary><span class="caret">▶</span> Selected quotations</summary>
+                <div style="padding-top:10px;">
+                  <p class="muted">No quotations yet. Add original excerpts when available.</p>
+                </div>
+              </details>
             </div>
           </div>
         </section>
 
-        <!-- 6 · Cartography -->
         <section class="section" id="cartography" data-spy>
           <header class="section-head">
             <div class="section-kicker">6 · Cartography</div>
@@ -775,37 +728,28 @@
 
           <div class="card">
             <div class="card-body">
+              <p><strong>Current</strong>: Comedy of Everyday. The individual against institutions. Marriage, police, administration, college.</p>
               <p>
-                <strong>Role of comedy</strong>
-                <span class="tip" data-tip="Comedy organises the voice, rhythm and architecture of the book.">Comic engine</span>
+                <strong>Branch</strong>:
+                <span class="tip" data-tip="Every attempt to repair a situation makes it worse, until a sideways exit appears.">Frustration</span>.
+                <span class="tip" data-tip="Rules, hierarchies, procedures. The system produces absurdity.">Code and etiquette</span>.
+                <span class="tip" data-tip="Entrances, exits, crossed information. Rhythm dictates catastrophe.">Vaudeville form</span>.
               </p>
-              <p>
-                <strong>Main current</strong> Comedy of Everyday the individual against institutions:
-                marriage, police, administration, college.
-              </p>
-              <p>
-                <strong>Dominant DNA</strong>
-                <span class="tip" data-tip="Every attempt to repair a situation makes it worse, until a sideways exit appears.">Frustration</span>
-                <span class="tip" data-tip="Rules, hierarchies, procedures; the system produces absurdity.">Code/Etiquette</span>
-                <span class="tip" data-tip="Entrances/exits/crossed information: rhythm dictates catastrophe.">Vaudeville (form)</span>
-              </p>
-              <p>
-                <strong>Affluent</strong> Comedy of Crime interrogations, suspicion and the police plot provide the skeleton for escalation.
-              </p>
-              <p>
-                <strong>Lab</strong> Midlands Lab second-tier campus, provincial middle class, frustrated teachers, invisible financial crisis.
-              </p>
+              <p><strong>Environment</strong>: Midlands. Technical college. Domestic pressure. Procedural England.</p>
+              <p><strong>Role</strong>: Comic engine. Comedy organises the voice, rhythm and architecture of the book.</p>
+              <p><strong>Affluent</strong>: Comedy of Crime. Suspicion and police procedure provide the skeleton for escalation.</p>
+              <p><strong>Lab</strong>: Midlands Lab. Second tier campus. Provincial middle class. Frustrated teachers.</p>
 
               <details>
                 <summary><span class="caret">▶</span> Position in The Novel of Comedy atlas</summary>
                 <div style="padding-top:10px;">
                   <ul class="list">
                     <li><strong>Anchor</strong> for Frustration Comedy in an educational setting.</li>
-                    <li><strong>Model</strong> for “institution as accelerator” committees, procedures, policing.</li>
-                    <li><strong>Bridge</strong> between social satire and comic noir: never purely parody.</li>
+                    <li><strong>Model</strong> for institution as accelerator. Committees, procedures, policing.</li>
+                    <li><strong>Bridge</strong> between social satire and comic noir. Never purely parody.</li>
                   </ul>
                   <p class="muted" style="margin-top:8px;">
-                    In short: <em>Wilt</em> is one of the clearest entries into TNoC’s Comedy of Everyday / Midlands Lab area.
+                    In short. <em>Wilt</em> is one of the clearest entries into TNoC’s Comedy of Everyday in the Midlands Lab area.
                   </p>
                 </div>
               </details>
@@ -813,19 +757,18 @@
           </div>
         </section>
 
-        <!-- 7 · Reception & legacy -->
         <section class="section" id="reception" data-spy>
           <header class="section-head">
             <div class="section-kicker">7 · Reception</div>
-            <h2 class="section-title">Reception &amp; legacy</h2>
+            <h2 class="section-title">Reception and legacy</h2>
           </header>
 
           <div class="card">
             <div class="card-body">
               <h3 style="margin:0 0 8px;font-size:16px;">Initial reception (late 1970s)</h3>
               <p>
-                <em>Wilt</em> quickly found readers beyond the usual campus-novel public. Early reviews insisted on the book’s
-                “bad taste” and excess often as a virtue: farce, vulgarity and humiliation pushed to a precise mechanism.
+                <em>Wilt</em> quickly found readers beyond the usual campus novel public. Early reviews insisted on the book’s
+                bad taste and excess. Often as a virtue. Farce, vulgarity and humiliation pushed to a precise mechanism.
               </p>
 
               <h3 style="margin:14px 0 8px;font-size:16px;">Later critical views</h3>
@@ -835,25 +778,24 @@
 
               <h3 style="margin:14px 0 8px;font-size:16px;">Adaptations</h3>
               <ul class="list">
-                <li><strong>Film</strong> <em>Wilt</em> (dir. Michael Tuchner, 1989), with Griff Rhys Jones (Henry Wilt) and Mel Smith (Inspector Flint).</li>
-                <li><strong>Comics</strong> early 1990s adaptation scripted by André-Paul Duchâteau, drawn by Yves Urbain (2 volumes).</li>
+                <li><strong>Film</strong>: <em>Wilt</em> (dir. Michael Tuchner, 1989), with Griff Rhys Jones (Henry Wilt) and Mel Smith (Inspector Flint).</li>
+                <li><strong>Comics</strong>: early 1990s. Adaptation scripted by André Paul Duchâteau, drawn by Yves Urbain (2 volumes).</li>
               </ul>
 
               <h3 style="margin:14px 0 8px;font-size:16px;">Legacy within TNoC</h3>
               <ul class="list">
-                <li><strong>Archetype</strong> brilliant loser as social seismograph.</li>
-                <li><strong>Narrative model</strong> institutions as acceleration devices.</li>
-                <li><strong>Lab</strong> Midlands province as echo chamber of British pre-Thatcher crisis.</li>
+                <li><strong>Archetype</strong>: brilliant loser as social seismograph.</li>
+                <li><strong>Narrative model</strong>: institutions as acceleration devices.</li>
+                <li><strong>Lab</strong>: Midlands. Province as echo chamber of British crisis.</li>
               </ul>
             </div>
           </div>
         </section>
 
-        <!-- 8 · Friendships & cross-arts echoes -->
         <section class="section" id="friendships" data-spy>
           <header class="section-head">
             <div class="section-kicker">8 · Connections</div>
-            <h2 class="section-title">Humor friendships &amp; cross-arts echoes</h2>
+            <h2 class="section-title">Humor friendships and cross arts echoes</h2>
           </header>
 
           <div class="card">
@@ -861,49 +803,47 @@
               <h3 style="margin:0 0 8px;font-size:16px;">In the atlas of novels</h3>
               <ul class="list">
                 <li>
-                  <strong>Kingsley Amis <em>Lucky Jim</em></strong> Frustration, brilliant loser.
-                  <div class="muted">Same humiliation logic; <em>Wilt</em> is harsher and more “institution meltdown”.</div>
+                  <strong>Kingsley Amis · <em>Lucky Jim</em></strong>. Frustration. Brilliant loser.
+                  <div class="muted">Same humiliation logic. <em>Wilt</em> is harsher and more institution meltdown.</div>
                 </li>
                 <li>
-                  <strong>David Lodge academic cycle</strong> Code/Etiquette.
-                  <div class="muted">Rituals and panels; Sharpe pushes the material toward rage and farce.</div>
+                  <strong>David Lodge · academic cycle</strong>. Code and etiquette.
+                  <div class="muted">Rituals and panels. Sharpe pushes the material toward rage and farce.</div>
                 </li>
                 <li>
-                  <strong>P. G. Wodehouse</strong> machinery, vaudeville.
+                  <strong>P. G. Wodehouse</strong>. Machinery. Vaudeville precision.
                   <div class="muted">Plot precision retained, transposed into greyer England.</div>
                 </li>
               </ul>
 
-              <h3 style="margin:14px 0 8px;font-size:16px;">Cross-arts echoes</h3>
-              <ul class="list">
-                <li><strong>British TV comedy</strong> institutions as engines of absurdity (police, schools, administration).</li>
-                <li><strong>Comics</strong> object-catalysts plus overstated settings map naturally onto BD grammar.</li>
-                <li><strong>Cinema</strong> interrogations plus misunderstandings read like black-comedy storyboard logic.</li>
-              </ul>
+             <h3 style="margin:14px 0 8px;font-size:16px;">Cross-arts echoes</h3>
+<ul class="list">
+  <li><strong>British TV comedy</strong> · <em>Yes Minister</em> / <em>Yes, Prime Minister</em> (bureaucracy as plot engine), <em>The Thin Blue Line</em> (police grotesque).</li>
+  <li><strong>Comics / BD</strong> · <em>Gaston Lagaffe</em> (object-catalyst inside an institution), <em>Iznogoud</em> (power-code obsession + backfiring schemes).</li>
+  <li><strong>Cinema</strong> · <em>Clockwise</em> (Cleese: schedule + institution → pure escalation), <em>A Fish Called Wanda</em> (lies/misreadings as farce mechanics), <em>Burn After Reading</em> (stupidity + misunderstanding as narrative accelerators).</li>
+</ul>
             </div>
           </div>
         </section>
 
-        <!-- 9 · Bonus / Workshop notes -->
         <section class="section" id="bonus" data-spy>
           <header class="section-head">
             <div class="section-kicker">9 · Bonus</div>
-            <h2 class="section-title">Bonus / Workshop notes</h2>
+            <h2 class="section-title">Bonus and workshop notes</h2>
           </header>
 
           <div class="card">
             <div class="card-body">
               <ul class="list">
-                <li>Real-life spark: a student prank involving a blow-up doll floating on a river reportedly helped crystallise the engine.</li>
-                <li>Early drafts were judged “uncontrollably vulgar” by some readers; the final version tightens the farce.</li>
-                <li>Sharpe recycled resentment into comic energy: anger becomes rhythm.</li>
+                <li>Real life spark: a student prank involving a blow up doll floating on a river reportedly helped crystallise the engine.</li>
+                <li>Early drafts were judged uncontrollably vulgar by some readers. The final version tightens the farce.</li>
+                <li>Sharpe recycled resentment into comic energy. Anger becomes rhythm.</li>
                 <li>Interrogation scenes: written fast to keep the pressure sharp enough to remain funny.</li>
               </ul>
             </div>
           </div>
         </section>
 
-        <!-- 10 · Data -->
         <section class="section" id="data" data-spy>
           <header class="section-head">
             <div class="section-kicker">10 · Data</div>
@@ -917,14 +857,17 @@
  "name":"Wilt",
  "author":"Tom Sharpe",
  "year":"1976",
- "role":"comic-engine",
- "current":"everyday",
- "tints":["frustration","code/etiquette","vaudeville"],
- "affluent":"crime",
- "lab":"midlands"}
+ "cartography":{
+   "current":"comedy-of-everyday",
+   "branches":["frustration","code-etiquette"],
+   "environment":["midlands","technical-college","domestic-pressure","procedural-england"],
+   "role":"comic-engine",
+   "affluent":["comedy-of-crime"],
+   "labs":["midlands-lab"]
+ }}
               </code>
               <p class="muted" style="margin-top:10px;">
-                Internal snippet used in The Novel of Comedy for cartography and cross-references.
+                Internal snippet used in The Novel of Comedy for cartography and cross references.
               </p>
             </div>
           </div>
@@ -932,11 +875,10 @@
 
       </div>
 
-      <!-- RIGHT RAIL -->
       <aside class="rail" aria-label="In this fiche">
         <header>
           <h3>In this fiche</h3>
-          <p>Wilt (1976) · 10-section matrix</p>
+          <p>Wilt (1976). 10 section matrix</p>
           <div class="rail-progress" aria-label="Reading progress"><span></span></div>
         </header>
         <nav class="toc" id="toc">
@@ -959,7 +901,6 @@
     </div>
   </main>
 
-  <!-- FOOTER -->
   <footer class="footer" role="contentinfo">
     <div class="footer-inner">
       <div><strong>The Novel of Comedy (TNoC)</strong> · Novel fiche</div>
@@ -973,7 +914,6 @@
     </div>
   </footer>
 
-  <!-- JS: Scroll progress + Scrollspy -->
   <script>
   (function(){
     const links = Array.from(document.querySelectorAll('#toc a'));
