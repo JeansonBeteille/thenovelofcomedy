@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Novel guides: The Novel of Comedy (TNoC)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description"
+        content="Novel guides for The Novel of Comedy (TNoC): a gallery of mapped comic novels, organised by title, current and decade.">
+  <style>
+    :root{
+      --bg:#0b0b0c;
+      --paper:#f7f5f0;
+      --ink:#1e1e1e;
+      --graphite:#2b2b2b;
+      --evergreen:#2E7D32;
+      --muted:rgba(0,0,0,.55);
+      --chip:rgba(0,0,0,.06);
+      --border:rgba(0,0,0,.14);
+      --card:#ffffff;
+      --shadow:0 1px 2px rgba(0,0,0,.04);
+    }
+
+    *{box-sizing:border-box}
+    html,body{
+      margin:0;
+      padding:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--ink);
+      background:var(--bg);
+    }
+    a{color:inherit;text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    .page-wrap{min-height:100vh;background:var(--bg);}
+
+    .skip-link{
+      position:absolute; left:-999px; top:10px;
+      padding:8px 12px; background:#fff; color:#000;
+      border-radius:999px; border:1px solid rgba(0,0,0,.18);
+      z-index:1000; font-size:13px;
+    }
+    .skip-link:focus{left:12px; outline:none;}
+
+    .topbar{
+      position:sticky; top:0; z-index:20;
+      backdrop-filter:blur(10px);
+      background:rgba(11,11,12,.92);
+      color:#fff;
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .topbar-inner{
+      max-width:1120px; margin:0 auto;
+      padding:10px 20px;
+      display:flex; align-items:center; justify-content:space-between;
+      gap:16px;
+    }
+    .brand{display:flex; align-items:center; gap:10px;}
+    .brand-mark{
+      width:34px; height:34px; border-radius:12px;
+      border:1px solid rgba(255,255,255,.18);
+      display:flex; align-items:center; justify-content:center;
+      font-weight:600; letter-spacing:.06em; text-transform:uppercase;
+      font-size:11px;
+      background:radial-gradient(circle at 0 0,rgba(255,255,255,.22),rgba(0,0,0,.7));
+    }
+    .brand-text{display:flex; flex-direction:column; gap:1px;}
+    .brand-title{font-size:15px; letter-spacing:.05em; text-transform:uppercase;}
+    .brand-sub{font-size:11px; opacity:.7;}
+    .nav{display:flex; flex-wrap:wrap; gap:12px; font-size:13px;}
+    .nav a{opacity:.82; padding:6px 0;}
+    .nav a:hover{opacity:1; text-decoration:none;}
+    .nav a.is-primary{
+      padding:6px 12px; border-radius:999px;
+      border:1px solid rgba(255,255,255,.22);
+      font-size:12px;
+    }
+    .nav a.is-current{opacity:1; border-bottom:1px solid rgba(255,255,255,.9);}
+
+    @media(max-width:900px){
+      .topbar-inner{flex-direction:column; align-items:flex-start;}
+      .nav{width:100%; justify-content:flex-start;}
+    }
+
+    .hero{background:var(--bg); color:#fff; border-bottom:1px solid rgba(255,255,255,.08);}
+    .hero-inner{max-width:1120px; margin:0 auto; padding:36px 20px 26px;}
+    .hero-kicker{font-size:12px; letter-spacing:.18em; text-transform:uppercase; opacity:.9;}
+    .hero-title{font-size:22px; line-height:1.4; margin:10px 0 4px; max-width:720px;}
+    .hero-sub{font-size:13px; line-height:1.6; max-width:720px; opacity:.9; margin:10px 0 10px;}
+    .hero-note{font-size:12px; opacity:.8; max-width:720px;}
+
+    .hero-modes{margin-top:14px; display:flex; flex-wrap:wrap; gap:8px;}
+    .hero-mode{
+      display:inline-flex; align-items:center; gap:7px;
+      padding:7px 12px; border-radius:999px;
+      font-size:11px; border:1px solid rgba(255,255,255,.28);
+      background:rgba(0,0,0,.25); cursor:pointer;
+      text-decoration:none; opacity:.9;
+    }
+    .hero-mode span{font-size:10px; opacity:.85; text-transform:uppercase; letter-spacing:.16em;}
+    .hero-mode strong{font-weight:600;}
+
+    .poster-gallery{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:18px;
+      margin-top:10px;
+    }
+    @media(max-width:1024px){.poster-gallery{grid-template-columns:repeat(3,minmax(0,1fr));}}
+    @media(max-width:780px){.poster-gallery{grid-template-columns:repeat(2,minmax(0,1fr));}}
+    @media(max-width:520px){.poster-gallery{grid-template-columns:1fr;}}
+
+    .poster-card{
+      background:#111; color:#f5f5f5;
+      border-radius:16px; padding:10px 10px 12px;
+      border:1px solid rgba(255,255,255,.16);
+      box-shadow:0 8px 24px rgba(0,0,0,.45);
+      text-decoration:none;
+      display:flex; flex-direction:column; gap:6px;
+      min-height:230px;
+    }
+    .poster-cover-box{
+      width:100%; aspect-ratio:3/4;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,.25);
+      background:radial-gradient(circle at 20% 0,#555,#111);
+      display:flex; align-items:center; justify-content:center;
+      font-size:10px; text-transform:uppercase; letter-spacing:.14em;
+      opacity:.85; overflow:hidden; margin-bottom:4px;
+    }
+    .poster-cover-box img{width:100%; height:100%; object-fit:cover; display:block;}
+    .poster-tag{font-size:10px; text-transform:uppercase; letter-spacing:.16em; opacity:.7;}
+    .poster-title{font-size:13px; font-weight:600;}
+    .poster-author{font-size:11px; opacity:.85;}
+    .poster-meta{font-size:11px; opacity:.85;}
+    .poster-punch{font-size:11px; font-style:italic; opacity:.9;}
+    .poster-tools{margin-top:4px; display:flex; flex-wrap:wrap; gap:4px; font-size:10px;}
+    .tool-chip{padding:3px 7px; border-radius:999px; border:1px solid rgba(255,255,255,.3); background:rgba(0,0,0,.4); white-space:nowrap;}
+
+    .main{background:var(--paper); min-height:60vh;}
+    .main-inner{
+      max-width:1120px; margin:0 auto;
+      padding:24px 20px 40px;
+      display:grid;
+      grid-template-columns:minmax(0,1.08fr) minmax(240px,.6fr);
+      gap:20px;
+      align-items:flex-start;
+    }
+    .content-column{min-width:0;}
+    @media(max-width:960px){.main-inner{grid-template-columns:1fr;}}
+
+    .section{padding:24px 0; border-bottom:1px solid rgba(0,0,0,.06);}
+    .section:last-of-type{border-bottom:none; padding-bottom:10px;}
+    .section-header{margin-bottom:16px;}
+    .section-kicker{font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted);}
+    .section-title{font-size:22px; letter-spacing:.04em; margin:4px 0;}
+    .section-sub{font-size:14px; color:var(--muted); max-width:720px;}
+
+    .grid-2{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px;}
+    @media(max-width:900px){.grid-2{grid-template-columns:1fr;}}
+
+    .card{
+      background:var(--card);
+      border-radius:16px;
+      border:1px solid var(--border);
+      box-shadow:var(--shadow);
+      padding:16px 16px 14px;
+    }
+    .card-header{font-weight:600; font-size:15px; margin-bottom:6px;}
+    .card-body{font-size:13px; line-height:1.6; color:var(--graphite);}
+    .card-tagline{font-size:12px; color:var(--muted); margin-top:6px;}
+
+    .mini-rail{display:flex; flex-direction:column; gap:10px; margin-top:10px;}
+    .mini-rail-label{font-size:11px; text-transform:uppercase; letter-spacing:.16em; color:var(--muted);}
+    .mini-rail-strip{display:flex; gap:8px; overflow-x:auto; padding-bottom:4px;}
+    .mini-rail-strip::-webkit-scrollbar{height:6px;}
+    .mini-rail-strip::-webkit-scrollbar-track{background:rgba(0,0,0,.03);}
+    .mini-rail-strip::-webkit-scrollbar-thumb{background:rgba(0,0,0,.18); border-radius:999px;}
+    .mini-rail-pill{
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background:#fff;
+      font-size:12px;
+      white-space:nowrap;
+      box-shadow:var(--shadow);
+      text-decoration:none;
+    }
+    .mini-rail-pill:hover{text-decoration:none; background:#f0ede4;}
+
+    .decade-chip{
+      padding:7px 11px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      font-size:12px;
+      background:#fff;
+      box-shadow:var(--shadow);
+      white-space:nowrap;
+      text-decoration:none;
+    }
+    .decade-chip:hover{text-decoration:none; background:#f0ede4;}
+    .decade-strip{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px;}
+
+    .index-list{
+      margin:10px 0 0;
+      padding-left:18px;
+      font-size:13px;
+      color:var(--graphite);
+      columns:2;
+      column-gap:24px;
+    }
+    @media(max-width:780px){.index-list{columns:1;}}
+    .index-list li{margin:2px 0 4px; break-inside:avoid;}
+    .muted{color:var(--muted); font-size:12px;}
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:9px 14px;
+      border-radius:999px;
+      font-size:13px;
+      border:1px solid transparent;
+      cursor:pointer;
+      text-decoration:none;
+      white-space:nowrap;
+    }
+
+    .rail{
+      background:#fff;
+      border-radius:16px;
+      border:1px solid var(--border);
+      box-shadow:var(--shadow);
+      font-size:13px;
+      overflow:hidden;
+    }
+    @media(min-width:960px){.rail{position:sticky; top:88px;}}
+    .rail header{
+      padding:14px 14px 10px;
+      border-bottom:1px solid rgba(0,0,0,.06);
+      background:linear-gradient(180deg,rgba(0,0,0,.015),rgba(0,0,0,.03));
+    }
+    .rail header h3{
+      margin:0 0 4px;
+      font-size:12px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:var(--graphite);
+    }
+    .rail header p{margin:0; font-size:12px; color:var(--muted);}
+    .rail-progress{
+      margin-top:8px;
+      height:6px;
+      border-radius:999px;
+      background:rgba(0,0,0,.03);
+      border:1px solid rgba(0,0,0,.06);
+      overflow:hidden;
+    }
+    .rail-progress > span{display:block; height:100%; width:0%; background:linear-gradient(90deg,var(--evergreen),#555);}
+    .toc{padding:10px 10px 12px; display:grid; gap:6px;}
+    .toc a{
+      padding:8px 10px;
+      border-radius:12px;
+      border:1px solid transparent;
+      background:rgba(0,0,0,.015);
+      font-size:13px;
+      color:var(--graphite);
+      text-decoration:none;
+    }
+    .toc a:hover{border-color:var(--border); background:rgba(0,0,0,.03);}
+    .toc a.active{border-color:var(--evergreen); background:rgba(46,125,50,.08); color:#000; font-weight:600;}
+    .rail-bottom{padding:0 10px 12px;}
+    .rail-bottom .btn{
+      width:100%;
+      justify-content:center;
+      background:rgba(0,0,0,.03);
+      color:var(--graphite);
+      border-color:var(--border);
+      box-shadow:none;
+      font-size:12px;
+      padding:8px 10px;
+    }
+
+    a.is-missing{opacity:.55; cursor:not-allowed; text-decoration:none;}
+    a.is-missing:hover{text-decoration:none;}
+    .missing-badge{
+      display:inline-block;
+      margin-left:6px;
+      padding:2px 6px;
+      border-radius:999px;
+      font-size:10px;
+      border:1px solid rgba(0,0,0,.14);
+      background:rgba(0,0,0,.03);
+      color:rgba(0,0,0,.6);
+      vertical-align:2px;
+      white-space:nowrap;
+    }
+
+    .footer{background:var(--bg); color:#f5f5f5; border-top:1px solid rgba(255,255,255,.08);}
+    .footer-inner{
+      max-width:1120px; margin:0 auto;
+      padding:18px 20px 22px;
+      display:flex; flex-wrap:wrap; justify-content:space-between;
+      gap:12px;
+      font-size:12px;
+      opacity:.88;
+    }
+    .footer-links{display:flex; flex-wrap:wrap; gap:12px;}
+
+    @media(max-width:600px){
+      .hero-inner{padding:28px 16px 22px;}
+      .section{padding:20px 0;}
+      .section-title{font-size:20px;}
+      .section-sub{font-size:13px;}
+      .card{padding:14px 14px 12px;}
+      .footer-inner{padding:14px 14px 18px; font-size:11px;}
+      .rail{position:static;}
+    }
+  </style>
+</head>
+<body id="top">
+<a class="skip-link" href="#gallery">Skip to content</a>
+
+<div class="page-wrap">
+
+  <header class="topbar" role="banner" aria-label="Main navigation">
+    <div class="topbar-inner">
+      <a href="index.html" class="brand" aria-label="The Novel of Comedy home">
+        <div class="brand-mark">TNoC</div>
+        <div class="brand-text">
+          <div class="brand-title">The Novel of Comedy</div>
+          <div class="brand-sub">Digital atlas and critical cartography of comic fiction</div>
+        </div>
+      </a>
+      <nav class="nav" aria-label="Navigation">
+        <a href="index.html#fiches">Guides</a>
+        <a href="novel-fiches.html" class="is-current">Novel guides</a>
+        <a href="author-fiches.html">Author profiles</a>
+        <a href="index.html#courants">Currents</a>
+        <a href="index.html#toolbox">Toolbox</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#research" class="is-primary">Researchers and AI</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-kicker">Novel guides</div>
+        <h1 class="hero-title">A gallery of mapped comic novels</h1>
+        <p class="hero-sub">
+          Each novel guide follows the same ten chapter matrix: coordinates, reading note, back cover pitch,
+          currents and branches, style, major characters, creation context, reception, making of and legacy.
+        </p>
+        <p class="hero-note">
+          This page works like a gallery. You can walk through the posters, browse by current,
+          or use the alphabetical index. Each poster and each title leads to a full guide.
+        </p>
+
+        <div class="hero-modes">
+          <a href="#gallery" class="hero-mode"><span>View</span><strong>Gallery</strong></a>
+          <a href="#by-current" class="hero-mode"><span>View</span><strong>By current</strong></a>
+          <a href="#index" class="hero-mode"><span>View</span><strong>Index A to Z</strong></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="main" aria-label="Novel guides content">
+    <div class="main-inner">
+
+      <div class="content-column">
+
+        <section class="section" id="gallery" data-spy>
+          <header class="section-header">
+            <div class="section-kicker">Visual gallery</div>
+            <h2 class="section-title">Posters for mapped novels</h2>
+            <p class="section-sub">
+              First poster series for the home gallery. Click any poster to open the full guide.
+            </p>
+          </header>
+
+          <div class="poster-gallery" aria-label="Main gallery of novel posters">
+
+            <a data-check="1" href="fichewilt.html" class="poster-card">
+              <div class="poster-cover-box">Cover</div>
+              <div class="poster-tag">Everyday. Frustration. Campus</div>
+              <div class="poster-title">Wilt</div>
+              <div class="poster-author">Tom Sharpe</div>
+              <div class="poster-meta">Midlands. Technical college. Pre Thatcher UK</div>
+              <div class="poster-punch">Surviving through irony, ruling through failure.</div>
+              <div class="poster-tools">
+                <span class="tool-chip">Comedy of Everyday</span>
+                <span class="tool-chip">Frustration</span>
+                <span class="tool-chip">Campus</span>
+                <span class="tool-chip">Midlands Lab</span>
+              </div>
+            </a>
+
+            <a data-check="1" href="fichesmallworld.html" class="poster-card">
+              <div class="poster-cover-box">Cover</div>
+              <div class="poster-tag">Everyday. Campus. Globalisation</div>
+              <div class="poster-title">Small World</div>
+              <div class="poster-author">David Lodge</div>
+              <div class="poster-meta">Conference circuit. Desire economy. Academic rituals</div>
+              <div class="poster-punch">A campus world tour where theory becomes slapstick.</div>
+              <div class="poster-tools">
+                <span class="tool-chip">Comedy of Everyday</span>
+                <span class="tool-chip">Campus</span>
+                <span class="tool-chip">Code and etiquette</span>
+              </div>
+            </a>
+
+            <a data-check="1" href="fiche-the-code-of-the-woosters.html" class="poster-card">
+              <div class="poster-cover-box">Cover</div>
+              <div class="poster-tag">Everyday. Code and etiquette</div>
+              <div class="poster-title">The Code of the Woosters</div>
+              <div class="poster-author">P. G. Wodehouse</div>
+              <div class="poster-meta">London and countryside. Clubs. Aunts</div>
+              <div class="poster-punch">Etiquette as a perfectly calibrated engine for chaos.</div>
+              <div class="poster-tools">
+                <span class="tool-chip">Comedy of Everyday</span>
+                <span class="tool-chip">Code and etiquette</span>
+                <span class="tool-chip">Vaudeville</span>
+              </div>
+            </a>
+
+            <a data-check="1" href="fiche-good-behavior.html" class="poster-card">
+              <div class="poster-cover-box">Cover</div>
+              <div class="poster-tag">Crime. Plans. Improvisation</div>
+              <div class="poster-title">Good Behavior</div>
+              <div class="poster-author">Elmore Leonard</div>
+              <div class="poster-meta">Low stakes crime. High precision dialogue</div>
+              <div class="poster-punch">When everyone lies well, the plot becomes a trap.</div>
+              <div class="poster-tools">
+                <span class="tool-chip">Comedy of Crime</span>
+                <span class="tool-chip">Plans that fail</span>
+                <span class="tool-chip">Trickster tone</span>
+              </div>
+            </a>
+
+            <a data-check="1" href="fiche-a-confederacy-of-dunces.html" class="poster-card">
+              <div class="poster-cover-box">Cover</div>
+              <div class="poster-tag">Neo Nonsense. Vertigo. Object hero</div>
+              <div class="poster-title">A Confederacy of Dunces</div>
+              <div class="poster-author">John Kennedy Toole</div>
+              <div class="poster-meta">New Orleans. Comic monster. Delayed impact</div>
+              <div class="poster-punch">A hero world. A world hero. The same blockage.</div>
+              <div class="poster-tools">
+                <span class="tool-chip">Neo Nonsense</span>
+                <span class="tool-chip">Object character</span>
+                <span class="tool-chip">Paradox</span>
+              </div>
+            </a>
+
+            <a data-check="1" href="fiche-poor-souls.html" class="poster-card">
+              <div class="poster-cover-box">Cover</div>
+              <div class="poster-tag">Neo Nonsense. Systems. Drift</div>
+              <div class="poster-title">Poor Souls</div>
+              <div class="poster-author">Joseph Connolly</div>
+              <div class="poster-meta">A modern maze. Social decay as comic matter</div>
+              <div class="poster-punch">When the system becomes the joke, the joke becomes the system.</div>
+              <div class="poster-tools">
+                <span class="tool-chip">Neo Nonsense</span>
+                <span class="tool-chip">System comedy</span>
+                <span class="tool-chip">Edge</span>
+              </div>
+            </a>
+
+            <a data-check="1" href="fiche-franz-and-francois.html" class="poster-card">
+              <div class="poster-cover-box">Cover</div>
+              <div class="poster-tag">Neo Nonsense. Voice. Cut</div>
+              <div class="poster-title">Franz and François</div>
+              <div class="poster-author">François Weyergans</div>
+              <div class="poster-meta">A double. A drift. A comic camera in the sentence</div>
+              <div class="poster-punch">A friendship edited like a film: fast, fragile, unstable.</div>
+              <div class="poster-tools">
+                <span class="tool-chip">Neo Nonsense</span>
+                <span class="tool-chip">Cinematic grammar</span>
+                <span class="tool-chip">Auto irony</span>
+              </div>
+            </a>
+
+            <a data-check="1" href="fiche-the-commitments.html" class="poster-card">
+              <div class="poster-cover-box">Cover</div>
+              <div class="poster-tag">Everyday. Group comedy. Class</div>
+              <div class="poster-title">The Commitments</div>
+              <div class="poster-author">Roddy Doyle</div>
+              <div class="poster-meta">Dublin. Band life. Energy and collapse</div>
+              <div class="poster-punch">A community builds a stage, and the stage builds a community.</div>
+              <div class="poster-tools">
+                <span class="tool-chip">Comedy of Everyday</span>
+                <span class="tool-chip">Group comedy</span>
+                <span class="tool-chip">Working class</span>
+              </div>
+            </a>
+
+            <a data-check="1" href="fiche-tourist-season.html" class="poster-card">
+              <div class="poster-cover-box">Cover</div>
+              <div class="poster-tag">Crime. Florida. Farce</div>
+              <div class="poster-title">Tourist Season</div>
+              <div class="poster-author">Carl Hiaasen</div>
+              <div class="poster-meta">Sunshine noir. Corruption. Ecological anger</div>
+              <div class="poster-punch">In Florida, the plan is always the first victim.</div>
+              <div class="poster-tools">
+                <span class="tool-chip">Comedy of Crime</span>
+                <span class="tool-chip">Florida Lab</span>
+                <span class="tool-chip">Farce mechanics</span>
+              </div>
+            </a>
+
+          </div>
+        </section>
+
+        <section class="section" id="by-current" data-spy>
+          <header class="section-header">
+            <div class="section-kicker">By current</div>
+            <h2 class="section-title">Novel guides by comic current</h2>
+            <p class="section-sub">
+              A quick overview of how the corpus spreads across the three main currents:
+              Comedy of Everyday, Comedy of Crime and Neo Nonsense.
+            </p>
+          </header>
+
+          <div class="grid-2">
+            <article class="card">
+              <div class="card-header">Comedy of Everyday</div>
+              <div class="card-body">
+                <p>
+                  Everyday comedy follows individuals struggling with families, institutions, workplaces, neighbours
+                  and codes of etiquette. Frustration, winner, code and etiquette, edge and campus branches structure
+                  many of these novels.
+                </p>
+                <div class="mini-rail">
+                  <div class="mini-rail-label">Examples</div>
+                  <div class="mini-rail-strip">
+                    <a class="mini-rail-pill" data-check="1" href="fiche-the-code-of-the-woosters.html">The Code of the Woosters</a>
+                    <a class="mini-rail-pill" data-check="1" href="fiche-lucky-jim.html">Lucky Jim</a>
+                    <a class="mini-rail-pill" data-check="1" href="fichewilt.html">Wilt</a>
+                    <a class="mini-rail-pill" data-check="1" href="fichesmallworld.html">Small World</a>
+                    <a class="mini-rail-pill" data-check="1" href="fiche-the-commitments.html">The Commitments</a>
+                  </div>
+                </div>
+                <p class="card-tagline">
+                  These guides insist on repetition, rituals, friction between language and social codes,
+                  and light forms of redemption.
+                </p>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card-header">Comedy of Crime</div>
+              <div class="card-body">
+                <p>
+                  Comedy of Crime treats fault, illegality and transgression as engines for humour:
+                  plans that go wrong, desperate improvisations, comic investigators, crews that sabotage themselves.
+                </p>
+                <div class="mini-rail">
+                  <div class="mini-rail-label">Examples</div>
+                  <div class="mini-rail-strip">
+                    <a class="mini-rail-pill" data-check="1" href="fiche-tourist-season.html">Tourist Season</a>
+                    <a class="mini-rail-pill" data-check="1" href="fiche-big-trouble.html">Big Trouble</a>
+                    <a class="mini-rail-pill" data-check="1" href="fiche-florida-roadkill.html">Florida Roadkill</a>
+                    <a class="mini-rail-pill" data-check="1" href="fiche-good-behavior.html">Good Behavior</a>
+                    <a class="mini-rail-pill" data-check="1" href="fiche-the-deep-blue-good-by.html">The Deep Blue Good-by</a>
+                  </div>
+                </div>
+                <p class="card-tagline">
+                  The guides highlight schemers, hapless criminals, survivors, tricksters and comic investigators.
+                </p>
+              </div>
+            </article>
+          </div>
+
+          <div class="grid-2" style="margin-top:18px;">
+            <article class="card">
+              <div class="card-header">Neo Nonsense</div>
+              <div class="card-body">
+                <p>
+                  Neo Nonsense emerges when grand narratives crack: science, technology and logic themselves
+                  become comic materials. Narration borrows from cinema, diagrams, games and philosophical thought
+                  experiments.
+                </p>
+                <div class="mini-rail">
+                  <div class="mini-rail-label">Examples</div>
+                  <div class="mini-rail-strip">
+                    <a class="mini-rail-pill" data-check="1" href="fiche-white-noise.html">White Noise</a>
+                    <a class="mini-rail-pill" data-check="1" href="fiche-breakfast-of-champions.html">Breakfast of Champions</a>
+                    <a class="mini-rail-pill" data-check="1" href="fiche-flauberts-parrot.html">Flaubert’s Parrot</a>
+                    <a class="mini-rail-pill" data-check="1" href="fiche-side-effects.html">Side Effects</a>
+                    <a class="mini-rail-pill" data-check="1" href="fiche-franz-and-francois.html">Franz and François</a>
+                  </div>
+                </div>
+                <p class="card-tagline">
+                  Guides for this current insist on cinematic grammar, science as comic matter,
+                  object characters and logical paradoxes.
+                </p>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card-header">Hybrids and mixed cases</div>
+              <div class="card-body">
+                <p>
+                  Many novels circulate between currents. Everyday tinged with crime.
+                  Crime that slowly drifts into Neo Nonsense. Campus novels inflected by edge comedy.
+                </p>
+                <p>
+                  In practice, a single book can answer several locks at once.
+                  Everyday, crime and Neo Nonsense can all help to light up the same text,
+                  depending on which key you use first.
+                </p>
+                <p class="card-tagline">
+                  The point is not to lock books into boxes, but to show how different currents
+                  and branches can be combined to make their comic mechanics legible.
+                </p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="by-decade" data-spy>
+          <header class="section-header">
+            <div class="section-kicker">By decade</div>
+            <h2 class="section-title">A corpus that crosses generations</h2>
+            <p class="section-sub">
+              The novel guides span several generations of modern comic fiction, from mid century campus
+              novels and social satire to contemporary Neo Nonsense and re readings of canonical works.
+            </p>
+          </header>
+
+          <article class="card">
+            <div class="card-header">Decade overview</div>
+            <div class="card-body">
+              <p>
+                Decade filters will allow readers to explore, for instance, a 1960s shelf
+                or a 1990s shelf of comic novels. For now, the page signals broad clusters:
+              </p>
+              <div class="decade-strip">
+                <a class="decade-chip" href="#dec-1930s-1950s">1930s to 1950s</a>
+                <a class="decade-chip" href="#dec-1960s">1960s</a>
+                <a class="decade-chip" href="#dec-1970s">1970s</a>
+                <a class="decade-chip" href="#dec-1980s">1980s</a>
+                <a class="decade-chip" href="#dec-1990s">1990s</a>
+                <a class="decade-chip" href="#dec-2000s">2000s</a>
+                <a class="decade-chip" href="#dec-2010s">2010s</a>
+                <a class="decade-chip" href="#dec-2020s">2020s</a>
+              </div>
+              <p class="card-tagline" style="margin-top:10px;">
+                Later, each chip will open a dedicated shelf of posters for the corresponding decade.
+              </p>
+            </div>
+          </article>
+
+          <p class="muted" id="dec-1930s-1950s" style="margin-top:12px;">
+            1930s to 1950s. Early modern comedy of manners and campus fiction.
+            For instance <a data-check="1" href="fiche-the-code-of-the-woosters.html">The Code of the Woosters</a>,
+            <a data-check="1" href="fiche-lucky-jim.html">Lucky Jim</a>.
+          </p>
+          <p class="muted" id="dec-1960s">
+            1960s. Post war irony, workplace and bureaucratic satire, first comic vertigo of modern institutions.
+          </p>
+          <p class="muted" id="dec-1970s">
+            1970s. Emergence of edge tones, darker social comedies and early Neo Nonsense tendencies.
+          </p>
+          <p class="muted" id="dec-1980s">
+            1980s. Corporate satire, urban excess, crime farce and big city laboratories of comedy.
+          </p>
+          <p class="muted" id="dec-1990s">
+            1990s. Globalised irony, post Cold War anxiety, hybrid forms between everyday, crime and Neo Nonsense.
+          </p>
+          <p class="muted" id="dec-2000s">
+            2000s. Digital environments, new media and financial logics entering comic structures.
+          </p>
+          <p class="muted" id="dec-2010s">
+            2010s. Intensified focus on identity, bodies, health, and algorithmic environments as comic material.
+          </p>
+          <p class="muted" id="dec-2020s">
+            2020s. Renewed interest in re centering minor characters, AI adjacent humour and late stage Neo Nonsense.
+          </p>
+        </section>
+
+        <section class="section" id="index" data-spy>
+          <header class="section-header">
+            <div class="section-kicker">Index</div>
+            <h2 class="section-title">Novel guides. A to Z</h2>
+            <p class="section-sub">
+              Alphabetical list of novels already mapped or in preparation.
+              Links use your file naming rule: fiche-xxxx.html, plus the two specials (fichewilt.html, fichesmallworld.html).
+            </p>
+          </header>
+
+          <ul class="index-list">
+            <li><a data-check="1" href="fiche-a-long-way-down.html">A Long Way Down (Nick Hornby)</a></li>
+            <li><a data-check="1" href="fiche-babycakes.html">Babycakes (Armistead Maupin)</a></li>
+            <li><a data-check="1" href="fiche-big-trouble.html">Big Trouble (Dave Barry)</a></li>
+            <li><a data-check="1" href="fiche-breakfast-of-champions.html">Breakfast of Champions, or Goodbye Blue Monday (Kurt Vonnegut)</a></li>
+            <li><a data-check="1" href="fiche-bright-lights-big-city.html">Bright Lights, Big City (Jay McInerney)</a></li>
+            <li><a data-check="1" href="fiche-the-code-of-the-woosters.html">The Code of the Woosters (P. G. Wodehouse)</a></li>
+            <li><a data-check="1" href="fiche-crepes-suzette.html">Crepes Suzette</a></li>
+            <li><a data-check="1" href="fiche-the-deep-blue-good-by.html">The Deep Blue Good-by (John D. MacDonald)</a></li>
+            <li><a data-check="1" href="fiche-double-negative.html">Double Negative (Ivan Vladislavić)</a></li>
+            <li><a data-check="1" href="fiche-engagements-of-the-heart.html">Engagements of the Heart (Françoise Sagan)</a></li>
+            <li><a data-check="1" href="fiche-flauberts-parrot.html">Flaubert’s Parrot (Julian Barnes)</a></li>
+            <li><a data-check="1" href="fiche-florida-roadkill.html">Florida Roadkill (Tim Dorsey)</a></li>
+            <li><a data-check="1" href="fiche-franz-and-francois.html">Franz and François (François Weyergans)</a></li>
+            <li><a data-check="1" href="fiche-generation-x.html">Generation X (Douglas Coupland)</a></li>
+            <li><a data-check="1" href="fiche-good-behavior.html">Good Behavior (Elmore Leonard)</a></li>
+            <li><a data-check="1" href="fiche-the-girls-of-slender-means.html">The Girls of Slender Means (Muriel Spark)</a></li>
+            <li><a data-check="1" href="fiche-the-hotel-new-hampshire.html">The Hotel New Hampshire (John Irving)</a></li>
+            <li><a data-check="1" href="fiche-james.html">James (Percival Everett)</a></li>
+            <li><a data-check="1" href="fiche-the-malaysian-expedition.html">The Malaysian Expedition (L'Équipée malaise) (Jean Echenoz)</a></li>
+            <li><a data-check="1" href="fiche-london-fields.html">London Fields (Martin Amis)</a></li>
+            <li><a data-check="1" href="fiche-lucky-jim.html">Lucky Jim (Kingsley Amis)</a></li>
+            <li><a data-check="1" href="fiche-martians-go-home.html">Martians, Go Home (Fredric Brown)</a></li>
+            <li><a data-check="1" href="fiche-memoirs-of-a-mangy-lover.html">Memoirs of a Mangy Lover (Groucho Marx)</a></li>
+            <li><a data-check="1" href="fiche-money.html">Money (Martin Amis)</a></li>
+            <li><a data-check="1" href="fiche-the-old-devils.html">The Old Devils (Kingsley Amis)</a></li>
+            <li><a data-check="1" href="fiche-the-player.html">The Player (Michael Tobin)</a></li>
+            <li><a data-check="1" href="fiche-poor-souls.html">Poor Souls</a></li>
+            <li><a data-check="1" href="fiche-portnoys-complaint.html">Portnoy’s Complaint (Philip Roth)</a></li>
+            <li><a data-check="1" href="fiche-pulp.html">Pulp (Charles Bukowski)</a></li>
+            <li><a data-check="1" href="fiche-side-effects.html">Side Effects (Woody Allen)</a></li>
+            <li><a data-check="1" href="fiche-slaves-of-new-york.html">Slaves of New York (Tama Janowitz)</a></li>
+            <li><a data-check="1" href="fichesmallworld.html">Small World (David Lodge)</a></li>
+            <li><a data-check="1" href="fiche-the-sportswriter.html">The Sportswriter (Richard Ford)</a></li>
+            <li><a data-check="1" href="fiche-the-bonfire-of-the-vanities.html">The Bonfire of the Vanities (Tom Wolfe)</a></li>
+            <li><a data-check="1" href="fiche-the-commitments.html">The Commitments (Roddy Doyle)</a></li>
+            <li><a data-check="1" href="fiche-tourist-season.html">Tourist Season (Carl Hiaasen)</a></li>
+            <li><a data-check="1" href="fiche-what-a-carve-up.html">What a Carve Up! (Jonathan Coe)</a></li>
+            <li><a data-check="1" href="fiche-what-we-did-on-our-holidays.html">What We Did on Our Holidays (Geoff Nicholson)</a></li>
+            <li><a data-check="1" href="fiche-white-noise.html">White Noise (Don DeLillo)</a></li>
+            <li><a data-check="1" href="fichewilt.html">Wilt (Tom Sharpe)</a></li>
+          </ul>
+
+          <p class="muted" style="margin-top:10px;">
+            Missing pages are automatically disabled so readers do not land on a 404 while you publish.
+          </p>
+        </section>
+
+      </div>
+
+      <aside class="rail" aria-label="In this page">
+        <header>
+          <h3>In this page</h3>
+          <p>Short path through the novel guides.</p>
+          <div class="rail-progress" aria-label="Reading progress"><span></span></div>
+        </header>
+
+        <nav class="toc" id="toc">
+          <a href="#gallery">Gallery</a>
+          <a href="#by-current">By current</a>
+          <a href="#by-decade">By decade</a>
+          <a href="#index">Index A to Z</a>
+        </nav>
+
+        <div class="rail-bottom">
+          <a class="btn" href="#top">↑ Back to top</a>
+        </div>
+      </aside>
+
+    </div>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="footer-inner">
+      <div><strong>The Novel of Comedy (TNoC)</strong>. Atlas and critical compass for modern comic fiction.</div>
+      <div class="footer-links">
+        <a href="a-propos.html">About</a>
+        <a href="manifesto.html">Manifesto</a>
+        <a href="how-to-cite.html">How to cite TNoC</a>
+        <a href="data-and-licence.html">Data and licence</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  const links = Array.from(document.querySelectorAll('#toc a'));
+  const sections = Array.from(document.querySelectorAll('[data-spy]'));
+  const bar = document.querySelector('.rail-progress > span');
+
+  function updateProgress(){
+    if(!bar) return;
+    const doc = document.documentElement;
+    const scrollTop = doc.scrollTop || document.body.scrollTop;
+    const scrollHeight = doc.scrollHeight - doc.clientHeight;
+    const pct = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+    bar.style.width = Math.max(0, Math.min(100, pct)) + "%";
+  }
+  window.addEventListener('scroll', updateProgress, { passive:true });
+  updateProgress();
+
+  if('IntersectionObserver' in window && links.length && sections.length){
+    function setActive(id){
+      links.forEach(a => {
+        const targetId = a.getAttribute('href').slice(1);
+        a.classList.toggle('active', targetId === id);
+      });
+    }
+    const io = new IntersectionObserver((entries)=>{
+      const v = entries
+        .filter(e=>e.isIntersecting)
+        .sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];
+      if(v) setActive(v.target.id);
+    }, { rootMargin:"-30% 0px -55% 0px", threshold:[.1,.25,.4] });
+    sections.forEach(s => io.observe(s));
+    if(sections[0]) setActive(sections[0].id);
+  }
+
+  const checkLinks = Array.from(document.querySelectorAll('a[data-check="1"]'));
+  async function exists(url){
+    try{
+      const r = await fetch(url, { method:'HEAD', cache:'no-store' });
+      if(r.ok) return true;
+      const r2 = await fetch(url, { method:'GET', cache:'no-store' });
+      return r2.ok;
+    } catch(e) {
+      return false;
+    }
+  }
+  (async function(){
+    for(const a of checkLinks){
+      const url = a.getAttribute('href');
+      if(!url || url.startsWith('#') || url.startsWith('http')) continue;
+      const ok = await exists(url);
+      if(!ok){
+        a.classList.add('is-missing');
+        a.setAttribute('aria-disabled','true');
+        a.addEventListener('click', (ev)=>ev.preventDefault());
+        const badge = document.createElement('span');
+        badge.className = 'missing-badge';
+        badge.textContent = 'Coming soon';
+        a.appendChild(badge);
+      }
+    }
+  })();
+})();
+</script>
+
+</body>
+</html>
