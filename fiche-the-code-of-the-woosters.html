@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>The Code of the Woosters (1938) · Novel fiche | The Novel of Comedy (TNoC)</title>
+  <meta name="description" content="Novel fiche for The Code of the Woosters (P. G. Wodehouse, 1938) in The Novel of Comedy. Reading note, incipit, characters, context, style, cartography, reception, connections, bonus and data." />
+
+  <meta property="og:title" content="The Code of the Woosters (1938) · Novel fiche | The Novel of Comedy (TNoC)" />
+  <meta property="og:description" content="A TNoC novel fiche: reading note, incipit, characters, context, style, cartography, reception, connections, bonus and data." />
+  <meta property="og:type" content="article" />
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Book",
+    "name":"The Code of the Woosters",
+    "author":{"@type":"Person","name":"P. G. Wodehouse"},
+    "datePublished":"1938",
+    "inLanguage":"en",
+    "publisher":[
+      {"@type":"Organization","name":"Herbert Jenkins"},
+      {"@type":"Organization","name":"Doubleday, Doran"}
+    ],
+    "isPartOf":{"@type":"CreativeWorkSeries","name":"Jeeves"},
+    "about":["Comic fiction","Comedy of manners","Wit","Farce","Code and etiquette","Country-house comedy"]
+  }
+  </script>
+
+  <style>
+    :root{
+      --bg:#0b0b0c;
+      --paper:#f7f5f0;
+      --ink:#1e1e1e;
+      --graphite:#2b2b2b;
+      --evergreen:#2E7D32;
+      --muted:rgba(0,0,0,.55);
+      --border:rgba(0,0,0,.14);
+      --card:#ffffff;
+      --shadow:0 1px 2px rgba(0,0,0,.04);
+    }
+    *{box-sizing:border-box}
+    html,body{
+      margin:0; padding:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--ink);
+      background:var(--bg);
+    }
+    a{color:inherit;text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    .skip-link{
+      position:absolute; left:-999px; top:10px;
+      padding:8px 12px; background:#fff; color:#000;
+      border-radius:999px; border:1px solid rgba(0,0,0,.18);
+      z-index:1000; font-size:13px;
+    }
+    .skip-link:focus{ left:12px; outline:none; }
+
+    /* TOP NAV */
+    .topbar{
+      position:sticky; top:0; z-index:30;
+      backdrop-filter:blur(10px);
+      background:rgba(11,11,12,.92);
+      color:#fff;
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .topbar-inner{
+      max-width:1120px;
+      margin:0 auto;
+      padding:10px 20px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+    }
+    .brand{ display:flex; align-items:center; gap:10px; }
+    .brand-mark{
+      width:34px; height:34px; border-radius:12px;
+      border:1px solid rgba(255,255,255,.18);
+      display:flex; align-items:center; justify-content:center;
+      font-weight:700; letter-spacing:.06em; text-transform:uppercase;
+      font-size:11px;
+      background:radial-gradient(circle at 0 0,rgba(255,255,255,.22),rgba(0,0,0,.7));
+    }
+    .brand-text{display:flex;flex-direction:column;gap:1px}
+    .brand-title{font-size:15px;letter-spacing:.05em;text-transform:uppercase}
+    .brand-sub{font-size:11px;opacity:.7}
+
+    .nav{ display:flex; flex-wrap:wrap; gap:12px; font-size:13px; }
+    .nav a{opacity:.82;padding:6px 0}
+    .nav a:hover{opacity:1;text-decoration:none}
+    .nav a.is-primary{
+      padding:6px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.22);
+      font-size:12px;
+      opacity:1;
+    }
+    @media(max-width:900px){
+      .topbar-inner{flex-direction:column;align-items:flex-start}
+      .nav{width:100%;justify-content:flex-start}
+    }
+
+    /* HERO */
+    .hero{
+      background:var(--bg);
+      color:#fff;
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .hero-inner{
+      max-width:1120px;
+      margin:0 auto;
+      padding:26px 20px 20px;
+      display:grid;
+      grid-template-columns:1.35fr .85fr;
+      gap:18px;
+      align-items:center;
+    }
+    @media(max-width:960px){ .hero-inner{grid-template-columns:1fr} }
+
+    .breadcrumbs{ font-size:12px; opacity:.78; margin-bottom:8px; }
+    .breadcrumbs a{opacity:.9}
+    .breadcrumbs span{opacity:.6;margin:0 6px}
+
+    .hero-kicker{
+      font-size:12px;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      opacity:.9;
+    }
+    .hero-title{
+      font-size:clamp(28px,4vw,42px);
+      margin:6px 0 6px;
+      line-height:1.1;
+    }
+    .hero-meta{
+      font-size:13px;
+      line-height:1.6;
+      opacity:.86;
+      max-width:740px;
+    }
+
+    .hero-chips{ margin-top:12px; display:flex; flex-wrap:wrap; gap:6px; font-size:11px; }
+    .chip{
+      padding:5px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.22);
+      background:rgba(0,0,0,.35);
+      color:#f5f5f5;
+      white-space:nowrap;
+    }
+    .chip strong{font-weight:700}
+
+    .hero-actions{ margin-top:12px; display:flex; flex-wrap:wrap; gap:8px; }
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:9px 14px;
+      border-radius:999px;
+      font-size:13px;
+      border:1px solid transparent;
+      cursor:pointer;
+      text-decoration:none;
+      white-space:nowrap;
+    }
+    .btn-primary{background:#fff;color:#000}
+    .btn-secondary{background:rgba(0,0,0,.2);border:1px solid rgba(255,255,255,.3);color:#fff}
+
+    .hero-cover{
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.18);
+      background:radial-gradient(circle at 0 0,rgba(255,255,255,.12),rgba(0,0,0,.92));
+      box-shadow:0 12px 40px rgba(0,0,0,.7);
+      overflow:hidden;
+      padding:12px;
+    }
+    .cover-frame{
+      border-radius:14px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.20);
+      background:#111;
+      aspect-ratio:3/4;
+      min-height:260px;
+      display:flex;align-items:center;justify-content:center;
+    }
+    .cover-frame img{width:100%;height:100%;object-fit:cover;display:block}
+    .hero-cover-caption{
+      margin-top:10px;
+      font-size:11px;
+      opacity:.75;
+      line-height:1.5;
+    }
+
+    /* PAGE */
+    .page{ background:var(--paper); min-height:65vh; }
+    .main-inner{
+      max-width:1120px;
+      margin:0 auto;
+      padding:22px 20px 44px;
+      display:grid;
+      grid-template-columns:minmax(0,1.08fr) minmax(240px,.56fr);
+      gap:18px;
+      align-items:start;
+    }
+    @media(max-width:960px){ .main-inner{grid-template-columns:1fr;} }
+
+    .section{ padding:18px 0; border-bottom:1px solid rgba(0,0,0,.06); }
+    .section:last-of-type{border-bottom:none;padding-bottom:6px}
+    .section-head{ margin-bottom:12px; }
+    .section-kicker{
+      font-size:11px;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:var(--muted);
+    }
+    .section-title{ margin:4px 0 0; font-size:22px; letter-spacing:.02em; }
+
+    .card{
+      background:var(--card);
+      border-radius:16px;
+      border:1px solid var(--border);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .card-body{
+      padding:14px 16px 16px;
+      font-size:14px;
+      line-height:1.65;
+      color:var(--graphite);
+    }
+    .card-body p{margin:0 0 10px}
+    .muted{color:var(--muted);font-size:13px}
+
+    .intro-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+      align-items:start;
+      margin-top:10px;
+    }
+    @media(max-width:860px){ .intro-grid{grid-template-columns:1fr;} }
+
+    .box{
+      background:#fffdf5;
+      border:1px solid rgba(0,0,0,.14);
+      border-radius:14px;
+      padding:12px 12px 10px;
+    }
+    .box h4{
+      margin:0 0 8px;
+      font-size:12px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:rgba(0,0,0,.7);
+    }
+    .box ul{list-style:none;padding:0;margin:0;display:grid;gap:6px;font-size:13px}
+    .box b{font-weight:700}
+    .box a{ text-decoration:underline; text-decoration-color:rgba(0,0,0,.25); }
+
+    .quote{
+      margin:10px 0;
+      padding-left:14px;
+      border-left:3px solid rgba(0,0,0,.14);
+      font-style:italic;
+      color:#444;
+    }
+    .signature{
+      margin-top:10px;
+      font-size:13px;
+      color:var(--muted);
+      font-style:italic;
+      text-align:right;
+    }
+
+    .incipit-layout{
+      display:grid;
+      grid-template-columns:1.6fr .9fr;
+      gap:14px;
+      align-items:start;
+    }
+    @media(max-width:700px){ .incipit-layout{grid-template-columns:1fr;} }
+    .incipit-caption{ font-size:12px; color:var(--muted); margin:0 0 6px; }
+    .incipit-block{
+      margin:0;
+      padding-left:12px;
+      border-left:3px solid rgba(0,0,0,.14);
+      font-style:italic;
+      color:#444;
+    }
+
+    table{ width:100%; border-collapse:collapse; font-size:14px; }
+    th,td{
+      padding:10px 8px;
+      border-bottom:1px solid rgba(0,0,0,.12);
+      text-align:left;
+      vertical-align:top;
+    }
+    th{
+      font-size:12px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:rgba(0,0,0,.65);
+    }
+
+    details{
+      border-top:1px dashed rgba(0,0,0,.16);
+      padding-top:10px;
+      margin-top:10px;
+    }
+    summary{
+      list-style:none;
+      cursor:pointer;
+      font-weight:700;
+      font-size:14px;
+    }
+    summary::-webkit-details-marker{display:none}
+    .caret{display:inline-block;margin-right:6px;transition:transform .2s ease}
+    details[open] .caret{transform:rotate(90deg)}
+
+    .rail{
+      background:#fff;
+      border-radius:16px;
+      border:1px solid var(--border);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      font-size:13px;
+    }
+    @media(min-width:960px){ .rail{position:sticky;top:88px;} }
+    .rail header{
+      padding:14px 14px 10px;
+      border-bottom:1px solid rgba(0,0,0,.06);
+      background:linear-gradient(180deg,rgba(0,0,0,.015),rgba(0,0,0,.03));
+    }
+    .rail header h3{
+      margin:0 0 4px;
+      font-size:12px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:var(--graphite);
+    }
+    .rail header p{margin:0;font-size:12px;color:var(--muted)}
+    .rail-progress{
+      margin-top:8px;
+      height:6px;
+      border-radius:999px;
+      background:rgba(0,0,0,.03);
+      border:1px solid rgba(0,0,0,.06);
+      overflow:hidden;
+    }
+    .rail-progress > span{
+      display:block;height:100%;width:0%;
+      background:linear-gradient(90deg,var(--evergreen),#555);
+    }
+    .toc{ padding:10px 10px 12px; display:grid; gap:6px; }
+    .toc a{
+      padding:8px 10px;
+      border-radius:12px;
+      border:1px solid transparent;
+      background:rgba(0,0,0,.015);
+      color:var(--graphite);
+      text-decoration:none;
+    }
+    .toc a:hover{border-color:rgba(0,0,0,.12);background:rgba(0,0,0,.03)}
+    .toc a.active{
+      border-color:var(--evergreen);
+      background:rgba(46,125,50,.08);
+      color:#000;
+      font-weight:800;
+    }
+    .rail-bottom{padding:0 10px 12px}
+    .rail-bottom .btn{
+      width:100%;
+      background:rgba(0,0,0,.03);
+      color:var(--graphite);
+      border:1px solid rgba(0,0,0,.12);
+      box-shadow:none;
+      font-size:12px;
+      padding:8px 10px;
+    }
+
+    .footer{
+      background:var(--bg);
+      color:#f5f5f5;
+      border-top:1px solid rgba(255,255,255,.08);
+    }
+    .footer-inner{
+      max-width:1120px;
+      margin:0 auto;
+      padding:18px 20px 22px;
+      display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;
+      font-size:12px;
+      opacity:.88;
+    }
+    .footer-links{display:flex;flex-wrap:wrap;gap:12px}
+  </style>
+</head>
+
+<body id="top">
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <header class="topbar" role="banner" aria-label="Main navigation">
+    <div class="topbar-inner">
+      <a href="index.html" class="brand" aria-label="The Novel of Comedy home">
+        <div class="brand-mark">TNoC</div>
+        <div class="brand-text">
+          <div class="brand-title">The Novel of Comedy</div>
+          <div class="brand-sub">Digital atlas and critical cartography of comic fiction</div>
+        </div>
+      </a>
+
+      <nav class="nav" aria-label="Navigation">
+        <a href="index.html#fiches">Guides</a>
+        <a href="novel-fiches.html" class="is-primary">Novel guides</a>
+        <a href="author-profiles.html">Author profiles</a>
+        <a href="series-fiches.html">Series</a>
+        <a href="method.html">Method</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" aria-label="The Code of the Woosters hero">
+    <div class="hero-inner">
+      <div>
+        <div class="breadcrumbs" aria-label="Breadcrumbs">
+          <a href="index.html">Home</a><span>›</span>
+          <a href="novel-fiches.html">Novel guides</a><span>›</span>
+          <span>The Code of the Woosters (1938)</span>
+        </div>
+
+        <div class="hero-kicker">Novel fiche · Core comedy · Wit tradition</div>
+        <h1 class="hero-title">The Code of the Woosters</h1>
+        <div class="hero-meta">
+          P. G. Wodehouse · 1938 · Herbert Jenkins (UK) · Doubleday, Doran (US)<br>
+          Environment: interwar England · clubs and country houses · etiquette as mechanism
+        </div>
+
+        <div class="hero-chips" aria-label="Cartography summary">
+          <span class="chip"><strong>Current:</strong>&nbsp;Comedy of Everyday</span>
+          <span class="chip"><strong>Branch:</strong>&nbsp;Code and etiquette</span>
+          <span class="chip"><strong>Branch:</strong>&nbsp;Wit</span>
+          <span class="chip"><strong>Environment:</strong>&nbsp;Country-house clockwork</span>
+          <span class="chip"><strong>Lab:</strong>&nbsp;Clubland</span>
+        </div>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#reading-note">Start reading</a>
+          <a class="btn btn-secondary" href="author-profiles.html">Open author profile</a>
+        </div>
+      </div>
+
+      <aside class="hero-cover" aria-label="Cover panel">
+        <div class="cover-frame">
+          <img src="img/code-of-the-woosters-cover.png" alt="Cover of The Code of the Woosters (P. G. Wodehouse, 1938)">
+        </div>
+        <div class="hero-cover-caption">
+          Replace the image path with your actual file in /img.
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <main class="page" id="content" aria-label="Main content">
+    <div class="main-inner">
+
+      <div>
+
+        <!-- 1 -->
+        <section class="section" id="reading-note" data-spy>
+          <header class="section-head">
+            <div class="section-kicker">1 · Reading note</div>
+            <h2 class="section-title">Reading note</h2>
+          </header>
+
+          <div class="card">
+            <div class="card-body">
+              <div class="intro-grid">
+
+                <div class="box">
+                  <p><strong>Attention: love boat at dock.</strong> Warnings engaged. An eighteenth-century silver cow creamer crosses the field of an intrigue conducted with a baton. We stay in the kitchen. Ingredients arrive in clusters, like trouble. And trouble has names: Aunt Dahlia, Madeline, daughter of Sir Watkyn Bassett, and Gussie Fink-Nottle. A few new crooked supporting blades join the feast, too, notably Roderick Spode, leader of the fascist Black Shorts.</p>
+                  <p>Pure comedy of codes, vaudeville sauce. Country house, engagements, backfires, and even a stolen policeman’s helmet. A Wodehouse clockwork. The man is nearing fifty, mastering his art, before history catches up with him. The brownshirts, the real ones, he won’t see coming. For now, he signs the finest novel of the series.</p>
+                  <p>Immediate boarding. This cruise might reset our small internal clocks, whatever time zone we happen to be sailing in. A question occurs to me, but…</p>
+
+                  <p class="quote">
+                    “Yes, sir.”<br>
+                    “Jeeves? Well… you here… now… I mean… it seems I may have forgotten the end of the note.”<br>
+                    “That would be unfortunate for literary history, sir.”
+                  </p>
+                  <p class="signature">TNoC.</p>
+
+                  <details>
+                    <summary><span class="caret">▶</span> Publisher blurb · Fourth cover</summary>
+                    <div style="padding-top:10px;">
+                      <p>Aunt Dahlia has tasked Bertie with purloining an antique cow creamer from Totleigh Towers. In order to do so, Jeeves hatches a scheme whereby Bertie must charm the droopy and altogether unappealing Madeline and face the wrath of would-be dictator Roderick Spode. Though the prospect fills him with dread, when duty calls, Bertie will answer, for Aunt Dahlia will not be denied.</p>
+                      <p>In a plot that swiftly becomes rife with mishaps, it is Jeeves who must extract his master from trouble. Again.</p>
+                    </div>
+                  </details>
+                </div>
+
+                <aside class="box" aria-label="Coordinates box">
+                  <h4>Coordinates</h4>
+                  <ul>
+                    <li><b>Title</b> · <em>The Code of the Woosters</em></li>
+                    <li><b>Author</b> · P. G. Wodehouse (1881–1975)</li>
+                    <li><b>Publication</b> · 7 Oct 1938 · Herbert Jenkins (UK) · Doubleday, Doran (US)</li>
+                    <li><b>Serialisation</b> · The Saturday Evening Post (US) · London Daily Mail (UK)</li>
+                    <li><b>Series</b> · Jeeves &amp; Wooster (major cycle)</li>
+                  </ul>
+                </aside>
+
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 2 -->
+        <section class="section" id="incipit" data-spy>
+          <header class="section-head">
+            <div class="section-kicker">2 · Incipit</div>
+            <h2 class="section-title">Incipit</h2>
+          </header>
+
+          <div class="card">
+            <div class="card-body">
+              <p class="incipit-caption">Opening lines (short excerpt, original).</p>
+              <p class="incipit-block">
+                <em>
+                  I reached out a hand from under the blankets, and rang the bell for Jeeves.<br>
+                  “Good evening Jeeves.”<br>
+                  “Good morning, sir.”<br>
+                  This surprised me.
+                </em>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- 3 -->
+        <section class="section" id="characters" data-spy>
+          <header class="section-head">
+            <div class="section-kicker">3 · Characters</div>
+            <h2 class="section-title">Major characters</h2>
+          </header>
+
+          <div class="card">
+            <div class="card-body">
+              <table role="table" aria-label="Characters and comic archetypes">
+                <thead>
+                  <tr>
+                    <th>Character</th>
+                    <th>Archetype</th>
+                    <th>Axis / Function</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Bertie Wooster</td><td>Naïve gentleman</td><td>Passive hero, active language; “code” loyalty</td></tr>
+                  <tr><td>Jeeves</td><td>Genius valet</td><td>Regulator; silent strategist; dry precision</td></tr>
+                  <tr><td>Aunt Dahlia</td><td>Energetic matriarch</td><td>Family blackmail as fuel; mission dispatcher</td></tr>
+                  <tr><td>Sir Watkyn Bassett</td><td>Rancid authority</td><td>Judicial gravity; pride; collectible obsession</td></tr>
+                  <tr><td>Roderick Spode</td><td>Ridiculous menace</td><td>Power-code parody; intimidation → deflation</td></tr>
+                  <tr><td>Stiffy Byng</td><td>Mischievous niece</td><td>Cheerful manipulator; chaos relay</td></tr>
+                  <tr><td>Harold “Stinker” Pinker</td><td>Well-meaning curate</td><td>Goodness under pressure; prop for schemes</td></tr>
+                  <tr><td>Gussie Fink-Nottle</td><td>Timid friend</td><td>Catastrophe trigger; speech-time bomb</td></tr>
+                  <tr><td>Madeline Bassett</td><td>Sentimental dreamer</td><td>Marriage threat; romantic misreadings</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- 4 -->
+        <section class="section" id="context" data-spy>
+          <header class="section-head">
+            <div class="section-kicker">4 · Context</div>
+            <h2 class="section-title">Context of writing</h2>
+          </header>
+
+          <div class="card">
+            <div class="card-body">
+              <p>Written at the edge of 1939, the novel preserves the country-house ritual theatre and lets the contemporary world intrude through a single comic fissure. Spode and his “Black Shorts” carry a political shadow into an otherwise timeless mechanism of manners.</p>
+
+              <p class="quote">
+                For a workshop or fiche approach, the rigorous phrasing would be:
+                “Spode is generally read as a caricature of Oswald Mosley and the British Union of Fascists (Blackshirts), even if Wodehouse did not explicitly formulate it that way in his own words.”
+              </p>
+
+              <p>The tension is part of the fun: a perfect etiquette machine continues to run while history warms up outside the room. Wodehouse converts social prestige into props, and props into destiny.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- 5 -->
+        <section class="section" id="style" data-spy>
+          <header class="section-head">
+            <div class="section-kicker">5 · Style</div>
+            <h2 class="section-title">Style and writing</h2>
+          </header>
+
+          <div class="card">
+            <div class="card-body">
+              <p><strong>Wit as mechanism.</strong> The sentence behaves like a polite weapon: light touch, exact angle, immediate damage. Comparisons work as accelerators: they turn small scenes into full comic weather systems. Farce stays clockwork: every object can become a lever; every lever becomes a crisis; every crisis becomes a social performance.</p>
+
+              <details open>
+                <summary><span class="caret">▶</span> Two pure “wit” needles</summary>
+                <div style="padding-top:10px;">
+                  <ul style="margin:0;padding-left:18px">
+                    <li><em>“There are moments, Jeeves, when one asks oneself, ‘Do trousers matter?’”</em></li>
+                    <li><em>“The mood will pass, sir.”</em></li>
+                  </ul>
+                </div>
+              </details>
+            </div>
+          </div>
+        </section>
+
+        <!-- 6 -->
+        <section class="section" id="cartography" data-spy>
+          <header class="section-head">
+            <div class="section-kicker">6 · Cartography</div>
+            <h2 class="section-title">Cartography</h2>
+          </header>
+
+          <div class="card">
+            <div class="card-body">
+              <p><strong>Current</strong> · Comedy of Everyday.</p>
+              <p><strong>Branches</strong> · Code and etiquette · Wit · Vaudeville farce.</p>
+              <p><strong>Environment</strong> · Interwar England · clubs and country houses · etiquette as mechanism.</p>
+              <p><strong>Lab</strong> · Clubland (Drones aura).</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- 7 -->
+        <section class="section" id="reception" data-spy>
+          <header class="section-head">
+            <div class="section-kicker">7 · Reception</div>
+            <h2 class="section-title">Reception and legacy</h2>
+          </header>
+
+          <div class="card">
+            <div class="card-body">
+              <ul style="margin:0;padding-left:18px">
+                <li>Often singled out as a peak-era Jeeves novel.</li>
+                <li>Durable afterlife via theatre, radio and television (notably the Fry &amp; Laurie series).</li>
+                <li>Model case for “code” as narrative engine: comedy without moral sermon, powered by precision.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- 8 -->
+        <section class="section" id="connections" data-spy>
+          <header class="section-head">
+            <div class="section-kicker">8 · Connections</div>
+            <h2 class="section-title">Connections</h2>
+          </header>
+
+          <div class="card">
+            <div class="card-body">
+              <ul style="margin:0;padding-left:18px">
+                <li><strong>Sharpe · Wilt</strong> — Institutions and humiliation, different temperature, same love of mechanism.</li>
+                <li><strong>Lodge · Small World</strong> — Codes and rituals turned into plot: globalised social theatre.</li>
+                <li><strong>Waugh · Decline and Fall</strong> — Rhythm, cruelty in gloves, social performance.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- 9 -->
+        <section class="section" id="bonus" data-spy>
+          <header class="section-head">
+            <div class="section-kicker">9 · Bonus</div>
+            <h2 class="section-title">Bonus</h2>
+          </header>
+
+          <div class="card">
+            <div class="card-body">
+              <ul style="margin:0;padding-left:18px">
+                <li>Working title planned: <em>The Silver Cow</em>. The object is the hinge.</li>
+                <li>Spode operates as a political parody needle: aura → puncture → deflation.</li>
+                <li>Serial publication before book release reinforces the “machine” rhythm.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- 10 -->
+        <section class="section" id="data" data-spy>
+          <header class="section-head">
+            <div class="section-kicker">10 · Data</div>
+            <h2 class="section-title">Data snippet</h2>
+          </header>
+
+          <div class="card">
+            <div class="card-body">
+              <pre style="margin:0;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;background:#f5f5f5;padding:10px;border-radius:12px;border:1px solid rgba(0,0,0,.14);white-space:pre-wrap;">
+{"name":"The Code of the Woosters",
+ "author":"P. G. Wodehouse",
+ "year":"1938",
+ "current":"everyday",
+ "branches":["code-etiquette","wit","vaudeville-farce"],
+ "environment":"interwar England · clubs and country house · etiquette machine",
+ "lab":"clubland"}
+              </pre>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- RIGHT RAIL -->
+      <aside class="rail" aria-label="In this fiche">
+        <header>
+          <h3>In this fiche</h3>
+          <p>10-section matrix</p>
+          <div class="rail-progress" aria-label="Reading progress"><span></span></div>
+        </header>
+        <nav class="toc" id="toc">
+          <a href="#reading-note">1 · Reading note</a>
+          <a href="#incipit">2 · Incipit</a>
+          <a href="#characters">3 · Characters</a>
+          <a href="#context">4 · Context</a>
+          <a href="#style">5 · Style</a>
+          <a href="#cartography">6 · Cartography</a>
+          <a href="#reception">7 · Reception</a>
+          <a href="#connections">8 · Connections</a>
+          <a href="#bonus">9 · Bonus</a>
+          <a href="#data">10 · Data</a>
+        </nav>
+        <div class="rail-bottom">
+          <a class="btn" href="#top">↑ Back to top</a>
+        </div>
+      </aside>
+
+    </div>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="footer-inner">
+      <div><strong>The Novel of Comedy (TNoC)</strong> · Novel fiche</div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="novel-fiches.html">Novel guides</a>
+        <a href="author-profiles.html">Author profiles</a>
+        <a href="method.html">Method</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  (function(){
+    const links = Array.from(document.querySelectorAll('#toc a'));
+    const sections = Array.from(document.querySelectorAll('[data-spy]'));
+    const bar = document.querySelector('.rail-progress > span');
+
+    function updateProgress(){
+      if(!bar) return;
+      const doc = document.documentElement;
+      const scrollTop = doc.scrollTop || document.body.scrollTop;
+      const scrollHeight = doc.scrollHeight - doc.clientHeight;
+      const pct = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+      bar.style.width = Math.max(0, Math.min(100, pct)) + "%";
+    }
+
+    function setActiveFromScroll(){
+      if(!links.length || !sections.length) return;
+      const scrollTop = window.scrollY || window.pageYOffset;
+      const offset = 140;
+      let activeId = sections[0].id;
+
+      sections.forEach(section => {
+        if (scrollTop + offset >= section.offsetTop) activeId = section.id;
+      });
+
+      links.forEach(link => {
+        const id = (link.getAttribute('href') || '').slice(1);
+        link.classList.toggle('active', id === activeId);
+      });
+    }
+
+    window.addEventListener('scroll', updateProgress, { passive:true });
+    window.addEventListener('scroll', setActiveFromScroll, { passive:true });
+    window.addEventListener('resize', setActiveFromScroll);
+
+    updateProgress();
+    setActiveFromScroll();
+  })();
+  </script>
+
+</body>
+</html>
+
+
