@@ -816,7 +816,45 @@
   }
 
   const checkLinks = Array.from(document.querySelectorAll('a[data-check="1"]'));
+
+  // ✅ Ne checke QUE si on est sur http/https (GitHub Pages, etc.)
+  const canCheck = (location.protocol === 'http:' || location.protocol === 'https:');
+
   async function exists(url){
+    // On ne checke pas les ancres / externes
+    if(!url || url.startsWith('#') || url.startsWith('http')) return true;
+
+    try{
+      // GitHub Pages répond généralement OK à HEAD, sinon on tente GET
+      const r = await fetch(url, { method:'HEAD', cache:'no-store' });
+      if(r.ok) return true;
+
+      const r2 = await fetch(url, { method:'GET', cache:'no-store' });
+      return r2.ok;
+    }catch(e){
+      // ✅ En cas d’erreur réseau/CORS/etc. : on NE désactive PAS le lien
+      return true;
+    }
+  }
+
+  (async function(){
+    if(!canCheck) return; // ✅ local = on laisse tout actif
+
+    for(const a of checkLinks){
+      const url = a.getAttribute('href');
+      const ok = await exists(url);
+
+      if(!ok){
+        a.classList.add('is-missing');
+        a.setAttribute('aria-disabled','true');
+        a.addEventListener('click', (ev)=>ev.preventDefault());
+        const badge = document.createElement('span');
+        badge.className = 'missing-badge';
+        badge.textContent = 'Coming soon';
+        a.appendChild(badge);
+      }
+    }
+  })();
     try{
       const r = await fetch(url, { method:'HEAD', cache:'no-store' });
       if(r.ok) return true;
