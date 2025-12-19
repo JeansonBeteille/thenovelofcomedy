@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Good Behavior (1985) — Novel Guide | The Novel of Comedy (TNoC)</title>
+  <meta name="description"
+        content="TNoC novel guide: Good Behavior (1985), Donald E. Westlake. Dortmunder #6 — heist ensemble mechanics, political pressure, and a golden rule: no good deed goes unpunished." />
+
+  <meta property="og:title" content="Good Behavior (1985) — Novel Guide | The Novel of Comedy (TNoC)" />
+  <meta property="og:description" content="A TNoC novel guide: reading note, incipit, back cover, characters, from the desk, reception, connections, bonus, data." />
+  <meta property="og:type" content="article" />
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Book",
+    "name":"Good Behavior",
+    "author":{"@type":"Person","name":"Donald E. Westlake"},
+    "datePublished":"1985",
+    "inLanguage":"en",
+    "publisher":{"@type":"Organization","name":"The Mysterious Press"},
+    "isPartOf":{"@type":"CreativeWorkSeries","name":"Dortmunder"},
+    "about":["Comic crime","Heist novel","Political satire","Burlesque","Morality and convenience","Corporate power"]
+  }
+  </script>
+
+  <style>
+    :root{
+      --bg:#0b0b0c;
+      --paper:#f7f5f0;
+      --ink:#1e1e1e;
+      --graphite:#2b2b2b;
+      --evergreen:#2E7D32;
+      --muted:rgba(0,0,0,.55);
+      --border:rgba(0,0,0,.14);
+      --shadow:0 1px 2px rgba(0,0,0,.04);
+      --uiWhite:rgba(255,255,255,.08);
+    }
+
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--ink);
+      background:var(--bg);
+    }
+    a{color:inherit;text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    .skip-link{
+      position:absolute; left:-999px; top:10px;
+      padding:8px 12px; background:#fff; color:#000;
+      border-radius:999px; border:1px solid rgba(0,0,0,.18);
+      z-index:1000; font-size:13px;
+    }
+    .skip-link:focus{left:12px; outline:none;}
+
+    /* Topbar */
+    .topbar{
+      position:sticky; top:0; z-index:30;
+      backdrop-filter:blur(10px);
+      background:rgba(11,11,12,.92);
+      color:#fff;
+      border-bottom:1px solid var(--uiWhite);
+    }
+    .topbar-inner{
+      max-width:1240px;
+      margin:0 auto;
+      padding:10px 20px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+    }
+    .brand{display:flex; align-items:center; gap:10px;}
+    .brand-mark{
+      width:34px; height:34px; border-radius:12px;
+      border:1px solid rgba(255,255,255,.18);
+      display:flex; align-items:center; justify-content:center;
+      font-weight:600; letter-spacing:.06em; text-transform:uppercase; font-size:11px;
+      background:radial-gradient(circle at 0 0,rgba(255,255,255,.22),rgba(0,0,0,.7));
+    }
+    .brand-text{display:flex;flex-direction:column;gap:1px;}
+    .brand-title{font-size:15px; letter-spacing:.05em; text-transform:uppercase;}
+    .brand-sub{font-size:11px; opacity:.7;}
+    .nav{display:flex; flex-wrap:wrap; gap:12px; font-size:13px;}
+    .nav a{opacity:.82; padding:6px 0;}
+    .nav a:hover{opacity:1; text-decoration:none;}
+    .nav a.is-primary{
+      padding:6px 12px; border-radius:999px;
+      border:1px solid rgba(255,255,255,.22); font-size:12px;
+      opacity:1;
+    }
+    .nav a.is-current{opacity:1; border-bottom:1px solid rgba(255,255,255,.9);}
+
+    @media(max-width:980px){
+      .topbar-inner{flex-direction:column; align-items:flex-start;}
+      .nav{width:100%; justify-content:flex-start;}
+    }
+
+    /* Hero */
+    .hero{
+      background:var(--bg);
+      color:#fff;
+      border-bottom:1px solid var(--uiWhite);
+    }
+    .hero-inner{
+      max-width:1240px;
+      margin:0 auto;
+      padding:26px 20px 22px;
+      display:grid;
+      grid-template-columns: minmax(0,1fr) 360px;
+      gap:18px;
+      align-items:start;
+    }
+
+    .hero-card{
+      border:1px solid rgba(255,255,255,.18);
+      background:rgba(255,255,255,.06);
+      border-radius:18px;
+      overflow:hidden;
+      box-shadow:0 10px 30px rgba(0,0,0,.22);
+    }
+    .hero-card-head{
+      padding:12px 12px 10px;
+      border-bottom:1px solid rgba(255,255,255,.12);
+      display:flex; align-items:flex-start; justify-content:space-between; gap:12px;
+    }
+    .hero-card-head .k{
+      font-size:11px; letter-spacing:.16em; text-transform:uppercase; opacity:.85;
+      font-weight:700;
+    }
+
+    /* PACK */
+    .pack-body{
+      padding:14px;
+      display:grid;
+      grid-template-columns: minmax(0,1fr) 230px;
+      gap:16px;
+      align-items:start;
+    }
+    .hero-kicker{
+      font-size:12px; letter-spacing:.18em; text-transform:uppercase; opacity:.92;
+      margin:0;
+    }
+    .hero-title{
+      font-size:22px; line-height:1.32; margin:10px 0 2px;
+      letter-spacing:.02em;
+    }
+    .hero-sub{
+      font-size:13px; line-height:1.6; opacity:.92; margin:8px 0 0;
+    }
+    .hero-facts{
+      margin-top:10px;
+      font-size:12px;
+      opacity:.86;
+      line-height:1.45;
+    }
+    .hero-facts .line{margin-top:4px;}
+    .hero-meta{
+      margin-top:12px;
+      display:flex; gap:10px; flex-wrap:wrap;
+      font-size:12px;
+    }
+    .hero-meta a{
+      padding:7px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.22);
+      background:rgba(0,0,0,.14);
+      text-decoration:none;
+      white-space:nowrap;
+    }
+    .hero-meta a:hover{border-color:rgba(255,255,255,.35);}
+
+    .pack-cover{display:flex; justify-content:flex-end;}
+    .cover-large{
+      width:100%;
+      max-width:210px;
+      aspect-ratio:3/4;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.18);
+      background:#111;
+      overflow:hidden;
+      position:relative;
+      display:flex; align-items:center; justify-content:center;
+      color:rgba(255,255,255,.78);
+      font-size:10px; letter-spacing:.14em; text-transform:uppercase;
+      box-shadow:
+        inset 0 0 0 1px rgba(0,0,0,.35),
+        inset 0 -18px 30px rgba(0,0,0,.28),
+        0 16px 30px rgba(0,0,0,.25);
+    }
+    .cover-large::after{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        radial-gradient(120px 180px at 20% 10%, rgba(255,255,255,.10), rgba(255,255,255,0) 60%),
+        linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,0) 35%);
+      pointer-events:none;
+      mix-blend-mode:screen;
+      opacity:.55;
+    }
+    .cover-large img{width:100%; height:100%; object-fit:cover; display:block;}
+
+    /* CARTOGRAPHY (structure TNoC) */
+    .carto-body{
+      padding:12px;
+      display:grid;
+      gap:10px;
+    }
+    .hero-chips{display:flex; flex-wrap:wrap; gap:6px;}
+    .hero-chip{
+      display:inline-flex; align-items:center;
+      padding:5px 10px; border-radius:999px;
+      border:1px solid rgba(255,255,255,.16);
+      background:rgba(0,0,0,.16);
+      font-size:11px;
+      color:rgba(255,255,255,.92);
+      white-space:nowrap;
+    }
+    .hero-kv{display:grid; gap:8px;}
+    .hero-kv-row{
+      border:1px solid rgba(255,255,255,.14);
+      border-radius:14px;
+      padding:9px 10px 8px;
+      background:rgba(0,0,0,.14);
+    }
+    .hero-kv-label{
+      font-size:10px; letter-spacing:.16em; text-transform:uppercase;
+      opacity:.82; margin-bottom:4px;
+    }
+    .hero-kv-value{
+      font-size:12px; line-height:1.4; opacity:.96;
+    }
+
+    details.carto-accordion{border:none;margin:0;}
+    details.carto-accordion > summary{
+      list-style:none;
+      cursor:pointer;
+      display:none;
+    }
+    details.carto-accordion > summary::-webkit-details-marker{display:none}
+    .summary-row{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:10px;
+      padding:12px 12px 10px;
+      border-bottom:1px solid rgba(255,255,255,.12);
+      font-weight:700;
+    }
+    .summary-row .k{
+      font-size:11px; letter-spacing:.16em; text-transform:uppercase; opacity:.85;
+      font-weight:700;
+    }
+    .summary-row .caret{transition:transform .2s ease; opacity:.9;}
+    details[open] .summary-row .caret{transform:rotate(90deg)}
+
+    /* Main grid */
+    .main{background:var(--paper);}
+    .grid{
+      max-width:1240px;
+      margin:0 auto;
+      padding:22px 20px 46px;
+      display:grid;
+      grid-template-columns: 280px minmax(0,1fr) 300px;
+      gap:18px;
+      align-items:start;
+    }
+    @media(max-width:1120px){
+      .grid{grid-template-columns: 260px minmax(0,1fr) 280px;}
+      .hero-inner{grid-template-columns: minmax(0,1fr) 340px;}
+    }
+    @media(max-width:980px){
+      .hero-inner{grid-template-columns:1fr;}
+      .grid{grid-template-columns:1fr;}
+    }
+
+    /* Toolbox */
+    .toolbox{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:18px;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      font-size:13px;
+    }
+    @media(min-width:980px){ .toolbox{position:sticky; top:88px;} }
+    .toolbox header{
+      padding:14px 14px 10px;
+      border-bottom:1px solid rgba(0,0,0,.06);
+      background:linear-gradient(180deg,rgba(0,0,0,.015),rgba(0,0,0,.03));
+    }
+    .toolbox header h3{
+      margin:0 0 4px;
+      font-size:12px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:var(--graphite);
+    }
+    .toolbox header p{margin:0; font-size:12px; color:var(--muted);}
+    .toolbox-body{padding:10px 10px 12px; display:grid; gap:8px;}
+    .tool{
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+      padding:10px 10px;
+      border-radius:14px;
+      border:1px solid rgba(0,0,0,.08);
+      background:rgba(0,0,0,.015);
+      text-decoration:none;
+      color:var(--graphite);
+    }
+    .tool:hover{background:rgba(0,0,0,.03); border-color:rgba(0,0,0,.12); text-decoration:none;}
+    .tool .label{font-weight:700; font-size:13px;}
+    .tool .meta{font-size:12px; color:var(--muted); white-space:nowrap;}
+    .toolbox-foot{padding:0 10px 12px; display:grid; gap:8px;}
+    .toolbox-btn{
+      width:100%;
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:9px 12px;
+      border-radius:14px;
+      border:1px solid rgba(0,0,0,.12);
+      background:#fff;
+      font-size:12px;
+      cursor:pointer;
+    }
+    .toolbox-btn:hover{background:rgba(0,0,0,.02);}
+    .toast{display:none;font-size:12px;color:rgba(0,0,0,.62);padding:0 12px 12px;}
+    .toast.show{display:block;}
+
+    /* Content */
+    .content{min-width:0;}
+    .content-inner{max-width:860px;}
+    .section{padding:22px 0;border-bottom:1px solid rgba(0,0,0,.06);}
+    .section:last-of-type{border-bottom:none;}
+    .section-kicker{font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted);}
+    .section-title{font-size:24px; margin:6px 0 8px; letter-spacing:.03em;}
+    .p{margin:0 0 10px;font-size:15px;line-height:1.75;color:var(--graphite);}
+
+    .callout{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:16px;
+      box-shadow:var(--shadow);
+      padding:14px 14px 12px;
+      margin-top:10px;
+      color:var(--graphite);
+      font-size:13px;
+      line-height:1.6;
+    }
+    .quote{
+      border-left:3px solid rgba(46,125,50,.55);
+      padding-left:12px;
+      font-style:italic;
+      color:rgba(0,0,0,.68);
+      margin:10px 0 0;
+    }
+    .list{margin:8px 0 0; padding-left:18px; color:var(--graphite); font-size:14px; line-height:1.7;}
+    .list li{margin:4px 0;}
+
+    details.std{
+      margin-top:10px;
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:16px;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    details.std summary{
+      list-style:none;
+      cursor:pointer;
+      font-weight:700;
+      font-size:14px;
+      padding:12px 14px;
+      background:linear-gradient(180deg,rgba(0,0,0,.015),rgba(0,0,0,.03));
+      display:flex; align-items:center; gap:8px;
+    }
+    details.std summary::-webkit-details-marker{display:none}
+    .caret2{display:inline-block; transition:transform .2s ease}
+    details.std[open] .caret2{transform:rotate(90deg)}
+    .details-body{padding:12px 14px 14px; font-size:14px; line-height:1.65; color:var(--graphite);}
+
+    table{
+      width:100%;
+      border-collapse:collapse;
+      margin-top:10px;
+      font-size:13px;
+      color:var(--graphite);
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:16px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+    }
+    th,td{padding:10px 10px; border-bottom:1px solid rgba(0,0,0,.06); vertical-align:top;}
+    th{
+      text-align:left;
+      background:linear-gradient(180deg,rgba(0,0,0,.015),rgba(0,0,0,.03));
+      font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted);
+    }
+    tr:last-child td{border-bottom:none;}
+
+    .subhead{
+      margin:14px 0 6px;
+      font-size:12px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:rgba(0,0,0,.62);
+    }
+
+    /* Rail */
+    .rail{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:18px;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      font-size:13px;
+    }
+    @media(min-width:980px){ .rail{position:sticky; top:88px;} }
+    .rail header{
+      padding:14px 14px 10px;
+      border-bottom:1px solid rgba(0,0,0,.06);
+      background:linear-gradient(180deg,rgba(0,0,0,.015),rgba(0,0,0,.03));
+    }
+    .rail header h3{
+      margin:0 0 4px;
+      font-size:12px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:var(--graphite);
+    }
+    .rail header p{margin:0; font-size:12px; color:var(--muted);}
+    .rail-progress{
+      margin-top:8px; height:6px; border-radius:999px;
+      background:rgba(0,0,0,.03);
+      border:1px solid rgba(0,0,0,.06);
+      overflow:hidden;
+    }
+    .rail-progress > span{
+      display:block; height:100%; width:0%;
+      background:linear-gradient(90deg,var(--evergreen),#555);
+    }
+    .toc{padding:10px 10px 12px; display:grid; gap:6px;}
+    .toc a{
+      padding:8px 10px;
+      border-radius:12px;
+      border:1px solid transparent;
+      background:rgba(0,0,0,.015);
+      font-size:13px;
+      color:var(--graphite);
+      text-decoration:none;
+    }
+    .toc a:hover{border-color:var(--border); background:rgba(0,0,0,.03);}
+    .toc a.active{
+      border-color:var(--evergreen);
+      background:rgba(46,125,50,.08);
+      color:#000; font-weight:700;
+    }
+    .rail-bottom{padding:0 10px 12px;}
+    .rail-bottom .btn{
+      width:100%;
+      justify-content:center;
+      background:rgba(0,0,0,.03);
+      color:var(--graphite);
+      border-color:var(--border);
+      box-shadow:none;
+      font-size:12px;
+      padding:8px 10px;
+      display:inline-flex;
+      border-radius:14px;
+      border:1px solid rgba(0,0,0,.12);
+    }
+
+    /* Footer */
+    .footer{
+      background:var(--bg);
+      color:#f5f5f5;
+      border-top:1px solid var(--uiWhite);
+    }
+    .footer-inner{
+      max-width:1240px;
+      margin:0 auto;
+      padding:18px 20px 22px;
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:space-between;
+      gap:12px;
+      font-size:12px;
+      opacity:.88;
+    }
+    .footer-links{display:flex; flex-wrap:wrap; gap:12px;}
+
+    /* Responsive tweaks */
+    @media(max-width:700px){
+      .pack-body{grid-template-columns:1fr;}
+      .pack-cover{justify-content:flex-start;}
+      .cover-large{max-width:220px;}
+      details.carto-accordion > summary{display:block;}
+    }
+    @media(max-width:600px){
+      .hero-inner{padding:22px 16px 18px;}
+      .grid{padding:18px 16px 34px;}
+      .section-title{font-size:22px;}
+      .content-inner{max-width:none;}
+    }
+  </style>
+</head>
+
+<body id="top">
+  <a class="skip-link" href="#reading-note">Skip to content</a>
+
+  <header class="topbar" role="banner" aria-label="Main navigation">
+    <div class="topbar-inner">
+      <a href="index.html" class="brand" aria-label="The Novel of Comedy home">
+        <div class="brand-mark">TNoC</div>
+        <div class="brand-text">
+          <div class="brand-title">The Novel of Comedy</div>
+          <div class="brand-sub">Atlas &amp; critical cartography of comic fiction</div>
+        </div>
+      </a>
+
+      <nav class="nav" aria-label="Navigation">
+        <a href="index.html#guides">Guides</a>
+        <a class="is-current" href="novel-guides.html">Novel guides</a>
+        <a href="author-profiles.html">Author profiles</a>
+        <a href="currents.html">Currents</a>
+        <a href="method.html">Method</a>
+        <a class="is-primary" href="index.html#research">Researchers &amp; AI</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" aria-label="Guide header">
+    <div class="hero-inner">
+
+      <!-- LEFT: PACK -->
+      <section class="hero-card" aria-label="Title pack with cover">
+        <div class="pack-body">
+
+          <div class="pack-copy">
+            <p class="hero-kicker">Novel guide · Comedy of Crime</p>
+
+            <h1 class="hero-title">Good Behavior <span style="opacity:.82;">(1985)</span></h1>
+            <p class="hero-sub">Donald E. Westlake</p>
+
+            <div class="hero-facts" aria-label="Publication facts">
+              <div class="line">The Mysterious Press (HC) · approx. 244 pp.</div>
+              <div class="line">Dortmunder 6/15 · signed Neiman-Marcus edition (1,000 copies)</div>
+            </div>
+
+            <div class="hero-meta" aria-label="Hero actions">
+              <a href="novel-guides.html">← Back</a>
+              <a href="#reading-note">Start reading</a>
+            </div>
+          </div>
+
+          <div class="pack-cover" aria-label="Cover pack">
+            <div class="cover-large" aria-label="Cover">
+              <!-- <img src="img/good-behavior-cover.png" alt="Cover of Good Behavior (Donald E. Westlake, 1985)"> -->
+              COVER
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- RIGHT: CARTOGRAPHY -->
+      <aside class="hero-card" aria-label="Cartography pack">
+        <details class="carto-accordion" open>
+          <summary>
+            <div class="summary-row">
+              <span class="k">Cartography</span>
+              <span class="caret">▶</span>
+            </div>
+          </summary>
+
+          <div class="hero-card-head">
+            <div class="k">Cartography</div>
+          </div>
+
+          <div class="carto-body">
+
+            <div class="hero-chips" aria-label="Cartography markers">
+              <span class="hero-chip"><strong>Current:</strong>&nbsp;Crime Comedy</span>
+              <span class="hero-chip"><strong>Branch:</strong>&nbsp;The Shemer / Heist</span>
+              <!-- Optional if needed:
+              <span class="hero-chip"><strong>Affluent:</strong>&nbsp;[name]</span>
+              -->
+            </div>
+
+            <div class="hero-kv" aria-label="Cartography denominations">
+              <div class="hero-kv-row">
+                <div class="hero-kv-label">Environment</div>
+                <div class="hero-kv-value">Manhattan · The Reagan era with the rise of the golden boys. Pre-Wall Street crash.</div>
+              </div>
+              <div class="hero-kv-row">
+                <div class="hero-kv-label">Role of comedy</div>
+                <div class="hero-kv-value">Comic engine</div>
+              </div>
+            </div>
+
+          </div>
+        </details>
+      </aside>
+
+    </div>
+  </section>
+
+  <main class="main" id="content" aria-label="Guide content">
+    <div class="grid">
+
+      <!-- LEFT: TOOLBOX -->
+      <aside class="toolbox" aria-label="Toolbox">
+        <header>
+          <h3>Toolbox</h3>
+          <p>Actions &amp; cross-navigation (no duplicate content).</p>
+        </header>
+
+        <div class="toolbox-body">
+          <a class="tool" href="currents.html#comedy-of-crime">
+            <div>
+              <div class="label">Open current</div>
+              <div class="meta">Comedy of Crime</div>
+            </div>
+            <div class="meta">→</div>
+          </a>
+
+          <a class="tool" href="branches.html#the-shemer-heist">
+            <div>
+              <div class="label">Open branch</div>
+              <div class="meta">The Shemer / Heist</div>
+            </div>
+            <div class="meta">→</div>
+          </a>
+
+          <a class="tool" href="#data">
+            <div>
+              <div class="label">Jump to data</div>
+              <div class="meta">JSON stub</div>
+            </div>
+            <div class="meta">↓</div>
+          </a>
+
+          <a class="tool" href="#fourth-cover">
+            <div>
+              <div class="label">Jump to back-cover</div>
+              <div class="meta">Chapter 3</div>
+            </div>
+            <div class="meta">↓</div>
+          </a>
+        </div>
+
+        <div class="toolbox-foot">
+          <button class="toolbox-btn" id="copyDataBtn" type="button">Copy data stub</button>
+          <button class="toolbox-btn" onclick="window.print()" type="button">Print / Save PDF</button>
+        </div>
+
+        <div class="toast" id="copyToast">Copied.</div>
+      </aside>
+
+      <!-- CENTER: CONTENT -->
+      <section class="content" aria-label="Main text">
+        <div class="content-inner">
+
+          <!-- 1 -->
+          <section class="section" id="reading-note" data-spy>
+            <div class="section-kicker">1 · Reading note</div>
+            <h2 class="section-title">Reading note</h2>
+
+            <p class="p">
+              The wail of sirens and alarms opens this sixth Dortmunder caper at the top.
+              And up high Dortmunder will go. After slipping through a Manhattan convent and striking a deal with nuns (yes, nuns),
+              he assembles a team wobblier than ever. The goal: the 71st floor of the most secure tower on Fifth Avenue.
+              When we say Dortmunder is heading for the top, we mean it.
+            </p>
+
+            <p class="p">
+              Westlake’s writing hits an Olympian stride in the 1980s: sharp, unhinged and not so unrealistic.
+              One regret, though: with a last name starting with W, I'm always forced to dig at the back of the bookstore shelves for a Donald novel.
+              My poor knees...
+            </p>
+
+            <p class="p" style="opacity:.8; font-style:italic; text-align:right; margin-top:10px;">TNoC.</p>
+          </section>
+
+          <!-- 2 -->
+          <section class="section" id="incipit" data-spy>
+            <div class="section-kicker">2 · Incipit</div>
+            <h2 class="section-title">Incipit</h2>
+
+            <div class="callout">
+              <strong>To add</strong><br>
+              2–4 lines (original) · keep it short, to preserve the layout balance.
+            </div>
+
+            <!-- 3 -->
+            <details class="std" id="fourth-cover" data-spy>
+              <summary><span class="caret2">▶</span> 3 · Back-cover blurb</summary>
+              <div class="details-body">
+                <p style="margin:0 0 10px;">
+                  <strong>To rewrite / paraphrase:</strong> the idea of a “very high” heist, an improbable deal with nuns,
+                  over-the-top security, and a plan that degrades on contact with politics, greed, and logistics.
+                </p>
+                <p style="margin:0;">
+                  Goal: a clear, informative text, without marketing tone — a “compass-summary”, not a sales pitch.
+                </p>
+              </div>
+            </details>
+          </section>
+
+          <!-- 4 -->
+          <section class="section" id="characters" data-spy>
+            <div class="section-kicker">4 · Characters</div>
+            <h2 class="section-title">Major characters</h2>
+
+            <table aria-label="Characters table">
+              <thead>
+                <tr>
+                  <th>Character / group</th>
+                  <th>Archetype</th>
+                  <th>Comic function</th>
+                  <th>Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>John Dortmunder</strong></td>
+                  <td>Unlucky criminal</td>
+                  <td>Good intention → punishment</td>
+                  <td>Logistics hero: he suffers the plans as much as he builds them.</td>
+                </tr>
+                <tr>
+                  <td><strong>The crew</strong></td>
+                  <td>Wobbly company</td>
+                  <td>Competence + friction</td>
+                  <td>Every “solution” adds a variable — therefore a future accident.</td>
+                </tr>
+                <tr>
+                  <td><strong>Frank Ritter</strong></td>
+                  <td>Neo-feudal capitalist</td>
+                  <td>Pride of assets</td>
+                  <td>Power is not the State: it’s ownership (and its “knights”).</td>
+                </tr>
+                <tr>
+                  <td><strong>The nuns</strong></td>
+                  <td>Rule-bound collective</td>
+                  <td>Morality as OS</td>
+                  <td>They organize a robbery like a crusade (without changing tone).</td>
+                </tr>
+                <tr>
+                  <td><strong>Mercenaries</strong></td>
+                  <td>Privatized violence</td>
+                  <td>Imported gravity</td>
+                  <td>“Serious” politics rubs against farce: it sparks.</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <p class="p quote">Series invariant: “no good deed goes unpunished”.</p>
+          </section>
+
+          <!-- 5 -->
+          <section class="section" id="desk-side" data-spy>
+            <div class="section-kicker">5 · From the desk</div>
+            <h2 class="section-title">From the desk</h2>
+
+            <div class="subhead">A · Place in the work</div>
+            <p class="p">
+              Good Behavior belongs to a phase where Westlake brings more explicit geopolitical and moral stakes into Dortmunder under the cover of farce.
+              Here, the question is not “to steal or not to steal”, but what becomes of morality when it meets convenience — and when power becomes indistinguishable from ownership.
+            </p>
+
+            <div class="subhead">B · Mechanics</div>
+            <p class="p">
+              Westlake proceeds by rule and overload: each system believes itself perfect; he brings them into contact and creates the spark.
+              Silent convent, hyper-secure tower, asset ideology, New York logistics — guaranteed chaos.
+            </p>
+
+            <div class="subhead">C · In the sentence</div>
+            <p class="p">
+              Westlake piles up detail and reflection with an agitated rhythm that matches the twists and turns.
+              Example (short excerpt): “He had many reasons to be depressed … Nuns, for instance.”
+            </p>
+          </section>
+
+          <!-- 6 -->
+          <section class="section" id="reception" data-spy>
+            <div class="section-kicker">6 · Reception</div>
+            <h2 class="section-title">Reception</h2>
+
+            <ul class="list">
+              <li>
+                <strong>Critics:</strong>
+                <br>
+                – Washington Post Book World: Jean M. White emphasized that Westlake “never allows his comedy to slide into … buffoonery.”
+                <br>
+                – The New York Times Book Review (June 22, 1986), Newgate Callendar, in the “Crime” column: he praises this Dortmunder and stresses that Westlake can “make a comment on society” and that the book has “a strong cutting edge.”
+              </li>
+              <li><strong>Within the series:</strong> often read as a peak of the heist / satire / burlesque triptych.</li>
+            </ul>
+          </section>
+
+          <!-- 7 -->
+          <section class="section" id="connections" data-spy>
+            <div class="section-kicker">7 · Connections</div>
+            <h2 class="section-title">Friendships of humor · Contemporaries · Heirs</h2>
+
+            <div class="callout">
+              <strong>Contemporaries (around 1985)</strong>
+              <ul class="list" style="margin-top:8px;">
+                <li><strong>Stick</strong> (1983) · Elmore Leonard</li>
+                <li><strong>The Burglar Who Painted Like Mondrian</strong> (1983) · Lawrence Block</li>
+                <li><strong>San-Antonio: Les deux oreilles et la queue</strong> (1984) · Frédéric Dard</li>
+              </ul>
+
+              <div style="height:10px"></div>
+
+              <strong>Heirs (later decades)</strong>
+              <ul class="list" style="margin-top:8px;">
+                <li><strong>Tourist Season</strong> (1986) · Carl Hiaasen</li>
+                <li><strong>Of Wee Sweetie Mice and Men</strong> (1996) · Colin Bateman</li>
+                <li><strong>Florida Roadkill</strong> (1999) · Tim Dorsey</li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- 8 -->
+          <section class="section" id="bonus" data-spy>
+            <div class="section-kicker">8 · Bonus</div>
+            <h2 class="section-title">Bonus · Making-of</h2>
+
+            <p class="p">
+              Political violence briefly enters the comedy — as if two climates of the same body of work were touching.
+            </p>
+
+            <p class="p quote">
+              To place here: “In memoriam: P., 1961–1973” (if you keep it, keep it short and contextualized).
+            </p>
+          </section>
+
+          <!-- 9 -->
+          <section class="section" id="data" data-spy>
+            <div class="section-kicker">9 · Data</div>
+            <h2 class="section-title">Data stub</h2>
+
+            <div class="callout" style="margin-top:10px;">
+<pre id="dataStub" style="margin:0;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;background:#f5f5f5;padding:10px;border-radius:12px;border:1px solid rgba(0,0,0,.14);white-space:pre-wrap;">
+{"name":"Good Behavior",
+ "author":"Donald E. Westlake",
+ "year":"1985",
+ "series":"Dortmunder #6",
+ "current":"crime",
+ "branch":["heist-schemes"],
+ "environment":"New York · high-security tower · convent · corporate power",
+ "role_of_comedy":"comic engine"}
+</pre>
+            </div>
+          </section>
+
+        </div>
+      </section>
+
+      <!-- RIGHT: TOC -->
+      <aside class="rail" aria-label="In this guide">
+        <header>
+          <h3>In this guide</h3>
+          <p>9-chapter matrix</p>
+          <div class="rail-progress" aria-label="Reading progress"><span></span></div>
+        </header>
+
+        <nav class="toc" id="toc">
+          <a href="#reading-note">1 · Reading note</a>
+          <a href="#incipit">2 · Incipit</a>
+          <a href="#fourth-cover">3 · Back-cover blurb</a>
+          <a href="#characters">4 · Characters</a>
+          <a href="#desk-side">5 · From the desk</a>
+          <a href="#reception">6 · Reception</a>
+          <a href="#connections">7 · Connections</a>
+          <a href="#bonus">8 · Bonus</a>
+          <a href="#data">9 · Data</a>
+        </nav>
+
+        <div class="rail-bottom">
+          <a class="btn" href="#top">↑ Back to top</a>
+        </div>
+      </aside>
+
+    </div>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="footer-inner">
+      <div><strong>The Novel of Comedy (TNoC)</strong> · Novel guide</div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="novel-guides.html">Novel guides</a>
+        <a href="author-profiles.html">Author profiles</a>
+        <a href="method.html">Method</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  (function(){
+    const links = Array.from(document.querySelectorAll('#toc a'));
+    const sections = Array.from(document.querySelectorAll('[data-spy]'));
+    const bar = document.querySelector('.rail-progress > span');
+
+    function updateProgress(){
+      if(!bar) return;
+      const doc = document.documentElement;
+      const scrollTop = doc.scrollTop || document.body.scrollTop;
+      const scrollHeight = doc.scrollHeight - doc.clientHeight;
+      const pct = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+      bar.style.width = Math.max(0, Math.min(100, pct)) + "%";
+    }
+
+    function setActiveFromScroll(){
+      if(!links.length || !sections.length) return;
+      const scrollTop = window.scrollY || window.pageYOffset;
+      const offset = 140;
+      let activeId = sections[0].id;
+
+      sections.forEach(section => {
+        if (scrollTop + offset >= section.offsetTop) activeId = section.id;
+      });
+
+      links.forEach(link => {
+        const id = (link.getAttribute('href') || '').slice(1);
+        link.classList.toggle('active', id === activeId);
+      });
+    }
+
+    const copyBtn = document.getElementById('copyDataBtn');
+    const toast = document.getElementById('copyToast');
+    const stub = document.getElementById('dataStub');
+
+    if(copyBtn && stub && navigator.clipboard){
+      copyBtn.addEventListener('click', async () => {
+        try{
+          await navigator.clipboard.writeText(stub.textContent.trim());
+          if(toast){
+            toast.classList.add('show');
+            setTimeout(()=>toast.classList.remove('show'), 1200);
+          }
+        }catch(e){}
+      });
+    }
+
+    const carto = document.querySelector('details.carto-accordion');
+    function syncCarto(){
+      if(!carto) return;
+      const isMobile = window.matchMedia('(max-width: 700px)').matches;
+      carto.open = !isMobile;
+    }
+
+    window.addEventListener('scroll', updateProgress, { passive:true });
+    window.addEventListener('scroll', setActiveFromScroll, { passive:true });
+    window.addEventListener('resize', setActiveFromScroll);
+    window.addEventListener('resize', syncCarto);
+
+    updateProgress();
+    setActiveFromScroll();
+    syncCarto();
+  })();
+  </script>
+</body>
+</html>
