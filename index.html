@@ -116,15 +116,14 @@
     .hero-v2 .hero-copy{ grid-area:copy; }
     .hero-v2 .hero-gallery{ grid-area:gallery; }
 
-    /* ✅ MOBILE: order becomes COPY first, then GALLERY */
     @media(max-width:960px){
       .hero-v2 .hero-inner{
         grid-template-columns:1fr;
-        grid-template-areas:
-          "copy"
-          "gallery";
-        padding:26px 16px 22px;
+        grid-template-areas:"gallery";
+        padding:18px 16px 18px;
       }
+      /* mobile = no editorial duplication inside hero */
+      .hero-v2 .hero-copy{ display:none; }
     }
 
     .hero-v2 .hero-kicker{
@@ -235,8 +234,15 @@
     .hero-v2 .ctrl:hover{ opacity:1; text-decoration:none; }
     .hero-v2 .ctrl strong{ font-weight:700; }
 
+    /* Mobile: remove cognitive load (keep only "All novels") */
+    @media (max-width: 600px){
+      .hero-v2 .gallery-controls button.ctrl{ display:none; }
+      .hero-v2 .gallery-head p{ display:none; }
+    }
+
     .hero-v2 .gallery-body{ padding:12px; display:grid; gap:12px; }
 
+    /* Ribbon: safer on mobile (no left-cut) */
     .hero-v2 .cover-ribbon{
       display:flex;
       gap:10px;
@@ -244,7 +250,15 @@
       padding:2px 2px 10px;
       scroll-snap-type:x mandatory;
       -webkit-overflow-scrolling:touch;
+      scroll-padding-left:14px;
+      scroll-padding-right:14px;
     }
+    .hero-v2 .cover-ribbon::before,
+    .hero-v2 .cover-ribbon::after{
+      content:"";
+      flex:0 0 12px;
+    }
+
     .hero-v2 .cover-ribbon::-webkit-scrollbar{ height:8px; }
     .hero-v2 .cover-ribbon::-webkit-scrollbar-thumb{ background:rgba(255,255,255,.14); border-radius:999px; }
 
@@ -268,36 +282,41 @@
     }
     .hero-v2 .cover-tile img{ display:block; width:100%; height:210px; object-fit:cover; }
 
-    /* ✅ compact cover meta (clamp + reduced padding/line-height) */
+    /* Cover meta: denser + smaller (as requested) */
     .hero-v2 .cover-meta{
-      position:absolute;
-      left:clamp(8px, 2.2vw, 10px);
-      right:clamp(8px, 2.2vw, 10px);
-      bottom:clamp(8px, 2.2vw, 10px);
-      padding:clamp(7px, 2vw, 8px) clamp(8px, 2.2vw, 9px);
+      position:absolute; left:10px; right:10px; bottom:10px;
+      padding:6px 7px; /* reduced */
       border-radius:12px;
-      background:rgba(0,0,0,.56);
+      background:rgba(0,0,0,.58);
       border:1px solid rgba(255,255,255,.14);
       backdrop-filter:blur(8px);
     }
     .hero-v2 .cover-meta .k{
-      font-size:clamp(9px, 2.1vw, 10px);
-      letter-spacing:.14em;
+      font-size:clamp(9px, 1.9vw, 10px);
+      letter-spacing:.12em;
       text-transform:uppercase;
-      opacity:.84;
-      margin-bottom:3px;
-      line-height:1.15;
+      opacity:.85;
+      margin:0 0 2px;
+      line-height:1.15; /* tighter */
+      white-space:normal;
     }
     .hero-v2 .cover-meta .t{
-      font-size:clamp(12px, 2.6vw, 12px);
+      font-size:12px;
       font-weight:650;
-      line-height:1.12;
+      line-height:1.15;
+      margin:0;
     }
     .hero-v2 .cover-meta .s{
-      font-size:clamp(10px, 2.4vw, 11px);
+      font-size:11px;
       opacity:.82;
-      margin-top:3px;
-      line-height:1.22;
+      margin-top:2px;
+      line-height:1.2;
+    }
+
+    /* Hide "Current" in label on mobile (keep branch only) */
+    @media (max-width: 600px){
+      .hero-v2 .cover-meta .k .cur,
+      .hero-v2 .cover-meta .k .sep{ display:none; }
     }
 
     @media(min-width:961px){
@@ -306,6 +325,8 @@
         grid-template-columns:repeat(3,minmax(0,1fr));
         overflow:visible; padding:0; scroll-snap-type:none;
       }
+      .hero-v2 .cover-ribbon::before,
+      .hero-v2 .cover-ribbon::after{ display:none; }
       .hero-v2 .cover-tile{ flex:auto; }
       .hero-v2 .cover-tile img{ height:170px; }
     }
@@ -362,32 +383,16 @@
       text-decoration:none;
     }
     .hero-v2 .portrait img{ display:block; width:100%; height:100%; object-fit:cover; }
-
-    /* ✅ compact portrait label + current line (desktop) */
     .hero-v2 .portrait-label{
       position:absolute; left:8px; right:8px; bottom:8px;
-      padding:clamp(6px, 2vw, 7px);
+      padding:6px 7px;
       border-radius:12px;
-      background:rgba(0,0,0,.52);
+      background:rgba(0,0,0,.55);
       border:1px solid rgba(255,255,255,.14);
       backdrop-filter:blur(8px);
-      font-size:clamp(10px, 2.5vw, 11px);
+      font-size:11px;
       opacity:.92;
-      line-height:1.15;
-    }
-    .hero-v2 .portrait-label .pl-k{
-      display:block;
-      font-size:10px;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-      opacity:.75;
-      margin-bottom:2px;
-      line-height:1.1;
-    }
-    .hero-v2 .portrait-label .pl-n{
-      display:block;
-      font-weight:600;
-      line-height:1.15;
+      line-height:1.2;
     }
 
     .hero-v2 .gallery-foot{
@@ -399,18 +404,57 @@
     }
     .hero-v2 .tiny{ opacity:.75; }
 
-    /* ✅ MOBILE simplification: remove hero-gallery buttons + tighten head text */
+    /* MOBILE Cartography block (between covers and authors) */
+    .hero-v2 .mobile-cartography{ display:none; }
+    @media (max-width: 960px){
+      .hero-v2 .mobile-cartography{
+        display:block;
+        border-radius:14px;
+        border:1px solid rgba(255,255,255,.14);
+        background:rgba(0,0,0,.35);
+        padding:10px;
+      }
+      .hero-v2 .mc-head{
+        font-size:11px;
+        letter-spacing:.14em;
+        text-transform:uppercase;
+        opacity:.88;
+        margin:0 0 8px;
+      }
+      .hero-v2 .mc-chips{ display:grid; gap:8px; }
+      .hero-v2 .mc-chip{
+        display:flex;
+        gap:10px;
+        align-items:flex-start;
+        padding:8px 10px;
+        border-radius:12px;
+        border:1px solid rgba(255,255,255,.14);
+        background:rgba(255,255,255,.06);
+      }
+      .hero-v2 .mc-dot{
+        width:8px; height:8px; border-radius:50%;
+        background:var(--evergreen);
+        box-shadow:0 0 0 6px rgba(46,125,50,.18);
+        margin-top:4px;
+        flex:0 0 auto;
+      }
+      .hero-v2 .mc-label{
+        display:block;
+        font-weight:650;
+        font-size:13px;
+        line-height:1.15;
+      }
+      .hero-v2 .mc-desc{
+        display:block;
+        font-size:12px;
+        opacity:.82;
+        margin-top:2px;
+        line-height:1.25;
+      }
+    }
+
     @media(max-width:600px){
-      .hero-v2 .hero-title{ font-size:26px; }
-      .hero-v2 .hero-totem{ font-size:13px; line-height:1.52; }
-      .hero-v2 .gallery-controls{ display:none; }      /* remove Shuffle/Random/All novels */
-      .hero-v2 .gallery-head p{ display:none; }        /* avoid repetition */
-      .hero-v2 .gallery-head{ padding:12px 12px 8px; }
-      .hero-v2 .gallery-body{ padding:10px; gap:10px; }
-      .hero-v2 .cover-ribbon{ padding:0 0 10px; }
-      .hero-v2 .cover-tile{ flex:0 0 148px; }
-      .hero-v2 .cover-tile img{ height:206px; }
-      .hero-v2 .portrait-label .pl-k{ display:none; }  /* on mobile: name only */
+      .hero-v2 .gallery-body{ padding:10px; }
     }
 
     /* =========================================================
@@ -693,12 +737,176 @@
     </header>
 
     <!-- =========================
-         HERO v2 (visual)
+         HERO v2 (desktop = as-is, mobile = gallery-only)
          ========================= -->
     <section class="hero hero-v2" aria-label="Homepage hero (visual)">
       <div class="hero-inner">
 
-        <!-- COPY (now first on mobile) -->
+        <!-- VISUALS FIRST (gallery) -->
+        <aside class="hero-gallery" aria-label="Visual entry points: covers and authors">
+          <div class="gallery-head">
+            <div>
+              <h2>Start here · Visual picks</h2>
+              <p>Tap a cover or a face — instant entry into the atlas.</p>
+            </div>
+
+            <div class="gallery-controls" aria-label="Hero controls">
+              <button class="ctrl" type="button" data-hero="shuffle" aria-label="Shuffle the picks">
+                <strong>Shuffle</strong>
+              </button>
+              <button class="ctrl" type="button" data-hero="random" aria-label="Spotlight a random pick">
+                Random pick
+              </button>
+              <a class="ctrl" href="novel-guides.html" aria-label="Open novel guides">All novels →</a>
+            </div>
+          </div>
+
+          <div class="gallery-body">
+
+            <div class="cover-ribbon" id="heroRibbon" aria-label="Cover ribbon (scroll or grid)">
+              <a class="cover-tile" href="./fichewilt.html" aria-label="Open the Wilt novel guide">
+                <img src="wilt31A.png.png" alt="Cover of Wilt (Tom Sharpe)">
+                <div class="cover-meta">
+                  <div class="k"><span class="cur">Comedy of Society</span><span class="sep"> · </span><span class="br">Frustration</span></div>
+                  <div class="t">Wilt</div>
+                  <div class="s">Tom Sharpe · 1976</div>
+                </div>
+              </a>
+
+              <a class="cover-tile" href="fr/fiche-roman/the-code-of-the-woosters" aria-label="Open The Code of the Woosters guide">
+                <img src="theco.png" alt="Cover of The Code of the Woosters (P. G. Wodehouse)">
+                <div class="cover-meta">
+                  <div class="k"><span class="cur">Comedy of Society</span><span class="sep"> · </span><span class="br">Code / Etiquette</span></div>
+                  <div class="t">Woosters</div>
+                  <div class="s">P. G. Wodehouse · 1938</div>
+                </div>
+              </a>
+
+              <a class="cover-tile" href="fr/fiche-roman/the-girls-of-slender-means" aria-label="Open The Girls of Slender Means guide">
+                <img src="img/girls-of-slender-means.png" alt="Cover of The Girls of Slender Means (Muriel Spark)">
+                <div class="cover-meta">
+                  <div class="k"><span class="cur">Comedy of Society</span><span class="sep"> · </span><span class="br">Code / Etiquette</span></div>
+                  <div class="t">Slender Means</div>
+                  <div class="s">Muriel Spark · 1963</div>
+                </div>
+              </a>
+
+              <a class="cover-tile" href="fr/fiche-roman/james-percival-everett" aria-label="Open James guide">
+                <img src="img/james-percival-everett.png" alt="Cover of James (Percival Everett)">
+                <div class="cover-meta">
+                  <div class="k"><span class="cur">Neo-Nonsense</span><span class="sep"> · </span><span class="br">Canon Hijack</span></div>
+                  <div class="t">James</div>
+                  <div class="s">Percival Everett · 2024</div>
+                </div>
+              </a>
+
+              <a class="cover-tile" href="fr/fiche-roman/westlake-sample" aria-label="Open a Westlake guide sample">
+                <img src="img/westlake-sample.png" alt="Cover of a Donald Westlake comic crime novel">
+                <div class="cover-meta">
+                  <div class="k"><span class="cur">Crime Comedy</span><span class="sep"> · </span><span class="br">Schemer</span></div>
+                  <div class="t">Westlake</div>
+                  <div class="s">Example entry</div>
+                </div>
+              </a>
+
+              <a class="cover-tile" href="fr/fiche-roman/douglas-adams-sample" aria-label="Open a Douglas Adams guide sample">
+                <img src="img/douglas-adams-sample.png" alt="Cover of a Douglas Adams novel">
+                <div class="cover-meta">
+                  <div class="k"><span class="cur">Neo-Nonsense</span><span class="sep"> · </span><span class="br">Cosmic Bureaucracy</span></div>
+                  <div class="t">Douglas Adams</div>
+                  <div class="s">Example entry</div>
+                </div>
+              </a>
+            </div>
+
+            <!-- MOBILE: Cartography block (shown only on small screens) -->
+            <div class="mobile-cartography" aria-label="Cartography (mobile)">
+              <div class="mc-head">Cartography · The three currents</div>
+              <div class="mc-chips">
+                <span class="mc-chip">
+                  <span class="mc-dot"></span>
+                  <span class="mc-text">
+                    <span class="mc-label">Comedy of Society</span>
+                    <span class="mc-desc">institutions, daily life, social friction</span>
+                  </span>
+                </span>
+
+                <span class="mc-chip">
+                  <span class="mc-dot"></span>
+                  <span class="mc-text">
+                    <span class="mc-label">Crime Comedy</span>
+                    <span class="mc-desc">fault, plans, transgression as comic fuel</span>
+                  </span>
+                </span>
+
+                <span class="mc-chip">
+                  <span class="mc-dot"></span>
+                  <span class="mc-text">
+                    <span class="mc-label">Neo-Nonsense</span>
+                    <span class="mc-desc">absurd logic, science, vertigo of meaning</span>
+                  </span>
+                </span>
+              </div>
+            </div>
+
+            <div class="board" aria-label="Author portrait board">
+              <div class="board-title">
+                <span>Author board · Click a portrait</span>
+                <a href="author-profiles.html" aria-label="Browse all author profiles">All profiles →</a>
+              </div>
+
+              <div class="portrait-grid">
+                <a class="portrait" href="author-profiles.html#tom-sharpe" aria-label="Open Tom Sharpe profile">
+                  <img src="tomsh.jpg" alt="Portrait of Tom Sharpe">
+                  <div class="portrait-label">Tom Sharpe</div>
+                </a>
+
+                <a class="portrait" href="author-profiles.html#wodehouse" aria-label="Open P. G. Wodehouse profile">
+                  <img src="img/pg-wodehouse.jpg" alt="Portrait of P. G. Wodehouse">
+                  <div class="portrait-label">P. G. Wodehouse</div>
+                </a>
+
+                <a class="portrait" href="author-profiles.html#muriel-spark" aria-label="Open Muriel Spark profile">
+                  <img src="img/muriel-spark.jpg" alt="Portrait of Muriel Spark">
+                  <div class="portrait-label">Muriel Spark</div>
+                </a>
+
+                <a class="portrait" href="author-profiles.html#percival-everett" aria-label="Open Percival Everett profile">
+                  <img src="img/percival-everett.jpg" alt="Portrait of Percival Everett">
+                  <div class="portrait-label">Percival Everett</div>
+                </a>
+
+                <a class="portrait" href="author-profiles.html#donald-westlake" aria-label="Open Donald Westlake profile">
+                  <img src="img/donald-westlake.jpg" alt="Portrait of Donald Westlake">
+                  <div class="portrait-label">Donald Westlake</div>
+                </a>
+
+                <a class="portrait" href="author-profiles.html#carl-hiaasen" aria-label="Open Carl Hiaasen profile">
+                  <img src="img/carl-hiaasen.jpg" alt="Portrait of Carl Hiaasen">
+                  <div class="portrait-label">Carl Hiaasen</div>
+                </a>
+
+                <a class="portrait" href="author-profiles.html#kurt-vonnegut" aria-label="Open Kurt Vonnegut profile">
+                  <img src="img/vonnegut-sample.png" alt="Portrait of Kurt Vonnegut">
+                  <div class="portrait-label">Kurt Vonnegut</div>
+                </a>
+
+                <a class="portrait" href="author-profiles.html#douglas-adams" aria-label="Open Douglas Adams profile">
+                  <img src="img/douglas-adams.jpg" alt="Portrait of Douglas Adams">
+                  <div class="portrait-label">Douglas Adams</div>
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="gallery-foot" aria-label="Hero footer note">
+            <span>Picks evolve over time: classics, hidden gems, new voices — curated like a gallery.</span>
+            <span class="tiny" id="heroCount">6 covers · 8 authors</span>
+          </div>
+        </aside>
+
+        <!-- COPY (desktop only; mobile hidden via CSS) -->
         <div class="hero-copy">
           <div class="hero-kicker">Digital atlas &amp; critical cartography</div>
 
@@ -749,142 +957,6 @@
             </span>
           </div>
         </div>
-
-        <!-- VISUALS (gallery) -->
-        <aside class="hero-gallery" aria-label="Visual entry points: covers and authors">
-          <div class="gallery-head">
-            <div>
-              <h2>Start here · Visual picks</h2>
-              <p>Tap a cover or a face — instant entry into the atlas.</p>
-            </div>
-
-            <div class="gallery-controls" aria-label="Hero controls">
-              <button class="ctrl" type="button" data-hero="shuffle" aria-label="Shuffle the picks">
-                <strong>Shuffle</strong>
-              </button>
-              <button class="ctrl" type="button" data-hero="random" aria-label="Spotlight a random pick">
-                Random pick
-              </button>
-              <a class="ctrl" href="novel-guides.html" aria-label="Open novel guides">All novels →</a>
-            </div>
-          </div>
-
-          <div class="gallery-body">
-
-            <div class="cover-ribbon" id="heroRibbon" aria-label="Cover ribbon (scroll or grid)">
-
-              <a class="cover-tile" href="./fichewilt.html" aria-label="Open the Wilt novel guide">
-                <img src="wilt31A.png.png" alt="Cover of Wilt (Tom Sharpe)">
-                <div class="cover-meta">
-                  <div class="k">Comedy of Society · Frustration</div>
-                  <div class="t">Wilt</div>
-                  <div class="s">Tom Sharpe · 1976</div>
-                </div>
-              </a>
-
-              <a class="cover-tile" href="fr/fiche-roman/the-code-of-the-woosters" aria-label="Open The Code of the Woosters guide">
-                <img src="theco.png" alt="Cover of The Code of the Woosters (P. G. Wodehouse)">
-                <div class="cover-meta">
-                  <div class="k">Comedy of Society · Code / Etiquette</div>
-                  <div class="t">Woosters</div>
-                  <div class="s">P. G. Wodehouse · 1938</div>
-                </div>
-              </a>
-
-              <a class="cover-tile" href="fr/fiche-roman/the-girls-of-slender-means" aria-label="Open The Girls of Slender Means guide">
-                <img src="img/girls-of-slender-means.png" alt="Cover of The Girls of Slender Means (Muriel Spark)">
-                <div class="cover-meta">
-                  <div class="k">Comedy of Society · Code / Etiquette</div>
-                  <div class="t">Slender Means</div>
-                  <div class="s">Muriel Spark · 1963</div>
-                </div>
-              </a>
-
-              <a class="cover-tile" href="fr/fiche-roman/james-percival-everett" aria-label="Open James guide">
-                <img src="img/james-percival-everett.png" alt="Cover of James (Percival Everett)">
-                <div class="cover-meta">
-                  <div class="k">Neo-Nonsense · Canon Hijack</div>
-                  <div class="t">James</div>
-                  <div class="s">Percival Everett · 2024</div>
-                </div>
-              </a>
-
-              <a class="cover-tile" href="fr/fiche-roman/westlake-sample" aria-label="Open a Westlake guide sample">
-                <img src="img/westlake-sample.png" alt="Cover of a Donald Westlake comic crime novel">
-                <div class="cover-meta">
-                  <div class="k">Crime Comedy · Schemer</div>
-                  <div class="t">Westlake</div>
-                  <div class="s">Example entry</div>
-                </div>
-              </a>
-
-              <a class="cover-tile" href="fr/fiche-roman/douglas-adams-sample" aria-label="Open a Douglas Adams guide sample">
-                <img src="img/douglas-adams-sample.png" alt="Cover of a Douglas Adams novel">
-                <div class="cover-meta">
-                  <div class="k">Neo-Nonsense · Cosmic Bureaucracy</div>
-                  <div class="t">Douglas Adams</div>
-                  <div class="s">Example entry</div>
-                </div>
-              </a>
-
-            </div>
-
-            <div class="board" aria-label="Author portrait board">
-              <div class="board-title">
-                <span>Author board · Click a portrait</span>
-                <a href="author-profiles.html" aria-label="Browse all author profiles">All profiles →</a>
-              </div>
-
-              <div class="portrait-grid">
-                <a class="portrait" href="author-profiles.html#tom-sharpe" aria-label="Open Tom Sharpe profile">
-                  <img src="tomsh.jpg" alt="Portrait of Tom Sharpe">
-                  <div class="portrait-label"><span class="pl-k">Comedy of Society</span><span class="pl-n">Tom Sharpe</span></div>
-                </a>
-
-                <a class="portrait" href="author-profiles.html#wodehouse" aria-label="Open P. G. Wodehouse profile">
-                  <img src="img/pg-wodehouse.jpg" alt="Portrait of P. G. Wodehouse">
-                  <div class="portrait-label"><span class="pl-k">Comedy of Society</span><span class="pl-n">P. G. Wodehouse</span></div>
-                </a>
-
-                <a class="portrait" href="author-profiles.html#muriel-spark" aria-label="Open Muriel Spark profile">
-                  <img src="img/muriel-spark.jpg" alt="Portrait of Muriel Spark">
-                  <div class="portrait-label"><span class="pl-k">Comedy of Society</span><span class="pl-n">Muriel Spark</span></div>
-                </a>
-
-                <a class="portrait" href="author-profiles.html#percival-everett" aria-label="Open Percival Everett profile">
-                  <img src="img/percival-everett.jpg" alt="Portrait of Percival Everett">
-                  <div class="portrait-label"><span class="pl-k">Neo-Nonsense</span><span class="pl-n">Percival Everett</span></div>
-                </a>
-
-                <a class="portrait" href="author-profiles.html#donald-westlake" aria-label="Open Donald Westlake profile">
-                  <img src="img/donald-westlake.jpg" alt="Portrait of Donald Westlake">
-                  <div class="portrait-label"><span class="pl-k">Crime Comedy</span><span class="pl-n">Donald Westlake</span></div>
-                </a>
-
-                <a class="portrait" href="author-profiles.html#carl-hiaasen" aria-label="Open Carl Hiaasen profile">
-                  <img src="img/carl-hiaasen.jpg" alt="Portrait of Carl Hiaasen">
-                  <div class="portrait-label"><span class="pl-k">Crime Comedy</span><span class="pl-n">Carl Hiaasen</span></div>
-                </a>
-
-                <a class="portrait" href="author-profiles.html#kurt-vonnegut" aria-label="Open Kurt Vonnegut profile">
-                  <img src="img/vonnegut-sample.png" alt="Portrait of Kurt Vonnegut">
-                  <div class="portrait-label"><span class="pl-k">Neo-Nonsense</span><span class="pl-n">Kurt Vonnegut</span></div>
-                </a>
-
-                <a class="portrait" href="author-profiles.html#douglas-adams" aria-label="Open Douglas Adams profile">
-                  <img src="img/douglas-adams.jpg" alt="Portrait of Douglas Adams">
-                  <div class="portrait-label"><span class="pl-k">Neo-Nonsense</span><span class="pl-n">Douglas Adams</span></div>
-                </a>
-              </div>
-            </div>
-
-          </div>
-
-          <div class="gallery-foot" aria-label="Hero footer note">
-            <span>Picks evolve over time: classics, hidden gems, new voices — curated like a gallery.</span>
-            <span class="tiny" id="heroCount">6 covers · 8 authors</span>
-          </div>
-        </aside>
 
       </div>
     </section>
@@ -1029,7 +1101,7 @@
               </article>
 
               <article class="courant-rail">
-                <div class="courant-rail-label">20th century · Crime comedy</div>
+                <div class="courant-rail-label">20th century · Comic crime</div>
                 <div class="courant-rail-body">
                   <div class="courant-rail-title">Crime Comedy</div>
                   <p>
@@ -1322,7 +1394,7 @@
               <h3>Typical questions this atlas can help with</h3>
               <ul class="faq-list">
                 <li><em>“Which modern campus novels are actually funny?”</em></li>
-                <li><em>“I love Tom Sharpe. Who should I read next in crime comedy?”</em></li>
+                <li><em>“I love Tom Sharpe. Who should I read next in comic crime?”</em></li>
                 <li><em>“Comic SF books if I like Douglas Adams and Kurt Vonnegut?”</em></li>
               </ul>
             </div>
@@ -1342,7 +1414,7 @@
               </article>
               <article class="start-card">
                 <h3>Discover the three currents</h3>
-                <p>Comedy of Society, Crime Comedy and Neo-Nonsense organise the map.</p>
+                <p>Society, Crime and Neo-Nonsense organise the map.</p>
               </article>
               <article class="start-card">
                 <h3>Walk through the Labs</h3>
@@ -1406,6 +1478,8 @@
       const count = document.getElementById('heroCount');
       if(!ribbon) return;
 
+      const isMobile = window.matchMedia && window.matchMedia("(max-width: 600px)").matches;
+
       const controls = document.querySelectorAll('[data-hero]');
       const tiles = () => Array.from(ribbon.querySelectorAll('.cover-tile'));
 
@@ -1426,8 +1500,13 @@
         clearSpotlight();
         const pick = all[Math.floor(Math.random() * all.length)];
         pick.classList.add('is-spotlight');
-        pick.scrollIntoView({ behavior:"smooth", block:"nearest", inline:"start" });
-        setTimeout(() => pick.classList.remove('is-spotlight'), 2200);
+
+        if(!isMobile){
+          pick.scrollIntoView({ behavior:"smooth", block:"nearest", inline:"start" });
+          setTimeout(() => pick.classList.remove('is-spotlight'), 2200);
+        } else {
+          setTimeout(() => pick.classList.remove('is-spotlight'), 900);
+        }
       }
 
       function shuffleRibbon(){
@@ -1450,7 +1529,14 @@
       });
 
       updateCount();
-      setTimeout(spotlightRandom, 650);
+
+      /* Mobile: always start clean on the first tile */
+      ribbon.scrollLeft = 0;
+
+      /* Desktop: keep the “surprise” */
+      if(!isMobile){
+        setTimeout(spotlightRandom, 650);
+      }
     })();
   </script>
 
