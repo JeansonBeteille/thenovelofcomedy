@@ -116,12 +116,13 @@
     .hero-v2 .hero-copy{ grid-area:copy; }
     .hero-v2 .hero-gallery{ grid-area:gallery; }
 
+    /* ✅ MOBILE: order becomes COPY first, then GALLERY */
     @media(max-width:960px){
       .hero-v2 .hero-inner{
         grid-template-columns:1fr;
         grid-template-areas:
-          "gallery"
-          "copy";
+          "copy"
+          "gallery";
         padding:26px 16px 22px;
       }
     }
@@ -267,45 +268,36 @@
     }
     .hero-v2 .cover-tile img{ display:block; width:100%; height:210px; object-fit:cover; }
 
-    /* =========================================================
-       COVER META — tuned (smaller + clamp + tighter)
-       Requested changes:
-       - smaller .k
-       - reduced padding
-       - smaller internal spacing & line-height
-       ========================================================= */
+    /* ✅ compact cover meta (clamp + reduced padding/line-height) */
     .hero-v2 .cover-meta{
-      position:absolute; left:10px; right:10px; bottom:10px;
-
-      /* was: padding:8px 9px; border-radius:12px; */
-      padding:clamp(6px, 1.2vw, 8px) clamp(7px, 1.4vw, 9px);
-      border-radius:clamp(10px, 1.8vw, 12px);
-
-      background:rgba(0,0,0,.58);
+      position:absolute;
+      left:clamp(8px, 2.2vw, 10px);
+      right:clamp(8px, 2.2vw, 10px);
+      bottom:clamp(8px, 2.2vw, 10px);
+      padding:clamp(7px, 2vw, 8px) clamp(8px, 2.2vw, 9px);
+      border-radius:12px;
+      background:rgba(0,0,0,.56);
       border:1px solid rgba(255,255,255,.14);
       backdrop-filter:blur(8px);
     }
     .hero-v2 .cover-meta .k{
-      /* was: 10px */
-      font-size:clamp(9px, 1.6vw, 10px);
-      letter-spacing:.12em;     /* was: .14em */
+      font-size:clamp(9px, 2.1vw, 10px);
+      letter-spacing:.14em;
       text-transform:uppercase;
-      opacity:.86;
-      margin-bottom:clamp(0px, .35vw, 2px); /* was: 2px */
-      line-height:1.15;         /* keeps label tight */
+      opacity:.84;
+      margin-bottom:3px;
+      line-height:1.15;
     }
     .hero-v2 .cover-meta .t{
-      /* was: 12px; line-height:1.2 */
-      font-size:clamp(11px, 1.9vw, 12px);
+      font-size:clamp(12px, 2.6vw, 12px);
       font-weight:650;
-      line-height:1.14;
+      line-height:1.12;
     }
     .hero-v2 .cover-meta .s{
-      /* was: 11px; margin-top:2px */
-      font-size:clamp(10px, 1.75vw, 11px);
+      font-size:clamp(10px, 2.4vw, 11px);
       opacity:.82;
-      margin-top:clamp(0px, .35vw, 2px);
-      line-height:1.18;
+      margin-top:3px;
+      line-height:1.22;
     }
 
     @media(min-width:961px){
@@ -370,16 +362,32 @@
       text-decoration:none;
     }
     .hero-v2 .portrait img{ display:block; width:100%; height:100%; object-fit:cover; }
+
+    /* ✅ compact portrait label + current line (desktop) */
     .hero-v2 .portrait-label{
       position:absolute; left:8px; right:8px; bottom:8px;
-      padding:6px 7px;
+      padding:clamp(6px, 2vw, 7px);
       border-radius:12px;
-      background:rgba(0,0,0,.55);
+      background:rgba(0,0,0,.52);
       border:1px solid rgba(255,255,255,.14);
       backdrop-filter:blur(8px);
-      font-size:11px;
+      font-size:clamp(10px, 2.5vw, 11px);
       opacity:.92;
-      line-height:1.2;
+      line-height:1.15;
+    }
+    .hero-v2 .portrait-label .pl-k{
+      display:block;
+      font-size:10px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      opacity:.75;
+      margin-bottom:2px;
+      line-height:1.1;
+    }
+    .hero-v2 .portrait-label .pl-n{
+      display:block;
+      font-weight:600;
+      line-height:1.15;
     }
 
     .hero-v2 .gallery-foot{
@@ -391,21 +399,18 @@
     }
     .hero-v2 .tiny{ opacity:.75; }
 
+    /* ✅ MOBILE simplification: remove hero-gallery buttons + tighten head text */
     @media(max-width:600px){
       .hero-v2 .hero-title{ font-size:26px; }
-      .hero-v2 .hero-totem{ font-size:13px; line-height:1.55; }
-      .main-inner{ padding:20px 16px 28px; }
-      .section{ padding:20px 0; }
-      .section-title{ font-size:22px; }
-      .section-sub{ font-size:13px; }
-      .card{ padding:14px 14px 12px; }
-      .card-body{ font-size:13px; }
-      .card-header{ font-size:14px; }
-      .start-card{ padding:12px 12px 10px; }
-      .topbar-inner{ padding:8px 14px; }
-      .nav{ font-size:12px; gap:10px; }
-      .footer-inner{ padding:14px 14px 18px; font-size:11px; }
-      .rail{ position:static; }
+      .hero-v2 .hero-totem{ font-size:13px; line-height:1.52; }
+      .hero-v2 .gallery-controls{ display:none; }      /* remove Shuffle/Random/All novels */
+      .hero-v2 .gallery-head p{ display:none; }        /* avoid repetition */
+      .hero-v2 .gallery-head{ padding:12px 12px 8px; }
+      .hero-v2 .gallery-body{ padding:10px; gap:10px; }
+      .hero-v2 .cover-ribbon{ padding:0 0 10px; }
+      .hero-v2 .cover-tile{ flex:0 0 148px; }
+      .hero-v2 .cover-tile img{ height:206px; }
+      .hero-v2 .portrait-label .pl-k{ display:none; }  /* on mobile: name only */
     }
 
     /* =========================================================
@@ -688,12 +693,64 @@
     </header>
 
     <!-- =========================
-         HERO v2 (new)
+         HERO v2 (visual)
          ========================= -->
     <section class="hero hero-v2" aria-label="Homepage hero (visual)">
       <div class="hero-inner">
 
-        <!-- VISUALS FIRST (gallery) -->
+        <!-- COPY (now first on mobile) -->
+        <div class="hero-copy">
+          <div class="hero-kicker">Digital atlas &amp; critical cartography</div>
+
+          <h1 class="hero-title">
+            <span class="thin">The</span> <span class="bold">Novel</span> <span class="thin">of</span> <span class="bold">Comedy</span>
+          </h1>
+
+          <p class="hero-tagline">First atlas &amp; critical cartography of modern comic fiction</p>
+
+          <p class="hero-totem">
+            <em>Comedy is one of the most precise ways of reading reality.</em><br>
+            A living library of novels and authors — built to compare tones, mechanics, and comic forms.
+          </p>
+
+          <div class="badge-row" aria-label="Freshness badges">
+            <span class="badge"><span class="dot"></span> Updated <span class="mut">Dec 2025</span></span>
+            <span class="badge">Curated picks <span class="mut">· not an algorithm</span></span>
+            <span class="badge">Read → Map → Connect</span>
+          </div>
+
+          <div class="hero-actions">
+            <a href="novel-guides.html" class="btn btn-primary">Explore novel guides</a>
+            <a href="author-profiles.html" class="btn btn-secondary">Browse author profiles</a>
+            <a href="currents.html" class="btn btn-ghost">See the map</a>
+          </div>
+
+          <div class="hero-chips" aria-label="Main currents">
+            <span class="chip">
+              <span class="chip-dot"></span>
+              <span class="chip-text">
+                <span class="chip-label">Comedy of Society</span>
+                <span class="chip-desc">institutions, daily life, social friction</span>
+              </span>
+            </span>
+            <span class="chip">
+              <span class="chip-dot"></span>
+              <span class="chip-text">
+                <span class="chip-label">Crime Comedy</span>
+                <span class="chip-desc">fault, plans, transgression as comic fuel</span>
+              </span>
+            </span>
+            <span class="chip">
+              <span class="chip-dot"></span>
+              <span class="chip-text">
+                <span class="chip-label">Neo-Nonsense</span>
+                <span class="chip-desc">absurd logic, science, vertigo of meaning</span>
+              </span>
+            </span>
+          </div>
+        </div>
+
+        <!-- VISUALS (gallery) -->
         <aside class="hero-gallery" aria-label="Visual entry points: covers and authors">
           <div class="gallery-head">
             <div>
@@ -715,6 +772,7 @@
           <div class="gallery-body">
 
             <div class="cover-ribbon" id="heroRibbon" aria-label="Cover ribbon (scroll or grid)">
+
               <a class="cover-tile" href="./fichewilt.html" aria-label="Open the Wilt novel guide">
                 <img src="wilt31A.png.png" alt="Cover of Wilt (Tom Sharpe)">
                 <div class="cover-meta">
@@ -768,6 +826,7 @@
                   <div class="s">Example entry</div>
                 </div>
               </a>
+
             </div>
 
             <div class="board" aria-label="Author portrait board">
@@ -779,42 +838,42 @@
               <div class="portrait-grid">
                 <a class="portrait" href="author-profiles.html#tom-sharpe" aria-label="Open Tom Sharpe profile">
                   <img src="tomsh.jpg" alt="Portrait of Tom Sharpe">
-                  <div class="portrait-label">Tom Sharpe</div>
+                  <div class="portrait-label"><span class="pl-k">Comedy of Society</span><span class="pl-n">Tom Sharpe</span></div>
                 </a>
 
                 <a class="portrait" href="author-profiles.html#wodehouse" aria-label="Open P. G. Wodehouse profile">
                   <img src="img/pg-wodehouse.jpg" alt="Portrait of P. G. Wodehouse">
-                  <div class="portrait-label">P. G. Wodehouse</div>
+                  <div class="portrait-label"><span class="pl-k">Comedy of Society</span><span class="pl-n">P. G. Wodehouse</span></div>
                 </a>
 
                 <a class="portrait" href="author-profiles.html#muriel-spark" aria-label="Open Muriel Spark profile">
                   <img src="img/muriel-spark.jpg" alt="Portrait of Muriel Spark">
-                  <div class="portrait-label">Muriel Spark</div>
+                  <div class="portrait-label"><span class="pl-k">Comedy of Society</span><span class="pl-n">Muriel Spark</span></div>
                 </a>
 
                 <a class="portrait" href="author-profiles.html#percival-everett" aria-label="Open Percival Everett profile">
                   <img src="img/percival-everett.jpg" alt="Portrait of Percival Everett">
-                  <div class="portrait-label">Percival Everett</div>
+                  <div class="portrait-label"><span class="pl-k">Neo-Nonsense</span><span class="pl-n">Percival Everett</span></div>
                 </a>
 
                 <a class="portrait" href="author-profiles.html#donald-westlake" aria-label="Open Donald Westlake profile">
                   <img src="img/donald-westlake.jpg" alt="Portrait of Donald Westlake">
-                  <div class="portrait-label">Donald Westlake</div>
+                  <div class="portrait-label"><span class="pl-k">Crime Comedy</span><span class="pl-n">Donald Westlake</span></div>
                 </a>
 
                 <a class="portrait" href="author-profiles.html#carl-hiaasen" aria-label="Open Carl Hiaasen profile">
                   <img src="img/carl-hiaasen.jpg" alt="Portrait of Carl Hiaasen">
-                  <div class="portrait-label">Carl Hiaasen</div>
+                  <div class="portrait-label"><span class="pl-k">Crime Comedy</span><span class="pl-n">Carl Hiaasen</span></div>
                 </a>
 
                 <a class="portrait" href="author-profiles.html#kurt-vonnegut" aria-label="Open Kurt Vonnegut profile">
                   <img src="img/vonnegut-sample.png" alt="Portrait of Kurt Vonnegut">
-                  <div class="portrait-label">Kurt Vonnegut</div>
+                  <div class="portrait-label"><span class="pl-k">Neo-Nonsense</span><span class="pl-n">Kurt Vonnegut</span></div>
                 </a>
 
                 <a class="portrait" href="author-profiles.html#douglas-adams" aria-label="Open Douglas Adams profile">
                   <img src="img/douglas-adams.jpg" alt="Portrait of Douglas Adams">
-                  <div class="portrait-label">Douglas Adams</div>
+                  <div class="portrait-label"><span class="pl-k">Neo-Nonsense</span><span class="pl-n">Douglas Adams</span></div>
                 </a>
               </div>
             </div>
@@ -822,62 +881,10 @@
           </div>
 
           <div class="gallery-foot" aria-label="Hero footer note">
-            <span>Picks evolve over time: classics, hidden gems, new voices curated like a gallery.</span>
+            <span>Picks evolve over time: classics, hidden gems, new voices — curated like a gallery.</span>
             <span class="tiny" id="heroCount">6 covers · 8 authors</span>
           </div>
         </aside>
-
-        <!-- COPY -->
-        <div class="hero-copy">
-          <div class="hero-kicker">Digital atlas &amp; critical cartography</div>
-
-          <h1 class="hero-title">
-            <span class="thin">The</span> <span class="bold">Novel</span> <span class="thin">of</span> <span class="bold">Comedy</span>
-          </h1>
-
-          <p class="hero-tagline">First atlas &amp; critical cartography of modern comic fiction</p>
-
-          <p class="hero-totem">
-            <em>Comedy is one of the most precise ways of reading reality.</em><br>
-            A living library of novels and authors. Famous novels or hidden ones. Celebrated authors or overlooked ones.
-          </p>
-
-          <div class="badge-row" aria-label="Freshness badges">
-            <span class="badge"><span class="dot"></span> Updated <span class="mut">Dec 2025</span></span>
-            <span class="badge">Curated picks <span class="mut">· not an algorithm</span></span>
-            <span class="badge">Read → Map → Connect</span>
-          </div>
-
-          <div class="hero-actions">
-            <a href="novel-guides.html" class="btn btn-primary">Explore novel guides</a>
-            <a href="author-profiles.html" class="btn btn-secondary">Browse author profiles</a>
-            <a href="currents.html" class="btn btn-ghost">See the map</a>
-          </div>
-
-          <div class="hero-chips" aria-label="Main currents">
-            <span class="chip">
-              <span class="chip-dot"></span>
-              <span class="chip-text">
-                <span class="chip-label">Comedy of Society</span>
-                <span class="chip-desc">institutions, daily life, social friction</span>
-              </span>
-            </span>
-            <span class="chip">
-              <span class="chip-dot"></span>
-              <span class="chip-text">
-                <span class="chip-label">Crime Comedy</span>
-                <span class="chip-desc">fault, plans, transgression as comic fuel</span>
-              </span>
-            </span>
-            <span class="chip">
-              <span class="chip-dot"></span>
-              <span class="chip-text">
-                <span class="chip-label">Neo-Nonsense</span>
-                <span class="chip-desc">absurd logic, science, vertigo of meaning</span>
-              </span>
-            </span>
-          </div>
-        </div>
 
       </div>
     </section>
@@ -1022,7 +1029,7 @@
               </article>
 
               <article class="courant-rail">
-                <div class="courant-rail-label">20th century · Comic crime</div>
+                <div class="courant-rail-label">20th century · Crime comedy</div>
                 <div class="courant-rail-body">
                   <div class="courant-rail-title">Crime Comedy</div>
                   <p>
@@ -1335,7 +1342,7 @@
               </article>
               <article class="start-card">
                 <h3>Discover the three currents</h3>
-                <p>Society, Crime and Neo-Nonsense organise the map.</p>
+                <p>Comedy of Society, Crime Comedy and Neo-Nonsense organise the map.</p>
               </article>
               <article class="start-card">
                 <h3>Walk through the Labs</h3>
@@ -1523,5 +1530,3 @@
 
 </body>
 </html>
-
-
