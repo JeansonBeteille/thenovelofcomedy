@@ -42,6 +42,7 @@
     }
     .skip-link:focus{ left:12px; outline:none; }
 
+    /* TOP BAR */
     .topbar{
       position:sticky; top:0; z-index:20;
       backdrop-filter:blur(10px);
@@ -119,11 +120,11 @@
     @media(max-width:960px){
       .hero-v2 .hero-inner{
         grid-template-columns:1fr;
-        grid-template-areas:"gallery";
-        padding:18px 16px 18px;
+        grid-template-areas:
+          "copy"
+          "gallery";
+        padding:26px 16px 22px;
       }
-      /* mobile = no editorial duplication inside hero */
-      .hero-v2 .hero-copy{ display:none; }
     }
 
     .hero-v2 .hero-kicker{
@@ -195,9 +196,10 @@
     }
     .hero-v2 .chip-dot{ width:8px; height:8px; border-radius:50%; background:var(--evergreen); flex-shrink:0; }
     .hero-v2 .chip-text{ display:flex; flex-direction:column; gap:1px; }
-    .hero-v2 .chip-label{ font-size:11px; font-weight:500; }
+    .hero-v2 .chip-label{ font-size:11px; font-weight:600; }
     .hero-v2 .chip-desc{ font-size:10px; opacity:.85; }
 
+    /* Gallery container */
     .hero-v2 .hero-gallery{
       border-radius:18px;
       border:1px solid rgba(255,255,255,.16);
@@ -234,31 +236,17 @@
     .hero-v2 .ctrl:hover{ opacity:1; text-decoration:none; }
     .hero-v2 .ctrl strong{ font-weight:700; }
 
-    /* Mobile: remove cognitive load (keep only "All novels") */
-    @media (max-width: 600px){
-      .hero-v2 .gallery-controls button.ctrl{ display:none; }
-      .hero-v2 .gallery-head p{ display:none; }
-    }
-
     .hero-v2 .gallery-body{ padding:12px; display:grid; gap:12px; }
 
-    /* Ribbon: safer on mobile (no left-cut) */
+    /* Covers */
     .hero-v2 .cover-ribbon{
       display:flex;
       gap:10px;
       overflow:auto;
-      padding:2px 2px 10px;
+      padding:2px 2px 10px; /* key: avoids left cut on scroll */
       scroll-snap-type:x mandatory;
       -webkit-overflow-scrolling:touch;
-      scroll-padding-left:14px;
-      scroll-padding-right:14px;
     }
-    .hero-v2 .cover-ribbon::before,
-    .hero-v2 .cover-ribbon::after{
-      content:"";
-      flex:0 0 12px;
-    }
-
     .hero-v2 .cover-ribbon::-webkit-scrollbar{ height:8px; }
     .hero-v2 .cover-ribbon::-webkit-scrollbar-thumb{ background:rgba(255,255,255,.14); border-radius:999px; }
 
@@ -282,42 +270,45 @@
     }
     .hero-v2 .cover-tile img{ display:block; width:100%; height:210px; object-fit:cover; }
 
-    /* Cover meta: denser + smaller (as requested) */
+    /* Meta overlay: tighter + smaller .k + reduced line-height */
     .hero-v2 .cover-meta{
       position:absolute; left:10px; right:10px; bottom:10px;
-      padding:6px 7px; /* reduced */
+      padding:6px 8px;
       border-radius:12px;
       background:rgba(0,0,0,.58);
       border:1px solid rgba(255,255,255,.14);
       backdrop-filter:blur(8px);
     }
     .hero-v2 .cover-meta .k{
-      font-size:clamp(9px, 1.9vw, 10px);
+      font-size:clamp(9px, 2.4vw, 10px);
       letter-spacing:.12em;
       text-transform:uppercase;
-      opacity:.85;
-      margin:0 0 2px;
-      line-height:1.15; /* tighter */
-      white-space:normal;
+      opacity:.86;
+      margin-bottom:2px;
+      line-height:1.08;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
     }
     .hero-v2 .cover-meta .t{
       font-size:12px;
       font-weight:650;
-      line-height:1.15;
-      margin:0;
+      line-height:1.12;
     }
     .hero-v2 .cover-meta .s{
       font-size:11px;
       opacity:.82;
       margin-top:2px;
-      line-height:1.2;
+      line-height:1.18;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
     }
 
-    /* Hide "Current" in label on mobile (keep branch only) */
-    @media (max-width: 600px){
-      .hero-v2 .cover-meta .k .cur,
-      .hero-v2 .cover-meta .k .sep{ display:none; }
-    }
+    /* Structured label: Current + Branch (mobile can hide Current) */
+    .hero-v2 .k .cur{ opacity:.92; }
+    .hero-v2 .k .sep{ opacity:.55; padding:0 6px; }
+    .hero-v2 .k .br{ opacity:.95; font-weight:650; }
 
     @media(min-width:961px){
       .hero-v2 .cover-ribbon{
@@ -325,23 +316,11 @@
         grid-template-columns:repeat(3,minmax(0,1fr));
         overflow:visible; padding:0; scroll-snap-type:none;
       }
-      .hero-v2 .cover-ribbon::before,
-      .hero-v2 .cover-ribbon::after{ display:none; }
       .hero-v2 .cover-tile{ flex:auto; }
       .hero-v2 .cover-tile img{ height:170px; }
     }
 
-    .hero-v2 .cover-tile.is-spotlight{
-      border-color:rgba(255,255,255,.55);
-      box-shadow:0 18px 60px rgba(0,0,0,.75);
-      animation:tnocPulse 1.4s ease-in-out 1;
-    }
-    @keyframes tnocPulse{
-      0%{ transform:translateY(0); }
-      40%{ transform:translateY(-3px); }
-      100%{ transform:translateY(0); }
-    }
-
+    /* Boards */
     .hero-v2 .board{
       border-radius:14px;
       border:1px solid rgba(255,255,255,.14);
@@ -393,6 +372,46 @@
       font-size:11px;
       opacity:.92;
       line-height:1.2;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+
+    /* Cartography board (mobile-friendly “three currents”) */
+    .hero-v2 .carto-grid{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+      gap:8px;
+    }
+    @media(max-width:520px){ .hero-v2 .carto-grid{ grid-template-columns:1fr; } }
+
+    .hero-v2 .carto-card{
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      padding:10px 10px 9px;
+      min-width:0;
+    }
+    .hero-v2 .carto-card .lbl{
+      font-size:10px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      opacity:.78;
+      margin-bottom:4px;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .hero-v2 .carto-card .name{
+      font-size:12px;
+      font-weight:700;
+      line-height:1.15;
+      margin-bottom:4px;
+    }
+    .hero-v2 .carto-card .desc{
+      font-size:11px;
+      opacity:.78;
+      line-height:1.35;
     }
 
     .hero-v2 .gallery-foot{
@@ -404,57 +423,87 @@
     }
     .hero-v2 .tiny{ opacity:.75; }
 
-    /* MOBILE Cartography block (between covers and authors) */
-    .hero-v2 .mobile-cartography{ display:none; }
-    @media (max-width: 960px){
-      .hero-v2 .mobile-cartography{
-        display:block;
-        border-radius:14px;
-        border:1px solid rgba(255,255,255,.14);
-        background:rgba(0,0,0,.35);
-        padding:10px;
-      }
-      .hero-v2 .mc-head{
-        font-size:11px;
-        letter-spacing:.14em;
-        text-transform:uppercase;
-        opacity:.88;
-        margin:0 0 8px;
-      }
-      .hero-v2 .mc-chips{ display:grid; gap:8px; }
-      .hero-v2 .mc-chip{
-        display:flex;
-        gap:10px;
-        align-items:flex-start;
-        padding:8px 10px;
-        border-radius:12px;
-        border:1px solid rgba(255,255,255,.14);
-        background:rgba(255,255,255,.06);
-      }
-      .hero-v2 .mc-dot{
-        width:8px; height:8px; border-radius:50%;
-        background:var(--evergreen);
-        box-shadow:0 0 0 6px rgba(46,125,50,.18);
-        margin-top:4px;
-        flex:0 0 auto;
-      }
-      .hero-v2 .mc-label{
-        display:block;
-        font-weight:650;
-        font-size:13px;
-        line-height:1.15;
-      }
-      .hero-v2 .mc-desc{
-        display:block;
-        font-size:12px;
-        opacity:.82;
-        margin-top:2px;
-        line-height:1.25;
-      }
-    }
+    /* =========================================================
+       MOBILE: “more gallery”, less redundancy, no big poster
+       ========================================================= */
+    @media (max-width: 600px){
+      /* a bit more room so nothing feels “cut” */
+      .hero-v2 .hero-inner{ padding-left:16px; padding-right:16px; }
 
-    @media(max-width:600px){
-      .hero-v2 .gallery-body{ padding:10px; }
+      /* remove repeated branding / heavy UI in hero on mobile */
+      .hero-v2 .hero-kicker{ display:none; }
+      .hero-v2 .hero-title{ display:none; }      /* already in topbar */
+      .hero-v2 .hero-tagline{ display:none; }    /* already elsewhere */
+      .hero-v2 .badge-row{ display:none; }       /* avoid UI duplication */
+      .hero-v2 .hero-actions{ display:none; }    /* avoid too many buttons */
+
+      /* keep totem but tighten */
+      .hero-v2 .hero-totem{
+        margin-top:8px;
+        font-size:13px;
+        line-height:1.5;
+        opacity:.92;
+      }
+
+      /* gallery header: keep title, hide controls (shuffle/random) */
+      .hero-v2 .gallery-controls{ display:none; }
+      .hero-v2 .gallery-head p{ display:none; } /* keep it ultra-clear */
+
+      /* Covers: turn ribbon into compact grid */
+      .hero-v2 .cover-ribbon{
+        display:grid;
+        grid-template-columns:repeat(2, minmax(0, 1fr));
+        gap:10px;
+        overflow:visible;
+        padding:2px;
+        scroll-snap-type:none;
+        -webkit-overflow-scrolling:auto;
+      }
+      @media (min-width:460px){
+        .hero-v2 .cover-ribbon{ grid-template-columns:repeat(3, minmax(0, 1fr)); }
+      }
+
+      .hero-v2 .cover-tile{
+        flex:auto;
+        transform:none;
+      }
+      .hero-v2 .cover-tile:hover{ transform:none; }
+
+      /* consistent, compact height (no “featured poster”) */
+      .hero-v2 .cover-tile img{
+        height:170px;
+        object-fit:cover;
+      }
+      @media (min-width:460px){
+        .hero-v2 .cover-tile img{ height:150px; }
+      }
+
+      /* meta: smaller and tighter */
+      .hero-v2 .cover-meta{
+        left:9px; right:9px; bottom:9px;
+        padding:6px 7px;
+      }
+      .hero-v2 .cover-meta .k{
+        font-size:clamp(9px, 2.6vw, 10px);
+        line-height:1.10;
+        margin:0 0 2px;
+      }
+      .hero-v2 .cover-meta .t{
+        font-size:12px;
+        line-height:1.12;
+      }
+      .hero-v2 .cover-meta .s{
+        font-size:10.5px;
+        line-height:1.18;
+        margin-top:2px;
+      }
+
+      /* mobile label: show Branch only to avoid doubling */
+      .hero-v2 .k .cur,
+      .hero-v2 .k .sep{ display:none; }
+
+      /* cartography + author boards are “hero structure” on mobile */
+      .hero-v2 .gallery-foot{ display:none; } /* optional; keeps hero tight */
     }
 
     /* =========================================================
@@ -705,6 +754,21 @@
       font-size:12px; opacity:.88;
     }
     .footer-links{ display:flex; flex-wrap:wrap; gap:12px; }
+
+    @media(max-width:600px){
+      .main-inner{ padding:20px 16px 28px; }
+      .section{ padding:20px 0; }
+      .section-title{ font-size:22px; }
+      .section-sub{ font-size:13px; }
+      .card{ padding:14px 14px 12px; }
+      .card-body{ font-size:13px; }
+      .card-header{ font-size:14px; }
+      .start-card{ padding:12px 12px 10px; }
+      .topbar-inner{ padding:8px 14px; }
+      .nav{ font-size:12px; gap:10px; }
+      .footer-inner{ padding:14px 14px 18px; font-size:11px; }
+      .rail{ position:static; }
+    }
   </style>
 </head>
 
@@ -719,7 +783,7 @@
           <div class="brand-mark">TNoC</div>
           <div class="brand-text">
             <div class="brand-title">The Novel of Comedy</div>
-            <div class="brand-sub">Digital atlas & critical cartography of comic fiction</div>
+            <div class="brand-sub">Digital atlas &amp; critical cartography of comic fiction</div>
           </div>
         </a>
 
@@ -737,16 +801,69 @@
     </header>
 
     <!-- =========================
-         HERO v2 (desktop = as-is, mobile = gallery-only)
+         HERO v2 (desktop stays “perfect”)
+         Mobile: less copy + gallery-first
          ========================= -->
     <section class="hero hero-v2" aria-label="Homepage hero (visual)">
       <div class="hero-inner">
 
-        <!-- VISUALS FIRST (gallery) -->
-        <aside class="hero-gallery" aria-label="Visual entry points: covers and authors">
+        <!-- COPY (kept for desktop, trimmed by CSS on mobile) -->
+        <div class="hero-copy">
+          <div class="hero-kicker">Digital atlas &amp; critical cartography</div>
+
+          <h1 class="hero-title">
+            <span class="thin">The</span> <span class="bold">Novel</span> <span class="thin">of</span> <span class="bold">Comedy</span>
+          </h1>
+
+          <p class="hero-tagline">First atlas &amp; critical cartography of modern comic fiction</p>
+
+          <p class="hero-totem">
+            <em>Comedy is one of the most precise ways of reading reality.</em><br>
+            A living library of novels and authors — built to compare tones, mechanics, and comic forms.
+          </p>
+
+          <div class="badge-row" aria-label="Freshness badges">
+            <span class="badge"><span class="dot"></span> Updated <span class="mut">Dec 2025</span></span>
+            <span class="badge">Curated picks <span class="mut">· not an algorithm</span></span>
+            <span class="badge">Read → Map → Connect</span>
+          </div>
+
+          <div class="hero-actions">
+            <a href="novel-guides.html" class="btn btn-primary">Explore novel guides</a>
+            <a href="author-profiles.html" class="btn btn-secondary">Browse author profiles</a>
+            <a href="currents.html" class="btn btn-ghost">See the map</a>
+          </div>
+
+          <div class="hero-chips" aria-label="Main currents">
+            <span class="chip">
+              <span class="chip-dot"></span>
+              <span class="chip-text">
+                <span class="chip-label">Comedy of Society</span>
+                <span class="chip-desc">institutions, daily life, social friction</span>
+              </span>
+            </span>
+            <span class="chip">
+              <span class="chip-dot"></span>
+              <span class="chip-text">
+                <span class="chip-label">Comic Crime</span>
+                <span class="chip-desc">fault, plans, transgression as comic fuel</span>
+              </span>
+            </span>
+            <span class="chip">
+              <span class="chip-dot"></span>
+              <span class="chip-text">
+                <span class="chip-label">Neo-Nonsense</span>
+                <span class="chip-desc">absurd logic, science, vertigo of meaning</span>
+              </span>
+            </span>
+          </div>
+        </div>
+
+        <!-- GALLERY (covers → cartography → authors) -->
+        <aside class="hero-gallery" aria-label="Visual entry points: covers, cartography and authors">
           <div class="gallery-head">
             <div>
-              <h2>Start here · Visual picks</h2>
+              <h2>Start here · Gallery</h2>
               <p>Tap a cover or a face — instant entry into the atlas.</p>
             </div>
 
@@ -763,11 +880,14 @@
 
           <div class="gallery-body">
 
-            <div class="cover-ribbon" id="heroRibbon" aria-label="Cover ribbon (scroll or grid)">
-              <a class="cover-tile" href="./fichewilt.html" aria-label="Open the Wilt novel guide">
-                <img src="wilt31A.png.png" alt="Cover of Wilt (Tom Sharpe)">
+            <!-- Covers -->
+            <div class="cover-ribbon" id="heroRibbon" aria-label="Cover gallery">
+              <a class="cover-tile" href="fr/fiche-roman/wilt-1976" aria-label="Open the Wilt novel guide">
+                <img src="wilt31A.png" alt="Cover of Wilt (Tom Sharpe)">
                 <div class="cover-meta">
-                  <div class="k"><span class="cur">Comedy of Society</span><span class="sep"> · </span><span class="br">Frustration</span></div>
+                  <div class="k">
+                    <span class="cur">Comedy of Society</span><span class="sep">·</span><span class="br">Frustration</span>
+                  </div>
                   <div class="t">Wilt</div>
                   <div class="s">Tom Sharpe · 1976</div>
                 </div>
@@ -776,7 +896,9 @@
               <a class="cover-tile" href="fr/fiche-roman/the-code-of-the-woosters" aria-label="Open The Code of the Woosters guide">
                 <img src="theco.png" alt="Cover of The Code of the Woosters (P. G. Wodehouse)">
                 <div class="cover-meta">
-                  <div class="k"><span class="cur">Comedy of Society</span><span class="sep"> · </span><span class="br">Code / Etiquette</span></div>
+                  <div class="k">
+                    <span class="cur">Comedy of Society</span><span class="sep">·</span><span class="br">Code / Etiquette</span>
+                  </div>
                   <div class="t">Woosters</div>
                   <div class="s">P. G. Wodehouse · 1938</div>
                 </div>
@@ -785,7 +907,9 @@
               <a class="cover-tile" href="fr/fiche-roman/the-girls-of-slender-means" aria-label="Open The Girls of Slender Means guide">
                 <img src="img/girls-of-slender-means.png" alt="Cover of The Girls of Slender Means (Muriel Spark)">
                 <div class="cover-meta">
-                  <div class="k"><span class="cur">Comedy of Society</span><span class="sep"> · </span><span class="br">Code / Etiquette</span></div>
+                  <div class="k">
+                    <span class="cur">Comedy of Society</span><span class="sep">·</span><span class="br">Code / Etiquette</span>
+                  </div>
                   <div class="t">Slender Means</div>
                   <div class="s">Muriel Spark · 1963</div>
                 </div>
@@ -794,7 +918,9 @@
               <a class="cover-tile" href="fr/fiche-roman/james-percival-everett" aria-label="Open James guide">
                 <img src="img/james-percival-everett.png" alt="Cover of James (Percival Everett)">
                 <div class="cover-meta">
-                  <div class="k"><span class="cur">Neo-Nonsense</span><span class="sep"> · </span><span class="br">Canon Hijack</span></div>
+                  <div class="k">
+                    <span class="cur">Neo-Nonsense</span><span class="sep">·</span><span class="br">Canon Hijack</span>
+                  </div>
                   <div class="t">James</div>
                   <div class="s">Percival Everett · 2024</div>
                 </div>
@@ -803,7 +929,9 @@
               <a class="cover-tile" href="fr/fiche-roman/westlake-sample" aria-label="Open a Westlake guide sample">
                 <img src="img/westlake-sample.png" alt="Cover of a Donald Westlake comic crime novel">
                 <div class="cover-meta">
-                  <div class="k"><span class="cur">Crime Comedy</span><span class="sep"> · </span><span class="br">Schemer</span></div>
+                  <div class="k">
+                    <span class="cur">Comic Crime</span><span class="sep">·</span><span class="br">Schemer</span>
+                  </div>
                   <div class="t">Westlake</div>
                   <div class="s">Example entry</div>
                 </div>
@@ -812,43 +940,44 @@
               <a class="cover-tile" href="fr/fiche-roman/douglas-adams-sample" aria-label="Open a Douglas Adams guide sample">
                 <img src="img/douglas-adams-sample.png" alt="Cover of a Douglas Adams novel">
                 <div class="cover-meta">
-                  <div class="k"><span class="cur">Neo-Nonsense</span><span class="sep"> · </span><span class="br">Cosmic Bureaucracy</span></div>
+                  <div class="k">
+                    <span class="cur">Neo-Nonsense</span><span class="sep">·</span><span class="br">Cosmic Bureaucracy</span>
+                  </div>
                   <div class="t">Douglas Adams</div>
                   <div class="s">Example entry</div>
                 </div>
               </a>
             </div>
 
-            <!-- MOBILE: Cartography block (shown only on small screens) -->
-            <div class="mobile-cartography" aria-label="Cartography (mobile)">
-              <div class="mc-head">Cartography · The three currents</div>
-              <div class="mc-chips">
-                <span class="mc-chip">
-                  <span class="mc-dot"></span>
-                  <span class="mc-text">
-                    <span class="mc-label">Comedy of Society</span>
-                    <span class="mc-desc">institutions, daily life, social friction</span>
-                  </span>
-                </span>
+            <!-- Cartography -->
+            <div class="board" aria-label="Cartography: three currents">
+              <div class="board-title">
+                <span>Cartography · Three currents</span>
+                <a href="currents.html" aria-label="Open currents page">Open map →</a>
+              </div>
 
-                <span class="mc-chip">
-                  <span class="mc-dot"></span>
-                  <span class="mc-text">
-                    <span class="mc-label">Crime Comedy</span>
-                    <span class="mc-desc">fault, plans, transgression as comic fuel</span>
-                  </span>
-                </span>
+              <div class="carto-grid">
+                <a class="carto-card" href="currents.html#society" aria-label="Comedy of Society on the currents page">
+                  <div class="lbl">Origin · Individual vs group</div>
+                  <div class="name">Comedy of Society</div>
+                  <div class="desc">Institutions, work, family, codes — friction between self and rule.</div>
+                </a>
 
-                <span class="mc-chip">
-                  <span class="mc-dot"></span>
-                  <span class="mc-text">
-                    <span class="mc-label">Neo-Nonsense</span>
-                    <span class="mc-desc">absurd logic, science, vertigo of meaning</span>
-                  </span>
-                </span>
+                <a class="carto-card" href="currents.html#crime" aria-label="Comic Crime on the currents page">
+                  <div class="lbl">20th century · Transgression</div>
+                  <div class="name">Comic Crime</div>
+                  <div class="desc">Failed plans, flexible moralities — crime as comic terrain.</div>
+                </a>
+
+                <a class="carto-card" href="currents.html#neo-nonsense" aria-label="Neo-Nonsense on the currents page">
+                  <div class="lbl">Post-war · Meaning vertigo</div>
+                  <div class="name">Neo-Nonsense</div>
+                  <div class="desc">Science, systems, existential games — rigorous logic in an unstable world.</div>
+                </a>
               </div>
             </div>
 
+            <!-- Authors -->
             <div class="board" aria-label="Author portrait board">
               <div class="board-title">
                 <span>Author board · Click a portrait</span>
@@ -905,58 +1034,6 @@
             <span class="tiny" id="heroCount">6 covers · 8 authors</span>
           </div>
         </aside>
-
-        <!-- COPY (desktop only; mobile hidden via CSS) -->
-        <div class="hero-copy">
-          <div class="hero-kicker">Digital atlas &amp; critical cartography</div>
-
-          <h1 class="hero-title">
-            <span class="thin">The</span> <span class="bold">Novel</span> <span class="thin">of</span> <span class="bold">Comedy</span>
-          </h1>
-
-          <p class="hero-tagline">First atlas &amp; critical cartography of modern comic fiction</p>
-
-          <p class="hero-totem">
-            <em>Comedy is one of the most precise ways of reading reality.</em><br>
-            A living library of novels and authors — built to compare tones, mechanics, and comic forms.
-          </p>
-
-          <div class="badge-row" aria-label="Freshness badges">
-            <span class="badge"><span class="dot"></span> Updated <span class="mut">Dec 2025</span></span>
-            <span class="badge">Curated picks <span class="mut">· not an algorithm</span></span>
-            <span class="badge">Read → Map → Connect</span>
-          </div>
-
-          <div class="hero-actions">
-            <a href="novel-guides.html" class="btn btn-primary">Explore novel guides</a>
-            <a href="author-profiles.html" class="btn btn-secondary">Browse author profiles</a>
-            <a href="currents.html" class="btn btn-ghost">See the map</a>
-          </div>
-
-          <div class="hero-chips" aria-label="Main currents">
-            <span class="chip">
-              <span class="chip-dot"></span>
-              <span class="chip-text">
-                <span class="chip-label">Comedy of Society</span>
-                <span class="chip-desc">institutions, daily life, social friction</span>
-              </span>
-            </span>
-            <span class="chip">
-              <span class="chip-dot"></span>
-              <span class="chip-text">
-                <span class="chip-label">Crime Comedy</span>
-                <span class="chip-desc">fault, plans, transgression as comic fuel</span>
-              </span>
-            </span>
-            <span class="chip">
-              <span class="chip-dot"></span>
-              <span class="chip-text">
-                <span class="chip-label">Neo-Nonsense</span>
-                <span class="chip-desc">absurd logic, science, vertigo of meaning</span>
-              </span>
-            </span>
-          </div>
-        </div>
 
       </div>
     </section>
@@ -1047,7 +1124,7 @@
               <div class="section-kicker">Currents</div>
               <h2 class="section-title">The three currents of modern comic fiction</h2>
               <p class="section-sub">
-                Comedy of Society, Crime Comedy and Neo-Nonsense describe three main dynamics of modern laughter:
+                Comedy of Society, Comic Crime and Neo-Nonsense describe three main dynamics of modern laughter:
                 the individual facing the group, the rule, and the universe. They do not exclude hybrid forms, but they offer clear landmarks.
               </p>
 
@@ -1066,13 +1143,12 @@
             <div class="courants-rails">
               <div class="courants-rails-intro">
                 <p>
-                  Comedy of Society is the original comic in literary. The individual facing the collective: family, work, neighbourhood, institutions, hierarchies.
-                  Humour arises from the friction between the self and the rule.
-                  In the 20th century, Crime Comedy turns crime into a comic terrain. After World War II,
-                  Neo-Nonsense integrates scientific and existential vertigo.
+                  Comedy of Society is the original comic current in literature: the individual facing the collective.
+                  In the 20th century, Comic Crime turns transgression into a comic terrain.
+                  After World War II, Neo-Nonsense integrates scientific and existential vertigo.
                 </p>
                 <p class="courants-rails-timeline">
-                  Comedy of Society (integration / refusal) · Crime Comedy (transgression) · Neo-Nonsense (vertigo of meaning)
+                  Comedy of Society (integration / refusal) · Comic Crime (transgression) · Neo-Nonsense (vertigo of meaning)
                 </p>
               </div>
 
@@ -1103,7 +1179,7 @@
               <article class="courant-rail">
                 <div class="courant-rail-label">20th century · Comic crime</div>
                 <div class="courant-rail-body">
-                  <div class="courant-rail-title">Crime Comedy</div>
+                  <div class="courant-rail-title">Comic Crime</div>
                   <p>
                     The individual facing rule, law and morality. Crime, fault and transgression become comic material.
                   </p>
@@ -1164,7 +1240,7 @@
                       </div>
                     </div>
                     <div class="current-main">
-                      <div class="current-label">Society · Social comedy</div>
+                      <div class="current-label">Comedy of Society · Social friction</div>
                       <div class="current-name">Comedy of Society</div>
                       <div class="current-desc">
                         Brilliant losers, neighbours, colleagues, families and institutions that never quite work
@@ -1186,8 +1262,8 @@
                       </div>
                     </div>
                     <div class="current-main">
-                      <div class="current-label">Crime · Comic noir & caper</div>
-                      <div class="current-name">Crime Comedy</div>
+                      <div class="current-label">Comic Crime · Comic noir &amp; caper</div>
+                      <div class="current-name">Comic Crime</div>
                       <div class="current-desc">
                         Plans that go wrong, criminals not quite competent enough, moral systems that look more absurd
                         than the crimes themselves.
@@ -1224,7 +1300,7 @@
 
                 <div class="current-nav" aria-label="Switch current examples">
                   <button class="current-dot is-active" data-target="0">Comedy of Society</button>
-                  <button class="current-dot" data-target="1">Crime Comedy</button>
+                  <button class="current-dot" data-target="1">Comic Crime</button>
                   <button class="current-dot" data-target="2">Neo-Nonsense</button>
                 </div>
               </div>
@@ -1414,7 +1490,7 @@
               </article>
               <article class="start-card">
                 <h3>Discover the three currents</h3>
-                <p>Society, Crime and Neo-Nonsense organise the map.</p>
+                <p>Comedy of Society, Comic Crime, Neo-Nonsense.</p>
               </article>
               <article class="start-card">
                 <h3>Walk through the Labs</h3>
@@ -1463,7 +1539,7 @@
           <a href="fr/a-propos">About</a>
           <a href="fr/a-propos/manifesto">Manifesto</a>
           <a href="fr/a-propos/comment-citer-tnoc">How to cite TNoC</a>
-          <a href="fr/a-propos/donnees-licence">Data & licence</a>
+          <a href="fr/a-propos/donnees-licence">Data &amp; licence</a>
           <a href="fr/contact">Contact</a>
         </div>
       </div>
@@ -1477,8 +1553,6 @@
       const ribbon = document.getElementById('heroRibbon');
       const count = document.getElementById('heroCount');
       if(!ribbon) return;
-
-      const isMobile = window.matchMedia && window.matchMedia("(max-width: 600px)").matches;
 
       const controls = document.querySelectorAll('[data-hero]');
       const tiles = () => Array.from(ribbon.querySelectorAll('.cover-tile'));
@@ -1500,13 +1574,8 @@
         clearSpotlight();
         const pick = all[Math.floor(Math.random() * all.length)];
         pick.classList.add('is-spotlight');
-
-        if(!isMobile){
-          pick.scrollIntoView({ behavior:"smooth", block:"nearest", inline:"start" });
-          setTimeout(() => pick.classList.remove('is-spotlight'), 2200);
-        } else {
-          setTimeout(() => pick.classList.remove('is-spotlight'), 900);
-        }
+        pick.scrollIntoView({ behavior:"smooth", block:"nearest", inline:"start" });
+        setTimeout(() => pick.classList.remove('is-spotlight'), 2200);
       }
 
       function shuffleRibbon(){
@@ -1529,14 +1598,7 @@
       });
 
       updateCount();
-
-      /* Mobile: always start clean on the first tile */
-      ribbon.scrollLeft = 0;
-
-      /* Desktop: keep the “surprise” */
-      if(!isMobile){
-        setTimeout(spotlightRandom, 650);
-      }
+      setTimeout(spotlightRandom, 650);
     })();
   </script>
 
@@ -1616,3 +1678,5 @@
 
 </body>
 </html>
+
+
