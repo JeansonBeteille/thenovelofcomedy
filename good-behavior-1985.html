@@ -4,12 +4,12 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Good Behavior (1985) — Novel Guide | The Novel of Comedy (TNoC)</title>
+  <title>Good Behavior (1985) — Novel guide | The Novel of Comedy (TNoC)</title>
   <meta name="description"
-        content="TNoC novel guide: Good Behavior (1985), Donald E. Westlake. Dortmunder #6 — heist ensemble mechanics, political pressure, and a golden rule: no good deed goes unpunished." />
+        content="TNoC novel guide: Good Behavior (1985), Donald E. Westlake. Dortmunder #6 — a heist farce where morality meets convenience and the plan dies on contact with reality." />
 
-  <meta property="og:title" content="Good Behavior (1985) — Novel Guide | The Novel of Comedy (TNoC)" />
-  <meta property="og:description" content="A TNoC novel guide: reading note, incipit, back cover, characters, from the desk, reception, connections, bonus, data." />
+  <meta property="og:title" content="Good Behavior (1985) — Novel guide | The Novel of Comedy (TNoC)" />
+  <meta property="og:description" content="A TNoC novel guide: reading note, incipit, back-cover, characters, context, style, cartography, reception, connections, bonus & data." />
   <meta property="og:type" content="article" />
 
   <script type="application/ld+json">
@@ -22,7 +22,7 @@
     "inLanguage":"en",
     "publisher":{"@type":"Organization","name":"The Mysterious Press"},
     "isPartOf":{"@type":"CreativeWorkSeries","name":"Dortmunder"},
-    "about":["Comic crime","Heist novel","Political satire","Burlesque","Morality and convenience","Corporate power"]
+    "about":["Comic crime","Heist novel","Political satire","Farce","Morality and convenience","Corporate power"]
   }
   </script>
 
@@ -34,6 +34,7 @@
       --graphite:#2b2b2b;
       --evergreen:#2E7D32;
       --muted:rgba(0,0,0,.55);
+      --chip:rgba(0,0,0,.06);
       --border:rgba(0,0,0,.14);
       --shadow:0 1px 2px rgba(0,0,0,.04);
       --uiWhite:rgba(255,255,255,.08);
@@ -111,7 +112,7 @@
       margin:0 auto;
       padding:26px 20px 22px;
       display:grid;
-      grid-template-columns: minmax(0,1fr) 360px;
+      grid-template-columns: minmax(0,1fr) 360px; /* 2/3 + 1/3 */
       gap:18px;
       align-items:start;
     }
@@ -158,7 +159,6 @@
       opacity:.86;
       line-height:1.45;
     }
-    .hero-facts .line{margin-top:4px;}
     .hero-meta{
       margin-top:12px;
       display:flex; gap:10px; flex-wrap:wrap;
@@ -204,12 +204,8 @@
     }
     .cover-large img{width:100%; height:100%; object-fit:cover; display:block;}
 
-    /* CARTOGRAPHY (structure TNoC) */
-    .carto-body{
-      padding:12px;
-      display:grid;
-      gap:10px;
-    }
+    /* CARTOGRAPHY */
+    .carto-body{padding:12px; display:grid; gap:10px;}
     .hero-chips{display:flex; flex-wrap:wrap; gap:6px;}
     .hero-chip{
       display:inline-flex; align-items:center;
@@ -220,6 +216,7 @@
       color:rgba(255,255,255,.92);
       white-space:nowrap;
     }
+
     .hero-kv{display:grid; gap:8px;}
     .hero-kv-row{
       border:1px solid rgba(255,255,255,.14);
@@ -235,12 +232,36 @@
       font-size:12px; line-height:1.4; opacity:.96;
     }
 
-    details.carto-accordion{border:none;margin:0;}
-    details.carto-accordion > summary{
-      list-style:none;
-      cursor:pointer;
+    /* Cartography = mobile hub (links live here on small screens) */
+    .carto-actions{
       display:none;
+      margin-top:4px;
+      border-top:1px solid rgba(255,255,255,.12);
+      padding-top:10px;
+      gap:8px;
     }
+    .carto-actions a,
+    .carto-actions button{
+      width:100%;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      padding:10px 10px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.16);
+      background:rgba(0,0,0,.14);
+      color:#fff;
+      font-size:12px;
+      cursor:pointer;
+    }
+    .carto-actions a:hover,
+    .carto-actions button:hover{border-color:rgba(255,255,255,.28); text-decoration:none;}
+    .carto-actions .meta{opacity:.8; white-space:nowrap;}
+
+    /* Mobile accordion summary for cartography */
+    details.carto-accordion{border:none;margin:0;}
+    details.carto-accordion > summary{list-style:none; cursor:pointer; display:none;}
     details.carto-accordion > summary::-webkit-details-marker{display:none}
     .summary-row{
       display:flex; align-items:center; justify-content:space-between;
@@ -270,10 +291,6 @@
     @media(max-width:1120px){
       .grid{grid-template-columns: 260px minmax(0,1fr) 280px;}
       .hero-inner{grid-template-columns: minmax(0,1fr) 340px;}
-    }
-    @media(max-width:980px){
-      .hero-inner{grid-template-columns:1fr;}
-      .grid{grid-template-columns:1fr;}
     }
 
     /* Toolbox */
@@ -324,18 +341,84 @@
       cursor:pointer;
     }
     .toolbox-btn:hover{background:rgba(0,0,0,.02);}
-    .toast{display:none;font-size:12px;color:rgba(0,0,0,.62);padding:0 12px 12px;}
+    .toast{display:none; font-size:12px; color:rgba(0,0,0,.62); padding:0 12px 12px;}
     .toast.show{display:block;}
 
-    /* Content */
+    /* Center content */
     .content{min-width:0;}
     .content-inner{max-width:860px;}
-    .section{padding:22px 0;border-bottom:1px solid rgba(0,0,0,.06);}
-    .section:last-of-type{border-bottom:none;}
-    .section-kicker{font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted);}
-    .section-title{font-size:24px; margin:6px 0 8px; letter-spacing:.03em;}
-    .p{margin:0 0 10px;font-size:15px;line-height:1.75;color:var(--graphite);}
 
+    /* Wikipedia-like mobile contents box */
+    .mobile-contents{
+      display:none;
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:16px;
+      box-shadow:var(--shadow);
+      padding:12px 12px 10px;
+      margin:0 0 14px;
+    }
+    .mobile-contents .k{
+      font-size:11px; letter-spacing:.16em; text-transform:uppercase;
+      color:rgba(0,0,0,.58);
+      margin:0 0 8px;
+      font-weight:700;
+    }
+    .mobile-contents a{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      padding:9px 10px;
+      border-radius:12px;
+      border:1px solid rgba(0,0,0,.06);
+      background:rgba(0,0,0,.015);
+      font-size:13px;
+      color:var(--graphite);
+      text-decoration:none;
+    }
+    .mobile-contents a:hover{border-color:rgba(0,0,0,.12); background:rgba(0,0,0,.03);}
+    .mobile-contents .meta{font-size:12px; color:var(--muted); white-space:nowrap;}
+
+    /* Chapters as details (desktop = open, mobile = accordion) */
+    details.chapter{
+      border-bottom:1px solid rgba(0,0,0,.06);
+      padding:18px 0;
+    }
+    details.chapter:last-of-type{border-bottom:none;}
+    details.chapter > summary{
+      list-style:none;
+      cursor:pointer;
+      display:flex;
+      align-items:baseline;
+      justify-content:space-between;
+      gap:10px;
+      padding:0;
+      user-select:none;
+    }
+    details.chapter > summary::-webkit-details-marker{display:none}
+    .chap-left{
+      display:flex; align-items:baseline; gap:10px;
+      min-width:0;
+    }
+    .chap-kicker{
+      font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted);
+      white-space:nowrap;
+    }
+    .chap-title{
+      font-size:24px; margin:0; letter-spacing:.03em;
+      overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+    }
+    .chap-caret{opacity:.55; transition:transform .2s ease;}
+    details.chapter[open] .chap-caret{transform:rotate(90deg);}
+
+    .chapter-body{
+      margin-top:12px;
+      font-size:15px;
+      line-height:1.75;
+      color:var(--graphite);
+    }
+    .p{margin:0 0 10px;}
     .callout{
       background:#fff;
       border:1px solid var(--border);
@@ -356,28 +439,13 @@
     }
     .list{margin:8px 0 0; padding-left:18px; color:var(--graphite); font-size:14px; line-height:1.7;}
     .list li{margin:4px 0;}
-
-    details.std{
-      margin-top:10px;
-      background:#fff;
-      border:1px solid var(--border);
-      border-radius:16px;
-      box-shadow:var(--shadow);
-      overflow:hidden;
+    .subhead{
+      margin:14px 0 6px;
+      font-size:12px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:rgba(0,0,0,.62);
     }
-    details.std summary{
-      list-style:none;
-      cursor:pointer;
-      font-weight:700;
-      font-size:14px;
-      padding:12px 14px;
-      background:linear-gradient(180deg,rgba(0,0,0,.015),rgba(0,0,0,.03));
-      display:flex; align-items:center; gap:8px;
-    }
-    details.std summary::-webkit-details-marker{display:none}
-    .caret2{display:inline-block; transition:transform .2s ease}
-    details.std[open] .caret2{transform:rotate(90deg)}
-    .details-body{padding:12px 14px 14px; font-size:14px; line-height:1.65; color:var(--graphite);}
 
     table{
       width:100%;
@@ -399,15 +467,7 @@
     }
     tr:last-child td{border-bottom:none;}
 
-    .subhead{
-      margin:14px 0 6px;
-      font-size:12px;
-      letter-spacing:.14em;
-      text-transform:uppercase;
-      color:rgba(0,0,0,.62);
-    }
-
-    /* Rail */
+    /* Right TOC rail (desktop only) */
     .rail{
       background:#fff;
       border:1px solid var(--border);
@@ -490,7 +550,15 @@
     }
     .footer-links{display:flex; flex-wrap:wrap; gap:12px;}
 
-    /* Responsive tweaks */
+    /* Responsive */
+    @media(max-width:980px){
+      .hero-inner{grid-template-columns:1fr;}
+      .grid{grid-template-columns:1fr;}
+      .toolbox{display:none;}
+      .rail{display:none;}
+      .mobile-contents{display:block;}
+      .carto-actions{display:grid;}
+    }
     @media(max-width:700px){
       .pack-body{grid-template-columns:1fr;}
       .pack-cover{justify-content:flex-start;}
@@ -500,8 +568,7 @@
     @media(max-width:600px){
       .hero-inner{padding:22px 16px 18px;}
       .grid{padding:18px 16px 34px;}
-      .section-title{font-size:22px;}
-      .content-inner{max-width:none;}
+      .chap-title{font-size:20px;}
     }
   </style>
 </head>
@@ -520,7 +587,7 @@
       </a>
 
       <nav class="nav" aria-label="Navigation">
-        <a href="index.html#guides">Guides</a>
+        <a href="index.html#fiches">Guides</a>
         <a class="is-current" href="novel-guides.html">Novel guides</a>
         <a href="author-profiles.html">Author profiles</a>
         <a href="currents.html">Currents</a>
@@ -536,20 +603,18 @@
       <!-- LEFT: PACK -->
       <section class="hero-card" aria-label="Title pack with cover">
         <div class="pack-body">
-
           <div class="pack-copy">
             <p class="hero-kicker">Novel guide · Comedy of Crime</p>
-
             <h1 class="hero-title">Good Behavior <span style="opacity:.82;">(1985)</span></h1>
             <p class="hero-sub">Donald E. Westlake</p>
 
-            <div class="hero-facts" aria-label="Publication facts">
-              <div class="line">The Mysterious Press (HC) · approx. 244 pp.</div>
-              <div class="line">Dortmunder 6/15 · signed Neiman-Marcus edition (1,000 copies)</div>
-            </div>
+            <p class="hero-facts">
+              The Mysterious Press (HC) · approx. 244 pp.<br>
+              Dortmunder 6/15
+            </p>
 
             <div class="hero-meta" aria-label="Hero actions">
-              <a href="novel-guides.html">← Back</a>
+              <a href="novel-guides.html">← Back to Novel guides</a>
               <a href="#reading-note">Start reading</a>
             </div>
           </div>
@@ -560,7 +625,6 @@
               COVER
             </div>
           </div>
-
         </div>
       </section>
 
@@ -579,24 +643,33 @@
           </div>
 
           <div class="carto-body">
-
             <div class="hero-chips" aria-label="Cartography markers">
-              <span class="hero-chip"><strong>Current:</strong>&nbsp;Crime Comedy</span>
-              <span class="hero-chip"><strong>Branch:</strong>&nbsp;The Shemer / Heist</span>
-              <!-- Optional if needed:
-              <span class="hero-chip"><strong>Affluent:</strong>&nbsp;[name]</span>
-              -->
+              <span class="hero-chip"><strong>Current:</strong>&nbsp;Comedy of Crime</span>
+              <span class="hero-chip"><strong>Branch:</strong>&nbsp;The Schemer / Heist</span>
+              <!-- Optional -->
+              <span class="hero-chip"><strong>Affluent:</strong>&nbsp;Everyday · Institutions</span>
             </div>
 
             <div class="hero-kv" aria-label="Cartography denominations">
               <div class="hero-kv-row">
                 <div class="hero-kv-label">Environment</div>
-                <div class="hero-kv-value">Manhattan · The Reagan era with the rise of the golden boys. Pre-Wall Street crash.</div>
+                <div class="hero-kv-value">Manhattan · convent · high-security tower · Reagan-era corporate power</div>
               </div>
               <div class="hero-kv-row">
                 <div class="hero-kv-label">Role of comedy</div>
-                <div class="hero-kv-value">Comic engine</div>
+                <div class="hero-kv-value">Comic engine (rules collide → logistics melt)</div>
               </div>
+            </div>
+
+            <!-- Mobile-only hub actions (replacing toolbox/rail usefulness) -->
+            <div class="carto-actions" aria-label="Quick navigation">
+              <a href="currents.html#comedy-of-crime"><span>Open current</span><span class="meta">→</span></a>
+              <a href="branches.html#the-schemer-heist"><span>Open branch</span><span class="meta">→</span></a>
+              <a href="novel-guides.html"><span>Back to Novel guides</span><span class="meta">←</span></a>
+              <a href="#reading-note"><span>Start reading</span><span class="meta">↓</span></a>
+              <button id="copyDataBtn2" type="button"><span>Copy data stub</span><span class="meta">⧉</span></button>
+              <button type="button" onclick="window.print()"><span>Print / Save PDF</span><span class="meta">⎙</span></button>
+              <div id="copyToast2" style="display:none;font-size:12px;opacity:.8;padding:0 2px;">Copied.</div>
             </div>
 
           </div>
@@ -609,11 +682,11 @@
   <main class="main" id="content" aria-label="Guide content">
     <div class="grid">
 
-      <!-- LEFT: TOOLBOX -->
+      <!-- LEFT: TOOLBOX (desktop only) -->
       <aside class="toolbox" aria-label="Toolbox">
         <header>
           <h3>Toolbox</h3>
-          <p>Actions &amp; cross-navigation (no duplicate content).</p>
+          <p>Actions &amp; cross-navigation.</p>
         </header>
 
         <div class="toolbox-body">
@@ -625,10 +698,10 @@
             <div class="meta">→</div>
           </a>
 
-          <a class="tool" href="branches.html#the-shemer-heist">
+          <a class="tool" href="branches.html#the-schemer-heist">
             <div>
               <div class="label">Open branch</div>
-              <div class="meta">The Shemer / Heist</div>
+              <div class="meta">The Schemer / Heist</div>
             </div>
             <div class="meta">→</div>
           </a>
@@ -641,7 +714,7 @@
             <div class="meta">↓</div>
           </a>
 
-          <a class="tool" href="#fourth-cover">
+          <a class="tool" href="#back-cover">
             <div>
               <div class="label">Jump to back-cover</div>
               <div class="meta">Chapter 3</div>
@@ -662,222 +735,305 @@
       <section class="content" aria-label="Main text">
         <div class="content-inner">
 
+          <!-- Mobile Wikipedia-like contents -->
+          <nav class="mobile-contents" aria-label="Contents">
+            <div class="k">Contents</div>
+            <a href="#reading-note" data-open="reading-note"><span>1 · Reading note</span><span class="meta">↓</span></a>
+            <a href="#incipit" data-open="incipit"><span>2 · Incipit</span><span class="meta">↓</span></a>
+            <a href="#back-cover" data-open="back-cover"><span>3 · Back-cover blurb</span><span class="meta">↓</span></a>
+            <a href="#characters" data-open="characters"><span>4 · Characters</span><span class="meta">↓</span></a>
+            <a href="#context" data-open="context"><span>5 · Context</span><span class="meta">↓</span></a>
+            <a href="#style" data-open="style"><span>6 · Style</span><span class="meta">↓</span></a>
+            <a href="#cartography" data-open="cartography"><span>7 · Cartography</span><span class="meta">↓</span></a>
+            <a href="#reception" data-open="reception"><span>8 · Reception</span><span class="meta">↓</span></a>
+            <a href="#connections" data-open="connections"><span>9 · Connections</span><span class="meta">↓</span></a>
+            <a href="#data" data-open="data"><span>10 · Bonus &amp; Data</span><span class="meta">↓</span></a>
+          </nav>
+
           <!-- 1 -->
-          <section class="section" id="reading-note" data-spy>
-            <div class="section-kicker">1 · Reading note</div>
-            <h2 class="section-title">Reading note</h2>
-
-            <p class="p">
-              The wail of sirens and alarms opens this sixth Dortmunder caper at the top.
-              And up high Dortmunder will go. After slipping through a Manhattan convent and striking a deal with nuns (yes, nuns),
-              he assembles a team wobblier than ever. The goal: the 71st floor of the most secure tower on Fifth Avenue.
-              When we say Dortmunder is heading for the top, we mean it.
-            </p>
-
-            <p class="p">
-              Westlake’s writing hits an Olympian stride in the 1980s: sharp, unhinged and not so unrealistic.
-              One regret, though: with a last name starting with W, I'm always forced to dig at the back of the bookstore shelves for a Donald novel.
-              My poor knees...
-            </p>
-
-            <p class="p" style="opacity:.8; font-style:italic; text-align:right; margin-top:10px;">TNoC.</p>
-          </section>
+          <details class="chapter" id="reading-note" data-spy open>
+            <summary>
+              <div class="chap-left">
+                <div class="chap-kicker">1 · Reading note</div>
+                <h2 class="chap-title">Reading note</h2>
+              </div>
+              <span class="chap-caret">▶</span>
+            </summary>
+            <div class="chapter-body">
+              <p class="p">
+                Sirens, alarms, rooftops: Dortmunder starts this sixth caper already running.
+                After slipping into a Manhattan convent and striking a deal with nuns (yes, nuns),
+                he assembles a crew wobblier than ever. Goal: the 71st floor of an absurdly secure tower.
+                When we say “heading for the top”, we mean it literally.
+              </p>
+              <p class="p">
+                Westlake’s 1980s stride is Olympian: dry, sharp, and never quite as unreal as you’d like it to be.
+                Under the farce: the uncomfortable question — what becomes of morality when it meets convenience,
+                and when power looks like ownership plus security guards.
+              </p>
+              <p class="p" style="opacity:.8; font-style:italic; text-align:right; margin-top:10px;">TNoC.</p>
+            </div>
+          </details>
 
           <!-- 2 -->
-          <section class="section" id="incipit" data-spy>
-            <div class="section-kicker">2 · Incipit</div>
-            <h2 class="section-title">Incipit</h2>
-
-            <div class="callout">
-              <strong>To add</strong><br>
-              2–4 lines (original) · keep it short, to preserve the layout balance.
-            </div>
-
-            <!-- 3 -->
-            <details class="std" id="fourth-cover" data-spy>
-              <summary><span class="caret2">▶</span> 3 · Back-cover blurb</summary>
-              <div class="details-body">
-                <p style="margin:0 0 10px;">
-                  <strong>To rewrite / paraphrase:</strong> the idea of a “very high” heist, an improbable deal with nuns,
-                  over-the-top security, and a plan that degrades on contact with politics, greed, and logistics.
-                </p>
-                <p style="margin:0;">
-                  Goal: a clear, informative text, without marketing tone — a “compass-summary”, not a sales pitch.
-                </p>
+          <details class="chapter" id="incipit" data-spy open>
+            <summary>
+              <div class="chap-left">
+                <div class="chap-kicker">2 · Incipit</div>
+                <h2 class="chap-title">Incipit</h2>
               </div>
-            </details>
-          </section>
+              <span class="chap-caret">▶</span>
+            </summary>
+            <div class="chapter-body">
+              <div class="callout">
+                <strong>To add</strong><br>
+                2–4 lines (original) · keep it short, to preserve the layout balance.
+              </div>
+            </div>
+          </details>
+
+          <!-- 3 -->
+          <details class="chapter" id="back-cover" data-spy open>
+            <summary>
+              <div class="chap-left">
+                <div class="chap-kicker">3 · Back-cover blurb</div>
+                <h2 class="chap-title">Back-cover blurb</h2>
+              </div>
+              <span class="chap-caret">▶</span>
+            </summary>
+            <div class="chapter-body">
+              <p class="p">
+                <strong>To rewrite / paraphrase:</strong> a “very high” heist, an improbable deal with a convent,
+                over-the-top security, and a plan that degrades on contact with politics, greed, and logistics.
+              </p>
+              <p class="p">
+                Goal: a clear, informative text, without marketing tone — a “compass-summary”, not a sales pitch.
+              </p>
+            </div>
+          </details>
 
           <!-- 4 -->
-          <section class="section" id="characters" data-spy>
-            <div class="section-kicker">4 · Characters</div>
-            <h2 class="section-title">Major characters</h2>
-
-            <table aria-label="Characters table">
-              <thead>
-                <tr>
-                  <th>Character / group</th>
-                  <th>Archetype</th>
-                  <th>Comic function</th>
-                  <th>Notes</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><strong>John Dortmunder</strong></td>
-                  <td>Unlucky criminal</td>
-                  <td>Good intention → punishment</td>
-                  <td>Logistics hero: he suffers the plans as much as he builds them.</td>
-                </tr>
-                <tr>
-                  <td><strong>The crew</strong></td>
-                  <td>Wobbly company</td>
-                  <td>Competence + friction</td>
-                  <td>Every “solution” adds a variable — therefore a future accident.</td>
-                </tr>
-                <tr>
-                  <td><strong>Frank Ritter</strong></td>
-                  <td>Neo-feudal capitalist</td>
-                  <td>Pride of assets</td>
-                  <td>Power is not the State: it’s ownership (and its “knights”).</td>
-                </tr>
-                <tr>
-                  <td><strong>The nuns</strong></td>
-                  <td>Rule-bound collective</td>
-                  <td>Morality as OS</td>
-                  <td>They organize a robbery like a crusade (without changing tone).</td>
-                </tr>
-                <tr>
-                  <td><strong>Mercenaries</strong></td>
-                  <td>Privatized violence</td>
-                  <td>Imported gravity</td>
-                  <td>“Serious” politics rubs against farce: it sparks.</td>
-                </tr>
-              </tbody>
-            </table>
-
-            <p class="p quote">Series invariant: “no good deed goes unpunished”.</p>
-          </section>
+          <details class="chapter" id="characters" data-spy open>
+            <summary>
+              <div class="chap-left">
+                <div class="chap-kicker">4 · Characters</div>
+                <h2 class="chap-title">Major characters</h2>
+              </div>
+              <span class="chap-caret">▶</span>
+            </summary>
+            <div class="chapter-body">
+              <table aria-label="Characters table">
+                <thead>
+                  <tr>
+                    <th>Character / group</th>
+                    <th>Archetype</th>
+                    <th>Comic function</th>
+                    <th>Notes</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>John Dortmunder</strong></td>
+                    <td>Unlucky criminal</td>
+                    <td>Good intention → punishment</td>
+                    <td>Logistics hero: he suffers the plans as much as he builds them.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>The crew</strong></td>
+                    <td>Wobbly company</td>
+                    <td>Competence + friction</td>
+                    <td>Every “solution” adds a variable — therefore a future accident.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Frank Ritter</strong></td>
+                    <td>Neo-feudal capitalist</td>
+                    <td>Pride of assets</td>
+                    <td>Power is not the State: it’s ownership (and its “knights”).</td>
+                  </tr>
+                  <tr>
+                    <td><strong>The nuns</strong></td>
+                    <td>Rule-bound collective</td>
+                    <td>Morality as OS</td>
+                    <td>They organize a robbery like a crusade (without changing tone).</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Mercenaries</strong></td>
+                    <td>Privatized violence</td>
+                    <td>Imported gravity</td>
+                    <td>“Serious” politics rubs against farce: it sparks.</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p class="p quote">Series invariant: “no good deed goes unpunished”.</p>
+            </div>
+          </details>
 
           <!-- 5 -->
-          <section class="section" id="desk-side" data-spy>
-            <div class="section-kicker">5 · From the desk</div>
-            <h2 class="section-title">From the desk</h2>
-
-            <div class="subhead">A · Place in the work</div>
-            <p class="p">
-              Good Behavior belongs to a phase where Westlake brings more explicit geopolitical and moral stakes into Dortmunder under the cover of farce.
-              Here, the question is not “to steal or not to steal”, but what becomes of morality when it meets convenience — and when power becomes indistinguishable from ownership.
-            </p>
-
-            <div class="subhead">B · Mechanics</div>
-            <p class="p">
-              Westlake proceeds by rule and overload: each system believes itself perfect; he brings them into contact and creates the spark.
-              Silent convent, hyper-secure tower, asset ideology, New York logistics — guaranteed chaos.
-            </p>
-
-            <div class="subhead">C · In the sentence</div>
-            <p class="p">
-              Westlake piles up detail and reflection with an agitated rhythm that matches the twists and turns.
-              Example (short excerpt): “He had many reasons to be depressed … Nuns, for instance.”
-            </p>
-          </section>
+          <details class="chapter" id="context" data-spy open>
+            <summary>
+              <div class="chap-left">
+                <div class="chap-kicker">5 · Context</div>
+                <h2 class="chap-title">Context of writing</h2>
+              </div>
+              <span class="chap-caret">▶</span>
+            </summary>
+            <div class="chapter-body">
+              <p class="p">
+                Mid-1980s New York: money as ideology, towers as temples, security as theology.
+                Westlake pushes Dortmunder into a world where “law” is often just private infrastructure.
+              </p>
+              <p class="p">
+                That’s the key context: a heist novel where the main opponent isn’t police work —
+                it’s the ecosystem of ownership, procedures, and reputation.
+              </p>
+            </div>
+          </details>
 
           <!-- 6 -->
-          <section class="section" id="reception" data-spy>
-            <div class="section-kicker">6 · Reception</div>
-            <h2 class="section-title">Reception</h2>
-
-            <ul class="list">
-              <li>
-                <strong>Critics:</strong>
-                <br>
-                – Washington Post Book World: Jean M. White emphasized that Westlake “never allows his comedy to slide into … buffoonery.”
-                <br>
-                – The New York Times Book Review (June 22, 1986), Newgate Callendar, in the “Crime” column: he praises this Dortmunder and stresses that Westlake can “make a comment on society” and that the book has “a strong cutting edge.”
-              </li>
-              <li><strong>Within the series:</strong> often read as a peak of the heist / satire / burlesque triptych.</li>
-            </ul>
-          </section>
+          <details class="chapter" id="style" data-spy open>
+            <summary>
+              <div class="chap-left">
+                <div class="chap-kicker">6 · Style</div>
+                <h2 class="chap-title">Style &amp; writing</h2>
+              </div>
+              <span class="chap-caret">▶</span>
+            </summary>
+            <div class="chapter-body">
+              <div class="subhead">A · Sentence mechanics</div>
+              <p class="p">
+                Westlake’s humour is dry and procedural: the prose stays calm while the world becomes impossible.
+                He piles up practical details — then lets the plan collapse under its own “reason”.
+              </p>
+              <div class="subhead">B · Rhythm</div>
+              <p class="p">
+                Escalation by overload: each fix adds variables; each variable is a future accident.
+                The comedy remains legible because the narration never “winks”: it simply records.
+              </p>
+            </div>
+          </details>
 
           <!-- 7 -->
-          <section class="section" id="connections" data-spy>
-            <div class="section-kicker">7 · Connections</div>
-            <h2 class="section-title">Friendships of humor · Contemporaries · Heirs</h2>
-
-            <div class="callout">
-              <strong>Contemporaries (around 1985)</strong>
-              <ul class="list" style="margin-top:8px;">
-                <li><strong>Stick</strong> (1983) · Elmore Leonard</li>
-                <li><strong>The Burglar Who Painted Like Mondrian</strong> (1983) · Lawrence Block</li>
-                <li><strong>San-Antonio: Les deux oreilles et la queue</strong> (1984) · Frédéric Dard</li>
-              </ul>
-
-              <div style="height:10px"></div>
-
-              <strong>Heirs (later decades)</strong>
-              <ul class="list" style="margin-top:8px;">
-                <li><strong>Tourist Season</strong> (1986) · Carl Hiaasen</li>
-                <li><strong>Of Wee Sweetie Mice and Men</strong> (1996) · Colin Bateman</li>
-                <li><strong>Florida Roadkill</strong> (1999) · Tim Dorsey</li>
+          <details class="chapter" id="cartography" data-spy open>
+            <summary>
+              <div class="chap-left">
+                <div class="chap-kicker">7 · Cartography</div>
+                <h2 class="chap-title">Cartography (TNoC)</h2>
+              </div>
+              <span class="chap-caret">▶</span>
+            </summary>
+            <div class="chapter-body">
+              <ul class="list">
+                <li><strong>Current:</strong> Comedy of Crime</li>
+                <li><strong>Branch:</strong> The Schemer / Heist</li>
+                <li><strong>Affluent (optional):</strong> Everyday · Institutions</li>
+                <li><strong>Environment:</strong> Manhattan · convent · tower · corporate power</li>
+                <li><strong>Role of comedy:</strong> Comic engine (rules collide → logistics melt)</li>
               </ul>
             </div>
-          </section>
+          </details>
 
           <!-- 8 -->
-          <section class="section" id="bonus" data-spy>
-            <div class="section-kicker">8 · Bonus</div>
-            <h2 class="section-title">Bonus · Making-of</h2>
-
-            <p class="p">
-              Political violence briefly enters the comedy — as if two climates of the same body of work were touching.
-            </p>
-
-            <p class="p quote">
-              To place here: “In memoriam: P., 1961–1973” (if you keep it, keep it short and contextualized).
-            </p>
-          </section>
+          <details class="chapter" id="reception" data-spy open>
+            <summary>
+              <div class="chap-left">
+                <div class="chap-kicker">8 · Reception</div>
+                <h2 class="chap-title">Reception</h2>
+              </div>
+              <span class="chap-caret">▶</span>
+            </summary>
+            <div class="chapter-body">
+              <ul class="list">
+                <li><strong>Critics:</strong> notes to source/condense (NYTBR Crime column; WP Book World).</li>
+                <li><strong>Within the series:</strong> often read as a peak “heist + satire” entry.</li>
+              </ul>
+            </div>
+          </details>
 
           <!-- 9 -->
-          <section class="section" id="data" data-spy>
-            <div class="section-kicker">9 · Data</div>
-            <h2 class="section-title">Data stub</h2>
+          <details class="chapter" id="connections" data-spy open>
+            <summary>
+              <div class="chap-left">
+                <div class="chap-kicker">9 · Connections</div>
+                <h2 class="chap-title">Friendships of humor · Contemporaries · Heirs</h2>
+              </div>
+              <span class="chap-caret">▶</span>
+            </summary>
+            <div class="chapter-body">
+              <div class="callout">
+                <strong>Contemporaries (around 1985)</strong>
+                <ul class="list" style="margin-top:8px;">
+                  <li><strong>Stick</strong> (1983) · Elmore Leonard</li>
+                  <li><strong>The Burglar Who Painted Like Mondrian</strong> (1983) · Lawrence Block</li>
+                  <li><strong>San-Antonio</strong> (1984) · Frédéric Dard</li>
+                </ul>
 
-            <div class="callout" style="margin-top:10px;">
+                <div style="height:10px"></div>
+
+                <strong>Heirs (later decades)</strong>
+                <ul class="list" style="margin-top:8px;">
+                  <li><strong>Tourist Season</strong> (1986) · Carl Hiaasen</li>
+                  <li><strong>Of Wee Sweetie Mice and Men</strong> (1996) · Colin Bateman</li>
+                  <li><strong>Florida Roadkill</strong> (1999) · Tim Dorsey</li>
+                </ul>
+              </div>
+            </div>
+          </details>
+
+          <!-- 10 -->
+          <details class="chapter" id="data" data-spy open>
+            <summary>
+              <div class="chap-left">
+                <div class="chap-kicker">10 · Bonus &amp; Data</div>
+                <h2 class="chap-title">Bonus · Making-of · Data stub</h2>
+              </div>
+              <span class="chap-caret">▶</span>
+            </summary>
+            <div class="chapter-body">
+              <div class="subhead">Bonus</div>
+              <p class="p">
+                Political violence briefly enters the comedy (mercenaries, coups, fictional country):
+                two climates touch — Westlake’s hard “Stark” shadow and his comic machine.
+              </p>
+
+              <div class="subhead">Data stub</div>
+              <div class="callout" style="margin-top:10px;">
 <pre id="dataStub" style="margin:0;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;background:#f5f5f5;padding:10px;border-radius:12px;border:1px solid rgba(0,0,0,.14);white-space:pre-wrap;">
 {"name":"Good Behavior",
  "author":"Donald E. Westlake",
  "year":"1985",
  "series":"Dortmunder #6",
- "current":"crime",
- "branch":["heist-schemes"],
- "environment":"New York · high-security tower · convent · corporate power",
- "role_of_comedy":"comic engine"}
+ "current":"comedy-of-crime",
+ "branch":"the-schemer-heist",
+ "affluent":"everyday-institutions",
+ "environment":"New York · tower · convent · corporate power",
+ "role_of_comedy":"comic-engine"}
 </pre>
+              </div>
             </div>
-          </section>
+          </details>
 
         </div>
       </section>
 
-      <!-- RIGHT: TOC -->
+      <!-- RIGHT: TOC rail (desktop only) -->
       <aside class="rail" aria-label="In this guide">
         <header>
           <h3>In this guide</h3>
-          <p>9-chapter matrix</p>
+          <p>10-chapter matrix</p>
           <div class="rail-progress" aria-label="Reading progress"><span></span></div>
         </header>
 
         <nav class="toc" id="toc">
           <a href="#reading-note">1 · Reading note</a>
           <a href="#incipit">2 · Incipit</a>
-          <a href="#fourth-cover">3 · Back-cover blurb</a>
+          <a href="#back-cover">3 · Back-cover blurb</a>
           <a href="#characters">4 · Characters</a>
-          <a href="#desk-side">5 · From the desk</a>
-          <a href="#reception">6 · Reception</a>
-          <a href="#connections">7 · Connections</a>
-          <a href="#bonus">8 · Bonus</a>
-          <a href="#data">9 · Data</a>
+          <a href="#context">5 · Context</a>
+          <a href="#style">6 · Style</a>
+          <a href="#cartography">7 · Cartography</a>
+          <a href="#reception">8 · Reception</a>
+          <a href="#connections">9 · Connections</a>
+          <a href="#data">10 · Bonus &amp; Data</a>
         </nav>
 
         <div class="rail-bottom">
@@ -902,8 +1058,9 @@
 
   <script>
   (function(){
-    const links = Array.from(document.querySelectorAll('#toc a'));
-    const sections = Array.from(document.querySelectorAll('[data-spy]'));
+    // Rail progress + desktop scrollspy
+    const tocLinks = Array.from(document.querySelectorAll('#toc a'));
+    const chapters = Array.from(document.querySelectorAll('details.chapter[data-spy]'));
     const bar = document.querySelector('.rail-progress > span');
 
     function updateProgress(){
@@ -916,51 +1073,103 @@
     }
 
     function setActiveFromScroll(){
-      if(!links.length || !sections.length) return;
+      if(!tocLinks.length || !chapters.length) return;
       const scrollTop = window.scrollY || window.pageYOffset;
       const offset = 140;
-      let activeId = sections[0].id;
+      let activeId = chapters[0].id;
 
-      sections.forEach(section => {
-        if (scrollTop + offset >= section.offsetTop) activeId = section.id;
+      chapters.forEach(ch => {
+        if (scrollTop + offset >= ch.offsetTop) activeId = ch.id;
       });
 
-      links.forEach(link => {
-        const id = (link.getAttribute('href') || '').slice(1);
-        link.classList.toggle('active', id === activeId);
+      tocLinks.forEach(a => {
+        const id = (a.getAttribute('href') || '').slice(1);
+        a.classList.toggle('active', id === activeId);
       });
+    }
+
+    // Copy data stub (desktop + mobile buttons)
+    async function doCopy(){
+      const stub = document.getElementById('dataStub');
+      if(!stub || !navigator.clipboard) return false;
+      try{
+        await navigator.clipboard.writeText(stub.textContent.trim());
+        return true;
+      }catch(e){ return false; }
     }
 
     const copyBtn = document.getElementById('copyDataBtn');
     const toast = document.getElementById('copyToast');
-    const stub = document.getElementById('dataStub');
-
-    if(copyBtn && stub && navigator.clipboard){
-      copyBtn.addEventListener('click', async () => {
-        try{
-          await navigator.clipboard.writeText(stub.textContent.trim());
-          if(toast){
-            toast.classList.add('show');
-            setTimeout(()=>toast.classList.remove('show'), 1200);
-          }
-        }catch(e){}
+    if(copyBtn){
+      copyBtn.addEventListener('click', async ()=>{
+        const ok = await doCopy();
+        if(ok && toast){
+          toast.classList.add('show');
+          setTimeout(()=>toast.classList.remove('show'), 1200);
+        }
       });
     }
 
+    const copyBtn2 = document.getElementById('copyDataBtn2');
+    const toast2 = document.getElementById('copyToast2');
+    if(copyBtn2){
+      copyBtn2.addEventListener('click', async ()=>{
+        const ok = await doCopy();
+        if(ok && toast2){
+          toast2.style.display = 'block';
+          setTimeout(()=>toast2.style.display='none', 1200);
+        }
+      });
+    }
+
+    // Mobile behavior: close all chapters except reading-note; keep Wikipedia-like navigation useful
+    function syncMobileAccordions(){
+      const isMobile = window.matchMedia('(max-width: 980px)').matches;
+      if(!isMobile) {
+        // desktop: open all
+        chapters.forEach(ch => ch.open = true);
+        return;
+      }
+      // mobile: open only first (reading note) unless user already opened some
+      const anyOpen = chapters.some(ch => ch.open && ch.id !== 'reading-note');
+      if(!anyOpen){
+        chapters.forEach(ch => ch.open = (ch.id === 'reading-note'));
+      }
+    }
+
+    // Mobile contents links: open target chapter then scroll
+    const mobileLinks = Array.from(document.querySelectorAll('.mobile-contents a[data-open]'));
+    mobileLinks.forEach(a=>{
+      a.addEventListener('click', (ev)=>{
+        const id = a.getAttribute('data-open');
+        const target = id ? document.getElementById(id) : null;
+        if(target && target.tagName.toLowerCase() === 'details'){
+          target.open = true;
+          // allow the opening to apply before scrolling
+          setTimeout(()=>{
+            target.scrollIntoView({ behavior:'smooth', block:'start' });
+          }, 50);
+        }
+      });
+    });
+
+    // Mobile: Cartography accordion collapsed by default (keeps hero compact)
     const carto = document.querySelector('details.carto-accordion');
     function syncCarto(){
       if(!carto) return;
-      const isMobile = window.matchMedia('(max-width: 700px)').matches;
-      carto.open = !isMobile;
+      const isSmall = window.matchMedia('(max-width: 700px)').matches;
+      carto.open = !isSmall;
     }
 
     window.addEventListener('scroll', updateProgress, { passive:true });
     window.addEventListener('scroll', setActiveFromScroll, { passive:true });
     window.addEventListener('resize', setActiveFromScroll);
+    window.addEventListener('resize', syncMobileAccordions);
     window.addEventListener('resize', syncCarto);
 
     updateProgress();
     setActiveFromScroll();
+    syncMobileAccordions();
     syncCarto();
   })();
   </script>
