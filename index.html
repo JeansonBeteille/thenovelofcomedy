@@ -76,7 +76,7 @@
     }
 
     /* =========================================================
-       HERO v2 — desktop unchanged
+       HERO v2 — Desktop PERFECT (unchanged) + Mobile clarified
        ========================================================= */
     .hero.hero-v2{
       background:var(--bg);
@@ -112,390 +112,21 @@
       grid-template-columns:1.08fr 1fr;
       grid-template-areas:"gallery copy";
       position:relative; z-index:1;
+      min-width:0;
     }
-    .hero-v2 .hero-copy{ grid-area:copy; }
-    .hero-v2 .hero-gallery{ grid-area:gallery; }
+    .hero-v2 .hero-copy{ grid-area:copy; min-width:0; }
+    .hero-v2 .hero-gallery{ grid-area:gallery; min-width:0; }
 
     @media(max-width:960px){
       .hero-v2 .hero-inner{
         grid-template-columns:1fr;
         grid-template-areas:"gallery";
-        padding:18px 16px 18px;
+        padding:16px 14px 18px;
       }
-      .hero-v2 .hero-copy{ display:none; } /* mobile: no editorial duplication */
+      /* mobile = no editorial duplication inside hero */
+      .hero-v2 .hero-copy{ display:none; }
     }
 
-    .hero-v2 .hero-gallery{
-      border-radius:18px;
-      border:1px solid rgba(255,255,255,.16);
-      background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(0,0,0,.72));
-      box-shadow:0 18px 60px rgba(0,0,0,.65);
-      overflow:hidden;
-    }
-
-    .hero-v2 .gallery-head{
-      padding:14px 14px 10px;
-      display:flex; align-items:flex-end; justify-content:space-between; gap:12px;
-      border-bottom:1px solid rgba(255,255,255,.10);
-      background:radial-gradient(circle at 0 0, rgba(255,255,255,.10), rgba(0,0,0,0) 60%);
-    }
-
-    /* Desktop header text = unchanged */
-    .hero-v2 .gh-desktop h2{
-      margin:0; font-size:12px; letter-spacing:.16em; text-transform:uppercase; opacity:.92;
-    }
-    .hero-v2 .gh-desktop p{ margin:4px 0 0; font-size:12px; opacity:.78; max-width:380px; }
-
-    /* Mobile header text = totem (human) */
-    .hero-v2 .gh-mobile{ display:none; }
-    @media(max-width:600px){
-      .hero-v2 .gh-desktop{ display:none; }
-      .hero-v2 .gh-mobile{ display:block; }
-      .hero-v2 .gh-mobile .totem{
-        margin:0;
-        font-size:13px;
-        line-height:1.45;
-        opacity:.90;
-      }
-      .hero-v2 .gh-mobile .totem em{ font-style:italic; opacity:.98; }
-      .hero-v2 .gh-mobile .sig{
-        margin-top:6px;
-        font-size:11px;
-        letter-spacing:.14em;
-        text-transform:uppercase;
-        opacity:.75;
-      }
-    }
-
-    .hero-v2 .gallery-controls{
-      display:flex; flex-wrap:wrap; gap:6px; justify-content:flex-end;
-    }
-    .hero-v2 .ctrl{
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.22);
-      background:rgba(0,0,0,.25);
-      color:#fff;
-      padding:6px 10px;
-      font-size:11px;
-      cursor:pointer;
-      opacity:.92;
-      text-decoration:none;
-      display:inline-flex; align-items:center; justify-content:center;
-    }
-    .hero-v2 .ctrl:hover{ opacity:1; text-decoration:none; }
-    .hero-v2 .ctrl strong{ font-weight:700; }
-
-    /* Mobile: keep only "All novels →" */
-    @media (max-width: 600px){
-      .hero-v2 .gallery-controls button.ctrl{ display:none; }
-    }
-
-    .hero-v2 .gallery-body{ padding:12px; display:grid; gap:12px; }
-    @media(max-width:600px){ .hero-v2 .gallery-body{ padding:10px; } }
-
-    /* ===== Mobile ATLAS definition (non-clickable, no green dot) ===== */
-    .hero-v2 .atlas-explain{ display:none; }
-    @media(max-width:600px){
-      .hero-v2 .atlas-explain{ display:block; }
-      .hero-v2 .mini-card{
-        border-radius:14px;
-        border:1px solid rgba(255,255,255,.14);
-        background:rgba(0,0,0,.35);
-        padding:10px 10px 9px;
-      }
-      .hero-v2 .mini-k{
-        margin:0 0 6px;
-        font-size:11px;
-        letter-spacing:.14em;
-        text-transform:uppercase;
-        opacity:.88;
-      }
-      .hero-v2 .mini-p{
-        margin:0;
-        font-size:12px;
-        line-height:1.35;
-        opacity:.86;
-
-        /* anti-cut */
-        white-space:normal;
-        overflow:visible;
-        text-overflow:clip;
-        word-break:break-word;
-      }
-    }
-
-    /* ===== Covers ribbon (manual on mobile) ===== */
-    .hero-v2 .cover-ribbon{
-      display:flex;
-      gap:10px;
-      overflow-x:auto;
-      overflow-y:hidden;
-      padding:2px 2px 10px;
-      scroll-snap-type:x proximity;
-      -webkit-overflow-scrolling:touch;
-
-      /* make swipe actually swipe */
-      touch-action: pan-x;
-      overscroll-behavior-x: contain;
-    }
-    .hero-v2 .cover-ribbon::before,
-    .hero-v2 .cover-ribbon::after{
-      content:"";
-      flex:0 0 12px;
-    }
-    .hero-v2 .cover-ribbon::-webkit-scrollbar{ height:8px; }
-    .hero-v2 .cover-ribbon::-webkit-scrollbar-thumb{ background:rgba(255,255,255,.14); border-radius:999px; }
-
-    .hero-v2 .cover-tile{
-      scroll-snap-align:start;
-      flex:0 0 clamp(140px, 44vw, 170px); /* ~2 visibles */
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.18);
-      overflow:hidden;
-      background:#111;
-      position:relative;
-      box-shadow:0 10px 30px rgba(0,0,0,.55);
-      transform:translateY(0);
-      transition:transform .2s ease, border-color .2s ease, filter .2s ease;
-    }
-    .hero-v2 .cover-tile:hover{
-      transform:translateY(-2px);
-      border-color:rgba(255,255,255,.36);
-      filter:saturate(1.06) contrast(1.06);
-      text-decoration:none;
-    }
-    .hero-v2 .cover-tile img{ display:block; width:100%; height:210px; object-fit:cover; }
-
-    .hero-v2 .cover-meta{
-      position:absolute; left:10px; right:10px; bottom:10px;
-      padding:6px 7px;
-      border-radius:12px;
-      background:rgba(0,0,0,.58);
-      border:1px solid rgba(255,255,255,.14);
-      backdrop-filter:blur(8px);
-    }
-    .hero-v2 .cover-meta .k{
-      font-size:clamp(9px, 1.9vw, 10px);
-      letter-spacing:.12em;
-      text-transform:uppercase;
-      opacity:.85;
-      margin:0 0 2px;
-      line-height:1.15;
-      white-space:normal;
-    }
-    .hero-v2 .cover-meta .t{
-      font-size:12px;
-      font-weight:650;
-      line-height:1.15;
-      margin:0;
-    }
-    .hero-v2 .cover-meta .s{
-      font-size:11px;
-      opacity:.82;
-      margin-top:2px;
-      line-height:1.2;
-    }
-
-    /* Hide "Current" in label on mobile (keep branch only) */
-    @media (max-width: 600px){
-      .hero-v2 .cover-meta .k .cur,
-      .hero-v2 .cover-meta .k .sep{ display:none; }
-    }
-
-    /* Desktop: covers become grid (unchanged) */
-    @media(min-width:961px){
-      .hero-v2 .cover-ribbon{
-        display:grid;
-        grid-template-columns:repeat(3,minmax(0,1fr));
-        overflow:visible; padding:0; scroll-snap-type:none;
-        touch-action:auto; overscroll-behavior:auto;
-      }
-      .hero-v2 .cover-ribbon::before,
-      .hero-v2 .cover-ribbon::after{ display:none; }
-      .hero-v2 .cover-tile{ flex:auto; }
-      .hero-v2 .cover-tile img{ height:170px; }
-    }
-
-    /* ===== Mobile Cartography block (clickable = green dot) ===== */
-    .hero-v2 .mobile-cartography{ display:none; }
-    @media (max-width: 600px){
-      .hero-v2 .mobile-cartography{
-        display:block;
-        border-radius:14px;
-        border:1px solid rgba(255,255,255,.14);
-        background:rgba(0,0,0,.35);
-        padding:10px;
-      }
-      .hero-v2 .mc-headlink{
-        display:inline-flex;
-        align-items:center;
-        gap:8px;
-        font-size:11px;
-        letter-spacing:.14em;
-        text-transform:uppercase;
-        opacity:.90;
-        text-decoration:none;
-      }
-      .hero-v2 .mc-headlink:hover{ text-decoration:none; opacity:1; }
-      .hero-v2 .mc-dot{
-        width:8px; height:8px; border-radius:50%;
-        background:var(--evergreen);
-        box-shadow:0 0 0 6px rgba(46,125,50,.18);
-        flex:0 0 auto;
-      }
-      .hero-v2 .mc-arrow{ opacity:.75; }
-
-      .hero-v2 .mc-sub{
-        margin:8px 0 10px;
-        font-size:12px;
-        line-height:1.35;
-        opacity:.82;
-        white-space:normal;
-        word-break:break-word;
-      }
-
-      .hero-v2 .mc-chips{ display:grid; gap:8px; }
-      .hero-v2 .mc-chip{
-        display:flex;
-        gap:10px;
-        align-items:flex-start;
-        padding:8px 10px;
-        border-radius:12px;
-        border:1px solid rgba(255,255,255,.14);
-        background:rgba(255,255,255,.06);
-        text-decoration:none;
-      }
-      .hero-v2 .mc-chip:hover{ border-color:rgba(255,255,255,.26); background:rgba(255,255,255,.08); }
-      .hero-v2 .mc-label{
-        display:block;
-        font-weight:650;
-        font-size:13px;
-        line-height:1.15;
-      }
-      .hero-v2 .mc-desc{
-        display:block;
-        font-size:12px;
-        opacity:.82;
-        margin-top:2px;
-        line-height:1.25;
-      }
-    }
-
-    /* ===== Authors board ===== */
-    .hero-v2 .board{
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.14);
-      background:rgba(0,0,0,.35);
-      padding:10px;
-    }
-    .hero-v2 .board-title{
-      display:flex; align-items:center; justify-content:space-between; gap:10px;
-      margin:0 0 8px;
-      font-size:11px; letter-spacing:.14em; text-transform:uppercase; opacity:.88;
-    }
-
-    /* Clickable header with green dot */
-    .hero-v2 .board-title a{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      font-size:11px;
-      opacity:.88;
-      text-decoration:none;
-      border-bottom:none;
-    }
-    .hero-v2 .board-title a:hover{ opacity:1; }
-    .hero-v2 .board-title a .dot{
-      width:8px; height:8px; border-radius:50%;
-      background:var(--evergreen);
-      box-shadow:0 0 0 6px rgba(46,125,50,.18);
-    }
-    .hero-v2 .board-title a .arr{ opacity:.75; }
-
-    /* Desktop authors: grid */
-    .hero-v2 .portrait-grid{
-      display:grid;
-      grid-template-columns:repeat(4,minmax(0,1fr));
-      gap:8px;
-    }
-
-    .hero-v2 .portrait{
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.16);
-      overflow:hidden;
-      background:#111;
-      position:relative;
-      aspect-ratio:1/1;
-      box-shadow:0 10px 26px rgba(0,0,0,.55);
-      transition:transform .2s ease, border-color .2s ease, filter .2s ease;
-    }
-    .hero-v2 .portrait:hover{
-      transform:translateY(-2px);
-      border-color:rgba(255,255,255,.32);
-      filter:saturate(1.06) contrast(1.06);
-      text-decoration:none;
-    }
-    .hero-v2 .portrait img{ display:block; width:100%; height:100%; object-fit:cover; }
-    .hero-v2 .portrait-label{
-      position:absolute; left:8px; right:8px; bottom:8px;
-      padding:6px 7px;
-      border-radius:12px;
-      background:rgba(0,0,0,.55);
-      border:1px solid rgba(255,255,255,.14);
-      backdrop-filter:blur(8px);
-      font-size:11px;
-      opacity:.92;
-      line-height:1.2;
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
-    }
-
-    /* Mobile authors: manual horizontal ribbon, ~2 visibles */
-    @media (max-width: 600px){
-      .hero-v2 .portrait-grid{
-        display:flex;
-        gap:10px;
-        overflow-x:auto;
-        overflow-y:hidden;
-        -webkit-overflow-scrolling:touch;
-        padding:2px 2px 10px;
-        scroll-snap-type:x proximity;
-        scroll-padding-left:14px;
-        scroll-padding-right:14px;
-
-        touch-action: pan-x;
-        overscroll-behavior-x: contain;
-      }
-      .hero-v2 .portrait-grid::before,
-      .hero-v2 .portrait-grid::after{
-        content:"";
-        flex:0 0 12px;
-      }
-      .hero-v2 .portrait{
-        flex:0 0 clamp(130px, 38vw, 160px);
-        aspect-ratio:1/1;
-        scroll-snap-align:start;
-      }
-      .hero-v2 .portrait-grid::-webkit-scrollbar{ height:8px; }
-      .hero-v2 .portrait-grid::-webkit-scrollbar-thumb{
-        background:rgba(255,255,255,.14);
-        border-radius:999px;
-      }
-    }
-
-    .hero-v2 .gallery-foot{
-      padding:10px 12px 12px;
-      border-top:1px solid rgba(255,255,255,.10);
-      font-size:11px;
-      opacity:.78;
-      display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap;
-    }
-    .hero-v2 .tiny{ opacity:.75; }
-
-    /* =========================================================
-       HERO COPY (desktop only) unchanged
-       ========================================================= */
     .hero-v2 .hero-kicker{
       font-size:12px; letter-spacing:.18em; text-transform:uppercase; opacity:.92;
     }
@@ -507,6 +138,7 @@
     }
     .hero-v2 .hero-title .thin{ font-weight:420; opacity:.95; }
     .hero-v2 .hero-title .bold{ font-weight:740; }
+
     .hero-v2 .hero-tagline{
       margin:10px 0 0;
       font-size:12px;
@@ -519,6 +151,7 @@
       opacity:.92;
     }
     .hero-v2 .hero-totem em{ font-style:italic; opacity:.98; }
+
     .hero-v2 .badge-row{
       display:flex; flex-wrap:wrap; gap:8px;
       margin-top:12px;
@@ -539,10 +172,12 @@
       flex:0 0 auto;
     }
     .hero-v2 .badge .mut{ opacity:.78; }
+
     .hero-v2 .hero-actions{
       margin-top:14px;
       display:flex; flex-wrap:wrap; gap:8px;
     }
+
     .btn{
       display:inline-flex; align-items:center; justify-content:center;
       padding:9px 14px; border-radius:999px; font-size:13px;
@@ -551,6 +186,7 @@
     .btn-primary{ background:#fff; color:#000; border-color:rgba(255,255,255,.03); }
     .btn-secondary{ background:rgba(0,0,0,.22); border-color:rgba(255,255,255,.30); color:#fff; }
     .hero-v2 .btn-ghost{ background:transparent; border-color:rgba(255,255,255,.24); color:#fff; opacity:.92; }
+
     .hero-v2 .hero-chips{ margin-top:16px; display:flex; flex-wrap:wrap; gap:8px; }
     .hero-v2 .chip{
       display:inline-flex; align-items:center; gap:6px;
@@ -563,8 +199,389 @@
     .hero-v2 .chip-label{ font-size:11px; font-weight:500; }
     .hero-v2 .chip-desc{ font-size:10px; opacity:.85; }
 
+    .hero-v2 .hero-gallery{
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.16);
+      background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(0,0,0,.72));
+      box-shadow:0 18px 60px rgba(0,0,0,.65);
+      overflow:hidden;
+      min-width:0;
+    }
+    .hero-v2 .gallery-head{
+      padding:14px 14px 10px;
+      display:flex; align-items:flex-end; justify-content:space-between; gap:12px;
+      border-bottom:1px solid rgba(255,255,255,.10);
+      background:radial-gradient(circle at 0 0, rgba(255,255,255,.10), rgba(0,0,0,0) 60%);
+    }
+    .hero-v2 .gallery-head h2{
+      margin:0; font-size:12px; letter-spacing:.16em; text-transform:uppercase; opacity:.92;
+    }
+    .hero-v2 .gallery-head p{ margin:4px 0 0; font-size:12px; opacity:.78; max-width:380px; }
+
+    .hero-v2 .gallery-controls{
+      display:flex; flex-wrap:wrap; gap:6px; justify-content:flex-end;
+    }
+    .hero-v2 .ctrl{
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.22);
+      background:rgba(0,0,0,.25);
+      color:#fff;
+      padding:6px 10px;
+      font-size:11px;
+      cursor:pointer;
+      opacity:.92;
+      text-decoration:none;
+      display:inline-flex; align-items:center; justify-content:center;
+    }
+    .hero-v2 .ctrl:hover{ opacity:1; text-decoration:none; }
+    .hero-v2 .ctrl strong{ font-weight:700; }
+
+    /* Mobile: remove cognitive load (keep only "All novels") */
+    @media (max-width: 600px){
+      .hero-v2 .gallery-controls button.ctrl{ display:none; }
+      .hero-v2 .gallery-head p{ display:none; }
+    }
+
+    .hero-v2 .gallery-body{
+      padding:12px;
+      display:grid;
+      gap:12px;
+      min-width:0;
+    }
+    @media(max-width:600px){
+      .hero-v2 .gallery-body{ padding:10px; }
+    }
+
+    /* ========= Mobile-only clarity block (totem) ========= */
+    .mobile-only{ display:none; }
+    .desktop-only{ display:block; }
+    @media (max-width: 960px){
+      .mobile-only{ display:block; }
+      .desktop-only{ display:none; }
+    }
+    .hero-v2 .m-totem{
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(0,0,0,.28);
+      padding:12px 12px 10px;
+      overflow:hidden;
+    }
+    .hero-v2 .m-quote{
+      margin:0;
+      font-size:16px;
+      line-height:1.35;
+      font-style:italic;
+      letter-spacing:-.01em;
+      opacity:.92;
+    }
+    .hero-v2 .m-sig{
+      margin:10px 0 0;
+      font-size:11px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      opacity:.75;
+    }
+
+    /* ========= Mobile mini-cards: ATLAS / CARTOGRAPHY ========= */
+    .hero-v2 .mini-card{
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(0,0,0,.30);
+      padding:12px 12px 10px;
+      min-width:0;
+      overflow:hidden;
+    }
+    .hero-v2 .mini-head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      min-width:0;
+      margin-bottom:6px;
+    }
+    .hero-v2 .mini-title{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      min-width:0;
+      font-size:12px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      opacity:.92;
+    }
+    .hero-v2 .mini-dot{
+      width:10px; height:10px; border-radius:50%;
+      background:var(--evergreen);
+      box-shadow:0 0 0 7px rgba(46,125,50,.18);
+      flex:0 0 auto;
+    }
+    .hero-v2 .mini-arrow{
+      font-size:14px;
+      opacity:.85;
+      flex:0 0 auto;
+    }
+    .hero-v2 .mini-desc{
+      margin:0;
+      font-size:13px;
+      line-height:1.35;
+      opacity:.86;
+      overflow-wrap:anywhere; /* fixes “cut” on right */
+      word-break:break-word;
+    }
+    /* Keep it “micro” without ugly cuts */
+    @media (max-width: 600px){
+      .hero-v2 .mini-desc{
+        display:-webkit-box;
+        -webkit-box-orient:vertical;
+        -webkit-line-clamp:2;
+        overflow:hidden;
+      }
+    }
+    .hero-v2 a.mini-card:hover{ text-decoration:none; }
+    .hero-v2 a.mini-card:hover .mini-desc{ opacity:.94; }
+
+    /* ========= Cover ribbon: mobile manual scroll, 2 visible ========= */
+    .hero-v2 .cover-ribbon{
+      display:flex;
+      gap:10px;
+      overflow:auto;
+      padding:2px 2px 10px;
+      scroll-snap-type:x mandatory;
+      -webkit-overflow-scrolling:touch;
+      scroll-padding-left:12px;
+      scroll-padding-right:12px;
+      min-width:0;
+      overscroll-behavior-x:contain;
+    }
+    .hero-v2 .cover-ribbon::before,
+    .hero-v2 .cover-ribbon::after{
+      content:"";
+      flex:0 0 10px;
+    }
+    .hero-v2 .cover-ribbon::-webkit-scrollbar{ height:8px; }
+    .hero-v2 .cover-ribbon::-webkit-scrollbar-thumb{ background:rgba(255,255,255,.14); border-radius:999px; }
+
+    .hero-v2 .cover-tile{
+      scroll-snap-align:start;
+      flex:0 0 calc((100% - 10px) / 2); /* 2 visible */
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.18);
+      overflow:hidden;
+      background:#111;
+      position:relative;
+      box-shadow:0 10px 30px rgba(0,0,0,.55);
+      transform:translateY(0);
+      transition:transform .2s ease, border-color .2s ease, filter .2s ease;
+      min-width:0;
+    }
+    .hero-v2 .cover-tile:hover{
+      transform:translateY(-2px);
+      border-color:rgba(255,255,255,.36);
+      filter:saturate(1.06) contrast(1.06);
+      text-decoration:none;
+    }
+    .hero-v2 .cover-tile img{ display:block; width:100%; height:210px; object-fit:cover; }
+
+    /* Cover meta: denser + smaller (as requested) */
+    .hero-v2 .cover-meta{
+      position:absolute; left:10px; right:10px; bottom:10px;
+      padding:6px 7px;
+      border-radius:12px;
+      background:rgba(0,0,0,.58);
+      border:1px solid rgba(255,255,255,.14);
+      backdrop-filter:blur(8px);
+      min-width:0;
+      overflow:hidden;
+    }
+    .hero-v2 .cover-meta .k{
+      font-size:clamp(9px, 1.9vw, 10px);
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      opacity:.85;
+      margin:0 0 2px;
+      line-height:1.15;
+      white-space:normal;
+      overflow-wrap:anywhere;
+    }
+    .hero-v2 .cover-meta .t{
+      font-size:12px;
+      font-weight:650;
+      line-height:1.15;
+      margin:0;
+    }
+    .hero-v2 .cover-meta .s{
+      font-size:11px;
+      opacity:.82;
+      margin-top:2px;
+      line-height:1.2;
+      overflow-wrap:anywhere;
+    }
+
+    /* Hide "Current" in label on small mobile (keep branch only) */
+    @media (max-width: 600px){
+      .hero-v2 .cover-meta .k .cur,
+      .hero-v2 .cover-meta .k .sep{ display:none; }
+    }
+
+    /* Desktop: keep your 3x2 grid behavior (unchanged idea) */
+    @media(min-width:961px){
+      .hero-v2 .cover-ribbon{
+        display:grid;
+        grid-template-columns:repeat(3,minmax(0,1fr));
+        overflow:visible; padding:0; scroll-snap-type:none;
+      }
+      .hero-v2 .cover-ribbon::before,
+      .hero-v2 .cover-ribbon::after{ display:none; }
+      .hero-v2 .cover-tile{ flex:auto; }
+      .hero-v2 .cover-tile img{ height:170px; }
+    }
+
+    .hero-v2 .cover-tile.is-spotlight{
+      border-color:rgba(255,255,255,.55);
+      box-shadow:0 18px 60px rgba(0,0,0,.75);
+      animation:tnocPulse 1.4s ease-in-out 1;
+    }
+    @keyframes tnocPulse{
+      0%{ transform:translateY(0); }
+      40%{ transform:translateY(-3px); }
+      100%{ transform:translateY(0); }
+    }
+
+    /* ========= Cartography chips inside mini-card (mobile) ========= */
+    .hero-v2 .mc-chips{ display:grid; gap:8px; margin-top:10px; }
+    .hero-v2 .mc-chip{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      padding:9px 10px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+    }
+    .hero-v2 .mc-dot{
+      width:8px; height:8px; border-radius:50%;
+      background:var(--evergreen);
+      box-shadow:0 0 0 6px rgba(46,125,50,.18);
+      margin-top:4px;
+      flex:0 0 auto;
+    }
+    .hero-v2 .mc-label{
+      display:block;
+      font-weight:650;
+      font-size:13px;
+      line-height:1.15;
+    }
+    .hero-v2 .mc-desc{
+      display:block;
+      font-size:12px;
+      opacity:.82;
+      margin-top:2px;
+      line-height:1.25;
+    }
+
+    /* ========= Author board: desktop unchanged, mobile = ribbon manual ========= */
+    .hero-v2 .board{
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(0,0,0,.35);
+      padding:10px;
+      min-width:0;
+    }
+    .hero-v2 .board-title{
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+      margin:0 0 8px;
+      font-size:11px; letter-spacing:.14em; text-transform:uppercase; opacity:.88;
+    }
+    .hero-v2 .board-title a{
+      font-size:11px; opacity:.78; text-decoration:none;
+      border-bottom:1px solid rgba(255,255,255,.20);
+    }
+    .hero-v2 .board-title a:hover{ opacity:1; }
+
+    /* Desktop grid (as before) */
+    .hero-v2 .portrait-grid{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:8px;
+      min-width:0;
+    }
+
+    .hero-v2 .portrait{
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.16);
+      overflow:hidden;
+      background:#111;
+      position:relative;
+      aspect-ratio:1/1;
+      box-shadow:0 10px 26px rgba(0,0,0,.55);
+      transition:transform .2s ease, border-color .2s ease, filter .2s ease;
+      min-width:0;
+    }
+    .hero-v2 .portrait:hover{
+      transform:translateY(-2px);
+      border-color:rgba(255,255,255,.32);
+      filter:saturate(1.06) contrast(1.06);
+      text-decoration:none;
+    }
+    .hero-v2 .portrait img{ display:block; width:100%; height:100%; object-fit:cover; }
+    .hero-v2 .portrait-label{
+      position:absolute; left:8px; right:8px; bottom:8px;
+      padding:6px 7px;
+      border-radius:12px;
+      background:rgba(0,0,0,.55);
+      border:1px solid rgba(255,255,255,.14);
+      backdrop-filter:blur(8px);
+      font-size:11px;
+      opacity:.92;
+      line-height:1.2;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      white-space:nowrap;
+    }
+
+    /* Mobile ribbon for authors (manual scroll, 2–3 visible) */
+    @media (max-width: 960px){
+      .hero-v2 .portrait-grid{
+        display:flex;
+        gap:10px;
+        overflow:auto;
+        padding:2px 2px 10px;
+        scroll-snap-type:x mandatory;
+        -webkit-overflow-scrolling:touch;
+        overscroll-behavior-x:contain;
+      }
+      .hero-v2 .portrait-grid::before,
+      .hero-v2 .portrait-grid::after{
+        content:"";
+        flex:0 0 10px;
+      }
+      .hero-v2 .portrait-grid::-webkit-scrollbar{ height:8px; }
+      .hero-v2 .portrait-grid::-webkit-scrollbar-thumb{ background:rgba(255,255,255,.14); border-radius:999px; }
+
+      .hero-v2 .portrait{
+        scroll-snap-align:start;
+        flex:0 0 46%;
+        aspect-ratio:1/1;
+      }
+    }
+    @media (max-width: 420px){
+      .hero-v2 .portrait{ flex-basis: calc((100% - 10px)/2); } /* keep 2 visible */
+    }
+    @media (min-width: 421px) and (max-width: 960px){
+      .hero-v2 .portrait{ flex-basis: 32%; } /* often 3 visible */
+    }
+
+    .hero-v2 .gallery-foot{
+      padding:10px 12px 12px;
+      border-top:1px solid rgba(255,255,255,.10);
+      font-size:11px;
+      opacity:.78;
+      display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap;
+    }
+    .hero-v2 .tiny{ opacity:.75; }
+
     /* =========================================================
-       MAIN (unchanged)
+       MAIN (as in your original)
        ========================================================= */
     .main{ background:var(--paper); min-height:60vh; }
     .main-inner{
@@ -609,6 +626,38 @@
       font-size:13px; display:flex; flex-direction:column; gap:8px;
     }
     .start-card h3{ margin:0; font-size:15px; }
+
+    .lab-map-wrapper{ margin-top:12px; }
+    .lab-map-title{
+      font-size:12px; text-transform:uppercase; letter-spacing:.16em;
+      color:var(--muted); margin-bottom:6px;
+    }
+    .lab-map{
+      position:relative; height:220px; border-radius:18px;
+      background:radial-gradient(circle at 20% 0,rgba(0,0,0,.08),rgba(0,0,0,.88));
+      border:1px solid var(--border); overflow:hidden;
+      box-shadow:0 10px 26px rgba(0,0,0,.25);
+    }
+    .lab-map-overlay{
+      position:absolute; inset:0; opacity:.16;
+      background:repeating-linear-gradient(
+        90deg,
+        rgba(255,255,255,.4) 0,
+        rgba(255,255,255,.4) 1px,
+        transparent 1px,
+        transparent 10px
+      );
+      pointer-events:none;
+    }
+    .lab-dot{
+      position:absolute; width:14px; height:14px; border-radius:999px;
+      background:rgba(46,125,50,.9);
+      box-shadow:0 0 0 6px rgba(46,125,50,.25);
+    }
+    .lab-label{
+      position:absolute; font-size:11px; color:#f5f5f5;
+      text-shadow:0 1px 2px rgba(0,0,0,.7); white-space:nowrap;
+    }
 
     .courants-rails{
       margin-top:14px; border-radius:20px; border:1px solid rgba(0,0,0,.06);
@@ -811,7 +860,7 @@
     </header>
 
     <!-- =========================
-         HERO v2
+         HERO v2 (desktop = perfect, mobile = clarified + manual ribbons)
          ========================= -->
     <section class="hero hero-v2" aria-label="Homepage hero (visual)">
       <div class="hero-inner">
@@ -819,14 +868,9 @@
         <!-- VISUALS FIRST (gallery) -->
         <aside class="hero-gallery" aria-label="Visual entry points: covers and authors">
           <div class="gallery-head">
-            <div class="gh-desktop">
+            <div>
               <h2>Start here · Visual picks</h2>
               <p>Tap a cover or a face — instant entry into the atlas.</p>
-            </div>
-
-            <div class="gh-mobile">
-              <p class="totem"><em>Comedy is one of the most precise ways of reading reality.</em></p>
-              <div class="sig">TNoC</div>
             </div>
 
             <div class="gallery-controls" aria-label="Hero controls">
@@ -842,15 +886,23 @@
 
           <div class="gallery-body">
 
-            <!-- Mobile: ATLAS definition only (non-clickable, no green dot) -->
-            <div class="atlas-explain" aria-label="Atlas definition (mobile)">
-              <div class="mini-card">
-                <div class="mini-k">Atlas</div>
-                <p class="mini-p">A living library of novels and authors. Famous novels or hidden ones. Celebrated authors or overlooked ones.</p>
-              </div>
+            <!-- MOBILE: totem / humanity (replaces useless “click here” vibe) -->
+            <div class="m-totem mobile-only" aria-label="Totem">
+              <p class="m-quote">Comedy is one of the most precise ways of reading reality.</p>
+              <p class="m-sig">TNoC</p>
             </div>
 
-            <!-- Covers: manual ribbon on mobile / grid on desktop -->
+            <!-- MOBILE: ATLAS (not clickable = no green dot) -->
+            <div class="mini-card mobile-only" aria-label="Atlas definition">
+              <div class="mini-head">
+                <div class="mini-title">ATLAS</div>
+              </div>
+              <p class="mini-desc">
+                A living library of novels and authors. Famous novels or hidden ones. Celebrated authors or overlooked ones.
+              </p>
+            </div>
+
+            <!-- COVERS (manual scroll on mobile, grid on desktop) -->
             <div class="cover-ribbon" id="heroRibbon" aria-label="Cover ribbon (scroll or grid)">
               <a class="cover-tile" href="./fichewilt.html" aria-label="Open the Wilt novel guide">
                 <img src="wilt31A.png.png" alt="Cover of Wilt (Tom Sharpe)">
@@ -906,65 +958,61 @@
                 </div>
               </a>
 
-              <a class="cover-tile" href="fr/fiche-roman/waugh-sample" aria-label="Open an Evelyn Waugh guide sample">
-                <img src="img/waugh-sample.png" alt="Cover of an Evelyn Waugh comic novel (sample)">
+              <a class="cover-tile" href="fr/fiche-roman/vonnegut-sample" aria-label="Open a Vonnegut guide sample">
+                <img src="img/vonnegut-sample.png" alt="Cover of a Kurt Vonnegut novel">
                 <div class="cover-meta">
-                  <div class="k"><span class="cur">Comedy of Society</span><span class="sep"> · </span><span class="br">Satire / Manners</span></div>
-                  <div class="t">Waugh</div>
+                  <div class="k"><span class="cur">Neo-Nonsense</span><span class="sep"> · </span><span class="br">Vertigo</span></div>
+                  <div class="t">Vonnegut</div>
                   <div class="s">Example entry</div>
                 </div>
               </a>
             </div>
 
-            <!-- Mobile: Cartography + currents (clickable header + clickable chips) -->
-            <div class="mobile-cartography" aria-label="Cartography (mobile)">
-              <a class="mc-headlink" href="method.html#cartography" aria-label="Open method: cartography">
-                <span class="mc-dot"></span>
-                <span>Cartography</span>
-                <span class="mc-arrow">→</span>
-              </a>
-
-              <p class="mc-sub">
-                A reading map of comic forms: three currents to orient the reader, then branches and environments to connect works precisely.
+            <!-- MOBILE: CARTOGRAPHY (clickable = green dot) + 3 currents inside -->
+            <a class="mini-card mobile-only" href="currents.html" aria-label="Open Currents (Cartography)">
+              <div class="mini-head">
+                <div class="mini-title"><span class="mini-dot" aria-hidden="true"></span> CARTOGRAPHY</div>
+                <span class="mini-arrow" aria-hidden="true">→</span>
+              </div>
+              <p class="mini-desc">
+                A reading map of comic forms: currents, branches, environments — a first compass for the reader.
               </p>
 
-              <div class="mc-chips" aria-label="The three currents (clickable)">
-                <a class="mc-chip" href="currents.html#society" aria-label="Open Comedy of Society">
+              <div class="mc-chips" aria-label="The three currents">
+                <span class="mc-chip">
                   <span class="mc-dot"></span>
-                  <span class="mc-text">
+                  <span>
                     <span class="mc-label">Comedy of Society</span>
                     <span class="mc-desc">institutions, daily life, social friction</span>
                   </span>
-                </a>
+                </span>
 
-                <a class="mc-chip" href="currents.html#crime" aria-label="Open Crime Comedy">
+                <span class="mc-chip">
                   <span class="mc-dot"></span>
-                  <span class="mc-text">
+                  <span>
                     <span class="mc-label">Crime Comedy</span>
                     <span class="mc-desc">fault, plans, transgression as comic fuel</span>
                   </span>
-                </a>
+                </span>
 
-                <a class="mc-chip" href="currents.html#neo-nonsense" aria-label="Open Neo-Nonsense">
+                <span class="mc-chip">
                   <span class="mc-dot"></span>
-                  <span class="mc-text">
+                  <span>
                     <span class="mc-label">Neo-Nonsense</span>
                     <span class="mc-desc">absurd logic, science, vertigo of meaning</span>
                   </span>
-                </a>
+                </span>
               </div>
-            </div>
+            </a>
 
-            <!-- Authors: manual ribbon on mobile / grid on desktop -->
+            <!-- AUTHORS (desktop + mobile same markup; CSS makes grid or ribbon) -->
             <div class="board" aria-label="Author portrait board">
               <div class="board-title">
                 <span>Author profiles</span>
-                <a href="author-profiles.html" aria-label="Browse all author profiles">
-                  <span class="dot"></span> All profiles <span class="arr">→</span>
-                </a>
+                <a href="author-profiles.html" aria-label="Browse all author profiles">All profiles →</a>
               </div>
 
-              <div class="portrait-grid" id="authorRibbon" aria-label="Author portraits (scroll or grid)">
+              <div class="portrait-grid" aria-label="Author portraits (grid or ribbon)">
                 <a class="portrait" href="author-profiles.html#tom-sharpe" aria-label="Open Tom Sharpe profile">
                   <img src="tomsh.jpg" alt="Portrait of Tom Sharpe">
                   <div class="portrait-label">Tom Sharpe</div>
@@ -1005,9 +1053,9 @@
                   <div class="portrait-label">Douglas Adams</div>
                 </a>
 
-                <a class="portrait" href="author-profiles.html#evelyn-waugh" aria-label="Open Evelyn Waugh profile">
-                  <img src="img/waugh-portrait.png" alt="Portrait of Evelyn Waugh (sample)">
-                  <div class="portrait-label">Evelyn Waugh</div>
+                <a class="portrait" href="author-profiles.html#westlake" aria-label="Open an extra author slot">
+                  <img src="img/westlake-portrait.png" alt="Portrait (sample)">
+                  <div class="portrait-label">+ more</div>
                 </a>
               </div>
             </div>
@@ -1075,9 +1123,6 @@
       </div>
     </section>
 
-    <!-- =========================
-         MAIN (everything below unchanged)
-         ========================= -->
     <main class="main" aria-label="Main content">
       <div class="main-inner">
 
@@ -1414,6 +1459,32 @@
                 </div>
               </article>
             </div>
+
+            <div class="lab-map-wrapper" id="labs" aria-label="Diagram of comic hubs">
+              <div class="lab-map-title">Hubs diagram</div>
+              <div class="lab-map">
+                <div class="lab-map-overlay"></div>
+
+                <div class="lab-dot" style="top:60%;left:45%;"></div>
+                <div class="lab-label" style="top:52%;left:52%;">Midlands Lab</div>
+
+                <div class="lab-dot" style="top:40%;left:60%;"></div>
+                <div class="lab-label" style="top:34%;left:64%;">Campus / University</div>
+
+                <div class="lab-dot" style="top:38%;left:30%;"></div>
+                <div class="lab-label" style="top:30%;left:16%;">Nordic Landscapes</div>
+
+                <div class="lab-dot" style="top:70%;left:55%;"></div>
+                <div class="lab-label" style="top:74%;left:58%;">Latin Cities</div>
+
+                <div class="lab-dot" style="top:50%;left:70%;"></div>
+                <div class="lab-label" style="top:44%;left:72%;">War / Bureaucracy</div>
+              </div>
+
+              <p class="muted" style="margin-top:6px;">
+                Stylised, non-geographical map: Labs function as conceptual hubs.
+              </p>
+            </div>
           </section>
 
           <section class="section" id="about" data-spy>
@@ -1562,7 +1633,7 @@
 
   </div>
 
-  <!-- HERO v2 controls (desktop only; mobile hides buttons anyway) -->
+  <!-- HERO v2 controls (shuffle/random spotlight) -->
   <script>
     (function(){
       const ribbon = document.getElementById('heroRibbon');
@@ -1570,6 +1641,7 @@
       if(!ribbon) return;
 
       const isMobile = window.matchMedia && window.matchMedia("(max-width: 960px)").matches;
+
       const controls = document.querySelectorAll('[data-hero]');
       const tiles = () => Array.from(ribbon.querySelectorAll('.cover-tile'));
 
@@ -1585,17 +1657,22 @@
       }
 
       function spotlightRandom(){
-        if(isMobile) return;
         const all = tiles();
         if(!all.length) return;
         clearSpotlight();
         const pick = all[Math.floor(Math.random() * all.length)];
         pick.classList.add('is-spotlight');
-        setTimeout(() => pick.classList.remove('is-spotlight'), 1600);
+
+        /* Desktop only: keep the “surprise”. Mobile: no auto scroll, no instability. */
+        if(!isMobile){
+          pick.scrollIntoView({ behavior:"smooth", block:"nearest", inline:"start" });
+          setTimeout(() => pick.classList.remove('is-spotlight'), 2200);
+        } else {
+          setTimeout(() => pick.classList.remove('is-spotlight'), 900);
+        }
       }
 
       function shuffleRibbon(){
-        if(isMobile) return;
         clearSpotlight();
         const all = tiles();
         for(let i = all.length - 1; i > 0; i--){
@@ -1603,7 +1680,7 @@
           [all[i], all[j]] = [all[j], all[i]];
         }
         all.forEach(node => ribbon.appendChild(node));
-        spotlightRandom();
+        if(!isMobile) spotlightRandom();
       }
 
       controls.forEach(btn => {
@@ -1615,7 +1692,14 @@
       });
 
       updateCount();
-      if(!isMobile) setTimeout(spotlightRandom, 650);
+
+      /* Always start clean at left */
+      ribbon.scrollLeft = 0;
+
+      /* Desktop: small delight */
+      if(!isMobile){
+        setTimeout(spotlightRandom, 650);
+      }
     })();
   </script>
 
