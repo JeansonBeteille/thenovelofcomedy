@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>The Novel of Comedy (TNoC) – Digital atlas of modern comic fiction</title>
+  <title>The Novel of Comedy (TNoC) – Digital atlas of humorous fiction</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description"
-        content="The Novel of Comedy (TNoC) is a digital atlas and critical cartography of modern comic fiction: three currents, branches, environments, Labs, and a system of novel and author guides.">
+        content="The Novel of Comedy (TNoC) is a digital atlas and critical cartography of humorous fiction: three currents, branches, environments, Labs, and a system of novel and author guides.">
 
   <style>
     :root{
@@ -76,7 +76,7 @@
     }
 
     /* =========================================================
-       HERO v2 — Desktop PERFECT (unchanged) + Mobile clarified
+       HERO v2 — Surprise (scoped)
        ========================================================= */
     .hero.hero-v2{
       background:var(--bg);
@@ -112,16 +112,15 @@
       grid-template-columns:1.08fr 1fr;
       grid-template-areas:"gallery copy";
       position:relative; z-index:1;
-      min-width:0;
     }
-    .hero-v2 .hero-copy{ grid-area:copy; min-width:0; }
-    .hero-v2 .hero-gallery{ grid-area:gallery; min-width:0; }
+    .hero-v2 .hero-copy{ grid-area:copy; }
+    .hero-v2 .hero-gallery{ grid-area:gallery; }
 
     @media(max-width:960px){
       .hero-v2 .hero-inner{
         grid-template-columns:1fr;
         grid-template-areas:"gallery";
-        padding:16px 14px 18px;
+        padding:18px 16px 18px;
       }
       /* mobile = no editorial duplication inside hero */
       .hero-v2 .hero-copy{ display:none; }
@@ -205,7 +204,6 @@
       background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(0,0,0,.72));
       box-shadow:0 18px 60px rgba(0,0,0,.65);
       overflow:hidden;
-      min-width:0;
     }
     .hero-v2 .gallery-head{
       padding:14px 14px 10px;
@@ -242,105 +240,9 @@
       .hero-v2 .gallery-head p{ display:none; }
     }
 
-    .hero-v2 .gallery-body{
-      padding:12px;
-      display:grid;
-      gap:12px;
-      min-width:0;
-    }
-    @media(max-width:600px){
-      .hero-v2 .gallery-body{ padding:10px; }
-    }
+    .hero-v2 .gallery-body{ padding:12px; display:grid; gap:12px; }
 
-    /* ========= Mobile-only clarity block (totem) ========= */
-    .mobile-only{ display:none; }
-    .desktop-only{ display:block; }
-    @media (max-width: 960px){
-      .mobile-only{ display:block; }
-      .desktop-only{ display:none; }
-    }
-    .hero-v2 .m-totem{
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.14);
-      background:rgba(0,0,0,.28);
-      padding:12px 12px 10px;
-      overflow:hidden;
-    }
-    .hero-v2 .m-quote{
-      margin:0;
-      font-size:16px;
-      line-height:1.35;
-      font-style:italic;
-      letter-spacing:-.01em;
-      opacity:.92;
-    }
-    .hero-v2 .m-sig{
-      margin:10px 0 0;
-      font-size:11px;
-      letter-spacing:.18em;
-      text-transform:uppercase;
-      opacity:.75;
-    }
-
-    /* ========= Mobile mini-cards: ATLAS / CARTOGRAPHY ========= */
-    .hero-v2 .mini-card{
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.14);
-      background:rgba(0,0,0,.30);
-      padding:12px 12px 10px;
-      min-width:0;
-      overflow:hidden;
-    }
-    .hero-v2 .mini-head{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:10px;
-      min-width:0;
-      margin-bottom:6px;
-    }
-    .hero-v2 .mini-title{
-      display:flex;
-      align-items:center;
-      gap:8px;
-      min-width:0;
-      font-size:12px;
-      letter-spacing:.18em;
-      text-transform:uppercase;
-      opacity:.92;
-    }
-    .hero-v2 .mini-dot{
-      width:10px; height:10px; border-radius:50%;
-      background:var(--evergreen);
-      box-shadow:0 0 0 7px rgba(46,125,50,.18);
-      flex:0 0 auto;
-    }
-    .hero-v2 .mini-arrow{
-      font-size:14px;
-      opacity:.85;
-      flex:0 0 auto;
-    }
-    .hero-v2 .mini-desc{
-      margin:0;
-      font-size:13px;
-      line-height:1.35;
-      opacity:.86;
-      overflow-wrap:anywhere; /* fixes “cut” on right */
-      word-break:break-word;
-    }
-    /* Keep it “micro” without ugly cuts */
-    @media (max-width: 600px){
-      .hero-v2 .mini-desc{
-        display:-webkit-box;
-        -webkit-box-orient:vertical;
-        -webkit-line-clamp:2;
-        overflow:hidden;
-      }
-    }
-    .hero-v2 a.mini-card:hover{ text-decoration:none; }
-    .hero-v2 a.mini-card:hover .mini-desc{ opacity:.94; }
-
-    /* ========= Cover ribbon: mobile manual scroll, 2 visible ========= */
+    /* Ribbon: safer on mobile (no left-cut) */
     .hero-v2 .cover-ribbon{
       display:flex;
       gap:10px;
@@ -348,22 +250,21 @@
       padding:2px 2px 10px;
       scroll-snap-type:x mandatory;
       -webkit-overflow-scrolling:touch;
-      scroll-padding-left:12px;
-      scroll-padding-right:12px;
-      min-width:0;
-      overscroll-behavior-x:contain;
+      scroll-padding-left:14px;
+      scroll-padding-right:14px;
     }
     .hero-v2 .cover-ribbon::before,
     .hero-v2 .cover-ribbon::after{
       content:"";
-      flex:0 0 10px;
+      flex:0 0 12px;
     }
+
     .hero-v2 .cover-ribbon::-webkit-scrollbar{ height:8px; }
     .hero-v2 .cover-ribbon::-webkit-scrollbar-thumb{ background:rgba(255,255,255,.14); border-radius:999px; }
 
     .hero-v2 .cover-tile{
       scroll-snap-align:start;
-      flex:0 0 calc((100% - 10px) / 2); /* 2 visible */
+      flex:0 0 150px;
       border-radius:14px;
       border:1px solid rgba(255,255,255,.18);
       overflow:hidden;
@@ -372,7 +273,6 @@
       box-shadow:0 10px 30px rgba(0,0,0,.55);
       transform:translateY(0);
       transition:transform .2s ease, border-color .2s ease, filter .2s ease;
-      min-width:0;
     }
     .hero-v2 .cover-tile:hover{
       transform:translateY(-2px);
@@ -390,8 +290,6 @@
       background:rgba(0,0,0,.58);
       border:1px solid rgba(255,255,255,.14);
       backdrop-filter:blur(8px);
-      min-width:0;
-      overflow:hidden;
     }
     .hero-v2 .cover-meta .k{
       font-size:clamp(9px, 1.9vw, 10px);
@@ -401,7 +299,6 @@
       margin:0 0 2px;
       line-height:1.15;
       white-space:normal;
-      overflow-wrap:anywhere;
     }
     .hero-v2 .cover-meta .t{
       font-size:12px;
@@ -414,16 +311,14 @@
       opacity:.82;
       margin-top:2px;
       line-height:1.2;
-      overflow-wrap:anywhere;
     }
 
-    /* Hide "Current" in label on small mobile (keep branch only) */
+    /* Hide "Current" in label on mobile (keep branch only) */
     @media (max-width: 600px){
       .hero-v2 .cover-meta .k .cur,
       .hero-v2 .cover-meta .k .sep{ display:none; }
     }
 
-    /* Desktop: keep your 3x2 grid behavior (unchanged idea) */
     @media(min-width:961px){
       .hero-v2 .cover-ribbon{
         display:grid;
@@ -447,45 +342,11 @@
       100%{ transform:translateY(0); }
     }
 
-    /* ========= Cartography chips inside mini-card (mobile) ========= */
-    .hero-v2 .mc-chips{ display:grid; gap:8px; margin-top:10px; }
-    .hero-v2 .mc-chip{
-      display:flex;
-      gap:10px;
-      align-items:flex-start;
-      padding:9px 10px;
-      border-radius:12px;
-      border:1px solid rgba(255,255,255,.14);
-      background:rgba(255,255,255,.06);
-    }
-    .hero-v2 .mc-dot{
-      width:8px; height:8px; border-radius:50%;
-      background:var(--evergreen);
-      box-shadow:0 0 0 6px rgba(46,125,50,.18);
-      margin-top:4px;
-      flex:0 0 auto;
-    }
-    .hero-v2 .mc-label{
-      display:block;
-      font-weight:650;
-      font-size:13px;
-      line-height:1.15;
-    }
-    .hero-v2 .mc-desc{
-      display:block;
-      font-size:12px;
-      opacity:.82;
-      margin-top:2px;
-      line-height:1.25;
-    }
-
-    /* ========= Author board: desktop unchanged, mobile = ribbon manual ========= */
     .hero-v2 .board{
       border-radius:14px;
       border:1px solid rgba(255,255,255,.14);
       background:rgba(0,0,0,.35);
       padding:10px;
-      min-width:0;
     }
     .hero-v2 .board-title{
       display:flex; align-items:center; justify-content:space-between; gap:10px;
@@ -498,24 +359,36 @@
     }
     .hero-v2 .board-title a:hover{ opacity:1; }
 
-    /* Desktop grid (as before) */
+    /* === Portraits become a horizontal ribbon (like covers) === */
     .hero-v2 .portrait-grid{
-      display:grid;
-      grid-template-columns:repeat(4,minmax(0,1fr));
-      gap:8px;
-      min-width:0;
+      display:flex;
+      gap:10px;
+      overflow:auto;
+      padding:2px 2px 10px;
+      scroll-snap-type:x mandatory;
+      -webkit-overflow-scrolling:touch;
+      scroll-padding-left:14px;
+      scroll-padding-right:14px;
     }
+    .hero-v2 .portrait-grid::before,
+    .hero-v2 .portrait-grid::after{
+      content:"";
+      flex:0 0 12px;
+    }
+    .hero-v2 .portrait-grid::-webkit-scrollbar{ height:8px; }
+    .hero-v2 .portrait-grid::-webkit-scrollbar-thumb{ background:rgba(255,255,255,.14); border-radius:999px; }
 
     .hero-v2 .portrait{
+      scroll-snap-align:start;
+      flex:0 0 150px;
       border-radius:14px;
       border:1px solid rgba(255,255,255,.16);
       overflow:hidden;
       background:#111;
       position:relative;
-      aspect-ratio:1/1;
       box-shadow:0 10px 26px rgba(0,0,0,.55);
       transition:transform .2s ease, border-color .2s ease, filter .2s ease;
-      min-width:0;
+      aspect-ratio:3/4;
     }
     .hero-v2 .portrait:hover{
       transform:translateY(-2px);
@@ -525,7 +398,7 @@
     }
     .hero-v2 .portrait img{ display:block; width:100%; height:100%; object-fit:cover; }
     .hero-v2 .portrait-label{
-      position:absolute; left:8px; right:8px; bottom:8px;
+      position:absolute; left:10px; right:10px; bottom:10px;
       padding:6px 7px;
       border-radius:12px;
       background:rgba(0,0,0,.55);
@@ -534,41 +407,24 @@
       font-size:11px;
       opacity:.92;
       line-height:1.2;
-      overflow:hidden;
-      text-overflow:ellipsis;
-      white-space:nowrap;
     }
 
-    /* Mobile ribbon for authors (manual scroll, 2–3 visible) */
-    @media (max-width: 960px){
+    /* Desktop: keep the original dense board look */
+    @media(min-width:961px){
       .hero-v2 .portrait-grid{
-        display:flex;
-        gap:10px;
-        overflow:auto;
-        padding:2px 2px 10px;
-        scroll-snap-type:x mandatory;
-        -webkit-overflow-scrolling:touch;
-        overscroll-behavior-x:contain;
+        display:grid;
+        grid-template-columns:repeat(4,minmax(0,1fr));
+        gap:8px;
+        overflow:visible;
+        padding:0;
+        scroll-snap-type:none;
       }
       .hero-v2 .portrait-grid::before,
-      .hero-v2 .portrait-grid::after{
-        content:"";
-        flex:0 0 10px;
-      }
-      .hero-v2 .portrait-grid::-webkit-scrollbar{ height:8px; }
-      .hero-v2 .portrait-grid::-webkit-scrollbar-thumb{ background:rgba(255,255,255,.14); border-radius:999px; }
-
+      .hero-v2 .portrait-grid::after{ display:none; }
       .hero-v2 .portrait{
-        scroll-snap-align:start;
-        flex:0 0 46%;
+        flex:auto;
         aspect-ratio:1/1;
       }
-    }
-    @media (max-width: 420px){
-      .hero-v2 .portrait{ flex-basis: calc((100% - 10px)/2); } /* keep 2 visible */
-    }
-    @media (min-width: 421px) and (max-width: 960px){
-      .hero-v2 .portrait{ flex-basis: 32%; } /* often 3 visible */
     }
 
     .hero-v2 .gallery-foot{
@@ -579,6 +435,59 @@
       display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap;
     }
     .hero-v2 .tiny{ opacity:.75; }
+
+    /* MOBILE Cartography block (between covers and authors) */
+    .hero-v2 .mobile-cartography{ display:none; }
+    @media (max-width: 960px){
+      .hero-v2 .mobile-cartography{
+        display:block;
+        border-radius:14px;
+        border:1px solid rgba(255,255,255,.14);
+        background:rgba(0,0,0,.35);
+        padding:10px;
+      }
+      .hero-v2 .mc-head{
+        font-size:11px;
+        letter-spacing:.14em;
+        text-transform:uppercase;
+        opacity:.88;
+        margin:0 0 8px;
+      }
+      .hero-v2 .mc-chips{ display:grid; gap:8px; }
+      .hero-v2 .mc-chip{
+        display:flex;
+        gap:10px;
+        align-items:flex-start;
+        padding:8px 10px;
+        border-radius:12px;
+        border:1px solid rgba(255,255,255,.14);
+        background:rgba(255,255,255,.06);
+      }
+      .hero-v2 .mc-dot{
+        width:8px; height:8px; border-radius:50%;
+        background:var(--evergreen);
+        box-shadow:0 0 0 6px rgba(46,125,50,.18);
+        margin-top:4px;
+        flex:0 0 auto;
+      }
+      .hero-v2 .mc-label{
+        display:block;
+        font-weight:650;
+        font-size:13px;
+        line-height:1.15;
+      }
+      .hero-v2 .mc-desc{
+        display:block;
+        font-size:12px;
+        opacity:.82;
+        margin-top:2px;
+        line-height:1.25;
+      }
+    }
+
+    @media(max-width:600px){
+      .hero-v2 .gallery-body{ padding:10px; }
+    }
 
     /* =========================================================
        MAIN (as in your original)
@@ -842,7 +751,7 @@
           <div class="brand-mark">TNoC</div>
           <div class="brand-text">
             <div class="brand-title">The Novel of Comedy</div>
-            <div class="brand-sub">Digital atlas & critical cartography of comic fiction</div>
+            <div class="brand-sub">Digital atlas &amp; critical cartography of humorous fiction</div>
           </div>
         </a>
 
@@ -860,7 +769,7 @@
     </header>
 
     <!-- =========================
-         HERO v2 (desktop = perfect, mobile = clarified + manual ribbons)
+         HERO v2 (desktop = as-is, mobile = gallery-only)
          ========================= -->
     <section class="hero hero-v2" aria-label="Homepage hero (visual)">
       <div class="hero-inner">
@@ -886,23 +795,6 @@
 
           <div class="gallery-body">
 
-            <!-- MOBILE: totem / humanity (replaces useless “click here” vibe) -->
-            <div class="m-totem mobile-only" aria-label="Totem">
-              <p class="m-quote">Comedy is one of the most precise ways of reading reality.</p>
-              <p class="m-sig">TNoC</p>
-            </div>
-
-            <!-- MOBILE: ATLAS (not clickable = no green dot) -->
-            <div class="mini-card mobile-only" aria-label="Atlas definition">
-              <div class="mini-head">
-                <div class="mini-title">ATLAS</div>
-              </div>
-              <p class="mini-desc">
-                A living library of novels and authors. Famous novels or hidden ones. Celebrated authors or overlooked ones.
-              </p>
-            </div>
-
-            <!-- COVERS (manual scroll on mobile, grid on desktop) -->
             <div class="cover-ribbon" id="heroRibbon" aria-label="Cover ribbon (scroll or grid)">
               <a class="cover-tile" href="./fichewilt.html" aria-label="Open the Wilt novel guide">
                 <img src="wilt31A.png.png" alt="Cover of Wilt (Tom Sharpe)">
@@ -957,31 +849,15 @@
                   <div class="s">Example entry</div>
                 </div>
               </a>
-
-              <a class="cover-tile" href="fr/fiche-roman/vonnegut-sample" aria-label="Open a Vonnegut guide sample">
-                <img src="img/vonnegut-sample.png" alt="Cover of a Kurt Vonnegut novel">
-                <div class="cover-meta">
-                  <div class="k"><span class="cur">Neo-Nonsense</span><span class="sep"> · </span><span class="br">Vertigo</span></div>
-                  <div class="t">Vonnegut</div>
-                  <div class="s">Example entry</div>
-                </div>
-              </a>
             </div>
 
-            <!-- MOBILE: CARTOGRAPHY (clickable = green dot) + 3 currents inside -->
-            <a class="mini-card mobile-only" href="currents.html" aria-label="Open Currents (Cartography)">
-              <div class="mini-head">
-                <div class="mini-title"><span class="mini-dot" aria-hidden="true"></span> CARTOGRAPHY</div>
-                <span class="mini-arrow" aria-hidden="true">→</span>
-              </div>
-              <p class="mini-desc">
-                A reading map of comic forms: currents, branches, environments — a first compass for the reader.
-              </p>
-
-              <div class="mc-chips" aria-label="The three currents">
+            <!-- MOBILE: Cartography block (shown only on small screens) -->
+            <div class="mobile-cartography" aria-label="Cartography (mobile)">
+              <div class="mc-head">Cartography · The three currents</div>
+              <div class="mc-chips">
                 <span class="mc-chip">
                   <span class="mc-dot"></span>
-                  <span>
+                  <span class="mc-text">
                     <span class="mc-label">Comedy of Society</span>
                     <span class="mc-desc">institutions, daily life, social friction</span>
                   </span>
@@ -989,7 +865,7 @@
 
                 <span class="mc-chip">
                   <span class="mc-dot"></span>
-                  <span>
+                  <span class="mc-text">
                     <span class="mc-label">Crime Comedy</span>
                     <span class="mc-desc">fault, plans, transgression as comic fuel</span>
                   </span>
@@ -997,22 +873,21 @@
 
                 <span class="mc-chip">
                   <span class="mc-dot"></span>
-                  <span>
+                  <span class="mc-text">
                     <span class="mc-label">Neo-Nonsense</span>
                     <span class="mc-desc">absurd logic, science, vertigo of meaning</span>
                   </span>
                 </span>
               </div>
-            </a>
+            </div>
 
-            <!-- AUTHORS (desktop + mobile same markup; CSS makes grid or ribbon) -->
             <div class="board" aria-label="Author portrait board">
               <div class="board-title">
-                <span>Author profiles</span>
+                <span>Author board · Click a portrait</span>
                 <a href="author-profiles.html" aria-label="Browse all author profiles">All profiles →</a>
               </div>
 
-              <div class="portrait-grid" aria-label="Author portraits (grid or ribbon)">
+              <div class="portrait-grid" aria-label="Author portraits (scroll on mobile)">
                 <a class="portrait" href="author-profiles.html#tom-sharpe" aria-label="Open Tom Sharpe profile">
                   <img src="tomsh.jpg" alt="Portrait of Tom Sharpe">
                   <div class="portrait-label">Tom Sharpe</div>
@@ -1052,11 +927,6 @@
                   <img src="img/douglas-adams.jpg" alt="Portrait of Douglas Adams">
                   <div class="portrait-label">Douglas Adams</div>
                 </a>
-
-                <a class="portrait" href="author-profiles.html#westlake" aria-label="Open an extra author slot">
-                  <img src="img/westlake-portrait.png" alt="Portrait (sample)">
-                  <div class="portrait-label">+ more</div>
-                </a>
               </div>
             </div>
 
@@ -1064,7 +934,7 @@
 
           <div class="gallery-foot" aria-label="Hero footer note">
             <span>Picks evolve over time: classics, hidden gems, new voices — curated like a gallery.</span>
-            <span class="tiny" id="heroCount">7 covers · 9 authors</span>
+            <span class="tiny" id="heroCount">6 covers · 8 authors</span>
           </div>
         </aside>
 
@@ -1076,7 +946,7 @@
             <span class="thin">The</span> <span class="bold">Novel</span> <span class="thin">of</span> <span class="bold">Comedy</span>
           </h1>
 
-          <p class="hero-tagline">First atlas &amp; critical cartography of modern comic fiction</p>
+          <p class="hero-tagline">First atlas &amp; critical cartography of humorous fiction</p>
 
           <p class="hero-totem">
             <em>Comedy is one of the most precise ways of reading reality.</em><br>
@@ -1207,7 +1077,7 @@
           <section class="section" id="courants" data-spy>
             <header class="section-header">
               <div class="section-kicker">Currents</div>
-              <h2 class="section-title">The three currents of modern comic fiction</h2>
+              <h2 class="section-title">The three currents of modern humorous fiction</h2>
               <p class="section-sub">
                 Comedy of Society, Crime Comedy and Neo-Nonsense describe three main dynamics of modern laughter:
                 the individual facing the group, the rule, and the universe. They do not exclude hybrid forms, but they offer clear landmarks.
@@ -1228,7 +1098,7 @@
             <div class="courants-rails">
               <div class="courants-rails-intro">
                 <p>
-                  Comedy of Society is the original comic in literary. The individual facing the collective: family, work, neighbourhood, institutions, hierarchies.
+                  Comedy of Society is the original comic in literature. The individual facing the collective: family, work, neighbourhood, institutions, hierarchies.
                   Humour arises from the friction between the self and the rule.
                   In the 20th century, Crime Comedy turns crime into a comic terrain. After World War II,
                   Neo-Nonsense integrates scientific and existential vertigo.
@@ -1492,7 +1362,7 @@
               <div class="section-kicker">Living library</div>
               <h2 class="section-title">The Novel of Comedy as critical compass</h2>
               <p class="section-sub">
-                The Novel of Comedy is designed as a moving library and a critical compass for modern comic fiction.
+                The Novel of Comedy is designed as a moving library and a critical compass for modern humorous fiction.
               </p>
             </header>
 
@@ -1618,7 +1488,7 @@
     <footer class="footer" role="contentinfo">
       <div class="footer-inner">
         <div>
-          <strong>The Novel of Comedy (TNoC)</strong> · Atlas and critical compass for modern comic fiction.
+          <strong>The Novel of Comedy (TNoC)</strong> · Atlas and critical compass for humorous fiction.
         </div>
         <div class="footer-links">
           <a href="method.html">Method</a>
@@ -1640,7 +1510,7 @@
       const count = document.getElementById('heroCount');
       if(!ribbon) return;
 
-      const isMobile = window.matchMedia && window.matchMedia("(max-width: 960px)").matches;
+      const isMobile = window.matchMedia && window.matchMedia("(max-width: 600px)").matches;
 
       const controls = document.querySelectorAll('[data-hero]');
       const tiles = () => Array.from(ribbon.querySelectorAll('.cover-tile'));
@@ -1663,7 +1533,6 @@
         const pick = all[Math.floor(Math.random() * all.length)];
         pick.classList.add('is-spotlight');
 
-        /* Desktop only: keep the “surprise”. Mobile: no auto scroll, no instability. */
         if(!isMobile){
           pick.scrollIntoView({ behavior:"smooth", block:"nearest", inline:"start" });
           setTimeout(() => pick.classList.remove('is-spotlight'), 2200);
@@ -1680,7 +1549,7 @@
           [all[i], all[j]] = [all[j], all[i]];
         }
         all.forEach(node => ribbon.appendChild(node));
-        if(!isMobile) spotlightRandom();
+        spotlightRandom();
       }
 
       controls.forEach(btn => {
@@ -1693,10 +1562,10 @@
 
       updateCount();
 
-      /* Always start clean at left */
+      /* Mobile: always start clean on the first tile */
       ribbon.scrollLeft = 0;
 
-      /* Desktop: small delight */
+      /* Desktop: keep the “surprise” */
       if(!isMobile){
         setTimeout(spotlightRandom, 650);
       }
@@ -1779,3 +1648,4 @@
 
 </body>
 </html>
+
