@@ -76,7 +76,7 @@
     }
 
     /* =========================================================
-       HERO v2 — Surprise (scoped)
+       HERO v2 — desktop unchanged
        ========================================================= */
     .hero.hero-v2{
       background:var(--bg);
@@ -125,78 +125,6 @@
       .hero-v2 .hero-copy{ display:none; } /* mobile: no editorial duplication */
     }
 
-    .hero-v2 .hero-kicker{
-      font-size:12px; letter-spacing:.18em; text-transform:uppercase; opacity:.92;
-    }
-    .hero-v2 .hero-title{
-      margin:10px 0 0;
-      font-size:34px; line-height:1.06;
-      letter-spacing:-.02em;
-      max-width:560px;
-    }
-    .hero-v2 .hero-title .thin{ font-weight:420; opacity:.95; }
-    .hero-v2 .hero-title .bold{ font-weight:740; }
-
-    .hero-v2 .hero-tagline{
-      margin:10px 0 0;
-      font-size:12px;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-      opacity:.82;
-    }
-    .hero-v2 .hero-totem{
-      font-size:14px; line-height:1.6; margin:12px 0 0; max-width:560px;
-      opacity:.92;
-    }
-    .hero-v2 .hero-totem em{ font-style:italic; opacity:.98; }
-
-    .hero-v2 .badge-row{
-      display:flex; flex-wrap:wrap; gap:8px;
-      margin-top:12px;
-    }
-    .hero-v2 .badge{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:6px 11px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.18);
-      background:rgba(255,255,255,.06);
-      font-size:11px;
-      opacity:.95;
-    }
-    .hero-v2 .badge .dot{
-      width:8px; height:8px; border-radius:50%;
-      background:var(--evergreen);
-      box-shadow:0 0 0 6px rgba(46,125,50,.20);
-      flex:0 0 auto;
-    }
-    .hero-v2 .badge .mut{ opacity:.78; }
-
-    .hero-v2 .hero-actions{
-      margin-top:14px;
-      display:flex; flex-wrap:wrap; gap:8px;
-    }
-
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      padding:9px 14px; border-radius:999px; font-size:13px;
-      border:1px solid transparent; cursor:pointer; text-decoration:none; white-space:nowrap;
-    }
-    .btn-primary{ background:#fff; color:#000; border-color:rgba(255,255,255,.03); }
-    .btn-secondary{ background:rgba(0,0,0,.22); border-color:rgba(255,255,255,.30); color:#fff; }
-    .hero-v2 .btn-ghost{ background:transparent; border-color:rgba(255,255,255,.24); color:#fff; opacity:.92; }
-
-    .hero-v2 .hero-chips{ margin-top:16px; display:flex; flex-wrap:wrap; gap:8px; }
-    .hero-v2 .chip{
-      display:inline-flex; align-items:center; gap:6px;
-      padding:5px 11px; border-radius:999px;
-      background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.18);
-      font-size:11px; color:#f5f5f5;
-    }
-    .hero-v2 .chip-dot{ width:8px; height:8px; border-radius:50%; background:var(--evergreen); flex-shrink:0; }
-    .hero-v2 .chip-text{ display:flex; flex-direction:column; gap:1px; }
-    .hero-v2 .chip-label{ font-size:11px; font-weight:500; }
-    .hero-v2 .chip-desc{ font-size:10px; opacity:.85; }
-
     .hero-v2 .hero-gallery{
       border-radius:18px;
       border:1px solid rgba(255,255,255,.16);
@@ -204,16 +132,40 @@
       box-shadow:0 18px 60px rgba(0,0,0,.65);
       overflow:hidden;
     }
+
     .hero-v2 .gallery-head{
       padding:14px 14px 10px;
       display:flex; align-items:flex-end; justify-content:space-between; gap:12px;
       border-bottom:1px solid rgba(255,255,255,.10);
       background:radial-gradient(circle at 0 0, rgba(255,255,255,.10), rgba(0,0,0,0) 60%);
     }
-    .hero-v2 .gallery-head h2{
+
+    /* Desktop header text = unchanged */
+    .hero-v2 .gh-desktop h2{
       margin:0; font-size:12px; letter-spacing:.16em; text-transform:uppercase; opacity:.92;
     }
-    .hero-v2 .gallery-head p{ margin:4px 0 0; font-size:12px; opacity:.78; max-width:380px; }
+    .hero-v2 .gh-desktop p{ margin:4px 0 0; font-size:12px; opacity:.78; max-width:380px; }
+
+    /* Mobile header text = totem (human) */
+    .hero-v2 .gh-mobile{ display:none; }
+    @media(max-width:600px){
+      .hero-v2 .gh-desktop{ display:none; }
+      .hero-v2 .gh-mobile{ display:block; }
+      .hero-v2 .gh-mobile .totem{
+        margin:0;
+        font-size:13px;
+        line-height:1.45;
+        opacity:.90;
+      }
+      .hero-v2 .gh-mobile .totem em{ font-style:italic; opacity:.98; }
+      .hero-v2 .gh-mobile .sig{
+        margin-top:6px;
+        font-size:11px;
+        letter-spacing:.14em;
+        text-transform:uppercase;
+        opacity:.75;
+      }
+    }
 
     .hero-v2 .gallery-controls{
       display:flex; flex-wrap:wrap; gap:6px; justify-content:flex-end;
@@ -236,45 +188,27 @@
     /* Mobile: keep only "All novels →" */
     @media (max-width: 600px){
       .hero-v2 .gallery-controls button.ctrl{ display:none; }
-      .hero-v2 .gallery-head p{ display:none; }
     }
 
     .hero-v2 .gallery-body{ padding:12px; display:grid; gap:12px; }
+    @media(max-width:600px){ .hero-v2 .gallery-body{ padding:10px; } }
 
-    /* ====== Mobile clarity: ATLAS + CARTOGRAPHY mini cards ====== */
-    .hero-v2 .covers-explain{ display:none; }
-    @media (max-width: 960px){
-      .hero-v2 .covers-explain{
-        display:grid;
-        grid-template-columns:1fr 1fr;
-        gap:10px;
-        min-width:0;
-      }
-      /* tiny screens: 1 column to avoid any “cut” impression */
-      @media (max-width: 430px){
-        .hero-v2 .covers-explain{ grid-template-columns:1fr; }
-      }
-
+    /* ===== Mobile ATLAS definition (non-clickable, no green dot) ===== */
+    .hero-v2 .atlas-explain{ display:none; }
+    @media(max-width:600px){
+      .hero-v2 .atlas-explain{ display:block; }
       .hero-v2 .mini-card{
-        min-width:0;
         border-radius:14px;
         border:1px solid rgba(255,255,255,.14);
         background:rgba(0,0,0,.35);
         padding:10px 10px 9px;
       }
       .hero-v2 .mini-k{
+        margin:0 0 6px;
         font-size:11px;
         letter-spacing:.14em;
         text-transform:uppercase;
         opacity:.88;
-        margin:0 0 6px;
-        display:flex; align-items:center; gap:8px;
-      }
-      .hero-v2 .mini-k .dot{
-        width:8px; height:8px; border-radius:50%;
-        background:var(--evergreen);
-        box-shadow:0 0 0 6px rgba(46,125,50,.18);
-        flex:0 0 auto;
       }
       .hero-v2 .mini-p{
         margin:0;
@@ -282,7 +216,7 @@
         line-height:1.35;
         opacity:.86;
 
-        /* hard anti-ellipsis / anti-cut */
+        /* anti-cut */
         white-space:normal;
         overflow:visible;
         text-overflow:clip;
@@ -290,16 +224,19 @@
       }
     }
 
-    /* ====== Covers ribbon (manual on mobile) ====== */
+    /* ===== Covers ribbon (manual on mobile) ===== */
     .hero-v2 .cover-ribbon{
       display:flex;
       gap:10px;
-      overflow:auto;
+      overflow-x:auto;
+      overflow-y:hidden;
       padding:2px 2px 10px;
-      scroll-snap-type:x mandatory;
+      scroll-snap-type:x proximity;
       -webkit-overflow-scrolling:touch;
-      scroll-padding-left:14px;
-      scroll-padding-right:14px;
+
+      /* make swipe actually swipe */
+      touch-action: pan-x;
+      overscroll-behavior-x: contain;
     }
     .hero-v2 .cover-ribbon::before,
     .hero-v2 .cover-ribbon::after{
@@ -311,8 +248,7 @@
 
     .hero-v2 .cover-tile{
       scroll-snap-align:start;
-      /* mobile: ~2 visibles */
-      flex:0 0 clamp(140px, 44vw, 170px);
+      flex:0 0 clamp(140px, 44vw, 170px); /* ~2 visibles */
       border-radius:14px;
       border:1px solid rgba(255,255,255,.18);
       overflow:hidden;
@@ -372,6 +308,7 @@
         display:grid;
         grid-template-columns:repeat(3,minmax(0,1fr));
         overflow:visible; padding:0; scroll-snap-type:none;
+        touch-action:auto; overscroll-behavior:auto;
       }
       .hero-v2 .cover-ribbon::before,
       .hero-v2 .cover-ribbon::after{ display:none; }
@@ -379,9 +316,9 @@
       .hero-v2 .cover-tile img{ height:170px; }
     }
 
-    /* ====== Mobile cartography block + micro definition ====== */
+    /* ===== Mobile Cartography block (clickable = green dot) ===== */
     .hero-v2 .mobile-cartography{ display:none; }
-    @media (max-width: 960px){
+    @media (max-width: 600px){
       .hero-v2 .mobile-cartography{
         display:block;
         border-radius:14px;
@@ -389,19 +326,34 @@
         background:rgba(0,0,0,.35);
         padding:10px;
       }
-      .hero-v2 .mc-head{
+      .hero-v2 .mc-headlink{
+        display:inline-flex;
+        align-items:center;
+        gap:8px;
         font-size:11px;
         letter-spacing:.14em;
         text-transform:uppercase;
-        opacity:.88;
-        margin:0 0 4px;
+        opacity:.90;
+        text-decoration:none;
       }
+      .hero-v2 .mc-headlink:hover{ text-decoration:none; opacity:1; }
+      .hero-v2 .mc-dot{
+        width:8px; height:8px; border-radius:50%;
+        background:var(--evergreen);
+        box-shadow:0 0 0 6px rgba(46,125,50,.18);
+        flex:0 0 auto;
+      }
+      .hero-v2 .mc-arrow{ opacity:.75; }
+
       .hero-v2 .mc-sub{
-        margin:0 0 10px;
+        margin:8px 0 10px;
         font-size:12px;
         line-height:1.35;
-        opacity:.80;
+        opacity:.82;
+        white-space:normal;
+        word-break:break-word;
       }
+
       .hero-v2 .mc-chips{ display:grid; gap:8px; }
       .hero-v2 .mc-chip{
         display:flex;
@@ -411,14 +363,9 @@
         border-radius:12px;
         border:1px solid rgba(255,255,255,.14);
         background:rgba(255,255,255,.06);
+        text-decoration:none;
       }
-      .hero-v2 .mc-dot{
-        width:8px; height:8px; border-radius:50%;
-        background:var(--evergreen);
-        box-shadow:0 0 0 6px rgba(46,125,50,.18);
-        margin-top:4px;
-        flex:0 0 auto;
-      }
+      .hero-v2 .mc-chip:hover{ border-color:rgba(255,255,255,.26); background:rgba(255,255,255,.08); }
       .hero-v2 .mc-label{
         display:block;
         font-weight:650;
@@ -434,7 +381,7 @@
       }
     }
 
-    /* ====== Authors board ====== */
+    /* ===== Authors board ===== */
     .hero-v2 .board{
       border-radius:14px;
       border:1px solid rgba(255,255,255,.14);
@@ -446,11 +393,24 @@
       margin:0 0 8px;
       font-size:11px; letter-spacing:.14em; text-transform:uppercase; opacity:.88;
     }
+
+    /* Clickable header with green dot */
     .hero-v2 .board-title a{
-      font-size:11px; opacity:.78; text-decoration:none;
-      border-bottom:1px solid rgba(255,255,255,.20);
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      font-size:11px;
+      opacity:.88;
+      text-decoration:none;
+      border-bottom:none;
     }
     .hero-v2 .board-title a:hover{ opacity:1; }
+    .hero-v2 .board-title a .dot{
+      width:8px; height:8px; border-radius:50%;
+      background:var(--evergreen);
+      box-shadow:0 0 0 6px rgba(46,125,50,.18);
+    }
+    .hero-v2 .board-title a .arr{ opacity:.75; }
 
     /* Desktop authors: grid */
     .hero-v2 .portrait-grid{
@@ -492,16 +452,20 @@
     }
 
     /* Mobile authors: manual horizontal ribbon, ~2 visibles */
-    @media (max-width: 960px){
+    @media (max-width: 600px){
       .hero-v2 .portrait-grid{
         display:flex;
         gap:10px;
         overflow-x:auto;
+        overflow-y:hidden;
         -webkit-overflow-scrolling:touch;
         padding:2px 2px 10px;
-        scroll-snap-type:x mandatory;
+        scroll-snap-type:x proximity;
         scroll-padding-left:14px;
         scroll-padding-right:14px;
+
+        touch-action: pan-x;
+        overscroll-behavior-x: contain;
       }
       .hero-v2 .portrait-grid::before,
       .hero-v2 .portrait-grid::after{
@@ -529,12 +493,78 @@
     }
     .hero-v2 .tiny{ opacity:.75; }
 
-    @media(max-width:600px){
-      .hero-v2 .gallery-body{ padding:10px; }
+    /* =========================================================
+       HERO COPY (desktop only) unchanged
+       ========================================================= */
+    .hero-v2 .hero-kicker{
+      font-size:12px; letter-spacing:.18em; text-transform:uppercase; opacity:.92;
     }
+    .hero-v2 .hero-title{
+      margin:10px 0 0;
+      font-size:34px; line-height:1.06;
+      letter-spacing:-.02em;
+      max-width:560px;
+    }
+    .hero-v2 .hero-title .thin{ font-weight:420; opacity:.95; }
+    .hero-v2 .hero-title .bold{ font-weight:740; }
+    .hero-v2 .hero-tagline{
+      margin:10px 0 0;
+      font-size:12px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      opacity:.82;
+    }
+    .hero-v2 .hero-totem{
+      font-size:14px; line-height:1.6; margin:12px 0 0; max-width:560px;
+      opacity:.92;
+    }
+    .hero-v2 .hero-totem em{ font-style:italic; opacity:.98; }
+    .hero-v2 .badge-row{
+      display:flex; flex-wrap:wrap; gap:8px;
+      margin-top:12px;
+    }
+    .hero-v2 .badge{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:6px 11px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.18);
+      background:rgba(255,255,255,.06);
+      font-size:11px;
+      opacity:.95;
+    }
+    .hero-v2 .badge .dot{
+      width:8px; height:8px; border-radius:50%;
+      background:var(--evergreen);
+      box-shadow:0 0 0 6px rgba(46,125,50,.20);
+      flex:0 0 auto;
+    }
+    .hero-v2 .badge .mut{ opacity:.78; }
+    .hero-v2 .hero-actions{
+      margin-top:14px;
+      display:flex; flex-wrap:wrap; gap:8px;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:9px 14px; border-radius:999px; font-size:13px;
+      border:1px solid transparent; cursor:pointer; text-decoration:none; white-space:nowrap;
+    }
+    .btn-primary{ background:#fff; color:#000; border-color:rgba(255,255,255,.03); }
+    .btn-secondary{ background:rgba(0,0,0,.22); border-color:rgba(255,255,255,.30); color:#fff; }
+    .hero-v2 .btn-ghost{ background:transparent; border-color:rgba(255,255,255,.24); color:#fff; opacity:.92; }
+    .hero-v2 .hero-chips{ margin-top:16px; display:flex; flex-wrap:wrap; gap:8px; }
+    .hero-v2 .chip{
+      display:inline-flex; align-items:center; gap:6px;
+      padding:5px 11px; border-radius:999px;
+      background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.18);
+      font-size:11px; color:#f5f5f5;
+    }
+    .hero-v2 .chip-dot{ width:8px; height:8px; border-radius:50%; background:var(--evergreen); flex-shrink:0; }
+    .hero-v2 .chip-text{ display:flex; flex-direction:column; gap:1px; }
+    .hero-v2 .chip-label{ font-size:11px; font-weight:500; }
+    .hero-v2 .chip-desc{ font-size:10px; opacity:.85; }
 
     /* =========================================================
-       MAIN (as in your original)
+       MAIN (unchanged)
        ========================================================= */
     .main{ background:var(--paper); min-height:60vh; }
     .main-inner{
@@ -579,38 +609,6 @@
       font-size:13px; display:flex; flex-direction:column; gap:8px;
     }
     .start-card h3{ margin:0; font-size:15px; }
-
-    .lab-map-wrapper{ margin-top:12px; }
-    .lab-map-title{
-      font-size:12px; text-transform:uppercase; letter-spacing:.16em;
-      color:var(--muted); margin-bottom:6px;
-    }
-    .lab-map{
-      position:relative; height:220px; border-radius:18px;
-      background:radial-gradient(circle at 20% 0,rgba(0,0,0,.08),rgba(0,0,0,.88));
-      border:1px solid var(--border); overflow:hidden;
-      box-shadow:0 10px 26px rgba(0,0,0,.25);
-    }
-    .lab-map-overlay{
-      position:absolute; inset:0; opacity:.16;
-      background:repeating-linear-gradient(
-        90deg,
-        rgba(255,255,255,.4) 0,
-        rgba(255,255,255,.4) 1px,
-        transparent 1px,
-        transparent 10px
-      );
-      pointer-events:none;
-    }
-    .lab-dot{
-      position:absolute; width:14px; height:14px; border-radius:999px;
-      background:rgba(46,125,50,.9);
-      box-shadow:0 0 0 6px rgba(46,125,50,.25);
-    }
-    .lab-label{
-      position:absolute; font-size:11px; color:#f5f5f5;
-      text-shadow:0 1px 2px rgba(0,0,0,.7); white-space:nowrap;
-    }
 
     .courants-rails{
       margin-top:14px; border-radius:20px; border:1px solid rgba(0,0,0,.06);
@@ -813,7 +811,7 @@
     </header>
 
     <!-- =========================
-         HERO v2 (desktop = as-is, mobile = manual galleries + clarity)
+         HERO v2
          ========================= -->
     <section class="hero hero-v2" aria-label="Homepage hero (visual)">
       <div class="hero-inner">
@@ -821,9 +819,14 @@
         <!-- VISUALS FIRST (gallery) -->
         <aside class="hero-gallery" aria-label="Visual entry points: covers and authors">
           <div class="gallery-head">
-            <div>
+            <div class="gh-desktop">
               <h2>Start here · Visual picks</h2>
               <p>Tap a cover or a face — instant entry into the atlas.</p>
+            </div>
+
+            <div class="gh-mobile">
+              <p class="totem"><em>Comedy is one of the most precise ways of reading reality.</em></p>
+              <div class="sig">TNoC</div>
             </div>
 
             <div class="gallery-controls" aria-label="Hero controls">
@@ -839,19 +842,15 @@
 
           <div class="gallery-body">
 
-            <!-- Mobile: clarity blocks -->
-            <div class="covers-explain" aria-label="Atlas and cartography (mobile clarity)">
+            <!-- Mobile: ATLAS definition only (non-clickable, no green dot) -->
+            <div class="atlas-explain" aria-label="Atlas definition (mobile)">
               <div class="mini-card">
-                <div class="mini-k"><span class="dot"></span>Atlas</div>
+                <div class="mini-k">Atlas</div>
                 <p class="mini-p">A living library of novels and authors. Famous novels or hidden ones. Celebrated authors or overlooked ones.</p>
-              </div>
-              <div class="mini-card">
-                <div class="mini-k"><span class="dot"></span>Cartography</div>
-                <p class="mini-p">A map of comic forms: currents, branches, environments and Labs — to connect, compare, and navigate.</p>
               </div>
             </div>
 
-            <!-- Covers: manual carousel on mobile / grid on desktop -->
+            <!-- Covers: manual ribbon on mobile / grid on desktop -->
             <div class="cover-ribbon" id="heroRibbon" aria-label="Cover ribbon (scroll or grid)">
               <a class="cover-tile" href="./fichewilt.html" aria-label="Open the Wilt novel guide">
                 <img src="wilt31A.png.png" alt="Cover of Wilt (Tom Sharpe)">
@@ -907,7 +906,6 @@
                 </div>
               </a>
 
-              <!-- 7th cover (stock for mobile scroll) -->
               <a class="cover-tile" href="fr/fiche-roman/waugh-sample" aria-label="Open an Evelyn Waugh guide sample">
                 <img src="img/waugh-sample.png" alt="Cover of an Evelyn Waugh comic novel (sample)">
                 <div class="cover-meta">
@@ -918,43 +916,52 @@
               </a>
             </div>
 
-            <!-- Mobile: Cartography block -->
+            <!-- Mobile: Cartography + currents (clickable header + clickable chips) -->
             <div class="mobile-cartography" aria-label="Cartography (mobile)">
-              <div class="mc-head">Cartography · The three currents</div>
-              <p class="mc-sub">A first compass for the reader: three major dynamics of modern laughter — social friction, comic transgression, and vertigo of meaning.</p>
+              <a class="mc-headlink" href="method.html#cartography" aria-label="Open method: cartography">
+                <span class="mc-dot"></span>
+                <span>Cartography</span>
+                <span class="mc-arrow">→</span>
+              </a>
 
-              <div class="mc-chips">
-                <span class="mc-chip">
+              <p class="mc-sub">
+                A reading map of comic forms: three currents to orient the reader, then branches and environments to connect works precisely.
+              </p>
+
+              <div class="mc-chips" aria-label="The three currents (clickable)">
+                <a class="mc-chip" href="currents.html#society" aria-label="Open Comedy of Society">
                   <span class="mc-dot"></span>
                   <span class="mc-text">
                     <span class="mc-label">Comedy of Society</span>
                     <span class="mc-desc">institutions, daily life, social friction</span>
                   </span>
-                </span>
+                </a>
 
-                <span class="mc-chip">
+                <a class="mc-chip" href="currents.html#crime" aria-label="Open Crime Comedy">
                   <span class="mc-dot"></span>
                   <span class="mc-text">
                     <span class="mc-label">Crime Comedy</span>
                     <span class="mc-desc">fault, plans, transgression as comic fuel</span>
                   </span>
-                </span>
+                </a>
 
-                <span class="mc-chip">
+                <a class="mc-chip" href="currents.html#neo-nonsense" aria-label="Open Neo-Nonsense">
                   <span class="mc-dot"></span>
                   <span class="mc-text">
                     <span class="mc-label">Neo-Nonsense</span>
                     <span class="mc-desc">absurd logic, science, vertigo of meaning</span>
                   </span>
-                </span>
+                </a>
               </div>
             </div>
 
-            <!-- Authors: manual carousel on mobile / grid on desktop -->
+            <!-- Authors: manual ribbon on mobile / grid on desktop -->
             <div class="board" aria-label="Author portrait board">
               <div class="board-title">
-                <span>Author board · Click a portrait</span>
-                <a href="author-profiles.html" aria-label="Browse all author profiles">All profiles →</a>
+                <span>Author profiles</span>
+                <a href="author-profiles.html" aria-label="Browse all author profiles">
+                  <span class="dot"></span> All profiles <span class="arr">→</span>
+                </a>
               </div>
 
               <div class="portrait-grid" id="authorRibbon" aria-label="Author portraits (scroll or grid)">
@@ -1069,7 +1076,7 @@
     </section>
 
     <!-- =========================
-         MAIN (all chapters — unchanged)
+         MAIN (everything below unchanged)
          ========================= -->
     <main class="main" aria-label="Main content">
       <div class="main-inner">
@@ -1407,32 +1414,6 @@
                 </div>
               </article>
             </div>
-
-            <div class="lab-map-wrapper" id="labs" aria-label="Diagram of comic hubs">
-              <div class="lab-map-title">Hubs diagram</div>
-              <div class="lab-map">
-                <div class="lab-map-overlay"></div>
-
-                <div class="lab-dot" style="top:60%;left:45%;"></div>
-                <div class="lab-label" style="top:52%;left:52%;">Midlands Lab</div>
-
-                <div class="lab-dot" style="top:40%;left:60%;"></div>
-                <div class="lab-label" style="top:34%;left:64%;">Campus / University</div>
-
-                <div class="lab-dot" style="top:38%;left:30%;"></div>
-                <div class="lab-label" style="top:30%;left:16%;">Nordic Landscapes</div>
-
-                <div class="lab-dot" style="top:70%;left:55%;"></div>
-                <div class="lab-label" style="top:74%;left:58%;">Latin Cities</div>
-
-                <div class="lab-dot" style="top:50%;left:70%;"></div>
-                <div class="lab-label" style="top:44%;left:72%;">War / Bureaucracy</div>
-              </div>
-
-              <p class="muted" style="margin-top:6px;">
-                Stylised, non-geographical map: Labs function as conceptual hubs.
-              </p>
-            </div>
           </section>
 
           <section class="section" id="about" data-spy>
@@ -1581,16 +1562,14 @@
 
   </div>
 
-  <!-- HERO v2 controls (desktop only; mobile buttons hidden anyway) -->
+  <!-- HERO v2 controls (desktop only; mobile hides buttons anyway) -->
   <script>
     (function(){
       const ribbon = document.getElementById('heroRibbon');
       const count = document.getElementById('heroCount');
       if(!ribbon) return;
 
-      // Align with layout: mobile breakpoint is 960px
       const isMobile = window.matchMedia && window.matchMedia("(max-width: 960px)").matches;
-
       const controls = document.querySelectorAll('[data-hero]');
       const tiles = () => Array.from(ribbon.querySelectorAll('.cover-tile'));
 
@@ -1606,7 +1585,7 @@
       }
 
       function spotlightRandom(){
-        if(isMobile) return; // avoid any mobile “jump” feeling
+        if(isMobile) return;
         const all = tiles();
         if(!all.length) return;
         clearSpotlight();
@@ -1616,7 +1595,7 @@
       }
 
       function shuffleRibbon(){
-        if(isMobile) return; // keep mobile deterministic
+        if(isMobile) return;
         clearSpotlight();
         const all = tiles();
         for(let i = all.length - 1; i > 0; i--){
@@ -1636,11 +1615,7 @@
       });
 
       updateCount();
-
-      // Desktop: subtle sparkle only
-      if(!isMobile){
-        setTimeout(spotlightRandom, 650);
-      }
+      if(!isMobile) setTimeout(spotlightRandom, 650);
     })();
   </script>
 
