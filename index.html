@@ -1,1212 +1,799 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-  <meta charset="utf-8">
-  <title>The Novel of Comedy (TNoC) – Digital atlas of humorous fiction</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description"
-        content="The Novel of Comedy (TNoC) is a digital atlas and critical cartography of humorous fiction: three currents, branches, environments, Labs, and a system of novel and author guides.">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jeanson Realty — Paris · Côte d’Azur · Alpes</title>
+  <meta name="description" content="Jeanson Realty — immobilier premium à Paris, sur la Côte d’Azur et dans les Alpes. Version noire mobile-first, carrousels façon streaming, avec Team France et mention Nest Seekers." />
 
   <style>
     :root{
       --bg:#0b0b0c;
-      --paper:#f7f5f0;
-      --ink:#1e1e1e;
-      --graphite:#2b2b2b;
-      --evergreen:#2E7D32;
-      --muted:rgba(0,0,0,.55);
-      --chip:rgba(0,0,0,.06);
-      --border:rgba(0,0,0,.14);
-      --card:#ffffff;
-      --shadow:0 1px 2px rgba(0,0,0,.04);
+      --panel:rgba(255,255,255,.06);
+      --panel2:rgba(255,255,255,.09);
+      --ink:#f7f5f0;
+      --muted:rgba(247,245,240,.72);
+      --muted2:rgba(247,245,240,.55);
+      --line:rgba(247,245,240,.10);
+
+      --accent:#c9a45c; /* doré discret */
+      --shadow:0 18px 50px rgba(0,0,0,.45);
+      --shadow2:0 12px 34px rgba(0,0,0,.35);
+
+      --r:18px;
+      --r2:22px;
+      --max:1180px;
+
+      --tileW: 162px; /* mobile default */
+      --tileH: 228px;
+
+      --serif: ui-serif, "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", Times, serif;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, "Apple Color Emoji","Segoe UI Emoji";
     }
 
     *{box-sizing:border-box}
-    html,body{
+    html,body{height:100%}
+    body{
       margin:0;
-      padding:0;
-      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:
+        radial-gradient(1200px 700px at 15% 0%, rgba(201,164,92,.14), transparent 60%),
+        radial-gradient(900px 600px at 90% 10%, rgba(255,255,255,.06), transparent 55%),
+        var(--bg);
       color:var(--ink);
-      background:var(--bg);
+      font-family:var(--sans);
+      letter-spacing:.1px;
+      overflow-x:hidden;
     }
-    a{color:inherit;text-decoration:none}
-    a:hover{text-decoration:underline}
 
-    .page-wrap{ min-height:100vh; background:var(--bg); }
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 16px}
 
-    .skip-link{
-      position:absolute; left:-999px; top:10px;
-      padding:8px 12px; background:#fff; color:#000;
-      border-radius:999px; border:1px solid rgba(0,0,0,.18);
-      z-index:1000; font-size:13px;
-    }
-    .skip-link:focus{ left:12px; outline:none; }
-
+    /* ===== Top bar ===== */
     .topbar{
-      position:sticky; top:0; z-index:20;
-      backdrop-filter:blur(10px);
-      background:rgba(11,11,12,.92);
-      color:#fff; border-bottom:1px solid rgba(255,255,255,.08);
+      position:sticky; top:0; z-index:50;
+      backdrop-filter:saturate(140%) blur(10px);
+      background:linear-gradient(to bottom, rgba(11,11,12,.88), rgba(11,11,12,.55));
+      border-bottom:1px solid var(--line);
     }
-    .topbar-inner{
-      max-width:1120px; margin:0 auto; padding:10px 20px;
-      display:flex; align-items:center; justify-content:space-between; gap:16px;
+    .topbar .inner{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px; padding:12px 0;
     }
-    .brand{ display:flex; align-items:center; gap:10px; }
-    .brand-mark{
+
+    .brand{
+      display:flex; align-items:center; gap:10px; min-width:0;
+      user-select:none;
+    }
+    .logo{
       width:34px; height:34px; border-radius:12px;
-      border:1px solid rgba(255,255,255,.18);
-      display:flex; align-items:center; justify-content:center;
-      font-weight:600; letter-spacing:.06em; text-transform:uppercase; font-size:11px;
-      background:radial-gradient(circle at 0 0,rgba(255,255,255,.22),rgba(0,0,0,.7));
-    }
-    .brand-text{ display:flex; flex-direction:column; gap:1px; }
-    .brand-title{ font-size:15px; letter-spacing:.05em; text-transform:uppercase; }
-    .brand-sub{ font-size:11px; opacity:.7; }
-    .nav{ display:flex; flex-wrap:wrap; gap:12px; font-size:13px; }
-    .nav a{ opacity:.82; padding:6px 0; }
-    .nav a:hover{ opacity:1; text-decoration:none; }
-    .nav a.is-primary{
-      padding:6px 12px; border-radius:999px;
-      border:1px solid rgba(255,255,255,.22); font-size:12px;
-    }
-    @media(max-width:900px){
-      .topbar-inner{ flex-direction:column; align-items:flex-start; }
-      .nav{ width:100%; justify-content:flex-start; }
-    }
-
-    /* =========================================================
-       HERO v2 — Surprise (scoped)
-       ========================================================= */
-    .hero.hero-v2{
-      background:var(--bg);
-      color:#fff;
-      border-bottom:1px solid rgba(255,255,255,.08);
-      position:relative;
-      overflow:hidden;
-    }
-    .hero.hero-v2::before{
-      content:"";
-      position:absolute; inset:-60px -60px auto -60px; height:420px;
       background:
-        radial-gradient(800px 300px at 12% 10%, rgba(255,255,255,.10), rgba(255,255,255,0) 60%),
-        radial-gradient(560px 240px at 72% 0%, rgba(46,125,50,.24), rgba(46,125,50,0) 65%),
-        radial-gradient(560px 260px at 100% 20%, rgba(255,255,255,.07), rgba(255,255,255,0) 60%);
-      pointer-events:none;
-      opacity:.95;
-    }
-    .hero.hero-v2::after{
-      content:"";
-      position:absolute; inset:auto -40px -80px -40px; height:220px;
-      background:
-        radial-gradient(500px 160px at 20% 30%, rgba(255,255,255,.06), rgba(255,255,255,0) 65%),
-        radial-gradient(420px 140px at 80% 10%, rgba(46,125,50,.18), rgba(46,125,50,0) 70%);
-      pointer-events:none;
-      opacity:.9;
-    }
-
-    .hero-v2 .hero-inner{
-      max-width:1120px; margin:0 auto;
-      padding:38px 20px 30px;
-      display:grid; gap:22px; align-items:center;
-      grid-template-columns:1.08fr 1fr;
-      grid-template-areas:"gallery copy";
-      position:relative; z-index:1;
-    }
-    .hero-v2 .hero-copy{ grid-area:copy; }
-    .hero-v2 .hero-gallery{ grid-area:gallery; }
-
-    @media(max-width:960px){
-      .hero-v2 .hero-inner{
-        grid-template-columns:1fr;
-        grid-template-areas:"gallery";
-        padding:18px 16px 18px;
-      }
-      .hero-v2 .hero-copy{ display:none; }
-    }
-
-    .hero-v2 .hero-kicker{
-      font-size:12px; letter-spacing:.18em; text-transform:uppercase; opacity:.92;
-    }
-    .hero-v2 .hero-title{
-      margin:10px 0 0;
-      font-size:34px; line-height:1.06;
-      letter-spacing:-.02em;
-      max-width:560px;
-    }
-    .hero-v2 .hero-title .thin{ font-weight:420; opacity:.95; }
-    .hero-v2 .hero-title .bold{ font-weight:740; }
-
-    .hero-v2 .hero-tagline{
-      margin:10px 0 0;
-      font-size:12px;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-      opacity:.82;
-    }
-    .hero-v2 .hero-totem{
-      font-size:14px; line-height:1.6; margin:12px 0 0; max-width:560px;
-      opacity:.92;
-    }
-    .hero-v2 .hero-totem em{ font-style:italic; opacity:.98; }
-
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      padding:9px 14px; border-radius:999px; font-size:13px;
-      border:1px solid transparent; cursor:pointer; text-decoration:none; white-space:nowrap;
-    }
-    .btn-primary{ background:#fff; color:#000; border-color:rgba(255,255,255,.03); }
-    .btn-secondary{ background:rgba(0,0,0,.22); border-color:rgba(255,255,255,.30); color:#fff; }
-    .hero-v2 .btn-ghost{ background:transparent; border-color:rgba(255,255,255,.24); color:#fff; opacity:.92; }
-
-    .hero-v2 .hero-gallery{
-      border-radius:18px;
-      border:1px solid rgba(255,255,255,.16);
-      background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(0,0,0,.72));
-      box-shadow:0 18px 60px rgba(0,0,0,.65);
-      overflow:hidden;
-    }
-    .hero-v2 .gallery-head{
-      padding:14px 14px 10px;
-      display:flex; align-items:flex-end; justify-content:space-between; gap:12px;
-      border-bottom:1px solid rgba(255,255,255,.10);
-      background:radial-gradient(circle at 0 0, rgba(255,255,255,.10), rgba(0,0,0,0) 60%);
-    }
-    .hero-v2 .gallery-head h2{
-      margin:0; font-size:12px; letter-spacing:.16em; text-transform:uppercase; opacity:.92;
-    }
-    .hero-v2 .gallery-head p{ margin:4px 0 0; font-size:12px; opacity:.78; max-width:380px; }
-
-    .hero-v2 .gallery-controls{
-      display:flex; flex-wrap:wrap; gap:6px; justify-content:flex-end;
-    }
-    .hero-v2 .ctrl{
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.22);
-      background:rgba(0,0,0,.25);
-      color:#fff;
-      padding:6px 10px;
-      font-size:11px;
-      cursor:pointer;
-      opacity:.92;
-      text-decoration:none;
-      display:inline-flex; align-items:center; justify-content:center;
-    }
-    .hero-v2 .ctrl:hover{ opacity:1; text-decoration:none; }
-    .hero-v2 .ctrl strong{ font-weight:700; }
-
-    @media (max-width: 600px){
-      .hero-v2 .gallery-controls button.ctrl{ display:none; }
-      .hero-v2 .gallery-head p{ display:none; }
-    }
-
-    .hero-v2 .gallery-body{ padding:12px; display:grid; gap:12px; }
-
-    /* Shared horizontal ribbons */
-    .hero-v2 .ribbon{
-      display:flex;
-      gap:10px;
-      overflow:auto;
-      padding:2px 2px 10px;
-      scroll-snap-type:x proximity;
-      -webkit-overflow-scrolling:touch;
-      scroll-padding-left:14px;
-      scroll-padding-right:14px;
-      overscroll-behavior-x:contain;
-      touch-action:pan-x;
-    }
-    .hero-v2 .ribbon::before,
-    .hero-v2 .ribbon::after{
-      content:"";
-      flex:0 0 12px;
-    }
-    .hero-v2 .ribbon::-webkit-scrollbar{ height:8px; }
-    .hero-v2 .ribbon::-webkit-scrollbar-thumb{ background:rgba(255,255,255,.14); border-radius:999px; }
-
-    .hero-v2 .cover-tile{
-      scroll-snap-align:start;
-      flex:0 0 150px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.18);
-      overflow:hidden;
-      background:#111;
-      position:relative;
-      box-shadow:0 10px 30px rgba(0,0,0,.55);
-      transform:translateY(0);
-      transition:transform .2s ease, border-color .2s ease, filter .2s ease;
-    }
-    .hero-v2 .cover-tile:hover{
-      transform:translateY(-2px);
-      border-color:rgba(255,255,255,.36);
-      filter:saturate(1.06) contrast(1.06);
-      text-decoration:none;
-    }
-    .hero-v2 .cover-tile img{ display:block; width:100%; height:210px; object-fit:cover; }
-
-    .hero-v2 .cover-meta{
-      position:absolute; left:10px; right:10px; bottom:10px;
-      padding:6px 7px;
-      border-radius:12px;
-      background:rgba(0,0,0,.58);
-      border:1px solid rgba(255,255,255,.14);
-      backdrop-filter:blur(8px);
-    }
-    .hero-v2 .cover-meta .k{
-      font-size:clamp(9px, 1.9vw, 10px);
-      letter-spacing:.12em;
-      text-transform:uppercase;
-      opacity:.85;
-      margin:0 0 2px;
-      line-height:1.15;
-      white-space:normal;
-    }
-    .hero-v2 .cover-meta .t{
-      font-size:12px;
-      font-weight:650;
-      line-height:1.15;
-      margin:0;
-    }
-    .hero-v2 .cover-meta .s{
-      font-size:11px;
-      opacity:.82;
-      margin-top:2px;
-      line-height:1.2;
-    }
-    @media (max-width: 600px){
-      .hero-v2 .cover-meta .k .cur,
-      .hero-v2 .cover-meta .k .sep{ display:none; }
-    }
-
-    /* Desktop grid (unchanged behaviour) */
-    .hero-v2 .desktop-covers{ display:block; }
-    @media(min-width:961px){
-      .hero-v2 .desktop-covers .ribbon{
-        display:grid;
-        grid-template-columns:repeat(3,minmax(0,1fr));
-        overflow:visible; padding:0; scroll-snap-type:none;
-        touch-action:auto;
-      }
-      .hero-v2 .desktop-covers .ribbon::before,
-      .hero-v2 .desktop-covers .ribbon::after{ display:none; }
-      .hero-v2 .cover-tile{ flex:auto; }
-      .hero-v2 .cover-tile img{ height:170px; }
-    }
-    @media(max-width:960px){
-      .hero-v2 .desktop-covers{ display:none; }
-    }
-
-    .hero-v2 .cover-tile.is-spotlight{
-      border-color:rgba(255,255,255,.55);
-      box-shadow:0 18px 60px rgba(0,0,0,.75);
-      animation:tnocPulse 1.4s ease-in-out 1;
-    }
-    @keyframes tnocPulse{
-      0%{ transform:translateY(0); }
-      40%{ transform:translateY(-3px); }
-      100%{ transform:translateY(0); }
-    }
-
-    /* Mobile shelves */
-    .hero-v2 .mobile-shelves{ display:none; }
-    @media(max-width:960px){
-      .hero-v2 .mobile-shelves{ display:grid; gap:12px; }
-    }
-    .hero-v2 .shelf{
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.14);
-      background:rgba(0,0,0,.35);
-      padding:10px;
-    }
-    .hero-v2 .shelf-head{
-      display:flex; justify-content:space-between; gap:10px; align-items:flex-start;
-      margin-bottom:8px;
-    }
-    .hero-v2 .shelf-title{
-      display:flex; align-items:center; gap:10px;
-      font-size:11px; letter-spacing:.14em; text-transform:uppercase; opacity:.92;
-      line-height:1.2;
-    }
-    .hero-v2 .shelf-title .dot{
-      width:8px; height:8px; border-radius:50%;
-      background:var(--evergreen);
-      box-shadow:0 0 0 6px rgba(46,125,50,.18);
+        linear-gradient(135deg, rgba(201,164,92,.9), rgba(201,164,92,.18)),
+        radial-gradient(circle at 30% 25%, rgba(255,255,255,.40), transparent 45%);
+      box-shadow: 0 10px 28px rgba(0,0,0,.35);
+      border:1px solid rgba(201,164,92,.35);
       flex:0 0 auto;
     }
-    .hero-v2 .shelf-desc{
-      font-size:12px; opacity:.78; margin-top:4px; line-height:1.25;
-      max-width:95%;
+    .brand .name{
+      display:flex; flex-direction:column; min-width:0;
+      line-height:1.05;
     }
-    .hero-v2 .shelf-cta{
-      font-size:11px; opacity:.74; text-decoration:none;
-      border-bottom:1px solid rgba(255,255,255,.18);
+    .brand .name b{
+      font-size:14px;
+      letter-spacing:.7px;
+      font-family:var(--serif);
+    }
+    .subline{
+      font-size:12px;
+      color:rgba(247,245,240,.62);
       white-space:nowrap;
-      margin-top:1px;
+      overflow:hidden;
+      text-overflow:ellipsis;
     }
-    .hero-v2 .shelf-cta:hover{ opacity:1; }
+    .subline strong{
+      color:rgba(247,245,240,.88);
+      font-weight:750;
+    }
 
-    /* Author board */
-    .hero-v2 .board{
+    .actions{display:flex; align-items:center; gap:10px}
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:9px 12px; border-radius:999px;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
+      color:var(--muted);
+      font-size:12.5px;
+      white-space:nowrap;
+    }
+    .pill strong{color:var(--ink); font-weight:650}
+    .pill .dot{
+      width:7px; height:7px; border-radius:999px;
+      background:var(--accent);
+      box-shadow:0 0 0 3px rgba(201,164,92,.18);
+    }
+
+    /* ===== Hero ===== */
+    .hero{padding:18px 0 8px}
+    .heroCard{
+      border-radius:var(--r2);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.05)),
+        radial-gradient(900px 450px at 20% 0%, rgba(201,164,92,.18), transparent 55%),
+        radial-gradient(800px 380px at 85% 30%, rgba(255,255,255,.06), transparent 60%);
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .heroGrid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:14px;
+      padding:16px;
+    }
+    .kicker{
+      display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+      color:var(--muted);
+      font-size:12.5px;
+    }
+    .chip{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:7px 10px; border-radius:999px;
+      background:rgba(11,11,12,.38);
+      border:1px solid rgba(255,255,255,.10);
+      color:var(--muted);
+      font-size:12px;
+    }
+    .chip b{color:var(--ink); font-weight:700}
+
+    .heroTitle{
+      margin:6px 0 0;
+      font-size:24px;
+      line-height:1.08;
+      letter-spacing:.2px;
+      font-family:var(--serif);
+    }
+    .heroSub{
+      margin:8px 0 0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.45;
+      max-width:72ch;
+    }
+
+    /* Team card inside hero */
+    .teamCard{
+      margin-top:12px;
+      position:relative;
+      border-radius:18px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.06);
+      box-shadow:var(--shadow2);
+      aspect-ratio: 16 / 9; /* very mobile friendly */
+    }
+    .teamCard img{
+      position:absolute; inset:0;
+      width:100%; height:100%;
+      object-fit:cover;
+      opacity:.92;
+      filter:saturate(1.02) contrast(1.02);
+    }
+    .teamCard::after{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.10), rgba(0,0,0,.64)),
+        radial-gradient(900px 260px at 15% 0%, rgba(201,164,92,.22), transparent 60%);
+      pointer-events:none;
+    }
+    .teamOverlay{
+      position:absolute; left:12px; right:12px; bottom:12px;
+      z-index:1;
+    }
+    .teamKicker{
+      display:inline-flex;
+      padding:6px 10px;
+      border-radius:999px;
+      background:rgba(11,11,12,.62);
+      border:1px solid rgba(255,255,255,.14);
+      color:rgba(247,245,240,.92);
+      font-size:12px;
+      backdrop-filter: blur(8px);
+    }
+    .teamTitle{
+      margin-top:8px;
+      font-size:16px;
+      font-weight:850;
+      letter-spacing:.2px;
+    }
+    .teamMeta{
+      margin-top:4px;
+      font-size:12.5px;
+      color:rgba(247,245,240,.75);
+      line-height:1.35;
+    }
+
+    .searchRow{
+      display:flex; gap:10px; flex-wrap:wrap; margin-top:12px;
+    }
+    .search{
+      flex:1 1 260px;
+      display:flex; align-items:center; gap:10px;
+      padding:12px 14px;
+      border-radius:14px;
+      background:rgba(11,11,12,.38);
+      border:1px solid rgba(255,255,255,.12);
+    }
+    .search input{
+      width:100%;
+      background:transparent; border:0; outline:none;
+      color:var(--ink);
+      font-size:14px;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:8px;
+      padding:12px 14px;
+      border-radius:14px;
+      border:1px solid rgba(201,164,92,.40);
+      background:linear-gradient(135deg, rgba(201,164,92,.95), rgba(201,164,92,.30));
+      color:#120f0a;
+      font-weight:850;
+      font-size:13px;
+      cursor:pointer;
+      user-select:none;
+    }
+    .btnGhost{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:8px;
+      padding:12px 14px;
       border-radius:14px;
       border:1px solid rgba(255,255,255,.14);
-      background:rgba(0,0,0,.35);
-      padding:10px;
+      background:rgba(255,255,255,.04);
+      color:var(--ink);
+      font-weight:650;
+      font-size:13px;
+      cursor:pointer;
+      user-select:none;
     }
-    .hero-v2 .board-title{
-      display:flex; align-items:center; justify-content:space-between; gap:10px;
-      margin:0 0 8px;
-      font-size:11px; letter-spacing:.14em; text-transform:uppercase; opacity:.88;
-    }
-    .hero-v2 .board-title a{
-      font-size:11px; opacity:.78; text-decoration:none;
-      border-bottom:1px solid rgba(255,255,255,.20);
-      white-space:nowrap;
-    }
-    .hero-v2 .board-title a:hover{ opacity:1; }
+    .btn:active,.btnGhost:active{transform:translateY(1px)}
 
-    /* Portraits: ribbon on mobile; grid on desktop */
-    .hero-v2 .portrait-grid{
+    /* ===== Rows ===== */
+    main{padding:8px 0 32px}
+    .row{margin-top:18px}
+    .rowHead{
+      display:flex; align-items:baseline; justify-content:space-between;
+      gap:12px;
+      margin:0 0 10px;
+    }
+    .rowHead h2{
+      margin:0;
+      font-size:16px;
+      letter-spacing:.2px;
+      font-family:var(--serif);
+    }
+    .rowHead .hint{
+      color:var(--muted2);
+      font-size:12.5px;
+      display:flex; align-items:center; gap:8px;
+    }
+    .rowHead .hint a{
+      color:var(--muted);
+      border-bottom:1px dashed rgba(247,245,240,.35);
+    }
+
+    /* Rail: IMPORTANT for mobile scroll */
+    .rail{
+      position:relative;
       display:flex;
       gap:10px;
-      overflow:auto;
-      padding:2px 2px 10px;
-      scroll-snap-type:x proximity;
-      -webkit-overflow-scrolling:touch;
-      scroll-padding-left:14px;
-      scroll-padding-right:14px;
-      overscroll-behavior-x:contain;
-      touch-action:pan-x;
-    }
-    .hero-v2 .portrait-grid::before,
-    .hero-v2 .portrait-grid::after{
-      content:"";
-      flex:0 0 12px;
-    }
-    .hero-v2 .portrait-grid::-webkit-scrollbar{ height:8px; }
-    .hero-v2 .portrait-grid::-webkit-scrollbar-thumb{ background:rgba(255,255,255,.14); border-radius:999px; }
-
-    .hero-v2 .portrait{
-      scroll-snap-align:start;
-      flex:0 0 150px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.16);
-      overflow:hidden;
-      background:#111;
-      position:relative;
-      box-shadow:0 10px 26px rgba(0,0,0,.55);
-      transition:transform .2s ease, border-color .2s ease, filter .2s ease;
-      aspect-ratio:3/4;
-    }
-    .hero-v2 .portrait:hover{
-      transform:translateY(-2px);
-      border-color:rgba(255,255,255,.32);
-      filter:saturate(1.06) contrast(1.06);
-      text-decoration:none;
-    }
-    .hero-v2 .portrait img{ display:block; width:100%; height:100%; object-fit:cover; }
-    .hero-v2 .portrait-label{
-      position:absolute; left:10px; right:10px; bottom:10px;
-      padding:6px 7px;
-      border-radius:12px;
-      background:rgba(0,0,0,.55);
-      border:1px solid rgba(255,255,255,.14);
-      backdrop-filter:blur(8px);
-      font-size:11px;
-      opacity:.92;
-      line-height:1.2;
-    }
-    @media(min-width:961px){
-      .hero-v2 .portrait-grid{
-        display:grid;
-        grid-template-columns:repeat(4,minmax(0,1fr));
-        gap:8px;
-        overflow:visible;
-        padding:0;
-        scroll-snap-type:none;
-        touch-action:auto;
-      }
-      .hero-v2 .portrait-grid::before,
-      .hero-v2 .portrait-grid::after{ display:none; }
-      .hero-v2 .portrait{
-        flex:auto;
-        aspect-ratio:1/1;
-      }
-    }
-
-    .hero-v2 .gallery-foot{
-      padding:10px 12px 12px;
-      border-top:1px solid rgba(255,255,255,.10);
-      font-size:11px;
-      opacity:.78;
-      display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap;
-    }
-    .hero-v2 .tiny{ opacity:.75; }
-
-    @media(max-width:600px){
-      .hero-v2 .gallery-body{ padding:10px; }
-    }
-
-    /* =========================================================
-       MAIN (light skeleton)
-       ========================================================= */
-    .main{ background:var(--paper); min-height:60vh; }
-    .main-inner{
-      max-width:1120px; margin:0 auto; padding:26px 20px 40px;
-      display:grid; grid-template-columns:minmax(0,1.08fr) minmax(240px,.6fr);
-      gap:20px; align-items:flex-start;
-    }
-    .content-column{ min-width:0; }
-    @media(max-width:960px){ .main-inner{ grid-template-columns:1fr; } }
-
-    .section{ padding:26px 0; border-bottom:1px solid rgba(0,0,0,.06); }
-    .section:last-of-type{ border-bottom:none; padding-bottom:10px; }
-    .section-header{ margin-bottom:16px; }
-    .section-kicker{
-      font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted);
-    }
-    .section-title{ font-size:24px; letter-spacing:.04em; margin:4px 0; }
-    .section-sub{ font-size:14px; color:var(--muted); max-width:720px; }
-
-    .grid-3{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; }
-    @media(max-width:900px){ .grid-3{ grid-template-columns:1fr; } }
-
-    .card{
-      background:var(--card); border-radius:16px; border:1px solid var(--border);
-      box-shadow:var(--shadow); padding:16px 16px 14px;
-    }
-    .card-header{ font-weight:600; font-size:15px; margin-bottom:6px; }
-    .card-body{ font-size:13px; line-height:1.6; color:var(--graphite); }
-
-    .rail{
-      background:#fff; border-radius:16px;
-      border:1px solid var(--border);
-      box-shadow:var(--shadow);
-      font-size:13px; overflow:hidden;
-    }
-    @media(min-width:960px){ .rail{ position:sticky; top:88px; } }
-    .rail header{
-      padding:14px 14px 10px;
-      border-bottom:1px solid rgba(0,0,0,.06);
-      background:linear-gradient(180deg,rgba(0,0,0,.015),rgba(0,0,0,.03));
-    }
-    .rail header h3{
-      margin:0 0 4px; font-size:12px;
-      letter-spacing:.12em; text-transform:uppercase; color:var(--graphite);
-    }
-    .rail header p{ margin:0; font-size:12px; color:var(--muted); }
-    .rail-progress{
-      margin-top:8px; height:6px; border-radius:999px;
-      background:rgba(0,0,0,.03);
-      border:1px solid rgba(0,0,0,.06);
-      overflow:hidden;
-    }
-    .rail-progress > span{
-      display:block; height:100%; width:0%;
-      background:linear-gradient(90deg,var(--evergreen),#555);
-    }
-    .toc{ padding:10px 10px 12px; display:grid; gap:6px; }
-    .toc a{
-      padding:8px 10px; border-radius:12px;
-      border:1px solid transparent; background:rgba(0,0,0,.015);
-      font-size:13px; color:var(--graphite); text-decoration:none;
-    }
-    .toc a:hover{ border-color:var(--border); background:rgba(0,0,0,.03); }
-    .toc a.active{
-      border-color:var(--evergreen);
-      background:rgba(46,125,50,.08);
-      color:#000; font-weight:600;
-    }
-    .rail-bottom{ padding:0 10px 12px; }
-    .rail-bottom .btn{
-      width:100%; justify-content:center;
-      background:rgba(0,0,0,.03);
-      color:var(--graphite);
-      border-color:var(--border);
-      box-shadow:none;
-      font-size:12px; padding:8px 10px;
-    }
-
-    .footer{
-      background:var(--bg); color:#f5f5f5;
-      border-top:1px solid rgba(255,255,255,.08);
-    }
-    .footer-inner{
-      max-width:1120px; margin:0 auto; padding:18px 20px 22px;
-      display:flex; flex-wrap:wrap; justify-content:space-between; gap:12px;
-      font-size:12px; opacity:.88;
-    }
-    .footer-links{ display:flex; flex-wrap:wrap; gap:12px; }
-
-    /* =========================================================
-       MOBILE SCROLL SAFETY + MECHANICAL FALLBACK
-       ========================================================= */
-    html, body { overflow-x:hidden; }
-
-    @media (max-width: 960px){
-      .topbar{ backdrop-filter:none; }
-      .hero-v2 .hero-gallery{ box-shadow:none; }
-      .hero-v2 .cover-tile,
-      .hero-v2 .portrait{ box-shadow:none; }
-      .hero-v2 .cover-meta,
-      .hero-v2 .portrait-label{ backdrop-filter:none; }
-    }
-
-    .hero-v2 img{
-      -webkit-user-drag:none;
-      user-select:none;
-      -webkit-tap-highlight-color:transparent;
-    }
-
-    /* Wrapper with arrow buttons */
-    .hscroll{ position:relative; }
-    .hscroll .hs-btn{
-      position:absolute;
-      top:50%;
-      transform:translateY(-50%);
-      width:34px; height:34px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.22);
-      background:rgba(0,0,0,.45);
-      color:#fff;
-      display:flex; align-items:center; justify-content:center;
-      cursor:pointer;
-      z-index:5;
-    }
-    .hscroll .hs-prev{ left:6px; }
-    .hscroll .hs-next{ right:6px; }
-
-    @media (min-width: 961px){
-      .hscroll .hs-btn{ display:none; }
-    }
-
-    /* Ensure the scroll containers accept horizontal gestures */
-    .hero-v2 .ribbon,
-    .hero-v2 .portrait-grid{
       overflow-x:auto;
       overflow-y:hidden;
-      touch-action:pan-x;
-      overscroll-behavior-x:contain;
+      padding:2px 6px 12px;
+      scroll-snap-type:x mandatory;
+      -webkit-overflow-scrolling:touch;
+      scrollbar-width:none;
+      touch-action: pan-y; /* do NOT block vertical scroll */
+    }
+    .rail::-webkit-scrollbar{display:none}
+
+    .tile{
+      flex:0 0 auto;
+      width:var(--tileW);
+      scroll-snap-align:start;
+      border-radius:16px;
+      overflow:hidden;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow:0 12px 30px rgba(0,0,0,.35);
+      transform:translateZ(0);
+    }
+    .tileMedia{
+      height:var(--tileH);
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.10), rgba(0,0,0,.45)),
+        radial-gradient(500px 280px at 20% 20%, rgba(201,164,92,.30), transparent 55%),
+        rgba(255,255,255,.06);
+      display:flex;
+      align-items:flex-end;
+      padding:12px;
+      position:relative;
+    }
+    .tileMedia img{
+      position:absolute; inset:0;
+      width:100%; height:100%;
+      object-fit:cover;
+      opacity:.92;
+      filter:saturate(1.05) contrast(1.02);
+    }
+    .badge{
+      position:relative;
+      display:inline-flex; align-items:center; gap:8px;
+      padding:7px 10px;
+      border-radius:999px;
+      background:rgba(11,11,12,.60);
+      border:1px solid rgba(255,255,255,.14);
+      color:var(--ink);
+      font-size:12px;
+      backdrop-filter: blur(8px);
+    }
+    .badge .pin{
+      width:7px; height:7px; border-radius:999px;
+      background:var(--accent);
+      box-shadow:0 0 0 3px rgba(201,164,92,.18);
+    }
+
+    .tileBody{padding:10px 12px 12px}
+    .tileTitle{
+      margin:0;
+      font-size:13.5px;
+      line-height:1.25;
+      letter-spacing:.1px;
+      font-weight:700;
+    }
+    .tileMeta{
+      margin:6px 0 0;
+      color:var(--muted2);
+      font-size:12px;
+      line-height:1.35;
+    }
+
+    /* Office cards / Team cards (more info) */
+    .tile.office .tileMedia{height:170px}
+    .tile.teamWide{
+      width: calc(var(--tileW) * 1.45); /* a bit wider (feels special) */
+    }
+    .tile.teamWide .tileMedia{height:170px}
+
+    /* Desktop tweaks */
+    @media (min-width: 700px){
+      :root{ --tileW: 190px; --tileH: 265px; }
+      .heroGrid{grid-template-columns: 1.2fr .8fr; align-items:stretch}
+      .heroTitle{font-size:30px}
+      .heroSub{font-size:15px}
+
+      .sidePanel{
+        border-radius:16px;
+        border:1px solid rgba(255,255,255,.10);
+        background:rgba(11,11,12,.25);
+        padding:14px;
+      }
+    }
+
+    /* Optional arrow buttons for desktop */
+    .railNav{display:none}
+    @media (min-width: 900px){
+      .railWrap{position:relative}
+      .railNav{
+        display:flex;
+        position:absolute;
+        top:40%;
+        transform:translateY(-50%);
+        width:42px; height:42px;
+        border-radius:999px;
+        border:1px solid rgba(255,255,255,.14);
+        background:rgba(11,11,12,.55);
+        backdrop-filter: blur(10px);
+        color:var(--ink);
+        align-items:center;
+        justify-content:center;
+        cursor:pointer;
+        user-select:none;
+      }
+      .railNav:hover{background:rgba(11,11,12,.75)}
+      .railNav.left{left:-6px}
+      .railNav.right{right:-6px}
+      .rail{padding-left:12px; padding-right:12px}
+    }
+
+    footer{
+      border-top:1px solid var(--line);
+      color:var(--muted2);
+      padding:18px 0 30px;
+      font-size:12.5px;
     }
   </style>
 </head>
 
-<body id="top">
-  <a class="skip-link" href="#fiches">Skip to content</a>
-
-  <div class="page-wrap">
-
-    <header class="topbar" role="banner" aria-label="Main navigation">
-      <div class="topbar-inner">
-        <a href="index.html" class="brand" aria-label="The Novel of Comedy home">
-          <div class="brand-mark">TNoC</div>
-          <div class="brand-text">
-            <div class="brand-title">The Novel of Comedy</div>
-            <div class="brand-sub">Digital atlas &amp; critical cartography of humorous fiction</div>
-          </div>
-        </a>
-
-        <nav class="nav" aria-label="Navigation">
-          <a href="#fiches">Guides</a>
-          <a href="novel-guides.html">Novel guides</a>
-          <a href="author-profiles.html">Author profiles</a>
-          <a href="currents.html">Currents</a>
-          <a href="#toolbox">Toolbox</a>
-          <a href="method.html">Method</a>
-          <a href="#about">About</a>
-          <a href="#research" class="is-primary">Researchers &amp; AI</a>
-        </nav>
-      </div>
-    </header>
-
-    <!-- ========================= HERO v2 ========================= -->
-    <section class="hero hero-v2" aria-label="Homepage hero (visual)">
-      <div class="hero-inner">
-
-        <aside class="hero-gallery" aria-label="Visual entry points: covers and authors">
-          <div class="gallery-head">
-            <div>
-              <h2>Start here · Visual picks</h2>
-              <p>Tap a cover or a face — instant entry into the atlas.</p>
-            </div>
-
-            <div class="gallery-controls" aria-label="Hero controls">
-              <button class="ctrl" type="button" data-hero="shuffle" aria-label="Shuffle the picks">
-                <strong>Shuffle</strong>
-              </button>
-              <button class="ctrl" type="button" data-hero="random" aria-label="Spotlight a random pick">
-                Random pick
-              </button>
-              <a class="ctrl" href="novel-guides.html" aria-label="Open novel guides">All novels →</a>
-            </div>
-          </div>
-
-          <div class="gallery-body">
-
-            <!-- ===== DESKTOP BLOCK (grid) ===== -->
-            <div class="desktop-covers" aria-label="Desktop cover grid">
-              <div class="ribbon" id="heroRibbon" aria-label="Cover grid">
-                <a class="cover-tile" href="./fichewilt.html" aria-label="Open the Wilt novel guide">
-                  <img src="wilt31A.png.png" alt="Cover of Wilt (Tom Sharpe)">
-                  <div class="cover-meta">
-                    <div class="k"><span class="cur">Comedy of Society</span><span class="sep"> · </span><span class="br">Frustration</span></div>
-                    <div class="t">Wilt</div>
-                    <div class="s">Tom Sharpe · 1976</div>
-                  </div>
-                </a>
-
-                <a class="cover-tile" href="fr/fiche-roman/the-code-of-the-woosters" aria-label="Open The Code of the Woosters guide">
-                  <img src="theco.png" alt="Cover of The Code of the Woosters (P. G. Wodehouse)">
-                  <div class="cover-meta">
-                    <div class="k"><span class="cur">Comedy of Society</span><span class="sep"> · </span><span class="br">Code / Etiquette</span></div>
-                    <div class="t">Woosters</div>
-                    <div class="s">P. G. Wodehouse · 1938</div>
-                  </div>
-                </a>
-
-                <a class="cover-tile" href="fr/fiche-roman/james-percival-everett" aria-label="Open James guide">
-                  <img src="img/james-percival-everett.png" alt="Cover of James (Percival Everett)">
-                  <div class="cover-meta">
-                    <div class="k"><span class="cur">Neo-Nonsense</span><span class="sep"> · </span><span class="br">Canon Hijack</span></div>
-                    <div class="t">James</div>
-                    <div class="s">Percival Everett · 2024</div>
-                  </div>
-                </a>
-              </div>
-            </div>
-
-            <!-- ===== MOBILE: 3 shelves × 9 covers ===== -->
-            <div class="mobile-shelves" aria-label="Mobile shelves (currents)">
-
-              <!-- ===== Comedy of Society ===== -->
-              <div class="shelf" aria-label="Comedy of Society shelf">
-                <div class="shelf-head">
-                  <div>
-                    <a class="shelf-title" href="currents.html#society" aria-label="Open Comedy of Society current">
-                      <span class="dot"></span> Comedy of Society
-                    </a>
-                    <div class="shelf-desc">institutions, daily life, social friction</div>
-                  </div>
-                  <a class="shelf-cta" href="currents.html#society">See →</a>
-                </div>
-
-                <div class="hscroll">
-                  <button class="hs-btn hs-prev" type="button" aria-label="Scroll left">‹</button>
-                  <div class="ribbon" aria-label="Comedy of Society covers">
-                    <a class="cover-tile" href="./fichewilt.html" aria-label="Open Wilt">
-                      <img src="wilt31A.png.png" alt="Cover of Wilt (Tom Sharpe)">
-                      <div class="cover-meta">
-                        <div class="k"><span class="cur">Comedy of Society</span><span class="sep"> · </span><span class="br">Frustration</span></div>
-                        <div class="t">Wilt</div>
-                        <div class="s">Tom Sharpe · 1976</div>
-                      </div>
-                    </a>
-                    <a class="cover-tile" href="fr/fiche-roman/the-code-of-the-woosters" aria-label="Open The Code of the Woosters">
-                      <img src="theco.png" alt="Cover of The Code of the Woosters (P. G. Wodehouse)">
-                      <div class="cover-meta">
-                        <div class="k"><span class="cur">Comedy of Society</span><span class="sep"> · </span><span class="br">Code / Etiquette</span></div>
-                        <div class="t">Woosters</div>
-                        <div class="s">P. G. Wodehouse · 1938</div>
-                      </div>
-                    </a>
-
-                    <a class="cover-tile" href="fr/fiche-roman/society-03" aria-label="Open Society pick 03">
-                      <img src="img/society-sample-03.png" alt="Cover (Comedy of Society) – pick 03">
-                      <div class="cover-meta"><div class="k"><span class="cur">Comedy of Society</span><span class="sep"> · </span><span class="br">Workplace</span></div><div class="t">Pick 03</div><div class="s">Replace · Year</div></div>
-                    </a>
-                    <a class="cover-tile" href="fr/fiche-roman/society-04" aria-label="Open Society pick 04">
-                      <img src="img/society-sample-04.png" alt="Cover (Comedy of Society) – pick 04">
-                      <div class="cover-meta"><div class="k"><span class="cur">Comedy of Society</span><span class="sep"> · </span><span class="br">Family</span></div><div class="t">Pick 04</div><div class="s">Replace · Year</div></div>
-                    </a>
-                    <a class="cover-tile" href="fr/fiche-roman/society-05" aria-label="Open Society pick 05">
-                      <img src="img/society-sample-05.png" alt="Cover (Comedy of Society) – pick 05">
-                      <div class="cover-meta"><div class="k"><span class="cur">Comedy of Society</span><span class="sep"> · </span><span class="br">Campus</span></div><div class="t">Pick 05</div><div class="s">Replace · Year</div></div>
-                    </a>
-                    <a class="cover-tile" href="fr/fiche-roman/society-06" aria-label="Open Society pick 06">
-                      <img src="img/society-sample-06.png" alt="Cover (Comedy of Society) – pick 06">
-                      <div class="cover-meta"><div class="k"><span class="cur">Comedy of Society</span><span class="sep"> · </span><span class="br">Etiquette</span></div><div class="t">Pick 06</div><div class="s">Replace · Year</div></div>
-                    </a>
-                    <a class="cover-tile" href="fr/fiche-roman/society-07" aria-label="Open Society pick 07">
-                      <img src="img/society-sample-07.png" alt="Cover (Comedy of Society) – pick 07">
-                      <div class="cover-meta"><div class="k"><span class="cur">Comedy of Society</span><span class="sep"> · </span><span class="br">Satire</span></div><div class="t">Pick 07</div><div class="s">Replace · Year</div></div>
-                    </a>
-                    <a class="cover-tile" href="fr/fiche-roman/society-08" aria-label="Open Society pick 08">
-                      <img src="img/society-sample-08.png" alt="Cover (Comedy of Society) – pick 08">
-                      <div class="cover-meta"><div class="k"><span class="cur">Comedy of Society</span><span class="sep"> · </span><span class="br">Class</span></div><div class="t">Pick 08</div><div class="s">Replace · Year</div></div>
-                    </a>
-                    <a class="cover-tile" href="fr/fiche-roman/society-09" aria-label="Open Society pick 09">
-                      <img src="img/society-sample-09.png" alt="Cover (Comedy of Society) – pick 09">
-                      <div class="cover-meta"><div class="k"><span class="cur">Comedy of Society</span><span class="sep"> · </span><span class="br">Manners</span></div><div class="t">Pick 09</div><div class="s">Replace · Year</div></div>
-                    </a>
-                  </div>
-                  <button class="hs-btn hs-next" type="button" aria-label="Scroll right">›</button>
-                </div>
-              </div>
-
-              <!-- ===== Crime Comedy ===== -->
-              <div class="shelf" aria-label="Crime Comedy shelf">
-                <div class="shelf-head">
-                  <div>
-                    <a class="shelf-title" href="currents.html#crime" aria-label="Open Crime Comedy current">
-                      <span class="dot"></span> Crime Comedy
-                    </a>
-                    <div class="shelf-desc">fault, plans, transgression as comic fuel</div>
-                  </div>
-                  <a class="shelf-cta" href="currents.html#crime">See →</a>
-                </div>
-
-                <div class="hscroll">
-                  <button class="hs-btn hs-prev" type="button" aria-label="Scroll left">‹</button>
-                  <div class="ribbon" aria-label="Crime Comedy covers">
-                    <a class="cover-tile" href="fr/fiche-roman/crime-01" aria-label="Open Crime pick 01">
-                      <img src="img/crime-sample-01.png" alt="Cover (Crime Comedy) – pick 01">
-                      <div class="cover-meta"><div class="k"><span class="cur">Crime Comedy</span><span class="sep"> · </span><span class="br">Schemer</span></div><div class="t">Pick 01</div><div class="s">Replace · Year</div></div>
-                    </a>
-                    <a class="cover-tile" href="fr/fiche-roman/crime-02" aria-label="Open Crime pick 02">
-                      <img src="img/crime-sample-02.png" alt="Cover (Crime Comedy) – pick 02">
-                      <div class="cover-meta"><div class="k"><span class="cur">Crime Comedy</span><span class="sep"> · </span><span class="br">Hapless</span></div><div class="t">Pick 02</div><div class="s">Replace · Year</div></div>
-                    </a>
-                    <a class="cover-tile" href="fr/fiche-roman/crime-03" aria-label="Open Crime pick 03">
-                      <img src="img/crime-sample-03.png" alt="Cover (Crime Comedy) – pick 03">
-                      <div class="cover-meta"><div class="k"><span class="cur">Crime Comedy</span><span class="sep"> · </span><span class="br">Investigator</span></div><div class="t">Pick 03</div><div class="s">Replace · Year</div></div>
-                    </a>
-                    <a class="cover-tile" href="fr/fiche-roman/crime-04" aria-label="Open Crime pick 04">
-                      <img src="img/crime-sample-04.png" alt="Cover (Crime Comedy) – pick 04">
-                      <div class="cover-meta"><div class="k"><span class="cur">Crime Comedy</span><span class="sep"> · </span><span class="br">Con</span></div><div class="t">Pick 04</div><div class="s">Replace · Year</div></div>
-                    </a>
-                    <a class="cover-tile" href="fr/fiche-roman/crime-05" aria-label="Open Crime pick 05">
-                      <img src="img/crime-sample-05.png" alt="Cover (Crime Comedy) – pick 05">
-                      <div class="cover-meta"><div class="k"><span class="cur">Crime Comedy</span><span class="sep"> · </span><span class="br">Heist</span></div><div class="t">Pick 05</div><div class="s">Replace · Year</div></div>
-                    </a>
-                    <a class="cover-tile" href="fr/fiche-roman/crime-06" aria-label="Open Crime pick 06">
-                      <img src="img/crime-sample-06.png" alt="Cover (Crime Comedy) – pick 06">
-                      <div class="cover-meta"><div class="k"><span class="cur">Crime Comedy</span><span class="sep"> · </span><span class="br">Blackmail</span></div><div class="t">Pick 06</div><div class="s">Replace · Year</div></div>
-                    </a>
-                    <a class="cover-tile" href="fr/fiche-roman/crime-07" aria-label="Open Crime pick 07">
-                      <img src="img/crime-sample-07.png" alt="Cover (Crime Comedy) – pick 07">
-                      <div class="cover-meta"><div class="k"><span class="cur">Crime Comedy</span><span class="sep"> · </span><span class="br">Farce</span></div><div class="t">Pick 07</div><div class="s">Replace · Year</div></div>
-                    </a>
-                    <a class="cover-tile" href="fr/fiche-roman/crime-08" aria-label="Open Crime pick 08">
-                      <img src="img/crime-sample-08.png" alt="Cover (Crime Comedy) – pick 08">
-                      <div class="cover-meta"><div class="k"><span class="cur">Crime Comedy</span><span class="sep"> · </span><span class="br">Escape</span></div><div class="t">Pick 08</div><div class="s">Replace · Year</div></div>
-                    </a>
-                    <a class="cover-tile" href="fr/fiche-roman/crime-09" aria-label="Open Crime pick 09">
-                      <img src="img/crime-sample-09.png" alt="Cover (Crime Comedy) – pick 09">
-                      <div class="cover-meta"><div class="k"><span class="cur">Crime Comedy</span><span class="sep"> · </span><span class="br">Corruption</span></div><div class="t">Pick 09</div><div class="s">Replace · Year</div></div>
-                    </a>
-                  </div>
-                  <button class="hs-btn hs-next" type="button" aria-label="Scroll right">›</button>
-                </div>
-              </div>
-
-              <!-- ===== Neo-Nonsense ===== -->
-              <div class="shelf" aria-label="Neo-Nonsense shelf">
-                <div class="shelf-head">
-                  <div>
-                    <a class="shelf-title" href="currents.html#neo-nonsense" aria-label="Open Neo-Nonsense current">
-                      <span class="dot"></span> Neo-Nonsense
-                    </a>
-                    <div class="shelf-desc">absurd logic, science, vertigo of meaning</div>
-                  </div>
-                  <a class="shelf-cta" href="currents.html#neo-nonsense">See →</a>
-                </div>
-
-                <div class="hscroll">
-                  <button class="hs-btn hs-prev" type="button" aria-label="Scroll left">‹</button>
-                  <div class="ribbon" aria-label="Neo-Nonsense covers">
-                    <a class="cover-tile" href="fr/fiche-roman/james-percival-everett" aria-label="Open James">
-                      <img src="img/james-percival-everett.png" alt="Cover of James (Percival Everett)">
-                      <div class="cover-meta">
-                        <div class="k"><span class="cur">Neo-Nonsense</span><span class="sep"> · </span><span class="br">Canon Hijack</span></div>
-                        <div class="t">James</div>
-                        <div class="s">Percival Everett · 2024</div>
-                      </div>
-                    </a>
-
-                    <a class="cover-tile" href="fr/fiche-roman/neo-02" aria-label="Open Neo pick 02">
-                      <img src="img/neo-sample-02.png" alt="Cover (Neo-Nonsense) – pick 02">
-                      <div class="cover-meta"><div class="k"><span class="cur">Neo-Nonsense</span><span class="sep"> · </span><span class="br">Cosmic</span></div><div class="t">Pick 02</div><div class="s">Replace · Year</div></div>
-                    </a>
-                    <a class="cover-tile" href="fr/fiche-roman/neo-03" aria-label="Open Neo pick 03">
-                      <img src="img/neo-sample-03.png" alt="Cover (Neo-Nonsense) – pick 03">
-                      <div class="cover-meta"><div class="k"><span class="cur">Neo-Nonsense</span><span class="sep"> · </span><span class="br">Metafiction</span></div><div class="t">Pick 03</div><div class="s">Replace · Year</div></div>
-                    </a>
-                    <a class="cover-tile" href="fr/fiche-roman/neo-04" aria-label="Open Neo pick 04">
-                      <img src="img/neo-sample-04.png" alt="Cover (Neo-Nonsense) – pick 04">
-                      <div class="cover-meta"><div class="k"><span class="cur">Neo-Nonsense</span><span class="sep"> · </span><span class="br">Logic Trap</span></div><div class="t">Pick 04</div><div class="s">Replace · Year</div></div>
-                    </a>
-                    <a class="cover-tile" href="fr/fiche-roman/neo-05" aria-label="Open Neo pick 05">
-                      <img src="img/neo-sample-05.png" alt="Cover (Neo-Nonsense) – pick 05">
-                      <div class="cover-meta"><div class="k"><span class="cur">Neo-Nonsense</span><span class="sep"> · </span><span class="br">Science</span></div><div class="t">Pick 05</div><div class="s">Replace · Year</div></div>
-                    </a>
-                    <a class="cover-tile" href="fr/fiche-roman/neo-06" aria-label="Open Neo pick 06">
-                      <img src="img/neo-sample-06.png" alt="Cover (Neo-Nonsense) – pick 06">
-                      <div class="cover-meta"><div class="k"><span class="cur">Neo-Nonsense</span><span class="sep"> · </span><span class="br">Bureaucracy</span></div><div class="t">Pick 06</div><div class="s">Replace · Year</div></div>
-                    </a>
-                    <a class="cover-tile" href="fr/fiche-roman/neo-07" aria-label="Open Neo pick 07">
-                      <img src="img/neo-sample-07.png" alt="Cover (Neo-Nonsense) – pick 07">
-                      <div class="cover-meta"><div class="k"><span class="cur">Neo-Nonsense</span><span class="sep"> · </span><span class="br">Vertigo</span></div><div class="t">Pick 07</div><div class="s">Replace · Year</div></div>
-                    </a>
-                    <a class="cover-tile" href="fr/fiche-roman/neo-08" aria-label="Open Neo pick 08">
-                      <img src="img/neo-sample-08.png" alt="Cover (Neo-Nonsense) – pick 08">
-                      <div class="cover-meta"><div class="k"><span class="cur">Neo-Nonsense</span><span class="sep"> · </span><span class="br">Absurd</span></div><div class="t">Pick 08</div><div class="s">Replace · Year</div></div>
-                    </a>
-                    <a class="cover-tile" href="fr/fiche-roman/neo-09" aria-label="Open Neo pick 09">
-                      <img src="img/neo-sample-09.png" alt="Cover (Neo-Nonsense) – pick 09">
-                      <div class="cover-meta"><div class="k"><span class="cur">Neo-Nonsense</span><span class="sep"> · </span><span class="br">Meaning</span></div><div class="t">Pick 09</div><div class="s">Replace · Year</div></div>
-                    </a>
-                  </div>
-                  <button class="hs-btn hs-next" type="button" aria-label="Scroll right">›</button>
-                </div>
-              </div>
-
-            </div>
-
-            <!-- ===== Author profiles (9 portraits) ===== -->
-            <div class="board" aria-label="Author portrait board">
-              <div class="board-title">
-                <span>Author profiles</span>
-                <a href="author-profiles.html" aria-label="Browse all author profiles">All profiles →</a>
-              </div>
-
-              <div class="hscroll">
-                <button class="hs-btn hs-prev" type="button" aria-label="Scroll left">‹</button>
-                <div class="portrait-grid" aria-label="Author portraits (scroll on mobile)">
-                  <a class="portrait" href="author-profiles.html#tom-sharpe" aria-label="Open Tom Sharpe profile">
-                    <img src="tomsh.jpg" alt="Portrait of Tom Sharpe">
-                    <div class="portrait-label">Tom Sharpe</div>
-                  </a>
-                  <a class="portrait" href="author-profiles.html#wodehouse" aria-label="Open P. G. Wodehouse profile">
-                    <img src="img/pg-wodehouse.jpg" alt="Portrait of P. G. Wodehouse">
-                    <div class="portrait-label">P. G. Wodehouse</div>
-                  </a>
-                  <a class="portrait" href="author-profiles.html#muriel-spark" aria-label="Open Muriel Spark profile">
-                    <img src="img/muriel-spark.jpg" alt="Portrait of Muriel Spark">
-                    <div class="portrait-label">Muriel Spark</div>
-                  </a>
-                  <a class="portrait" href="author-profiles.html#percival-everett" aria-label="Open Percival Everett profile">
-                    <img src="img/percival-everett.jpg" alt="Portrait of Percival Everett">
-                    <div class="portrait-label">Percival Everett</div>
-                  </a>
-                  <a class="portrait" href="author-profiles.html#donald-westlake" aria-label="Open Donald Westlake profile">
-                    <img src="img/donald-westlake.jpg" alt="Portrait of Donald Westlake">
-                    <div class="portrait-label">Donald Westlake</div>
-                  </a>
-                  <a class="portrait" href="author-profiles.html#carl-hiaasen" aria-label="Open Carl Hiaasen profile">
-                    <img src="img/carl-hiaasen.jpg" alt="Portrait of Carl Hiaasen">
-                    <div class="portrait-label">Carl Hiaasen</div>
-                  </a>
-                  <a class="portrait" href="author-profiles.html#douglas-adams" aria-label="Open Douglas Adams profile">
-                    <img src="img/douglas-adams.jpg" alt="Portrait of Douglas Adams">
-                    <div class="portrait-label">Douglas Adams</div>
-                  </a>
-                  <a class="portrait" href="author-profiles.html#author-08" aria-label="Open author 08">
-                    <img src="img/author-sample-08.jpg" alt="Portrait (Author) – 08">
-                    <div class="portrait-label">Author 08</div>
-                  </a>
-                  <a class="portrait" href="author-profiles.html#author-09" aria-label="Open author 09">
-                    <img src="img/author-sample-09.jpg" alt="Portrait (Author) – 09">
-                    <div class="portrait-label">Author 09</div>
-                  </a>
-                </div>
-                <button class="hs-btn hs-next" type="button" aria-label="Scroll right">›</button>
-              </div>
-            </div>
-
-          </div>
-
-          <div class="gallery-foot" aria-label="Hero footer note">
-            <span>Picks evolve over time: classics, hidden gems, new voices — curated like a gallery.</span>
-            <span class="tiny" id="heroCount">—</span>
-          </div>
-        </aside>
-
-        <!-- COPY (desktop only) -->
-        <div class="hero-copy">
-          <div class="hero-kicker">Digital atlas &amp; critical cartography</div>
-
-          <h1 class="hero-title">
-            <span class="thin">The</span> <span class="bold">Novel</span> <span class="thin">of</span> <span class="bold">Comedy</span>
-          </h1>
-
-          <p class="hero-tagline">First atlas &amp; critical cartography of humorous fiction</p>
-
-          <p class="hero-totem">
-            <em>Comedy is one of the most precise ways of reading reality.</em><br>
-            A living library of novels and authors — built to compare tones, mechanics, and comic forms.
-          </p>
-
-          <div style="margin-top:14px; display:flex; flex-wrap:wrap; gap:8px;">
-            <a href="novel-guides.html" class="btn btn-primary">Explore novel guides</a>
-            <a href="author-profiles.html" class="btn btn-secondary">Browse author profiles</a>
-            <a href="currents.html" class="btn btn-ghost">See the map</a>
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <div class="inner">
+        <div class="brand">
+          <div class="logo" aria-hidden="true"></div>
+          <div class="name">
+            <b>JEANSON REALTY</b>
+            <span class="subline">In association with <strong>Nest Seekers International</strong></span>
           </div>
         </div>
 
-      </div>
-    </section>
-
-    <!-- ============ MAIN ============ -->
-    <main class="main" aria-label="Main content">
-      <div class="main-inner">
-        <div class="content-column">
-
-          <section class="section" id="fiches" data-spy>
-            <header class="section-header">
-              <div class="section-kicker">Guides</div>
-              <h2 class="section-title">Novel, author and series guides</h2>
-              <p class="section-sub">
-                The heart of TNoC is made of guides. Currents, branches, environments and Labs are there
-                to illuminate them and connect them to one another.
-              </p>
-            </header>
-
-            <div class="grid-3">
-              <article class="card">
-                <div class="card-header"><a href="novel-guides.html" style="text-decoration:none;">Novel guides</a></div>
-                <div class="card-body">
-                  The novel guide is the basic unit of The Novel of Comedy: a fixed ten-chapter matrix,
-                  identical from one book to the next.
-                </div>
-              </article>
-
-              <article class="card">
-                <div class="card-header"><a href="author-profiles.html" style="text-decoration:none;">Author profiles</a></div>
-                <div class="card-body">
-                  Author profiles gather what concerns the way an author works with humour:
-                  through-lines in a career, recurring motifs, relation to language and society.
-                </div>
-              </article>
-
-              <article class="card">
-                <div class="card-header">Long-running series guides</div>
-                <div class="card-body">
-                  Some comedies only fully unfold over time: academic cycles, comic crime series,
-                  large family sagas.
-                </div>
-              </article>
-            </div>
-          </section>
-
-          <section class="section" id="courants" data-spy>
-            <header class="section-header">
-              <div class="section-kicker">Currents</div>
-              <h2 class="section-title">The three currents of modern humorous fiction</h2>
-              <p class="section-sub">
-                Comedy of Society, Crime Comedy and Neo-Nonsense describe three main dynamics of modern laughter.
-              </p>
-            </header>
-          </section>
-
-          <section class="section" id="toolbox" data-spy>
-            <header class="section-header">
-              <div class="section-kicker">Toolbox</div>
-              <h2 class="section-title">Toolbox</h2>
-              <p class="section-sub">Environment, roles, and Labs — a practical layer for reading guides.</p>
-            </header>
-            <div class="grid-3">
-              <article class="card"><div class="card-header">Role</div><div class="card-body">Comic Engine · Comic Thread · Comic Turn</div></article>
-              <article class="card"><div class="card-header">Environment</div><div class="card-body">Where the comedy takes place: city, milieu, era.</div></article>
-              <article class="card"><div class="card-header">Labs</div><div class="card-body">Optional hubs connecting books with shared energies.</div></article>
-            </div>
-          </section>
-
-          <section class="section" id="about" data-spy>
-            <header class="section-header">
-              <div class="section-kicker">Living library</div>
-              <h2 class="section-title">About</h2>
-              <p class="section-sub">A moving library and a critical compass for modern humorous fiction.</p>
-            </header>
-          </section>
-
-          <section class="section" id="research" data-spy>
-            <header class="section-header">
-              <div class="section-kicker">Researchers &amp; AI</div>
-              <h2 class="section-title">For research, libraries and AI assistants</h2>
-              <p class="section-sub">Designed to be cited, linked and explored.</p>
-            </header>
-          </section>
-
-          <section class="section" id="start-here" data-spy>
-            <header class="section-header">
-              <div class="section-kicker">Orientation</div>
-              <h2 class="section-title">Where to start?</h2>
-              <p class="section-sub">Enter through guides, currents or Labs.</p>
-            </header>
-          </section>
-
+        <div class="actions">
+          <div class="pill"><span class="dot"></span> <strong>Off-market</strong> <span style="color:var(--muted2)">sur demande</span></div>
+          <div class="pill" title="Contact">✉︎</div>
         </div>
+      </div>
+    </div>
+  </header>
 
-        <aside class="rail" aria-label="In this page">
-          <header>
-            <h3>In this page</h3>
-            <p>Short path through the atlas homepage.</p>
-            <div class="rail-progress" aria-label="Reading progress"><span></span></div>
-          </header>
+  <section class="hero">
+    <div class="wrap">
+      <div class="heroCard">
+        <div class="heroGrid">
+          <div>
+            <div class="kicker">
+              <span class="chip"><b>Paris</b> — 22 rue Cambon</span>
+              <span class="chip"><b>Nice</b> — 3 place Masséna</span>
+              <span class="chip"><b>Alpes</b> — Sélection</span>
+            </div>
 
-          <nav class="toc" id="toc">
-            <a href="#fiches">Guides</a>
-            <a href="#courants">Currents</a>
-            <a href="#toolbox">Toolbox</a>
-            <a href="#about">About</a>
-            <a href="#research">Researchers &amp; AI</a>
-            <a href="#start-here">Where to start?</a>
-          </nav>
+            <h1 class="heroTitle">Explorer l’immobilier premium, comme une sélection.</h1>
+            <p class="heroSub">
+              Mobile d’abord. Carrousels fluides. Une identité claire : <b>Jeanson</b> (équipe locale) + <b>Nest Seekers</b> (réseau international).
+            </p>
 
-          <div class="rail-bottom">
-            <a class="btn" href="#top">↑ Back to top</a>
+            <!-- PHOTO EQUIPE (à remplacer par votre vraie image) -->
+            <div class="teamCard" role="img" aria-label="Équipe Jeanson Realty France">
+              <!-- Recommandé : img/team-france.webp ou .jpg -->
+              <img src="img/team-france.webp" alt="Équipe Jeanson Realty France" />
+              <div class="teamOverlay">
+                <div class="teamKicker">Team France</div>
+                <div class="teamTitle">Paris · Côte d’Azur · Alpes</div>
+                <div class="teamMeta">Une équipe locale, un réseau international.</div>
+              </div>
+            </div>
+
+            <div class="searchRow">
+              <div class="search" role="search">
+                <span aria-hidden="true">🔎</span>
+                <input type="text" placeholder="Rechercher : terrasse, vue mer, haussmannien, chalet…" />
+              </div>
+              <div class="btn">Découvrir les sélections</div>
+              <div class="btnGhost">Demander une estimation</div>
+            </div>
           </div>
-        </aside>
-      </div>
-    </main>
 
-    <footer class="footer" role="contentinfo">
-      <div class="footer-inner">
-        <div><strong>The Novel of Comedy (TNoC)</strong> · Atlas and critical compass for humorous fiction.</div>
-        <div class="footer-links">
-          <a href="method.html">Method</a>
-          <a href="fr/contact">Contact</a>
+          <div class="sidePanel">
+            <div style="display:flex; align-items:center; justify-content:space-between; gap:10px;">
+              <div>
+                <div style="font-size:12px; color:var(--muted2); letter-spacing:.3px;">Accès rapide</div>
+                <div style="font-size:18px; font-weight:900; margin-top:2px; font-family:var(--serif)">3 bureaux / pôles</div>
+              </div>
+              <div class="chip"><b>Estimation</b>&nbsp;48h</div>
+            </div>
+
+            <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
+              <div class="chip"><b>Paris</b> · pied-à-terre · familial</div>
+              <div class="chip"><b>Côte d’Azur</b> · mer · villas</div>
+              <div class="chip"><b>Alpes</b> · chalets · ski-in/out</div>
+            </div>
+
+            <div style="margin-top:12px; color:var(--muted); font-size:12.5px; line-height:1.45;">
+              Remplacez les images des cartes par vos visuels (photos, posters). Les tuiles “verticales” marchent très bien sur mobile.
+            </div>
+          </div>
         </div>
       </div>
-    </footer>
+    </div>
+  </section>
 
-  </div>
+  <main>
+    <div class="wrap">
 
-  <!-- HERO v2 controls: desktop only -->
+      <!-- ROW 1 -->
+      <section class="row">
+        <div class="rowHead">
+          <h2>Les coups de cœur du moment</h2>
+          <div class="hint">↔︎ glisser · <a href="#">Voir tout</a></div>
+        </div>
+
+        <div class="railWrap">
+          <div class="railNav left" data-target="#rail-featured">‹</div>
+          <div class="railNav right" data-target="#rail-featured">›</div>
+
+          <div id="rail-featured" class="rail" aria-label="Coups de coeur">
+            <a class="tile" href="#">
+              <div class="tileMedia">
+                <img alt="Paris — Appartement haussmannien" src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=900&q=70">
+                <span class="badge"><span class="pin"></span> Paris · Haussmannien</span>
+              </div>
+              <div class="tileBody">
+                <p class="tileTitle">3 ch · 2e ascenseur · traversant</p>
+                <p class="tileMeta">Adresse · lumière Sud</p>
+              </div>
+            </a>
+
+            <a class="tile" href="#">
+              <div class="tileMedia">
+                <img alt="Nice — Terrasse" src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=900&q=70">
+                <span class="badge"><span class="pin"></span> Côte d’Azur · Terrasse</span>
+              </div>
+              <div class="tileBody">
+                <p class="tileTitle">Dernier étage · grande terrasse</p>
+                <p class="tileMeta">Carré d’Or · à pied de tout</p>
+              </div>
+            </a>
+
+            <a class="tile" href="#">
+              <div class="tileMedia">
+                <img alt="Alpes — Chalet" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=70">
+                <span class="badge"><span class="pin"></span> Alpes · Chalet</span>
+              </div>
+              <div class="tileBody">
+                <p class="tileTitle">Bois · cheminée · vue</p>
+                <p class="tileMeta">Proche pistes · cocon</p>
+              </div>
+            </a>
+
+            <a class="tile" href="#">
+              <div class="tileMedia">
+                <img alt="Paris — Pied-à-terre" src="https://images.unsplash.com/photo-1501183638710-841dd1904471?auto=format&fit=crop&w=900&q=70">
+                <span class="badge"><span class="pin"></span> Paris · Pied-à-terre</span>
+              </div>
+              <div class="tileBody">
+                <p class="tileTitle">2 pièces · plan parfait</p>
+                <p class="tileMeta">Cambon / Madeleine</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ROW 2: Offices -->
+      <section class="row">
+        <div class="rowHead">
+          <h2>Nos bureaux</h2>
+          <div class="hint">contact direct · <a href="#">Prendre RDV</a></div>
+        </div>
+
+        <div class="railWrap">
+          <div class="railNav left" data-target="#rail-offices">‹</div>
+          <div class="railNav right" data-target="#rail-offices">›</div>
+
+          <div id="rail-offices" class="rail" aria-label="Bureaux">
+            <a class="tile office" href="#">
+              <div class="tileMedia">
+                <img alt="Bureau Paris — 22 rue Cambon" src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1200&q=70">
+                <span class="badge"><span class="pin"></span> Bureau · Paris</span>
+              </div>
+              <div class="tileBody">
+                <p class="tileTitle">22 rue Cambon, 75001</p>
+                <p class="tileMeta">Estimation · Vente · Off-market</p>
+              </div>
+            </a>
+
+            <a class="tile office" href="#">
+              <div class="tileMedia">
+                <img alt="Bureau Nice — 3 place Masséna" src="https://images.unsplash.com/photo-1528909514045-2fa4ac7a08ba?auto=format&fit=crop&w=1200&q=70">
+                <span class="badge"><span class="pin"></span> Bureau · Nice</span>
+              </div>
+              <div class="tileBody">
+                <p class="tileTitle">3 place Masséna, Nice</p>
+                <p class="tileMeta">Mer · Terrasses · Villas</p>
+              </div>
+            </a>
+
+            <a class="tile office" href="#">
+              <div class="tileMedia">
+                <img alt="Pôle Alpes — sélection" src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=1200&q=70">
+                <span class="badge"><span class="pin"></span> Pôle · Alpes</span>
+              </div>
+              <div class="tileBody">
+                <p class="tileTitle">Chalets & appartements</p>
+                <p class="tileMeta">Stations premium · ski-in/ski-out</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ROW 3: TEAM FRANCE (requested) -->
+      <section class="row">
+        <div class="rowHead">
+          <h2>Team France</h2>
+          <div class="hint">humain & confiance · <a href="#">Rencontrer l’équipe</a></div>
+        </div>
+
+        <div class="railWrap">
+          <div class="railNav left" data-target="#rail-team">‹</div>
+          <div class="railNav right" data-target="#rail-team">›</div>
+
+          <div id="rail-team" class="rail" aria-label="Team France">
+            <!-- Tile wide: photo équipe -->
+            <a class="tile teamWide" href="#">
+              <div class="tileMedia">
+                <!-- Recommandé : img/team-france.webp -->
+                <img alt="Photo d’équipe Jeanson Realty France" src="img/team-france.webp">
+                <span class="badge"><span class="pin"></span> Équipe France</span>
+              </div>
+              <div class="tileBody">
+                <p class="tileTitle">Paris · Côte d’Azur · Alpes</p>
+                <p class="tileMeta">Conseil · Exécution · Discrétion</p>
+              </div>
+            </a>
+
+            <!-- Portraits (placeholders) -->
+            <a class="tile" href="#">
+              <div class="tileMedia">
+                <img alt="Portrait — Membre équipe Paris" src="img/team-paris-1.webp">
+                <span class="badge"><span class="pin"></span> Paris</span>
+              </div>
+              <div class="tileBody">
+                <p class="tileTitle">Nom Prénom</p>
+                <p class="tileMeta">Cambon · Transactions</p>
+              </div>
+            </a>
+
+            <a class="tile" href="#">
+              <div class="tileMedia">
+                <img alt="Portrait — Membre équipe Côte d’Azur" src="img/team-nice-1.webp">
+                <span class="badge"><span class="pin"></span> Côte d’Azur</span>
+              </div>
+              <div class="tileBody">
+                <p class="tileTitle">Nom Prénom</p>
+                <p class="tileMeta">Nice · Mer · Villas</p>
+              </div>
+            </a>
+
+            <a class="tile" href="#">
+              <div class="tileMedia">
+                <img alt="Portrait — Membre pôle Alpes" src="img/team-alps-1.webp">
+                <span class="badge"><span class="pin"></span> Alpes</span>
+              </div>
+              <div class="tileBody">
+                <p class="tileTitle">Nom Prénom</p>
+                <p class="tileMeta">Chalets · Stations</p>
+              </div>
+            </a>
+
+            <a class="tile" href="#">
+              <div class="tileMedia">
+                <img alt="Partenaire — Nest Seekers International" src="img/nest-seekers-partner.webp">
+                <span class="badge"><span class="pin"></span> Partenaire</span>
+              </div>
+              <div class="tileBody">
+                <p class="tileTitle">Nest Seekers</p>
+                <p class="tileMeta">Réseau international</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ROW 4: Alpes (optional, kept) -->
+      <section class="row">
+        <div class="rowHead">
+          <h2>Alpes — Sélections</h2>
+          <div class="hint">neige & refuge · <a href="#">Voir tout</a></div>
+        </div>
+
+        <div class="railWrap">
+          <div class="railNav left" data-target="#rail-alps">‹</div>
+          <div class="railNav right" data-target="#rail-alps">›</div>
+
+          <div id="rail-alps" class="rail" aria-label="Alpes — sélections">
+            <a class="tile" href="#">
+              <div class="tileMedia">
+                <img alt="Chalet ski-in ski-out" src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=900&q=70">
+                <span class="badge"><span class="pin"></span> Ski-in / Ski-out</span>
+              </div>
+              <div class="tileBody">
+                <p class="tileTitle">Chalets “pistes”</p>
+                <p class="tileMeta">Départ skis aux pieds</p>
+              </div>
+            </a>
+
+            <a class="tile" href="#">
+              <div class="tileMedia">
+                <img alt="Vue montagne" src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=900&q=70">
+                <span class="badge"><span class="pin"></span> Vue montagne</span>
+              </div>
+              <div class="tileBody">
+                <p class="tileTitle">Grand balcon</p>
+                <p class="tileMeta">Panorama · hauteur</p>
+              </div>
+            </a>
+
+            <a class="tile" href="#">
+              <div class="tileMedia">
+                <img alt="Appartement station premium" src="https://images.unsplash.com/photo-1484156818044-c040038b0719?auto=format&fit=crop&w=900&q=70">
+                <span class="badge"><span class="pin"></span> Station premium</span>
+              </div>
+              <div class="tileBody">
+                <p class="tileTitle">Appartements cosy</p>
+                <p class="tileMeta">Services · parking</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div style="display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:space-between;">
+        <div>© <span id="y"></span> Jeanson Realty · Paris (22 rue Cambon) · Nice (3 place Masséna) · Alpes (sélection)</div>
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <a class="chip" href="#"><b>WhatsApp</b></a>
+          <a class="chip" href="#"><b>Email</b></a>
+          <a class="chip" href="#"><b>Mentions</b></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
   <script>
-    (function(){
-      const mq = window.matchMedia ? window.matchMedia("(max-width: 960px)") : null;
-      const isMobile = mq ? mq.matches : false;
-      const count = document.getElementById('heroCount');
+    // Year
+    document.getElementById('y').textContent = new Date().getFullYear();
 
-      function updateCount(){
-        if(!count) return;
-        if(isMobile){
-          const covers = document.querySelectorAll('.hero-v2 .mobile-shelves .cover-tile').length;
-          const authors = document.querySelectorAll('.hero-v2 .board .portrait').length;
-          count.textContent = covers + " covers · " + authors + " authors";
-        }else{
-          const covers = document.querySelectorAll('.hero-v2 .desktop-covers .cover-tile').length;
-          const authors = document.querySelectorAll('.hero-v2 .board .portrait').length;
-          count.textContent = covers + " covers · " + authors + " authors";
-        }
-      }
-      updateCount();
+    // Desktop rail arrows
+    function scrollRail(targetSel, dir){
+      const rail = document.querySelector(targetSel);
+      if(!rail) return;
+      const card = rail.querySelector('.tile');
+      const step = (card ? card.getBoundingClientRect().width : 180) * 2.2;
+      rail.scrollBy({ left: dir * step, behavior: 'smooth' });
+    }
 
-      if(isMobile) return;
+    document.querySelectorAll('.railNav').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const target = btn.getAttribute('data-target');
+        const dir = btn.classList.contains('left') ? -1 : 1;
+        scrollRail(target, dir);
+      });
+    });
 
-      const ribbon = document.getElementById('heroRibbon');
-      if(!ribbon) return;
+    // Gentle drag-to-scroll (keeps vertical scrolling fluid)
+    document.querySelectorAll('.rail').forEach(rail=>{
+      let isDown=false, startX=0, startScroll=0, locked=null;
 
-      const controls = document.querySelectorAll('[data-hero]');
-      const tiles = () => Array.from(ribbon.querySelectorAll('.cover-tile'));
-
-      function clearSpotlight(){ tiles().forEach(t => t.classList.remove('is-spotlight')); }
-
-      function spotlightRandom(){
-        const all = tiles();
-        if(!all.length) return;
-        clearSpotlight();
-        const pick = all[Math.floor(Math.random() * all.length)];
-        pick.classList.add('is-spotlight');
-        pick.scrollIntoView({ behavior:"smooth", block:"nearest", inline:"start" });
-        setTimeout(() => pick.classList.remove('is-spotlight'), 2200);
-      }
-
-      function shuffleRibbon(){
-        clearSpotlight();
-        const all = tiles();
-        for(let i = all.length - 1; i > 0; i--){
-          const j = Math.floor(Math.random() * (i + 1));
-          [all[i], all[j]] = [all[j], all[i]];
-        }
-        all.forEach(node => ribbon.appendChild(node));
-        spotlightRandom();
-      }
-
-      controls.forEach(btn => {
-        btn.addEventListener('click', () => {
-          const action = btn.getAttribute('data-hero');
-          if(action === 'shuffle') shuffleRibbon();
-          if(action === 'random') spotlightRandom();
-        });
+      rail.addEventListener('pointerdown', (e)=>{
+        isDown = true;
+        locked = null;
+        startX = e.clientX;
+        startScroll = rail.scrollLeft;
+        rail.setPointerCapture(e.pointerId);
       });
 
-      setTimeout(spotlightRandom, 650);
-    })();
+      rail.addEventListener('pointermove', (e)=>{
+        if(!isDown) return;
+
+        const dx = e.clientX - startX;
+
+        // lock horizontally only when clearly horizontal
+        if(locked === null){
+          if(Math.abs(dx) > 10) locked = 'x';
+        }
+        if(locked === 'x'){
+          rail.scrollLeft = startScroll - dx;
+          e.preventDefault?.();
+        }
+      }, { passive:false });
+
+      rail.addEventListener('pointerup', ()=>{ isDown=false; locked=null; });
+      rail.addEventListener('pointercancel', ()=>{ isDown=false; locked=null; });
+      rail.addEventListener('pointerleave', ()=>{ isDown=false; locked=null; });
+    });
   </script>
-
-  <!-- Mechanical horizontal scrolling buttons (mobile fallback) -->
-  <script>
-    (function(){
-      const wrappers = document.querySelectorAll('.hscroll');
-      wrappers.forEach(w => {
-        const scroller = w.querySelector('.ribbon, .portrait-grid');
-        const prev = w.querySelector('.hs-prev');
-        const next = w.querySelector('.hs-next');
-        if(!scroller || !prev || !next) return;
-
-        const step = () => Math.max(220, Math.floor(scroller.clientWidth * 0.75));
-
-        prev.addEventListener('click', () => {
-          scroller.scrollBy({ left: -step(), behavior: 'smooth' });
-        });
-
-        next.addEventListener('click', () => {
-          scroller.scrollBy({ left: step(), behavior: 'smooth' });
-        });
-      });
-    })();
-  </script>
-
-  <!-- Scrollspy + progress rail -->
-  <script>
-    (function(){
-      const links = Array.from(document.querySelectorAll('#toc a'));
-      const sections = Array.from(document.querySelectorAll('[data-spy]'));
-      const bar = document.querySelector('.rail-progress > span');
-
-      function getHashId(href){
-        if (!href) return "";
-        const hashIndex = href.indexOf('#');
-        if (hashIndex === -1) return "";
-        return href.slice(hashIndex + 1);
-      }
-
-      function updateProgress(){
-        if(!bar) return;
-        const doc = document.documentElement;
-        const scrollTop = doc.scrollTop || document.body.scrollTop;
-        const scrollHeight = doc.scrollHeight - doc.clientHeight;
-        const pct = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
-        bar.style.width = Math.max(0, Math.min(100, pct)) + "%";
-      }
-      window.addEventListener('scroll', updateProgress, { passive:true });
-      updateProgress();
-
-      if(!links.length || !sections.length) return;
-
-      function setActiveFromScroll(){
-        const scrollTop = window.scrollY || window.pageYOffset;
-        const offset = 140;
-        let activeId = sections[0].id;
-
-        sections.forEach(section => {
-          if (scrollTop + offset >= section.offsetTop) activeId = section.id;
-        });
-
-        links.forEach(link => {
-          const targetId = getHashId(link.getAttribute('href'));
-          link.classList.toggle('active', targetId === activeId);
-        });
-      }
-
-      window.addEventListener('scroll', setActiveFromScroll, { passive:true });
-      window.addEventListener('resize', setActiveFromScroll);
-      setActiveFromScroll();
-    })();
-  </script>
-
 </body>
 </html>
-
-
-ChatGPT pe
