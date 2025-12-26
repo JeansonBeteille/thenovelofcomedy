@@ -15,6 +15,7 @@
       --graphite:#2b2b2b;
       --evergreen:#2E7D32;
       --muted:rgba(0,0,0,.55);
+      --chip:rgba(0,0,0,.06);
       --border:rgba(0,0,0,.14);
       --card:#ffffff;
       --shadow:0 1px 2px rgba(0,0,0,.04);
@@ -30,6 +31,7 @@
     }
     a{color:inherit;text-decoration:none}
     a:hover{text-decoration:underline}
+
     .page-wrap{ min-height:100vh; background:var(--bg); }
 
     .skip-link{
@@ -173,9 +175,9 @@
 
     .hero-v2 .gallery-body{ padding:12px; display:grid; gap:12px; }
 
-    /* ==========
-       SIMPLE MANUAL HSCROLL (reliable on iOS/Android)
-       ========== */
+    /* =========================================================
+       MANUAL HORIZONTAL SCROLL (native, iOS-safe)
+       ========================================================= */
     .scroller{
       display:flex;
       gap:12px;
@@ -185,12 +187,12 @@
       scroll-snap-type:x mandatory;
       padding:2px 2px 12px;
       overscroll-behavior-x:contain;
-      touch-action: pan-y; /* keeps vertical scroll smooth, still allows horizontal inside */
+      touch-action: pan-y; /* keep vertical scroll smooth */
     }
     .scroller::-webkit-scrollbar{ height:8px; }
     .scroller::-webkit-scrollbar-thumb{ background:rgba(255,255,255,.14); border-radius:999px; }
 
-    /* Cover tiles (base) */
+    /* Cover tile (default desktop) */
     .hero-v2 .cover-tile{
       scroll-snap-align:start;
       flex:0 0 150px;
@@ -200,7 +202,6 @@
       background:#111;
       position:relative;
       box-shadow:0 10px 30px rgba(0,0,0,.55);
-      transform:translateY(0);
       transition:transform .2s ease, border-color .2s ease, filter .2s ease;
     }
     .hero-v2 .cover-tile:hover{
@@ -212,7 +213,7 @@
     .hero-v2 .cover-tile img{
       display:block;
       width:100%;
-      height:210px;          /* desktop default */
+      height:210px; /* desktop height */
       object-fit:cover;
     }
 
@@ -241,7 +242,7 @@
       .hero-v2 .cover-meta .k .sep{ display:none; }
     }
 
-    /* Desktop cover grid (unchanged intent) */
+    /* Desktop cover grid */
     .hero-v2 .desktop-covers{ display:block; }
     @media(min-width:961px){
       .hero-v2 .desktop-covers .scroller{
@@ -297,24 +298,36 @@
     }
     .hero-v2 .shelf-cta:hover{ opacity:1; }
 
-    /* ===== THE KEY FIX:
-       On mobile shelves: 2 posters visible + vertical poster ratio (best option) */
+    /* ✅ IMPORTANT FIX:
+       Mobile poster sizing is bounded (no more giant covers).
+       - Always vertical poster ratio
+       - 2 visible on most screens
+       - hard min/max so it can’t blow up */
     @media(max-width:960px){
       .hero-v2 .mobile-shelves .scroller{
         gap:12px;
         padding:2px 2px 12px;
       }
+
       .hero-v2 .mobile-shelves .cover-tile{
-        flex:0 0 calc((100% - 12px)/2); /* 2 visible */
-        aspect-ratio: 2 / 3;            /* best poster ratio */
+        flex:0 0 clamp(138px, 42vw, 170px); /* <= THIS prevents “immense” */
+        aspect-ratio: 2 / 3;
         height:auto;
         box-shadow:none;
       }
       .hero-v2 .mobile-shelves .cover-tile img{
-        height:100%;                    /* fill the aspect-ratio box */
+        height:100%;
         object-fit:cover;
       }
-      .hero-v2 .cover-meta{ backdrop-filter:none; }
+
+      /* Slightly calmer overlay on small screens */
+      .hero-v2 .cover-meta{
+        left:8px; right:8px; bottom:8px;
+        padding:6px 7px;
+        backdrop-filter:none;
+      }
+      .hero-v2 .cover-meta .t{ font-size:12px; }
+      .hero-v2 .cover-meta .s{ font-size:10.5px; }
     }
 
     /* Author board */
@@ -336,7 +349,7 @@
     }
     .hero-v2 .board-title a:hover{ opacity:1; }
 
-    .hero-v2 .portrait-grid{ /* uses .scroller too, but keep separate styles for cards */
+    .hero-v2 .portrait-grid{
       display:flex;
       gap:12px;
       overflow-x:auto;
@@ -412,13 +425,11 @@
       .hero-v2 .hero-gallery{ box-shadow:none; }
       .hero-v2 .cover-tile,
       .hero-v2 .portrait{ box-shadow:none; }
-      .hero-v2 .cover-meta,
-      .hero-v2 .portrait-label{ backdrop-filter:none; }
-    }
-    .hero-v2 img{
-      -webkit-user-drag:none;
-      user-select:none;
-      -webkit-tap-highlight-color:transparent;
+      .hero-v2 img{
+        -webkit-user-drag:none;
+        user-select:none;
+        -webkit-tap-highlight-color:transparent;
+      }
     }
 
     /* =========================================================
@@ -553,12 +564,8 @@
             </div>
 
             <div class="gallery-controls" aria-label="Hero controls">
-              <button class="ctrl" type="button" data-hero="shuffle" aria-label="Shuffle the picks">
-                <strong>Shuffle</strong>
-              </button>
-              <button class="ctrl" type="button" data-hero="random" aria-label="Spotlight a random pick">
-                Random pick
-              </button>
+              <button class="ctrl" type="button" data-hero="shuffle" aria-label="Shuffle the picks"><strong>Shuffle</strong></button>
+              <button class="ctrl" type="button" data-hero="random" aria-label="Spotlight a random pick">Random pick</button>
               <a class="ctrl" href="novel-guides.html" aria-label="Open novel guides">All novels →</a>
             </div>
           </div>
@@ -631,7 +638,6 @@
                     </div>
                   </a>
 
-                  <!-- replace these placeholders with your real 3–7 picks -->
                   <a class="cover-tile" href="fr/fiche-roman/society-03" aria-label="Open Society pick 03">
                     <img src="img/society-sample-03.png" alt="Cover (Comedy of Society) – pick 03">
                     <div class="cover-meta"><div class="k"><span class="cur">Comedy of Society</span><span class="sep"> · </span><span class="br">Workplace</span></div><div class="t">Pick 03</div><div class="s">Replace · Year</div></div>
@@ -668,7 +674,6 @@
                 </div>
 
                 <div class="scroller" aria-label="Crime Comedy covers">
-                  <!-- replace with your 1–7 picks -->
                   <a class="cover-tile" href="fr/fiche-roman/crime-01" aria-label="Open Crime pick 01">
                     <img src="img/crime-sample-01.png" alt="Cover (Crime Comedy) – pick 01">
                     <div class="cover-meta"><div class="k"><span class="cur">Crime Comedy</span><span class="sep"> · </span><span class="br">Schemer</span></div><div class="t">Pick 01</div><div class="s">Replace · Year</div></div>
@@ -722,7 +727,6 @@
                     </div>
                   </a>
 
-                  <!-- replace with your 2–7 picks -->
                   <a class="cover-tile" href="fr/fiche-roman/neo-02" aria-label="Open Neo pick 02">
                     <img src="img/neo-sample-02.png" alt="Cover (Neo-Nonsense) – pick 02">
                     <div class="cover-meta"><div class="k"><span class="cur">Neo-Nonsense</span><span class="sep"> · </span><span class="br">Cosmic</span></div><div class="t">Pick 02</div><div class="s">Replace · Year</div></div>
@@ -759,7 +763,7 @@
                 <a href="author-profiles.html" aria-label="Browse all author profiles">All profiles →</a>
               </div>
 
-              <div class="portrait-grid" aria-label="Author portraits (manual scroll)">
+              <div class="portrait-grid" aria-label="Author portraits (scroll on mobile)">
                 <a class="portrait" href="author-profiles.html#tom-sharpe" aria-label="Open Tom Sharpe profile">
                   <img src="tomsh.jpg" alt="Portrait of Tom Sharpe">
                   <div class="portrait-label">Tom Sharpe</div>
