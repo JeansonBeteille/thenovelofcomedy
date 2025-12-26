@@ -15,7 +15,6 @@
       --graphite:#2b2b2b;
       --evergreen:#2E7D32;
       --muted:rgba(0,0,0,.55);
-      --chip:rgba(0,0,0,.06);
       --border:rgba(0,0,0,.14);
       --card:#ffffff;
       --shadow:0 1px 2px rgba(0,0,0,.04);
@@ -31,7 +30,6 @@
     }
     a{color:inherit;text-decoration:none}
     a:hover{text-decoration:underline}
-
     .page-wrap{ min-height:100vh; background:var(--bg); }
 
     .skip-link{
@@ -175,10 +173,27 @@
 
     .hero-v2 .gallery-body{ padding:12px; display:grid; gap:12px; }
 
-    /* ----------------------------
-       COVER TILE (shared)
-       ---------------------------- */
+    /* ==========
+       SIMPLE MANUAL HSCROLL (reliable on iOS/Android)
+       ========== */
+    .scroller{
+      display:flex;
+      gap:12px;
+      overflow-x:auto;
+      overflow-y:hidden;
+      -webkit-overflow-scrolling:touch;
+      scroll-snap-type:x mandatory;
+      padding:2px 2px 12px;
+      overscroll-behavior-x:contain;
+      touch-action: pan-y; /* keeps vertical scroll smooth, still allows horizontal inside */
+    }
+    .scroller::-webkit-scrollbar{ height:8px; }
+    .scroller::-webkit-scrollbar-thumb{ background:rgba(255,255,255,.14); border-radius:999px; }
+
+    /* Cover tiles (base) */
     .hero-v2 .cover-tile{
+      scroll-snap-align:start;
+      flex:0 0 150px;
       border-radius:14px;
       border:1px solid rgba(255,255,255,.18);
       overflow:hidden;
@@ -194,7 +209,12 @@
       filter:saturate(1.06) contrast(1.06);
       text-decoration:none;
     }
-    .hero-v2 .cover-tile img{ display:block; width:100%; height:210px; object-fit:cover; }
+    .hero-v2 .cover-tile img{
+      display:block;
+      width:100%;
+      height:210px;          /* desktop default */
+      object-fit:cover;
+    }
 
     .hero-v2 .cover-meta{
       position:absolute; left:10px; right:10px; bottom:10px;
@@ -221,44 +241,29 @@
       .hero-v2 .cover-meta .k .sep{ display:none; }
     }
 
-    /* ----------------------------
-       DESKTOP covers grid (unchanged)
-       ---------------------------- */
+    /* Desktop cover grid (unchanged intent) */
     .hero-v2 .desktop-covers{ display:block; }
-    .hero-v2 .ribbon{
-      display:flex;
-      gap:10px;
-      overflow:auto;
-      padding:2px 2px 10px;
-      -webkit-overflow-scrolling:touch;
-      overscroll-behavior-x:contain;
-    }
-    .hero-v2 .ribbon::-webkit-scrollbar{ height:8px; }
-    .hero-v2 .ribbon::-webkit-scrollbar-thumb{ background:rgba(255,255,255,.14); border-radius:999px; }
-
     @media(min-width:961px){
-      .hero-v2 .desktop-covers .ribbon{
+      .hero-v2 .desktop-covers .scroller{
         display:grid;
         grid-template-columns:repeat(3,minmax(0,1fr));
-        overflow:visible; padding:0;
+        overflow:visible;
+        padding:0;
+        scroll-snap-type:none;
+        gap:10px;
       }
-      .hero-v2 .desktop-covers .cover-tile img{ height:170px; }
+      .hero-v2 .cover-tile{ flex:auto; }
+      .hero-v2 .cover-tile img{ height:170px; }
     }
     @media(max-width:960px){
       .hero-v2 .desktop-covers{ display:none; }
     }
 
-    /* =========================================================
-       MOBILE shelves (Prime-like)
-       - Ultra robust scroller: flex nowrap + overflow-x:auto
-       - 2 items visible
-       - Buttons ‹ › as fallback
-       ========================================================= */
+    /* Mobile shelves */
     .hero-v2 .mobile-shelves{ display:none; }
     @media(max-width:960px){
       .hero-v2 .mobile-shelves{ display:grid; gap:12px; }
     }
-
     .hero-v2 .shelf{
       border-radius:14px;
       border:1px solid rgba(255,255,255,.14);
@@ -292,60 +297,27 @@
     }
     .hero-v2 .shelf-cta:hover{ opacity:1; }
 
-    .hero-v2 .shelf-right{
-      display:flex; gap:10px; align-items:center;
+    /* ===== THE KEY FIX:
+       On mobile shelves: 2 posters visible + vertical poster ratio (best option) */
+    @media(max-width:960px){
+      .hero-v2 .mobile-shelves .scroller{
+        gap:12px;
+        padding:2px 2px 12px;
+      }
+      .hero-v2 .mobile-shelves .cover-tile{
+        flex:0 0 calc((100% - 12px)/2); /* 2 visible */
+        aspect-ratio: 2 / 3;            /* best poster ratio */
+        height:auto;
+        box-shadow:none;
+      }
+      .hero-v2 .mobile-shelves .cover-tile img{
+        height:100%;                    /* fill the aspect-ratio box */
+        object-fit:cover;
+      }
+      .hero-v2 .cover-meta{ backdrop-filter:none; }
     }
 
-    .hero-v2 .shelf-nav{
-      display:flex;
-      gap:8px;
-      align-items:center;
-    }
-    .hero-v2 .navbtn{
-      width:34px; height:34px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.22);
-      background:rgba(0,0,0,.35);
-      color:#fff;
-      font-size:18px;
-      line-height:1;
-      cursor:pointer;
-      padding:0;
-    }
-    .hero-v2 .navbtn:active{ transform:scale(.98); }
-
-    /* Hide nav buttons on desktop (even though shelves are hidden) */
-    @media(min-width:961px){
-      .hero-v2 .shelf-nav{ display:none; }
-    }
-
-    /* THE robust scroller */
-    .hero-v2 .scroller{
-      display:flex;
-      flex-wrap:nowrap;
-      gap:12px;
-      overflow-x:auto;
-      overflow-y:hidden;
-      -webkit-overflow-scrolling:touch;
-      scroll-snap-type:x mandatory;
-      overscroll-behavior-x:contain;
-      padding:2px 2px 10px;
-    }
-    .hero-v2 .scroller::-webkit-scrollbar{ height:8px; }
-    .hero-v2 .scroller::-webkit-scrollbar-thumb{
-      background:rgba(255,255,255,.14);
-      border-radius:999px;
-    }
-
-    /* 2 visible per row */
-    .hero-v2 .mobile-shelves .scroller > .cover-tile{
-      flex:0 0 calc((100% - 12px)/2);
-      scroll-snap-align:start;
-    }
-
-    /* =========================================================
-       Author board
-       ========================================================= */
+    /* Author board */
     .hero-v2 .board{
       border-radius:14px;
       border:1px solid rgba(255,255,255,.14);
@@ -364,7 +336,23 @@
     }
     .hero-v2 .board-title a:hover{ opacity:1; }
 
+    .hero-v2 .portrait-grid{ /* uses .scroller too, but keep separate styles for cards */
+      display:flex;
+      gap:12px;
+      overflow-x:auto;
+      overflow-y:hidden;
+      -webkit-overflow-scrolling:touch;
+      scroll-snap-type:x mandatory;
+      padding:2px 2px 12px;
+      overscroll-behavior-x:contain;
+      touch-action: pan-y;
+    }
+    .hero-v2 .portrait-grid::-webkit-scrollbar{ height:8px; }
+    .hero-v2 .portrait-grid::-webkit-scrollbar-thumb{ background:rgba(255,255,255,.14); border-radius:999px; }
+
     .hero-v2 .portrait{
+      scroll-snap-align:start;
+      flex:0 0 150px;
       border-radius:14px;
       border:1px solid rgba(255,255,255,.16);
       overflow:hidden;
@@ -392,28 +380,20 @@
       opacity:.92;
       line-height:1.2;
     }
-
-    /* On mobile: author scroller uses same robust scroller */
-    .hero-v2 .board .scroller > .portrait{
-      flex:0 0 calc((100% - 12px)/2);
-      scroll-snap-align:start;
-    }
-
-    /* On desktop: show a simple grid (no horizontal scroll) */
     @media(min-width:961px){
-      .hero-v2 .board .scroller{
+      .hero-v2 .portrait-grid{
         display:grid;
-        grid-template-columns:repeat(4, minmax(0,1fr));
+        grid-template-columns:repeat(4,minmax(0,1fr));
         gap:8px;
         overflow:visible;
         padding:0;
         scroll-snap-type:none;
       }
-      .hero-v2 .board .scroller > .portrait{
+      .hero-v2 .portrait{
         flex:auto;
         aspect-ratio:1/1;
       }
-      .hero-v2 .board .shelf-nav{ display:none; }
+      .hero-v2 .portrait-label{ backdrop-filter:none; }
     }
 
     .hero-v2 .gallery-foot{
@@ -434,6 +414,11 @@
       .hero-v2 .portrait{ box-shadow:none; }
       .hero-v2 .cover-meta,
       .hero-v2 .portrait-label{ backdrop-filter:none; }
+    }
+    .hero-v2 img{
+      -webkit-user-drag:none;
+      user-select:none;
+      -webkit-tap-highlight-color:transparent;
     }
 
     /* =========================================================
@@ -582,7 +567,7 @@
 
             <!-- DESKTOP -->
             <div class="desktop-covers" aria-label="Desktop cover grid">
-              <div class="ribbon" id="heroRibbon" aria-label="Cover grid">
+              <div class="scroller" id="heroRibbon" aria-label="Cover grid">
                 <a class="cover-tile" href="./fichewilt.html" aria-label="Open the Wilt novel guide">
                   <img src="wilt31A.png.png" alt="Cover of Wilt (Tom Sharpe)">
                   <div class="cover-meta">
@@ -612,7 +597,7 @@
               </div>
             </div>
 
-            <!-- MOBILE shelves (7 covers each) -->
+            <!-- MOBILE shelves -->
             <div class="mobile-shelves" aria-label="Mobile shelves (currents)">
 
               <!-- Society -->
@@ -624,14 +609,7 @@
                     </a>
                     <div class="shelf-desc">institutions, daily life, social friction</div>
                   </div>
-
-                  <div class="shelf-right">
-                    <div class="shelf-nav" aria-label="Shelf navigation">
-                      <button class="navbtn" type="button" data-scroll="prev" aria-label="Scroll left">‹</button>
-                      <button class="navbtn" type="button" data-scroll="next" aria-label="Scroll right">›</button>
-                    </div>
-                    <a class="shelf-cta" href="currents.html#society">See →</a>
-                  </div>
+                  <a class="shelf-cta" href="currents.html#society">See →</a>
                 </div>
 
                 <div class="scroller" aria-label="Comedy of Society covers">
@@ -653,6 +631,7 @@
                     </div>
                   </a>
 
+                  <!-- replace these placeholders with your real 3–7 picks -->
                   <a class="cover-tile" href="fr/fiche-roman/society-03" aria-label="Open Society pick 03">
                     <img src="img/society-sample-03.png" alt="Cover (Comedy of Society) – pick 03">
                     <div class="cover-meta"><div class="k"><span class="cur">Comedy of Society</span><span class="sep"> · </span><span class="br">Workplace</span></div><div class="t">Pick 03</div><div class="s">Replace · Year</div></div>
@@ -685,17 +664,11 @@
                     </a>
                     <div class="shelf-desc">fault, plans, transgression as comic fuel</div>
                   </div>
-
-                  <div class="shelf-right">
-                    <div class="shelf-nav" aria-label="Shelf navigation">
-                      <button class="navbtn" type="button" data-scroll="prev" aria-label="Scroll left">‹</button>
-                      <button class="navbtn" type="button" data-scroll="next" aria-label="Scroll right">›</button>
-                    </div>
-                    <a class="shelf-cta" href="currents.html#crime">See →</a>
-                  </div>
+                  <a class="shelf-cta" href="currents.html#crime">See →</a>
                 </div>
 
                 <div class="scroller" aria-label="Crime Comedy covers">
+                  <!-- replace with your 1–7 picks -->
                   <a class="cover-tile" href="fr/fiche-roman/crime-01" aria-label="Open Crime pick 01">
                     <img src="img/crime-sample-01.png" alt="Cover (Crime Comedy) – pick 01">
                     <div class="cover-meta"><div class="k"><span class="cur">Crime Comedy</span><span class="sep"> · </span><span class="br">Schemer</span></div><div class="t">Pick 01</div><div class="s">Replace · Year</div></div>
@@ -736,14 +709,7 @@
                     </a>
                     <div class="shelf-desc">absurd logic, science, vertigo of meaning</div>
                   </div>
-
-                  <div class="shelf-right">
-                    <div class="shelf-nav" aria-label="Shelf navigation">
-                      <button class="navbtn" type="button" data-scroll="prev" aria-label="Scroll left">‹</button>
-                      <button class="navbtn" type="button" data-scroll="next" aria-label="Scroll right">›</button>
-                    </div>
-                    <a class="shelf-cta" href="currents.html#neo-nonsense">See →</a>
-                  </div>
+                  <a class="shelf-cta" href="currents.html#neo-nonsense">See →</a>
                 </div>
 
                 <div class="scroller" aria-label="Neo-Nonsense covers">
@@ -756,6 +722,7 @@
                     </div>
                   </a>
 
+                  <!-- replace with your 2–7 picks -->
                   <a class="cover-tile" href="fr/fiche-roman/neo-02" aria-label="Open Neo pick 02">
                     <img src="img/neo-sample-02.png" alt="Cover (Neo-Nonsense) – pick 02">
                     <div class="cover-meta"><div class="k"><span class="cur">Neo-Nonsense</span><span class="sep"> · </span><span class="br">Cosmic</span></div><div class="t">Pick 02</div><div class="s">Replace · Year</div></div>
@@ -785,21 +752,14 @@
 
             </div>
 
-            <!-- Author profiles (9 portraits) -->
+            <!-- Author profiles -->
             <div class="board" aria-label="Author portrait board">
               <div class="board-title">
                 <span>Author profiles</span>
-
-                <div class="shelf-right">
-                  <div class="shelf-nav" aria-label="Board navigation">
-                    <button class="navbtn" type="button" data-scroll="prev" aria-label="Scroll left">‹</button>
-                    <button class="navbtn" type="button" data-scroll="next" aria-label="Scroll right">›</button>
-                  </div>
-                  <a href="author-profiles.html" aria-label="Browse all author profiles">All profiles →</a>
-                </div>
+                <a href="author-profiles.html" aria-label="Browse all author profiles">All profiles →</a>
               </div>
 
-              <div class="scroller" aria-label="Author portraits (scroll on mobile)">
+              <div class="portrait-grid" aria-label="Author portraits (manual scroll)">
                 <a class="portrait" href="author-profiles.html#tom-sharpe" aria-label="Open Tom Sharpe profile">
                   <img src="tomsh.jpg" alt="Portrait of Tom Sharpe">
                   <div class="portrait-label">Tom Sharpe</div>
@@ -1072,24 +1032,6 @@
       });
 
       setTimeout(spotlightRandom, 650);
-    })();
-  </script>
-
-  <!-- Mobile shelf nav buttons (fallback, ultra stable) -->
-  <script>
-    (function(){
-      document.querySelectorAll('.navbtn[data-scroll]').forEach(btn=>{
-        btn.addEventListener('click', ()=>{
-          const wrap = btn.closest('.shelf, .board');
-          if(!wrap) return;
-          const scroller = wrap.querySelector('.scroller');
-          if(!scroller) return;
-
-          const step = Math.max(220, Math.floor(scroller.clientWidth * 0.9));
-          const dir = btn.getAttribute('data-scroll');
-          scroller.scrollBy({ left: dir === 'next' ? step : -step, behavior: 'smooth' });
-        });
-      });
     })();
   </script>
 
