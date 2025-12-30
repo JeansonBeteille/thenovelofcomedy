@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>The Novel of Comedy (TNoC) – Digital atlas of humorous fiction</title>
+  <title>The Novel of Comedy (TNoC) – Digital atlas & critical cartography of humorous fiction</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description"
-        content="The Novel of Comedy (TNoC) is a digital atlas and critical cartography of humorous fiction: three currents, branches, environments, Labs, and a system of novel and author guides.">
+        content="The Novel of Comedy (TNoC) is a digital atlas and critical cartography of humorous fiction: three currents, branches, environments, Labs, and comparable novel & author guides.">
 
   <style>
     :root{
@@ -15,28 +15,29 @@
       --graphite:#2b2b2b;
       --evergreen:#2E7D32;
       --muted:rgba(0,0,0,.55);
-      --chip:rgba(0,0,0,.06);
       --border:rgba(0,0,0,.14);
       --card:#ffffff;
       --shadow:0 1px 2px rgba(0,0,0,.04);
+      --shadowLift:0 14px 40px rgba(0,0,0,.18);
       --w:1120px;
+      --serif: ui-serif, Georgia, "Times New Roman", Times, serif;
 
-      /* Typography */
-      --sans: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      --serif: "Source Serif Pro", "Georgia", "Times New Roman", serif;
+      /* tiles */
+      --tileW:160px;
+      --tileRadius:14px;
 
-      /* Motion */
-      --ease:cubic-bezier(.2,.8,.2,1);
+      /* sticky offsets */
+      --railTop:88px;
     }
 
     *{box-sizing:border-box}
     html,body{
       margin:0;
       padding:0;
-      font-family:var(--sans);
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
       color:var(--ink);
       background:var(--bg);
-      overflow-x:visible; /* keep sticky reliable */
+      overflow-x:visible;
     }
     a{color:inherit;text-decoration:none}
     a:hover{text-decoration:underline}
@@ -69,7 +70,7 @@
       width:34px; height:34px; border-radius:12px;
       border:1px solid rgba(255,255,255,.18);
       display:flex; align-items:center; justify-content:center;
-      font-weight:600; letter-spacing:.06em; text-transform:uppercase; font-size:11px;
+      font-weight:650; letter-spacing:.06em; text-transform:uppercase; font-size:11px;
       background:radial-gradient(circle at 0 0,rgba(255,255,255,.22),rgba(0,0,0,.7));
       flex:0 0 auto;
     }
@@ -105,17 +106,24 @@
       display:inline-flex; align-items:center; justify-content:center;
       padding:9px 14px; border-radius:999px; font-size:13px;
       border:1px solid transparent; cursor:pointer; text-decoration:none; white-space:nowrap;
+      transition:transform .14s ease, opacity .14s ease, background .14s ease;
     }
+    .btn:focus-visible{
+      outline:2px solid rgba(46,125,50,.55);
+      outline-offset:3px;
+    }
+    .btn:hover{ transform:translateY(-1px); }
     .btn-primary{ background:#fff; color:#000; border-color:rgba(255,255,255,.03); }
     .btn-secondary{ background:rgba(0,0,0,.22); border-color:rgba(255,255,255,.30); color:#fff; }
     .btn-ghost{ background:transparent; border-color:rgba(255,255,255,.24); color:#fff; opacity:.92; }
+    .btn-ghost:hover{ opacity:1; }
 
     /* =========================================================
-       HERO — identity background
+       HERO
        ========================================================= */
     .hero.hero-stream{
       position:relative;
-      overflow:hidden; /* hero is not ancestor of sticky rail */
+      overflow:hidden;
       border-bottom:1px solid rgba(255,255,255,.08);
       background:var(--bg);
       color:#fff;
@@ -127,7 +135,7 @@
       background:
         linear-gradient(90deg, rgba(0,0,0,.86) 0%, rgba(0,0,0,.58) 48%, rgba(0,0,0,.18) 78%, rgba(0,0,0,0) 100%),
         var(--hero-bg);
-      opacity:.52;
+      opacity:.54;
       filter:saturate(1.03) contrast(1.03);
       transform:scale(1.02);
       pointer-events:none;
@@ -139,19 +147,18 @@
       pointer-events:none;
     }
 
-    /* Skin: CARTOGRAPHY */
     .hero.hero-stream.hero-skin-map{
-      --hero-bg: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%201200%20520%27%3E%3Cdefs%3E%3CradialGradient%20id%3D%27g%27%20cx%3D%2720%25%27%20cy%3D%2715%25%27%20r%3D%2790%25%27%3E%3Cstop%20offset%3D%270%25%27%20stop-color%3D%27%23ffffff%27%20stop-opacity%3D%270.10%27/%3E%3Cstop%20offset%3D%2760%25%27%20stop-color%3D%27%23ffffff%27%20stop-opacity%3D%270%27/%3E%3C/radialGradient%3E%3ClinearGradient%20id%3D%27fade%27%20x1%3D%270%27%20x2%3D%271%27%3E%3Cstop%20offset%3D%270%25%27%20stop-color%3D%27%230b0b0c%27%20stop-opacity%3D%270.25%27/%3E%3Cstop%20offset%3D%27100%25%27%20stop-color%3D%27%230b0b0c%27%20stop-opacity%3D%270.80%27/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width%3D%271200%27%20height%3D%27520%27%20fill%3D%27%230b0b0c%27/%3E%3Crect%20width%3D%271200%27%20height%3D%27520%27%20fill%3D%27url(%23g)%27/%3E%3Cg%20opacity%3D%270.55%27%3E%3Cpath%20d%3D%27M60%2C420%20C220%2C320%20310%2C310%20440%2C240%20S720%2C120%20890%2C150%201120%2C90%27%20fill%3D%27none%27%20stroke%3D%27%232e7d32%27%20stroke-opacity%3D%270.38%27%20stroke-width%3D%273%27/%3E%3Cpath%20d%3D%27M90%2C390%20C260%2C360%20320%2C280%20470%2C290%20S770%2C360%20940%2C280%201120%2C340%27%20fill%3D%27none%27%20stroke%3D%27%23ffffff%27%20stroke-opacity%3D%270.16%27%20stroke-width%3D%272%27%20stroke-dasharray%3D%276%206%27/%3E%3Cpath%20d%3D%27M140%2C120%20C260%2C160%20340%2C220%20440%2C210%20S700%2C140%20840%2C210%201020%2C200%27%20fill%3D%27none%27%20stroke%3D%27%23ffffff%27%20stroke-opacity%3D%270.12%27%20stroke-width%3D%272%27/%3E%3Cpath%20d%3D%27M260%2C470%20C340%2C420%20420%2C410%20510%2C360%20S720%2C260%20830%2C240%20980%2C220%27%20fill%3D%27none%27%20stroke%3D%27%232e7d32%27%20stroke-opacity%3D%270.22%27%20stroke-width%3D%272%27/%3E%3C/g%3E%3Cg%20opacity%3D%270.75%27%3E%3Cg%20fill%3D%27%232e7d32%27%20fill-opacity%3D%270.30%27%20stroke%3D%27%232e7d32%27%20stroke-opacity%3D%270.55%27%20stroke-width%3D%271%27%3E%3Ccircle%20cx%3D%2760%27%20cy%3D%27420%27%20r%3D%276%27/%3E%3Ccircle%20cx%3D%27440%27%20cy%3D%27240%27%20r%3D%276%27/%3E%3Ccircle%20cx%3D%27890%27%20cy%3D%27150%27%20r%3D%276%27/%3E%3Ccircle%20cx%3D%271120%27%20cy%3D%2790%27%20r%3D%276%27/%3E%3Ccircle%20cx%3D%27510%27%20cy%3D%27360%27%20r%3D%275%27/%3E%3Ccircle%20cx%3D%27830%27%20cy%3D%27240%27%20r%3D%275%27/%3E%3C/g%3E%3Cg%20fill%3D%27%23ffffff%27%20fill-opacity%3D%270.08%27%20stroke%3D%27%23ffffff%27%20stroke-opacity%3D%270.18%27%20stroke-width%3D%271%27%3E%3Ccircle%20cx%3D%2790%27%20cy%3D%27390%27%20r%3D%274%27/%3E%3Ccircle%20cx%3D%27470%27%20cy%3D%27290%27%20r%3D%274%27/%3E%3Ccircle%20cx%3D%27940%27%20cy%3D%27280%27%20r%3D%274%27/%3E%3Ccircle%20cx%3D%271120%27%20cy%3D%27340%27%20r%3D%274%27/%3E%3C/g%3E%3C/g%3E%3Cg%20opacity%3D%270.22%27%20fill%3D%27%23ffffff%27%3E%3Ctext%20x%3D%2768%27%20y%3D%27454%27%20font-size%3D%2711%27%20font-family%3D%27Inter%2C%20Arial%2C%20sans-serif%27%20letter-spacing%3D%272%27%3ECURRENT%3C/text%3E%3Ctext%20x%3D%27452%27%20y%3D%27220%27%20font-size%3D%2711%27%20font-family%3D%27Inter%2C%20Arial%2C%20sans-serif%27%20letter-spacing%3D%272%27%3EBRANCH%3C/text%3E%3Ctext%20x%3D%27902%27%20y%3D%27132%27%20font-size%3D%2711%27%20font-family%3D%27Inter%2C%20Arial%2C%20sans-serif%27%20letter-spacing%3D%272%27%3EENVIRONMENT%3C/text%3E%3Ctext%20x%3D%271044%27%20y%3D%2772%27%20font-size%3D%2711%27%20font-family%3D%27Inter%2C%20Arial%2C%20sans-serif%27%20letter-spacing%3D%272%27%3ELAB%3C/text%3E%3Ctext%20x%3D%27250%27%20y%3D%27100%27%20font-size%3D%2712%27%20font-family%3D%27Inter%2C%20Arial%2C%20sans-serif%27%20letter-spacing%3D%271.6%27%3ECOMEDY%20OF%20SOCIETY%3C/text%3E%3Ctext%20x%3D%27250%27%20y%3D%27124%27%20font-size%3D%2712%27%20font-family%3D%27Inter%2C%20Arial%2C%20sans-serif%27%20letter-spacing%3D%271.6%27%3ECRIME%20COMEDY%3C/text%3E%3Ctext%20x%3D%27250%27%20y%3D%27148%27%20font-size%3D%2712%27%20font-family%3D%27Inter%2C%20Arial%2C%20sans-serif%27%20letter-spacing%3D%271.6%27%3ENEO-NONSENSE%3C/text%3E%3Ctext%20x%3D%27250%27%20y%3D%27186%27%20font-size%3D%2711%27%20font-family%3D%27Inter%2C%20Arial%2C%20sans-serif%27%20letter-spacing%3D%271.4%27%3EGUIDE%20%E2%86%92%20READ%20%E2%86%92%20MAP%20%E2%86%92%20CONNECT%3C/text%3E%3C/g%3E%3Crect%20width%3D%271200%27%20height%3D%27520%27%20fill%3D%27url(%23fade)%27/%3E%3C/svg%3E") center/cover no-repeat;
+      --hero-bg: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%201200%20520%27%3E%3Cdefs%3E%3CradialGradient%20id%3D%27g%27%20cx%3D%2720%25%27%20cy%3D%2715%25%27%20r%3D%2790%25%27%3E%3Cstop%20offset%3D%270%25%27%20stop-color%3D%27%23ffffff%27%20stop-opacity%3D%270.10%27/%3E%3Cstop%20offset%3D%2760%25%27%20stop-color%3D%27%23ffffff%27%20stop-opacity%3D%270%27/%3E%3C/radialGradient%3E%3ClinearGradient%20id%3D%27fade%27%20x1%3D%270%27%20x2%3D%271%27%3E%3Cstop%20offset%3D%270%25%27%20stop-color%3D%27%230b0b0c%27%20stop-opacity%3D%270.25%27/%3E%3Cstop%20offset%3D%27100%25%27%20stop-color%3D%27%230b0b0c%27%20stop-opacity%3D%270.80%27/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width%3D%271200%27%20height%3D%27520%27%20fill%3D%27%230b0b0c%27/%3E%3Crect%20width%3D%271200%27%20height%3D%27520%27%20fill%3D%27url(%23g)%27/%3E%3Cg%20opacity%3D%270.55%27%3E%3Cpath%20d%3D%27M60%2C420%20C220%2C320%20310%2C310%20440%2C240%20S720%2C120%20890%2C150%201120%2C90%27%20fill%3D%27none%27%20stroke%3D%27%232e7d32%27%20stroke-opacity%3D%270.38%27%20stroke-width%3D%273%27/%3E%3Cpath%20d%3D%27M90%2C390%20C260%2C360%20320%2C280%20470%2C290%20S770%2C360%20940%2C280%201120%2C340%27%20fill%3D%27none%27%20stroke%3D%27%23ffffff%27%20stroke-opacity%3D%270.16%27%20stroke-width%3D%272%27%20stroke-dasharray%3D%276%206%27/%3E%3Cpath%20d%3D%27M140%2C120%20C260%2C160%20340%2C220%20440%2C210%20S700%2C140%20840%2C210%201020%2C200%27%20fill%3D%27none%27%20stroke%3D%27%23ffffff%27%20stroke-opacity%3D%270.12%27%20stroke-width%3D%272%27/%3E%3Cpath%20d%3D%27M260%2C470%20C340%2C420%20420%2C410%20510%2C360%20S720%2C260%20830%2C240%20980%2C220%27%20fill%3D%27none%27%20stroke%3D%27%232e7d32%27%20stroke-opacity%3D%270.22%27%20stroke-width%3D%272%27/%3E%3C/g%3E%3Crect%20width%3D%271200%27%20height%3D%27520%27%20fill%3D%27url(%23fade)%27/%3E%3C/svg%3E") center/cover no-repeat;
     }
 
     .hero-stream .hero-inner{
       max-width:var(--w); width:100%;
       margin:0 auto;
-      padding:28px 20px 14px;
+      padding:22px 20px 10px;
       position:relative; z-index:1;
     }
     @media(max-width:960px){
-      .hero-stream .hero-inner{ padding:18px 16px 10px; }
+      .hero-stream .hero-inner{ padding:16px 16px 8px; }
     }
 
     .hero-stream .hero-copy{
@@ -161,7 +168,7 @@
       background:rgba(0,0,0,.42);
       backdrop-filter:blur(8px);
       box-shadow:0 18px 60px rgba(0,0,0,.55);
-      max-width:760px;
+      max-width:780px;
       color:#fff;
     }
 
@@ -175,60 +182,79 @@
     .hero-stream .hero-title .bold{ font-weight:740; }
 
     .hero-stream .hero-totem{
-      font-size:14px; line-height:1.6; margin:12px 0 0; max-width:640px;
+      font-size:14px; line-height:1.6; margin:10px 0 0; max-width:700px;
       opacity:.92;
     }
-    .hero-stream .hero-totem em{ font-style:italic; opacity:.98; }
+    .hero-stream .hero-proof{
+      margin-top:10px;
+      font-size:12px;
+      opacity:.86;
+      letter-spacing:.02em;
+    }
+    .hero-stream .hero-proof strong{ font-weight:650; }
+
+    .hero-stream .hero-chips{
+      margin-top:10px;
+      display:flex; flex-wrap:wrap; gap:6px;
+    }
+    .hero-chip{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.18);
+      background:rgba(255,255,255,.06);
+      font-size:11px;
+      opacity:.92;
+      white-space:nowrap;
+    }
+    .hero-chip .dot{
+      width:7px; height:7px; border-radius:99px;
+      background:rgba(46,125,50,.95);
+      box-shadow:0 0 0 5px rgba(46,125,50,.22);
+      flex:0 0 auto;
+    }
+
     .hero-stream .hero-actions{
-      margin-top:14px;
+      margin-top:12px;
       display:flex; flex-wrap:wrap; gap:8px;
     }
 
-    /* ✅ 1) Mobile H1 compact (bring back title without eating space) */
-    .hero-mobile-title{
-      display:none;
-      margin:0 0 8px;
-      font-size:18px;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-      line-height:1.15;
-      font-weight:650;
-      opacity:.98;
-    }
-
     @media(max-width:600px){
-      .hero-stream .hero-title{ display:none; } /* desktop H1 hidden on mobile */
-      .hero-mobile-title{ display:block; }
       .hero-stream .hero-inner{ padding:12px 16px 6px; }
       .hero-stream .hero-copy{ padding:12px; }
+      .hero-stream .hero-title{
+        display:block;
+        font-size:18px;
+        letter-spacing:.02em;
+        max-width:none;
+      }
+      .hero-stream .hero-totem{ margin-top:6px; font-size:13px; line-height:1.55; }
+      .hero-stream .hero-proof{ margin-top:8px; font-size:11px; }
+      .hero-chip{ font-size:10.5px; padding:5px 9px; }
       .hero-stream .hero-actions{ margin-top:10px; }
-      .hero-stream .hero-totem{ margin-top:0; }
     }
 
     /* =========================================================
-       PRIME/NETFLIX rows
+       ROWS
        ========================================================= */
     .rows{
       max-width:var(--w); width:100%;
       margin:0 auto;
-      padding:10px 20px 18px;
+      padding:10px 20px 14px;
       color:#fff;
       position:relative;
       z-index:2;
-      overflow-x:hidden; /* sibling, ok */
+      overflow-x:hidden;
     }
-    @media(max-width:960px){ .rows{ padding:8px 16px 14px; } }
-    @media(max-width:600px){
-      .rows{ padding-top:6px; }
-      .row:first-child{ margin-top:10px; }
-    }
+    @media(max-width:960px){ .rows{ padding:8px 16px 12px; } }
+    @media(max-width:600px){ .rows{ padding-top:6px; } }
 
-    .row{ margin-top:16px; scroll-margin-top:140px; }
+    .row{ margin-top:14px; scroll-margin-top:140px; }
     .row-head{
       display:flex; align-items:flex-end; justify-content:space-between; gap:12px;
       margin:0 0 8px;
     }
-    .row-left{ display:flex; flex-direction:column; gap:5px; min-width:0; }
+    .row-left{ display:flex; flex-direction:column; gap:4px; min-width:0; }
     .row-title{
       margin:0;
       font-size:14px;
@@ -236,35 +262,19 @@
       text-transform:uppercase;
       opacity:.92;
     }
-
-    /* ✅ 8) Row headers: shorter subtitles (single sentence) */
     .row-sub{
       margin:0;
       font-size:13px;
-      opacity:.78;
+      opacity:.80;
       line-height:1.35;
       max-width:76ch;
     }
-
-    /* ✅ 3) Curation per row (Editor’s cut) */
-    .row-curation{
+    .row-cut{
       margin:0;
       font-size:12px;
-      opacity:.86;
-      line-height:1.35;
-      color:rgba(255,255,255,.88);
-    }
-    .row-curation .label{
-      display:inline-block;
-      font-size:10px;
-      letter-spacing:.14em;
-      text-transform:uppercase;
-      padding:3px 8px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.16);
-      background:rgba(255,255,255,.06);
-      margin-right:6px;
-      opacity:.95;
+      opacity:.72;
+      font-style:italic;
+      line-height:1.25;
     }
 
     .row-hint{
@@ -304,7 +314,7 @@
       display:flex;
       gap:10px;
       overflow:auto;
-      padding:12px 12px 14px;
+      padding:12px 12px 10px;
       scroll-snap-type:x mandatory;
       -webkit-overflow-scrolling:touch;
       scroll-padding-left:12px;
@@ -316,6 +326,22 @@
       outline:2px solid rgba(46,125,50,.55);
       outline-offset:3px;
       border-radius:16px;
+    }
+
+    .row-progress{
+      height:6px;
+      margin:0 12px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.10);
+      overflow:hidden;
+    }
+    .row-progress > span{
+      display:block;
+      height:100%;
+      width:0%;
+      background:linear-gradient(90deg, rgba(46,125,50,.95), rgba(255,255,255,.18));
+      opacity:.9;
     }
 
     .row-arrow{
@@ -351,41 +377,36 @@
 
     .tile{
       scroll-snap-align:start;
-
-      /* ✅ 4) Tiles: fixed ratio + width mobile slightly increased */
-      flex:0 0 160px;
-
-      border-radius:14px;
+      flex:0 0 var(--tileW);
+      border-radius:var(--tileRadius);
       border:1px solid rgba(255,255,255,.16);
       background:#111;
       overflow:hidden;
       position:relative;
       box-shadow:0 12px 30px rgba(0,0,0,.45);
-
-      /* ✅ 9) Micro-anim: cleaner lift */
       transform:translateY(0);
-      transition:transform .14s var(--ease), border-color .14s var(--ease), filter .14s var(--ease);
-      will-change:transform;
+      transition:transform .14s ease, box-shadow .14s ease, border-color .14s ease, filter .14s ease;
     }
-
-    .tile:hover,
-    .tile:focus-visible{
+    .tile:hover{
       transform:translateY(-2px);
-      border-color:rgba(255,255,255,.30);
-      filter:saturate(1.03) contrast(1.03);
+      box-shadow:0 18px 46px rgba(0,0,0,.50);
+      border-color:rgba(255,255,255,.28);
+      filter:saturate(1.02) contrast(1.02);
       text-decoration:none;
-      outline:none;
     }
-
-    /* ✅ 4) Fixed poster ratio (avoid bad covers) */
-    .tile img{
+    .tile:focus-visible{
+      outline:2px solid rgba(46,125,50,.55);
+      outline-offset:3px;
+    }
+    .tile-media{
       width:100%;
       aspect-ratio:3/4;
-      height:auto;
-      object-fit:cover;
-      display:block;
+      background:#0f0f10;
     }
-
+    .tile-media img{
+      width:100%; height:100%;
+      object-fit:cover; display:block;
+    }
     .tile-meta{
       position:absolute; left:10px; right:10px; bottom:10px;
       padding:6px 7px;
@@ -415,85 +436,71 @@
       margin-top:2px;
       line-height:1.2;
     }
-
-    /* Portrait tiles: still poster-ish but slightly shorter */
-    .tile.is-portrait img{ aspect-ratio:4/5; }
+    .tile.is-portrait .tile-media{ aspect-ratio:4/5; }
 
     @media(max-width:600px){
-      .row{ margin-top:14px; }
-      .row-track{ padding:10px 10px 12px; gap:10px; }
+      :root{ --tileW:176px; }
       .row-hint{ display:none; }
       .row-title{ font-size:13px; }
-      .row-sub{ font-size:12px; opacity:.82; }
-
-      /* ✅ 4) mobile width slightly increased */
-      .tile{ flex-basis:154px; }
+      .row-sub{ font-size:12px; opacity:.84; }
+      .row-cut{ font-size:11.5px; }
+      .row-progress{ margin:0 10px 12px; }
+      .row-track{ padding:10px 10px 10px; }
     }
 
     /* =========================================================
-       ✅ 2) Transition couture: black -> paper divider
+       PREMIUM DIVIDER (black -> paper “couture”)
        ========================================================= */
-    .stitch{
+    .stitch-divider{
       position:relative;
-      max-width:var(--w);
-      margin:0 auto;
-      padding:10px 20px 0;
-      color:#fff;
+      height:62px;
+      background:linear-gradient(180deg, rgba(11,11,12,1) 0%, rgba(11,11,12,1) 35%, rgba(247,245,240,1) 100%);
+      border-top:1px solid rgba(255,255,255,.06);
     }
-    @media(max-width:960px){ .stitch{ padding:10px 16px 0; } }
-
-    .stitch-card{
-      border-radius:18px;
-      border:1px solid rgba(255,255,255,.10);
-      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(0,0,0,.35));
-      padding:12px 14px 10px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
+    .stitch-divider::before{
+      content:"";
+      position:absolute; left:0; right:0; top:22px;
+      height:1px;
+      background:
+        repeating-linear-gradient(
+          90deg,
+          rgba(46,125,50,.65) 0,
+          rgba(46,125,50,.65) 10px,
+          rgba(255,255,255,.08) 10px,
+          rgba(255,255,255,.08) 18px
+        );
+      opacity:.45;
     }
-    .stitch-left{
-      display:flex;
-      flex-direction:column;
-      gap:4px;
-      min-width:0;
-    }
-    .stitch-kicker{
-      font-size:10px;
-      letter-spacing:.14em;
-      text-transform:uppercase;
-      opacity:.78;
-    }
-    .stitch-title{
-      margin:0;
-      font-size:13px;
-      line-height:1.35;
-      opacity:.92;
-      max-width:80ch;
-    }
-    .stitch-rule{
-      flex:0 0 auto;
-      width:120px;
-      height:2px;
+    .stitch-badge{
+      position:absolute; left:50%; top:14px;
+      transform:translateX(-50%);
+      padding:6px 10px;
       border-radius:999px;
-      background:linear-gradient(90deg, rgba(46,125,50,.0), rgba(46,125,50,.95), rgba(46,125,50,.0));
-      opacity:.7;
+      border:1px solid rgba(0,0,0,.12);
+      background:rgba(247,245,240,.92);
+      color:rgba(0,0,0,.78);
+      font-size:11px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      backdrop-filter:blur(6px);
+      box-shadow:0 10px 24px rgba(0,0,0,.10);
+      white-space:nowrap;
     }
-    .stitch + .main{ margin-top:10px; }
 
     /* =========================================================
        MAIN (paper)
        ========================================================= */
     .main{ background:var(--paper); min-height:60vh; }
     .main-inner{
-      max-width:1120px; margin:0 auto; padding:26px 20px 40px;
-      display:grid; grid-template-columns:minmax(0,1.08fr) minmax(260px,.6fr);
+      max-width:1120px; margin:0 auto; padding:22px 20px 40px;
+      display:grid; grid-template-columns:minmax(0,1.08fr) minmax(260px,.62fr);
       gap:20px; align-items:flex-start;
     }
     .content-column{ min-width:0; }
-    @media(max-width:960px){ .main-inner{ grid-template-columns:1fr; padding:22px 16px 40px; } }
+    @media(max-width:960px){
+      .main-inner{ grid-template-columns:1fr; padding:22px 16px 40px; }
+    }
 
-    /* ✅ 6) Paper typography: serif on H2 + intros */
     .section{ padding:22px 0; border-bottom:1px solid rgba(0,0,0,.06); }
     .section:last-of-type{ border-bottom:none; padding-bottom:10px; }
     .section-header{ margin-bottom:14px; }
@@ -504,76 +511,98 @@
     .section-title{
       font-family:var(--serif);
       font-size:26px;
-      letter-spacing:.01em;
-      margin:6px 0 0;
-      line-height:1.15;
+      letter-spacing:.02em;
+      margin:5px 0 6px;
+      line-height:1.12;
     }
-    .section-sub{
+    .section-lead{
       font-family:var(--serif);
       font-size:15px;
-      color:rgba(0,0,0,.58);
-      max-width:72ch;
+      line-height:1.6;
+      color:rgba(0,0,0,.72);
+      max-width:78ch;
+      margin:0;
+    }
+    .section-sub{
+      font-size:13px; color:var(--muted); max-width:78ch;
       margin:8px 0 0;
-      line-height:1.55;
+      line-height:1.6;
     }
 
-    /* ✅ 7) Home shortening: digest cards (short copy + CTA) */
-    .digest-grid{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; }
-    @media(max-width:900px){ .digest-grid{ grid-template-columns:1fr; } }
+    .grid-3{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
+    .grid-2{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+    @media(max-width:900px){ .grid-3,.grid-2{ grid-template-columns:1fr; } }
 
     .card{
-      background:var(--card);
-      border-radius:16px;
-      border:1px solid var(--border);
-      box-shadow:var(--shadow);
-      padding:16px 16px 14px;
+      background:var(--card); border-radius:16px; border:1px solid var(--border);
+      box-shadow:var(--shadow); padding:14px 14px 12px;
     }
     .card-header{
-      display:flex; align-items:flex-start; justify-content:space-between; gap:10px;
+      display:flex; align-items:baseline; justify-content:space-between; gap:10px;
       font-weight:650; font-size:15px; margin-bottom:6px;
     }
     .card-body{ font-size:13px; line-height:1.6; color:var(--graphite); }
-    .card-body p{ margin:0 0 10px; }
-    .card-tagline{ font-size:12px; color:var(--muted); margin-top:6px; }
-    .card-cta{
-      margin-top:10px;
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:8px 10px;
+    .card-body p{ margin:8px 0; }
+    .card-tagline{ font-size:12px; color:var(--muted); margin-top:6px; line-height:1.55; }
+    .card-link{
+      display:inline-flex; align-items:center; gap:8px;
+      font-size:12px; color:rgba(0,0,0,.72);
+      padding:6px 9px;
       border-radius:999px;
-      border:1px solid rgba(0,0,0,.14);
-      background:rgba(0,0,0,.03);
-      font-size:12px;
+      border:1px solid rgba(0,0,0,.12);
+      background:rgba(0,0,0,.02);
+      text-decoration:none;
+      transition:transform .14s ease, background .14s ease;
+    }
+    .card-link:hover{ text-decoration:none; transform:translateY(-1px); background:rgba(0,0,0,.035); }
+    .card-link:focus-visible{ outline:2px solid rgba(46,125,50,.45); outline-offset:3px; }
+
+    .list{ margin:8px 0 0; padding-left:17px; font-size:13px; color:var(--graphite); }
+    .list li{ margin:2px 0 4px; }
+
+    /* Mobile “In this page” */
+    .mobile-toc{
+      display:none;
+      margin-top:10px;
+      border-radius:16px;
+      border:1px solid rgba(0,0,0,.12);
+      background:#fff;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .mobile-toc summary{
+      cursor:pointer;
+      list-style:none;
+      padding:12px 12px;
+      font-weight:650;
+      font-size:13px;
       color:var(--graphite);
-      text-decoration:none;
-      transition:transform .12s var(--ease), background .12s var(--ease), border-color .12s var(--ease);
+      display:flex; align-items:center; justify-content:space-between;
+      gap:10px;
+      background:linear-gradient(180deg, rgba(0,0,0,.01), rgba(0,0,0,.03));
     }
-    .card-cta:hover{
-      text-decoration:none;
+    .mobile-toc summary::-webkit-details-marker{ display:none; }
+    .mobile-toc summary .meta{
+      font-weight:500;
+      opacity:.72;
+      font-size:12px;
+      white-space:nowrap;
+    }
+    .mobile-toc .toc{
+      padding:10px 10px 12px;
+      display:grid; gap:6px;
+    }
+    .mobile-toc .toc a{
+      padding:9px 10px; border-radius:12px;
+      border:1px solid rgba(0,0,0,.10); background:rgba(0,0,0,.015);
+      font-size:13px; color:var(--graphite); text-decoration:none;
+    }
+    .mobile-toc .toc a.active{
+      border-color:var(--evergreen);
       background:rgba(46,125,50,.08);
-      border-color:rgba(46,125,50,.35);
-      transform:translateY(-1px);
+      color:#000; font-weight:650;
     }
-
-    .muted{ color:var(--muted); font-size:12px; }
-
-    /* Mobile: reduce density */
-    @media(max-width:600px){
-      .section-title{ font-size:24px; }
-      .section-sub{ font-size:14px; }
-    }
-
-    /* =========================================================
-       META chips / notes
-       ========================================================= */
-    .meta-ia{
-      font-size:12px; color:var(--muted);
-      background:#f3f1ea; border-radius:14px;
-      border:1px dashed rgba(0,0,0,.18);
-      padding:10px 12px; margin-top:10px;
-    }
-    .meta-ia strong{ font-weight:600; }
+    @media(max-width:960px){ .mobile-toc{ display:block; } }
 
     /* =========================================================
        RAIL (desktop sticky)
@@ -585,10 +614,9 @@
       font-size:13px;
       overflow:visible;
     }
-
     .rail-sticky{ position:static; }
     @media(min-width:960px){
-      .rail-sticky{ position:sticky; top:88px; }
+      .rail-sticky{ position:sticky; top:var(--railTop); }
     }
 
     .rail header{
@@ -597,16 +625,38 @@
       background:linear-gradient(180deg,rgba(0,0,0,.015),rgba(0,0,0,.03));
       border-radius:16px 16px 0 0;
     }
-
-    /* ✅ 10) Coherence: choose one label everywhere -> "In this page" */
     .rail header h3{
       margin:0 0 4px; font-size:12px;
       letter-spacing:.12em; text-transform:uppercase; color:var(--graphite);
     }
-    .rail header p{ margin:0; font-size:12px; color:var(--muted); }
+    .rail-meta{
+      margin:0;
+      font-size:12px;
+      color:rgba(0,0,0,.62);
+      line-height:1.35;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px 10px;
+      align-items:center;
+    }
+    .rail-pill{
+      display:inline-flex; align-items:center; gap:6px;
+      padding:5px 9px;
+      border-radius:999px;
+      border:1px solid rgba(0,0,0,.12);
+      background:rgba(0,0,0,.02);
+      font-size:11px;
+      color:rgba(0,0,0,.70);
+      white-space:nowrap;
+    }
+    .rail-pill .tiny{
+      width:6px; height:6px; border-radius:99px;
+      background:rgba(46,125,50,.9);
+      box-shadow:0 0 0 5px rgba(46,125,50,.18);
+    }
 
     .rail-progress{
-      margin-top:8px; height:6px; border-radius:999px;
+      margin-top:10px; height:6px; border-radius:999px;
       background:rgba(0,0,0,.03);
       border:1px solid rgba(0,0,0,.06);
       overflow:hidden;
@@ -616,56 +666,128 @@
       background:linear-gradient(90deg,var(--evergreen),#555);
     }
 
-    .rail-mini{
-      margin-top:10px;
-      display:grid;
-      gap:8px;
-      font-size:12px;
-      color:var(--graphite);
-    }
-    .rail-chipline{
-      display:flex;
-      flex-wrap:wrap;
-      gap:6px;
-      align-items:center;
-    }
-    .rail-chip{
-      display:inline-flex;
-      align-items:center;
-      gap:6px;
-      padding:4px 9px;
-      border-radius:999px;
-      border:1px solid rgba(0,0,0,.12);
-      background:rgba(0,0,0,.02);
-      font-size:11px;
-      color:rgba(0,0,0,.70);
-      white-space:nowrap;
-    }
-    .rail-chip b{ font-weight:650; color:rgba(0,0,0,.78); }
-
-    .toc{ padding:10px 10px 12px; display:grid; gap:6px; }
+    .toc{ padding:10px 10px 10px; display:grid; gap:6px; }
     .toc a{
       padding:8px 10px; border-radius:12px;
       border:1px solid transparent; background:rgba(0,0,0,.015);
       font-size:13px; color:var(--graphite); text-decoration:none;
-      transition:background .12s var(--ease), border-color .12s var(--ease), transform .12s var(--ease);
     }
-    .toc a:hover{
-      border-color:var(--border);
-      background:rgba(0,0,0,.03);
-      transform:translateY(-1px);
-    }
+    .toc a:hover{ border-color:var(--border); background:rgba(0,0,0,.03); }
     .toc a.active{
       border-color:var(--evergreen);
       background:rgba(46,125,50,.08);
       color:#000; font-weight:650;
     }
 
+    .rail-next{
+      padding:10px 10px 12px;
+      border-top:1px solid rgba(0,0,0,.06);
+    }
+    .rail-next .label{
+      font-size:11px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:rgba(0,0,0,.62);
+      margin-bottom:8px;
+    }
+    .rail-next a{
+      display:block;
+      padding:9px 10px;
+      border-radius:12px;
+      border:1px solid rgba(0,0,0,.10);
+      background:rgba(0,0,0,.015);
+      text-decoration:none;
+      margin-bottom:6px;
+      transition:transform .14s ease, background .14s ease;
+    }
+    .rail-next a:hover{ transform:translateY(-1px); background:rgba(0,0,0,.03); }
+    .rail-next a strong{ display:block; font-weight:650; font-size:13px; }
+    .rail-next a span{ display:block; font-size:12px; color:rgba(0,0,0,.58); margin-top:2px; }
+
+    /* ===== UPGRADE PROPRE: contextual “From Browse Rows” (2 mini posters) ===== */
+    .rail-rows{
+      padding:12px 10px 12px;
+      border-top:1px solid rgba(0,0,0,.06);
+    }
+    .rail-rows .label{
+      display:flex;
+      align-items:baseline;
+      justify-content:space-between;
+      gap:10px;
+      margin-bottom:8px;
+    }
+    .rail-rows .label strong{
+      font-size:11px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:rgba(0,0,0,.62);
+    }
+    .rail-rows .label span{
+      font-size:11px;
+      color:rgba(0,0,0,.52);
+      white-space:nowrap;
+    }
+    .rail-row-grid{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0,1fr));
+      gap:8px;
+    }
+    .rail-row-card{
+      border-radius:14px;
+      border:1px solid rgba(0,0,0,.10);
+      background:#fff;
+      overflow:hidden;
+      text-decoration:none;
+      box-shadow:0 10px 26px rgba(0,0,0,.08);
+      transform:translateY(0);
+      transition:transform .14s ease, box-shadow .14s ease, border-color .14s ease;
+    }
+    .rail-row-card:hover{
+      transform:translateY(-1px);
+      box-shadow:0 14px 34px rgba(0,0,0,.12);
+      border-color:rgba(0,0,0,.16);
+      text-decoration:none;
+    }
+    .rail-row-thumb{
+      width:100%;
+      aspect-ratio:3/4;
+      background:#101012;
+      position:relative;
+    }
+    .rail-row-thumb img{
+      width:100%; height:100%;
+      object-fit:cover;
+      display:block;
+    }
+    .rail-row-meta{
+      padding:8px 9px 9px;
+      color:rgba(0,0,0,.80);
+    }
+    .rail-row-meta .k{
+      font-size:10px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:rgba(0,0,0,.52);
+      margin:0 0 3px;
+      line-height:1.1;
+    }
+    .rail-row-meta .t{
+      margin:0;
+      font-size:12px;
+      font-weight:650;
+      line-height:1.2;
+      color:rgba(0,0,0,.86);
+    }
+    .rail-row-meta .s{
+      margin-top:2px;
+      font-size:11px;
+      color:rgba(0,0,0,.56);
+      line-height:1.2;
+    }
+
     .rail-bottom{
       padding:0 10px 12px;
       border-radius:0 0 16px 16px;
-      display:grid;
-      gap:8px;
     }
     .rail-bottom .btn{
       width:100%; justify-content:center;
@@ -676,38 +798,8 @@
       font-size:12px; padding:8px 10px;
     }
 
-    /* ✅ 5) Rail: "Suggested next" block */
-    .rail-suggest{
-      border:1px solid rgba(0,0,0,.08);
-      border-radius:14px;
-      background:linear-gradient(180deg, rgba(46,125,50,.06), rgba(0,0,0,.02));
-      padding:10px 10px 9px;
-      display:grid;
-      gap:6px;
-    }
-    .rail-suggest .k{
-      font-size:10px;
-      letter-spacing:.14em;
-      text-transform:uppercase;
-      color:rgba(0,0,0,.55);
-    }
-    .rail-suggest a{
-      font-size:12px;
-      padding:7px 9px;
-      border-radius:12px;
-      border:1px solid rgba(0,0,0,.10);
-      background:#fff;
-      text-decoration:none;
-      color:rgba(0,0,0,.78);
-      transition:transform .12s var(--ease), border-color .12s var(--ease);
-    }
-    .rail-suggest a:hover{
-      transform:translateY(-1px);
-      border-color:rgba(46,125,50,.35);
-    }
-
     /* =========================================================
-       Footer
+       FOOTER
        ========================================================= */
     .footer{
       background:var(--bg); color:#f5f5f5;
@@ -720,11 +812,6 @@
     }
     .footer-links{ display:flex; flex-wrap:wrap; gap:12px; }
     @media(max-width:900px){ .footer-inner{ padding:18px 16px 22px; } }
-
-    /* Respect reduced motion */
-    @media (prefers-reduced-motion: reduce){
-      *{ transition:none !important; scroll-behavior:auto !important; }
-    }
   </style>
 </head>
 
@@ -761,17 +848,24 @@
       <div class="hero-inner">
         <div class="hero-copy">
 
-          <!-- ✅ 1) Mobile H1 compact -->
-          <p class="hero-mobile-title" aria-hidden="false">THE NOVEL<br>OF COMEDY</p>
-
           <h1 class="hero-title">
             <span class="thin">The</span> <span class="bold">Novel</span> <span class="thin">of</span> <span class="bold">Comedy</span>
           </h1>
 
           <p class="hero-totem">
             <em>Comedy is one of the most precise ways of reading reality.</em><br>
-            A living library of novels and authors — built to compare tones, mechanics, and comic forms.
+            A living atlas of novels and authors — built to compare tones, mechanics, and comic forms.
           </p>
+
+          <div class="hero-proof">
+            <strong>Proof:</strong> fixed 10-chapter guides · curated currents · citation-ready pages.
+          </div>
+
+          <div class="hero-chips" aria-label="Key features">
+            <span class="hero-chip"><span class="dot" aria-hidden="true"></span>Fixed matrix (10)</span>
+            <span class="hero-chip"><span class="dot" aria-hidden="true"></span>Currents → Branch → Environment</span>
+            <span class="hero-chip"><span class="dot" aria-hidden="true"></span>Editor’s curation</span>
+          </div>
 
           <div class="hero-actions">
             <a href="novel-guides.html" class="btn btn-primary">Explore novel guides</a>
@@ -783,14 +877,14 @@
     </section>
 
     <!-- ROWS -->
-    <section class="rows" aria-label="Browse like a platform">
+    <section class="rows" aria-label="Browse like a platform" id="browseRows">
 
-      <div class="row" id="row-society" aria-label="Comedy of Society row">
+      <div class="row" id="row-society" aria-label="Comedy of Society row" data-rowname="Comedy of Society">
         <div class="row-head">
           <div class="row-left">
             <h2 class="row-title">Comedy of Society</h2>
-            <p class="row-sub">Friction between self and norm: rules, institutions, hierarchies.</p>
-            <p class="row-curation"><span class="label">Editor’s cut</span>Institution collapse, brilliant losers, social codes.</p>
+            <p class="row-sub">Rules and institutions collide with private life.</p>
+            <p class="row-cut">Editor’s cut: best “friction engines” (work, family, hierarchy).</p>
           </div>
           <div class="row-hint">
             <a class="pill" href="currents.html#society" aria-label="See all Comedy of Society">All →</a>
@@ -804,7 +898,9 @@
 
           <div class="row-track" aria-label="Comedy of Society carousel">
             <a class="tile" href="./fichewilt.html" aria-label="Open the Wilt novel guide">
-              <img src="wilt31A.png.png" alt="Cover of Wilt (Tom Sharpe)" loading="eager" decoding="async" fetchpriority="high">
+              <div class="tile-media">
+                <img src="wilt31A.png" alt="Cover of Wilt (Tom Sharpe)" loading="eager" decoding="async" fetchpriority="high">
+              </div>
               <div class="tile-meta">
                 <div class="k">Society · Frustration</div>
                 <div class="t">Wilt</div>
@@ -813,62 +909,52 @@
             </a>
 
             <a class="tile" href="fr/fiche-roman/the-code-of-the-woosters" aria-label="Open The Code of the Woosters guide">
-              <img src="theco.png" alt="Cover of The Code of the Woosters (P. G. Wodehouse)" loading="eager" decoding="async" fetchpriority="high">
+              <div class="tile-media">
+                <img src="theco.png" alt="Cover of The Code of the Woosters (P. G. Wodehouse)" loading="eager" decoding="async" fetchpriority="high">
+              </div>
               <div class="tile-meta">
-                <div class="k">Society · Code / Etiquette</div>
+                <div class="k">Society · Code</div>
                 <div class="t">Woosters</div>
                 <div class="s">P. G. Wodehouse · 1938</div>
               </div>
             </a>
 
             <a class="tile" href="fr/fiche-roman/the-girls-of-slender-means" aria-label="Open The Girls of Slender Means guide">
-              <img src="img/girls-of-slender-means.png" alt="Cover of The Girls of Slender Means (Muriel Spark)" loading="lazy" decoding="async">
+              <div class="tile-media">
+                <img src="img/girls-of-slender-means.png" alt="Cover of The Girls of Slender Means (Muriel Spark)" loading="lazy" decoding="async">
+              </div>
               <div class="tile-meta">
-                <div class="k">Society · Code / Etiquette</div>
+                <div class="k">Society · Manners</div>
                 <div class="t">Slender Means</div>
                 <div class="s">Muriel Spark · 1963</div>
               </div>
             </a>
 
-            <a class="tile" href="fr/fiche-roman/james-percival-everett" aria-label="Open James guide">
-              <img src="img/james-percival-everett.png" alt="Cover of James (Percival Everett)" loading="lazy" decoding="async">
-              <div class="tile-meta">
-                <div class="k">Neo-Nonsense · Canon Hijack</div>
-                <div class="t">James</div>
-                <div class="s">Percival Everett · 2024</div>
+            <a class="tile" href="fr/fiche-roman/sample-society-7" aria-label="Open sample society pick 7">
+              <div class="tile-media">
+                <img src="img/sample-society-7.png" alt="Cover of a Comedy of Society novel (sample)" loading="lazy" decoding="async">
               </div>
-            </a>
-
-            <a class="tile" href="fr/fiche-roman/westlake-sample" aria-label="Open a Westlake guide sample">
-              <img src="img/westlake-sample.png" alt="Cover of a Donald Westlake comic crime novel" loading="lazy" decoding="async">
               <div class="tile-meta">
-                <div class="k">Crime · Schemer</div>
-                <div class="t">Westlake</div>
-                <div class="s">Example entry</div>
-              </div>
-            </a>
-
-            <a class="tile" href="fr/fiche-roman/douglas-adams-sample" aria-label="Open a Douglas Adams guide sample">
-              <img src="img/douglas-adams-sample.png" alt="Cover of a Douglas Adams novel" loading="lazy" decoding="async">
-              <div class="tile-meta">
-                <div class="k">Neo · Cosmic Bureaucracy</div>
-                <div class="t">Douglas Adams</div>
+                <div class="k">Society · Branch</div>
+                <div class="t">Sample 7</div>
                 <div class="s">Example entry</div>
               </div>
             </a>
           </div>
+
+          <div class="row-progress" aria-hidden="true"><span></span></div>
         </div>
       </div>
 
-      <div class="row" id="row-crime" aria-label="Comic Crime row">
+      <div class="row" id="row-crime" aria-label="Crime Comedy row" data-rowname="Crime Comedy">
         <div class="row-head">
           <div class="row-left">
-            <h2 class="row-title">Comic Crime</h2>
-            <p class="row-sub">Plans derail: fault, transgression, chance replacing justice.</p>
-            <p class="row-curation"><span class="label">Editor’s cut</span>Caper logic, incompetent crews, elastic morality.</p>
+            <h2 class="row-title">Crime Comedy</h2>
+            <p class="row-sub">Plans derail; morality looks ridiculous.</p>
+            <p class="row-cut">Editor’s cut: capers, schemers, and elegant failures.</p>
           </div>
           <div class="row-hint">
-            <a class="pill" href="currents.html#crime" aria-label="See all Comic Crime">All →</a>
+            <a class="pill" href="currents.html#crime" aria-label="See all Crime Comedy">All →</a>
             <span class="pill" aria-hidden="true">Swipe / scroll</span>
           </div>
         </div>
@@ -877,9 +963,11 @@
           <button class="row-arrow left" type="button" aria-label="Scroll left"><span>‹</span></button>
           <button class="row-arrow right" type="button" aria-label="Scroll right"><span>›</span></button>
 
-          <div class="row-track" aria-label="Comic Crime carousel">
+          <div class="row-track" aria-label="Crime Comedy carousel">
             <a class="tile" href="fr/fiche-roman/westlake-sample" aria-label="Open a Westlake guide sample">
-              <img src="img/westlake-sample.png" alt="Cover of a Donald Westlake comic crime novel" loading="lazy" decoding="async">
+              <div class="tile-media">
+                <img src="img/westlake-sample.png" alt="Cover of a Donald Westlake comic crime novel" loading="lazy" decoding="async">
+              </div>
               <div class="tile-meta">
                 <div class="k">Crime · Schemer</div>
                 <div class="t">Westlake</div>
@@ -888,7 +976,9 @@
             </a>
 
             <a class="tile" href="fr/fiche-roman/hiaasen-sample" aria-label="Open a Hiaasen guide sample">
-              <img src="img/hiaasen-sample.png" alt="Cover of a Carl Hiaasen comic crime novel" loading="lazy" decoding="async">
+              <div class="tile-media">
+                <img src="img/hiaasen-sample.png" alt="Cover of a Carl Hiaasen comic crime novel" loading="lazy" decoding="async">
+              </div>
               <div class="tile-meta">
                 <div class="k">Crime · Comic noir</div>
                 <div class="t">Hiaasen</div>
@@ -897,32 +987,27 @@
             </a>
 
             <a class="tile" href="fr/fiche-roman/sample-crime-3" aria-label="Open sample crime pick 3">
-              <img src="img/sample-crime-3.png" alt="Cover of a comic crime novel (sample)" loading="lazy" decoding="async">
+              <div class="tile-media">
+                <img src="img/sample-crime-3.png" alt="Cover of a comic crime novel (sample)" loading="lazy" decoding="async">
+              </div>
               <div class="tile-meta">
                 <div class="k">Crime · Branch</div>
                 <div class="t">Sample 3</div>
                 <div class="s">Example entry</div>
               </div>
             </a>
-
-            <a class="tile" href="fr/fiche-roman/sample-crime-4" aria-label="Open sample crime pick 4">
-              <img src="img/sample-crime-4.png" alt="Cover of a comic crime novel (sample)" loading="lazy" decoding="async">
-              <div class="tile-meta">
-                <div class="k">Crime · Branch</div>
-                <div class="t">Sample 4</div>
-                <div class="s">Example entry</div>
-              </div>
-            </a>
           </div>
+
+          <div class="row-progress" aria-hidden="true"><span></span></div>
         </div>
       </div>
 
-      <div class="row" id="row-neo" aria-label="Neo-Nonsense row">
+      <div class="row" id="row-neo" aria-label="Neo-Nonsense row" data-rowname="Neo-Nonsense">
         <div class="row-head">
           <div class="row-left">
             <h2 class="row-title">Neo-Nonsense</h2>
-            <p class="row-sub">Rigor in absurd worlds: science, vertigo of meaning, cosmic bureaucracy.</p>
-            <p class="row-curation"><span class="label">Editor’s cut</span>Logical games, object-characters, metaphysical comedy.</p>
+            <p class="row-sub">Rigorous logic inside a world without guarantees.</p>
+            <p class="row-cut">Editor’s cut: cosmic bureaucracy, science vertigo, canon hijacks.</p>
           </div>
           <div class="row-hint">
             <a class="pill" href="currents.html#neo" aria-label="See all Neo-Nonsense">All →</a>
@@ -936,25 +1021,31 @@
 
           <div class="row-track" aria-label="Neo-Nonsense carousel">
             <a class="tile" href="fr/fiche-roman/james-percival-everett" aria-label="Open James guide">
-              <img src="img/james-percival-everett.png" alt="Cover of James (Percival Everett)" loading="lazy" decoding="async">
+              <div class="tile-media">
+                <img src="img/james-percival-everett.png" alt="Cover of James (Percival Everett)" loading="lazy" decoding="async">
+              </div>
               <div class="tile-meta">
-                <div class="k">Neo · Canon Hijack</div>
+                <div class="k">Neo · Canon hijack</div>
                 <div class="t">James</div>
                 <div class="s">Percival Everett · 2024</div>
               </div>
             </a>
 
             <a class="tile" href="fr/fiche-roman/douglas-adams-sample" aria-label="Open a Douglas Adams guide sample">
-              <img src="img/douglas-adams-sample.png" alt="Cover of a Douglas Adams novel" loading="lazy" decoding="async">
+              <div class="tile-media">
+                <img src="img/douglas-adams-sample.png" alt="Cover of a Douglas Adams novel" loading="lazy" decoding="async">
+              </div>
               <div class="tile-meta">
-                <div class="k">Neo · Cosmic Bureaucracy</div>
+                <div class="k">Neo · Bureaucracy</div>
                 <div class="t">Douglas Adams</div>
                 <div class="s">Example entry</div>
               </div>
             </a>
 
             <a class="tile is-portrait" href="author-profiles.html#kurt-vonnegut" aria-label="Open Kurt Vonnegut profile">
-              <img src="img/vonnegut-sample.png" alt="Portrait of Kurt Vonnegut" loading="lazy" decoding="async">
+              <div class="tile-media">
+                <img src="img/vonnegut-sample.png" alt="Portrait of Kurt Vonnegut" loading="lazy" decoding="async">
+              </div>
               <div class="tile-meta">
                 <div class="k">Author</div>
                 <div class="t">Vonnegut</div>
@@ -962,15 +1053,17 @@
               </div>
             </a>
           </div>
+
+          <div class="row-progress" aria-hidden="true"><span></span></div>
         </div>
       </div>
 
-      <div class="row" id="row-authors" aria-label="Authors row">
+      <div class="row" id="row-authors" aria-label="Authors row" data-rowname="Authors">
         <div class="row-head">
           <div class="row-left">
             <h2 class="row-title">Authors</h2>
-            <p class="row-sub">Profiles to read craft: voice, motifs, method.</p>
-            <p class="row-curation"><span class="label">Editor’s cut</span>Through-lines, recurring devices, comic signatures.</p>
+            <p class="row-sub">How writers build comic mechanics over a career.</p>
+            <p class="row-cut">Editor’s cut: voices with the clearest “devices”.</p>
           </div>
           <div class="row-hint">
             <a class="pill" href="author-profiles.html" aria-label="See all author profiles">All →</a>
@@ -984,83 +1077,124 @@
 
           <div class="row-track" aria-label="Authors carousel">
             <a class="tile is-portrait" href="author-profiles.html#tom-sharpe" aria-label="Open Tom Sharpe profile">
-              <img src="tomsh.jpg" alt="Portrait of Tom Sharpe" loading="lazy" decoding="async">
-              <div class="tile-meta"><div class="k">Author</div><div class="t">Tom Sharpe</div><div class="s">Open profile</div></div>
+              <div class="tile-media">
+                <img src="tomsh.jpg" alt="Portrait of Tom Sharpe" loading="lazy" decoding="async">
+              </div>
+              <div class="tile-meta">
+                <div class="k">Author profile</div>
+                <div class="t">Tom Sharpe</div>
+                <div class="s">Open profile</div>
+              </div>
             </a>
+
             <a class="tile is-portrait" href="author-profiles.html#wodehouse" aria-label="Open P. G. Wodehouse profile">
-              <img src="img/pg-wodehouse.jpg" alt="Portrait of P. G. Wodehouse" loading="lazy" decoding="async">
-              <div class="tile-meta"><div class="k">Author</div><div class="t">Wodehouse</div><div class="s">Open profile</div></div>
+              <div class="tile-media">
+                <img src="img/pg-wodehouse.jpg" alt="Portrait of P. G. Wodehouse" loading="lazy" decoding="async">
+              </div>
+              <div class="tile-meta">
+                <div class="k">Author profile</div>
+                <div class="t">Wodehouse</div>
+                <div class="s">Open profile</div>
+              </div>
             </a>
+
             <a class="tile is-portrait" href="author-profiles.html#muriel-spark" aria-label="Open Muriel Spark profile">
-              <img src="img/muriel-spark.jpg" alt="Portrait of Muriel Spark" loading="lazy" decoding="async">
-              <div class="tile-meta"><div class="k">Author</div><div class="t">Muriel Spark</div><div class="s">Open profile</div></div>
+              <div class="tile-media">
+                <img src="img/muriel-spark.jpg" alt="Portrait of Muriel Spark" loading="lazy" decoding="async">
+              </div>
+              <div class="tile-meta">
+                <div class="k">Author profile</div>
+                <div class="t">Muriel Spark</div>
+                <div class="s">Open profile</div>
+              </div>
             </a>
           </div>
+
+          <div class="row-progress" aria-hidden="true"><span></span></div>
         </div>
       </div>
 
     </section>
 
-    <!-- ✅ 2) Transition couture -->
-    <section class="stitch" aria-label="Transition to reading mode">
-      <div class="stitch-card">
-        <div class="stitch-left">
-          <div class="stitch-kicker">Atlas → Reading mode</div>
-          <p class="stitch-title">Scroll down to enter the paper layer: short, citable digests that point to full guides.</p>
-        </div>
-        <div class="stitch-rule" aria-hidden="true"></div>
-      </div>
-    </section>
+    <!-- PREMIUM DIVIDER -->
+    <div class="stitch-divider" aria-hidden="true">
+      <div class="stitch-badge">Atlas layer → Paper layer</div>
+    </div>
 
-    <!-- MAIN (paper) -->
+    <!-- MAIN -->
     <main class="main" aria-label="Main content">
       <div class="main-inner">
 
         <div class="content-column">
 
-          <!-- ✅ 7) Home shortening: digest (short) -->
+          <details class="mobile-toc" id="mobileToc">
+            <summary>
+              <span>In this page</span>
+              <span class="meta" id="mobileMeta">~4 min</span>
+            </summary>
+            <nav class="toc" aria-label="In this page (mobile)" id="tocMobile">
+              <a href="#fiches">Guides</a>
+              <a href="#courants">Currents</a>
+              <a href="#toolbox">Toolbox</a>
+              <a href="#about">About</a>
+              <a href="#research">Researchers &amp; AI</a>
+              <a href="#start-here">Where to start?</a>
+            </nav>
+          </details>
+
           <section class="section" id="fiches" data-spy>
             <header class="section-header">
               <div class="section-kicker">Guides</div>
               <h2 class="section-title">Novel, author and series guides</h2>
-              <p class="section-sub">
-                Start from works. Use the map to compare tone and mechanics. Follow links to deepen.
+              <p class="section-lead">
+                Start from the works. Then read the comic device — with the same matrix, every time.
               </p>
-
-              <div class="meta-ia" aria-label="Digest note">
-                <strong>Digest mode</strong><br>
-                This homepage stays light. Full writing lives in dedicated pages (novel guides, author profiles, method).
-              </div>
+              <p class="section-sub">
+                This homepage is a digest. Full essays, context and taxonomy live on dedicated pages.
+              </p>
             </header>
 
-            <div class="digest-grid">
+            <div class="grid-3">
               <article class="card">
                 <div class="card-header">
                   <span>Novel guides</span>
+                  <a class="card-link" href="novel-guides.html">Open →</a>
                 </div>
                 <div class="card-body">
-                  <p>Fixed ten-chapter matrix: comparable, citable, and built to spark desire to read.</p>
-                  <a class="card-cta" href="novel-guides.html">Open novel guides →</a>
+                  <p>Fixed ten-chapter matrix, identical from one book to the next.</p>
+                  <ul class="list">
+                    <li>Reading note (signed)</li>
+                    <li>Incipit (original language)</li>
+                    <li>Characters (archetypes + line-citations)</li>
+                    <li>Cartography coordinates</li>
+                  </ul>
+                  <p class="card-tagline">Designed to spark reading first — then give landmarks.</p>
                 </div>
               </article>
 
               <article class="card">
                 <div class="card-header">
                   <span>Author profiles</span>
+                  <a class="card-link" href="author-profiles.html">Open →</a>
                 </div>
                 <div class="card-body">
-                  <p>How writers build comic mechanics: through-lines, motifs, voice, method.</p>
-                  <a class="card-cta" href="author-profiles.html">Browse author profiles →</a>
+                  <p>How writers build humor: motifs, voice, institutions, rhythm.</p>
+                  <p class="card-tagline">Secondary to the works — but crucial for connections.</p>
                 </div>
               </article>
 
               <article class="card">
                 <div class="card-header">
                   <span>Series guides</span>
+                  <a class="card-link" href="series.html">Open →</a>
                 </div>
                 <div class="card-body">
-                  <p>For cycles and long arcs: evolution of devices, tone shifts, contextual drift.</p>
-                  <a class="card-cta" href="series-guides.html">See series guides →</a>
+                  <p>For cycles where comedy evolves across volumes.</p>
+                  <ul class="list">
+                    <li>tone shifts across time</li>
+                    <li>character device maturation</li>
+                    <li>context changes per volume</li>
+                  </ul>
                 </div>
               </article>
             </div>
@@ -1069,34 +1203,46 @@
           <section class="section" id="courants" data-spy>
             <header class="section-header">
               <div class="section-kicker">Currents</div>
-              <h2 class="section-title">The three currents of modern humorous fiction</h2>
+              <h2 class="section-title">Three currents of modern humorous fiction</h2>
+              <p class="section-lead">
+                Society, Crime, Neo-Nonsense: three dynamics — plus hybrids — to navigate modern laughter.
+              </p>
               <p class="section-sub">
-                Three dynamics: the individual facing the group, the rule, and the universe.
+                Full definitions and branches: on the Currents page.
               </p>
             </header>
 
-            <div class="digest-grid">
+            <div class="grid-3">
               <article class="card">
-                <div class="card-header">Comedy of Society</div>
+                <div class="card-header">
+                  <span>Comedy of Society</span>
+                  <a class="card-link" href="currents.html#society">Map →</a>
+                </div>
                 <div class="card-body">
-                  <p>Self vs norm: institutions, work, family, etiquette — friction as engine.</p>
-                  <a class="card-cta" href="currents.html#society">Open current →</a>
+                  <p>Friction between people and rules: family, work, hierarchy.</p>
+                  <p class="card-tagline">Signature: integration vs refusal.</p>
                 </div>
               </article>
 
               <article class="card">
-                <div class="card-header">Crime Comedy</div>
+                <div class="card-header">
+                  <span>Crime Comedy</span>
+                  <a class="card-link" href="currents.html#crime">Map →</a>
+                </div>
                 <div class="card-body">
-                  <p>Transgression turns funny when plans fail and morals wobble.</p>
-                  <a class="card-cta" href="currents.html#crime">Open current →</a>
+                  <p>Transgression as comic terrain: failed plans, elastic morality.</p>
+                  <p class="card-tagline">Signature: rule exposed as absurd.</p>
                 </div>
               </article>
 
               <article class="card">
-                <div class="card-header">Neo-Nonsense</div>
+                <div class="card-header">
+                  <span>Neo-Nonsense</span>
+                  <a class="card-link" href="currents.html#neo">Map →</a>
+                </div>
                 <div class="card-body">
-                  <p>Rigor in absurd worlds: science, metaphysics, bureaucracy, vertigo.</p>
-                  <a class="card-cta" href="currents.html#neo">Open current →</a>
+                  <p>Logic games + science + vertigo of meaning.</p>
+                  <p class="card-tagline">Signature: rigor in a cracked world.</p>
                 </div>
               </article>
             </div>
@@ -1105,34 +1251,46 @@
           <section class="section" id="toolbox" data-spy>
             <header class="section-header">
               <div class="section-kicker">Toolbox</div>
-              <h2 class="section-title">Toolbox for reading the guides</h2>
+              <h2 class="section-title">Toolbox to read the guides</h2>
+              <p class="section-lead">
+                Simple coordinates, reused everywhere: Role, Environment, and optional Labs.
+              </p>
               <p class="section-sub">
-                Recurring coordinates used across the atlas: Environment, Role, and optional Labs.
+                The goal is comparability: from one guide to the next, the same vocabulary.
               </p>
             </header>
 
-            <div class="digest-grid">
+            <div class="grid-3">
               <article class="card">
-                <div class="card-header">Role</div>
+                <div class="card-header">
+                  <span>Role</span>
+                  <a class="card-link" href="fr/cartographie/roles-romans">Open →</a>
+                </div>
                 <div class="card-body">
-                  <p>Engine / Thread / Turn — how comedy structurally drives narrative.</p>
-                  <a class="card-cta" href="fr/cartographie/roles-romans">Open role page →</a>
+                  <p>Comic Engine · Comic Thread · Comic Turn.</p>
+                  <p class="card-tagline">How comedy drives the novel.</p>
                 </div>
               </article>
 
               <article class="card">
-                <div class="card-header">Environment</div>
+                <div class="card-header">
+                  <span>Environment</span>
+                  <a class="card-link" href="fr/cartographie/environnements">Open →</a>
+                </div>
                 <div class="card-body">
-                  <p>Where it plays: city, era, social & professional milieu — comic pressure cooker.</p>
-                  <a class="card-cta" href="fr/cartographie/environnements">Open environments →</a>
+                  <p>Where it plays: place, milieu, period, institutions.</p>
+                  <p class="card-tagline">A map coordinate — not a theme.</p>
                 </div>
               </article>
 
               <article class="card">
-                <div class="card-header">Labs</div>
+                <div class="card-header">
+                  <span>Labs</span>
+                  <a class="card-link" href="fr/cartographie/labs">Open →</a>
+                </div>
                 <div class="card-body">
-                  <p>Optional hubs connecting works that share a comic energy and method.</p>
-                  <a class="card-cta" href="fr/cartographie/labs">Browse Labs →</a>
+                  <p>Optional hubs connecting multiple works by shared energy.</p>
+                  <p class="card-tagline">Use when corpora become clear.</p>
                 </div>
               </article>
             </div>
@@ -1141,32 +1299,33 @@
           <section class="section" id="about" data-spy>
             <header class="section-header">
               <div class="section-kicker">About</div>
-              <h2 class="section-title">The atlas as critical compass</h2>
+              <h2 class="section-title">A living library, built to be cited</h2>
+              <p class="section-lead">
+                Add guides progressively. Keep the matrix stable. Make connections readable.
+              </p>
               <p class="section-sub">
-                A living library designed to be cited, linked, and explored.
+                Editorial position & method are explained on the Method page.
               </p>
             </header>
 
-            <div class="digest-grid">
+            <div class="grid-2">
               <article class="card">
-                <div class="card-header">Library</div>
+                <div class="card-header">
+                  <span>Method</span>
+                  <a class="card-link" href="method.html">Read →</a>
+                </div>
                 <div class="card-body">
-                  <p>Guides are added progressively. The map evolves as corpora get clearer.</p>
-                  <a class="card-cta" href="fr/a-propos">About →</a>
+                  <p>Why the matrix is fixed, how sources are handled, and how the atlas is curated.</p>
                 </div>
               </article>
+
               <article class="card">
-                <div class="card-header">Method</div>
-                <div class="card-body">
-                  <p>How we classify, connect, and write: matrices, terms, and usage.</p>
-                  <a class="card-cta" href="method.html">Read the method →</a>
+                <div class="card-header">
+                  <span>How to cite</span>
+                  <a class="card-link" href="fr/a-propos/comment-citer-tnoc">Open →</a>
                 </div>
-              </article>
-              <article class="card">
-                <div class="card-header">Cite TNoC</div>
                 <div class="card-body">
-                  <p>Stable pages and clear vocab designed for research and catalogues.</p>
-                  <a class="card-cta" href="fr/a-propos/comment-citer-tnoc">How to cite →</a>
+                  <p>Designed for libraries, researchers, and stable linking.</p>
                 </div>
               </article>
             </div>
@@ -1175,30 +1334,37 @@
           <section class="section" id="research" data-spy>
             <header class="section-header">
               <div class="section-kicker">Researchers &amp; AI</div>
-              <h2 class="section-title">For research, libraries and AI assistants</h2>
-              <p class="section-sub">Structured vocabulary, stable pages, and lightweight reuse.</p>
+              <h2 class="section-title">For research, libraries and assistants</h2>
+              <p class="section-lead">
+                The atlas is structured so a human (or model) can compare books quickly.
+              </p>
+              <p class="section-sub">
+                Exports and data licensing live on the dedicated page.
+              </p>
             </header>
 
-            <div class="digest-grid">
+            <div class="grid-2">
               <article class="card">
-                <div class="card-header">Research</div>
+                <div class="card-header">
+                  <span>Research uses</span>
+                  <a class="card-link" href="fr/a-propos">Open →</a>
+                </div>
                 <div class="card-body">
-                  <p>Comparable guides with fixed matrices; clear typology and dates.</p>
-                  <a class="card-cta" href="fr/a-propos">Research notes →</a>
+                  <ul class="list">
+                    <li>comparable matrices</li>
+                    <li>explicit typology</li>
+                    <li>stable identifiers</li>
+                  </ul>
                 </div>
               </article>
+
               <article class="card">
-                <div class="card-header">Data</div>
-                <div class="card-body">
-                  <p>Lightweight exports and consistent internal identifiers.</p>
-                  <a class="card-cta" href="fr/a-propos/donnees-licence">Data &amp; licence →</a>
+                <div class="card-header">
+                  <span>Data & licence</span>
+                  <a class="card-link" href="fr/a-propos/donnees-licence">Open →</a>
                 </div>
-              </article>
-              <article class="card">
-                <div class="card-header">AI assistants</div>
                 <div class="card-body">
-                  <p>Concepts written in clear language to be reused by models.</p>
-                  <a class="card-cta" href="fr/a-propos/manifesto">Manifesto →</a>
+                  <p>Lightweight reuse for corpus projects.</p>
                 </div>
               </article>
             </div>
@@ -1208,29 +1374,30 @@
             <header class="section-header">
               <div class="section-kicker">Orientation</div>
               <h2 class="section-title">Where to start?</h2>
-              <p class="section-sub">Enter through works, currents, or Labs — then follow connections.</p>
+              <p class="section-lead">
+                Enter by a book, by a current, or by a Lab — then follow connections.
+              </p>
+              <p class="section-sub">If you’re new: begin with one guide you already love.</p>
             </header>
 
-            <div class="digest-grid">
+            <div class="grid-2">
               <article class="card">
-                <div class="card-header">Start with a novel</div>
+                <div class="card-header">
+                  <span>Start with a guide</span>
+                  <a class="card-link" href="novel-guides.html">Browse →</a>
+                </div>
                 <div class="card-body">
-                  <p>Pick one guide and read its engine, then jump via branches and Labs.</p>
-                  <a class="card-cta" href="novel-guides.html">Start now →</a>
+                  <p>Pick one book. Read the device. Follow “Suggested next”.</p>
                 </div>
               </article>
+
               <article class="card">
-                <div class="card-header">Start with a current</div>
-                <div class="card-body">
-                  <p>Use Society / Crime / Neo as a compass and compare tones.</p>
-                  <a class="card-cta" href="currents.html">Open currents →</a>
+                <div class="card-header">
+                  <span>Start with currents</span>
+                  <a class="card-link" href="currents.html">Open →</a>
                 </div>
-              </article>
-              <article class="card">
-                <div class="card-header">Start with a Lab</div>
                 <div class="card-body">
-                  <p>Use hubs as curated clusters of shared comic energy.</p>
-                  <a class="card-cta" href="fr/cartographie/labs">Browse Labs →</a>
+                  <p>Society, Crime, Neo-Nonsense: fast orientation.</p>
                 </div>
               </article>
             </div>
@@ -1238,26 +1405,19 @@
 
         </div>
 
-        <!-- ✅ STICKY RAIL -->
-        <aside class="rail" aria-label="In this page">
+        <!-- DESKTOP RAIL -->
+        <aside class="rail" aria-label="In this page (desktop)">
           <div class="rail-sticky">
             <header>
               <h3>In this page</h3>
-              <p>Short path through the atlas homepage.</p>
-
-              <!-- ✅ 5) Rail extras: You are here + ~4 min -->
-              <div class="rail-mini" aria-label="Page context">
-                <div class="rail-chipline">
-                  <span class="rail-chip"><b>You are here</b> Home · Atlas</span>
-                  <span class="rail-chip"><b>~4 min</b> read</span>
-                  <span class="rail-chip"><b>6</b> sections</span>
-                </div>
-              </div>
-
+              <p class="rail-meta">
+                <span class="rail-pill"><span class="tiny" aria-hidden="true"></span><span id="railHere">You are here: Guides</span></span>
+                <span class="rail-pill">~<span id="railTime">4</span> min</span>
+              </p>
               <div class="rail-progress" aria-label="Reading progress"><span></span></div>
             </header>
 
-            <nav class="toc" id="toc" aria-label="Table of contents">
+            <nav class="toc" id="tocDesktop">
               <a href="#fiches">Guides</a>
               <a href="#courants">Currents</a>
               <a href="#toolbox">Toolbox</a>
@@ -1266,14 +1426,31 @@
               <a href="#start-here">Where to start?</a>
             </nav>
 
-            <div class="rail-bottom">
-              <!-- ✅ 5) Suggested next -->
-              <div class="rail-suggest" aria-label="Suggested next">
-                <div class="k">Suggested next</div>
-                <a href="novel-guides.html">Explore novel guides</a>
-                <a href="currents.html">See the map (currents)</a>
+            <div class="rail-next" aria-label="Suggested next (paper sections)">
+              <div class="label">Suggested next</div>
+              <a id="next1" href="#courants">
+                <strong>Currents</strong>
+                <span>Choose a path: Society / Crime / Neo.</span>
+              </a>
+              <a id="next2" href="#toolbox">
+                <strong>Toolbox</strong>
+                <span>Roles, environments, Labs.</span>
+              </a>
+            </div>
+
+            <!-- ✅ UPGRADE PROPRE: contextual “From Browse Rows” -->
+            <div class="rail-rows" aria-label="From browse rows">
+              <div class="label">
+                <strong>From browse rows</strong>
+                <span id="rowCtxLabel">Society</span>
               </div>
 
+              <div class="rail-row-grid" id="rowCtxGrid">
+                <!-- filled by JS -->
+              </div>
+            </div>
+
+            <div class="rail-bottom">
               <a class="btn" href="#top">↑ Back to top</a>
             </div>
           </div>
@@ -1292,7 +1469,7 @@
           <a href="fr/a-propos">About</a>
           <a href="fr/a-propos/manifesto">Manifesto</a>
           <a href="fr/a-propos/comment-citer-tnoc">How to cite TNoC</a>
-          <a href="fr/a-propos/donnees-licence">Data &amp; licence</a>
+          <a href="fr/a-propos/donnees-licence">Data & licence</a>
           <a href="fr/contact">Contact</a>
         </div>
       </div>
@@ -1300,29 +1477,40 @@
 
   </div>
 
-  <!-- Row arrows -->
+  <!-- =========================================================
+       Row arrows + row progress hints
+       ========================================================= -->
   <script>
     (function(){
       const shells = Array.from(document.querySelectorAll('[data-row]'));
+      function clamp(n, a, b){ return Math.max(a, Math.min(b, n)); }
+
       shells.forEach(shell => {
         const track = shell.querySelector('.row-track');
         const left  = shell.querySelector('.row-arrow.left');
         const right = shell.querySelector('.row-arrow.right');
+        const prog  = shell.querySelector('.row-progress > span');
         if(!track || !left || !right) return;
 
-        const step = () => Math.max(240, Math.floor(track.clientWidth * 0.85));
+        const step = () => Math.max(260, Math.floor(track.clientWidth * 0.85));
 
-        function update(){
+        function updateArrows(){
           const max = Math.max(0, track.scrollWidth - track.clientWidth - 2);
           left.disabled  = track.scrollLeft <= 2;
           right.disabled = track.scrollLeft >= max;
+        }
+        function updateProgress(){
+          if(!prog) return;
+          const max = Math.max(1, track.scrollWidth - track.clientWidth);
+          const pct = clamp((track.scrollLeft / max) * 100, 0, 100);
+          prog.style.width = pct + "%";
         }
 
         left.addEventListener('click', () => track.scrollBy({ left: -step(), behavior:'smooth' }));
         right.addEventListener('click', () => track.scrollBy({ left:  step(), behavior:'smooth' }));
 
-        track.addEventListener('scroll', update, { passive:true });
-        window.addEventListener('resize', update);
+        track.addEventListener('scroll', () => { updateArrows(); updateProgress(); }, { passive:true });
+        window.addEventListener('resize', () => { updateArrows(); updateProgress(); });
 
         track.setAttribute('tabindex','0');
         track.addEventListener('keydown', (e) => {
@@ -1330,23 +1518,37 @@
           if(e.key === 'ArrowRight'){ track.scrollBy({ left: step(), behavior:'smooth' }); }
         });
 
-        update();
+        updateArrows();
+        updateProgress();
       });
     })();
   </script>
 
-  <!-- Scrollspy + progress rail -->
+  <!-- =========================================================
+       Scrollspy + reading progress + “You are here” + Suggested next (paper)
+       + UPGRADE PROPRE: contextual “From browse rows” (2 mini posters)
+       ========================================================= -->
   <script>
     (function(){
-      const links = Array.from(document.querySelectorAll('#toc a'));
+      const linksDesktop = Array.from(document.querySelectorAll('#tocDesktop a'));
+      const linksMobile  = Array.from(document.querySelectorAll('#tocMobile a'));
       const sections = Array.from(document.querySelectorAll('[data-spy]'));
       const bar = document.querySelector('.rail-progress > span');
 
+      const railHere = document.getElementById('railHere');
+      const railTime = document.getElementById('railTime');
+      const next1 = document.getElementById('next1');
+      const next2 = document.getElementById('next2');
+
+      // Row context UI
+      const rowCtxLabel = document.getElementById('rowCtxLabel');
+      const rowCtxGrid  = document.getElementById('rowCtxGrid');
+
       function getHashId(href){
         if (!href) return "";
-        const hashIndex = href.indexOf('#');
-        if (hashIndex === -1) return "";
-        return href.slice(hashIndex + 1);
+        const i = href.indexOf('#');
+        if (i === -1) return "";
+        return href.slice(i + 1);
       }
 
       function updateProgress(){
@@ -1357,31 +1559,212 @@
         const pct = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
         bar.style.width = Math.max(0, Math.min(100, pct)) + "%";
       }
-      window.addEventListener('scroll', updateProgress, { passive:true });
-      updateProgress();
 
-      if(!links.length || !sections.length) return;
+      function estimateReadingTime(){
+        const paper = document.querySelector('main.main');
+        if(!paper) return 4;
+        const text = paper.innerText || "";
+        const words = text.trim().split(/\s+/).filter(Boolean).length;
+        const minutes = Math.max(3, Math.round(words / 200));
+        return minutes;
+      }
+
+      const nextMap = {
+        "fiches": [
+          {href:"#courants", title:"Currents", desc:"Choose a path: Society / Crime / Neo."},
+          {href:"#toolbox", title:"Toolbox", desc:"Roles, environments, Labs."}
+        ],
+        "courants": [
+          {href:"#toolbox", title:"Toolbox", desc:"Decode role + environment."},
+          {href:"#fiches", title:"Guides", desc:"Back to the fixed matrix."}
+        ],
+        "toolbox": [
+          {href:"#about", title:"About", desc:"How the atlas stays stable."},
+          {href:"#research", title:"Researchers & AI", desc:"Citation-ready structure."}
+        ],
+        "about": [
+          {href:"#research", title:"Researchers & AI", desc:"Data, reuse, stability."},
+          {href:"#start-here", title:"Where to start?", desc:"Pick a first entry."}
+        ],
+        "research": [
+          {href:"#start-here", title:"Where to start?", desc:"Your first route through the atlas."},
+          {href:"#fiches", title:"Guides", desc:"Return to works-first reading."}
+        ],
+        "start-here": [
+          {href:"novel-guides.html", title:"Explore novel guides", desc:"Open the gallery of books."},
+          {href:"author-profiles.html", title:"Browse author profiles", desc:"Follow voices and devices."}
+        ]
+      };
+
+      function setSuggestedNext(activeId){
+        const items = nextMap[activeId] || nextMap["fiches"];
+        if(next1 && items[0]){
+          next1.href = items[0].href;
+          next1.querySelector('strong').textContent = items[0].title;
+          next1.querySelector('span').textContent = items[0].desc;
+        }
+        if(next2 && items[1]){
+          next2.href = items[1].href;
+          next2.querySelector('strong').textContent = items[1].title;
+          next2.querySelector('span').textContent = items[1].desc;
+        }
+      }
 
       function setActiveFromScroll(){
+        if(!sections.length) return;
+
         const scrollTop = window.scrollY || window.pageYOffset;
-        const offset = 140;
+        const offset = 150;
         let activeId = sections[0].id;
 
         sections.forEach(section => {
           if (scrollTop + offset >= section.offsetTop) activeId = section.id;
         });
 
-        links.forEach(link => {
-          const targetId = getHashId(link.getAttribute('href'));
-          link.classList.toggle('active', targetId === activeId);
-        });
+        function applyActive(links){
+          links.forEach(link => {
+            const targetId = getHashId(link.getAttribute('href'));
+            link.classList.toggle('active', targetId === activeId);
+          });
+        }
+        applyActive(linksDesktop);
+        applyActive(linksMobile);
+
+        if(railHere){
+          const pretty =
+            activeId === "fiches" ? "Guides" :
+            activeId === "courants" ? "Currents" :
+            activeId === "toolbox" ? "Toolbox" :
+            activeId === "about" ? "About" :
+            activeId === "research" ? "Researchers & AI" :
+            activeId === "start-here" ? "Where to start?" : "Guides";
+          railHere.textContent = "You are here: " + pretty;
+        }
+
+        setSuggestedNext(activeId);
       }
 
+      // init reading time
+      const minutes = estimateReadingTime();
+      if(railTime) railTime.textContent = String(minutes);
+      const mobileMeta = document.getElementById('mobileMeta');
+      if(mobileMeta) mobileMeta.textContent = "~" + minutes + " min";
+
+      window.addEventListener('scroll', updateProgress, { passive:true });
       window.addEventListener('scroll', setActiveFromScroll, { passive:true });
       window.addEventListener('resize', setActiveFromScroll);
+
+      updateProgress();
       setActiveFromScroll();
+
+      /* =========================================================
+         UPGRADE PROPRE:
+         detect the most “in-view” row up top, and mirror 2 picks into rail
+         (works even when you're down the page: it's a memory of your browse)
+         ========================================================= */
+      const rows = Array.from(document.querySelectorAll('#browseRows .row'));
+      let currentRowId = rows[0] ? rows[0].id : "row-society";
+
+      function extractTileData(tile){
+        const href = tile.getAttribute('href') || "#";
+        const img = tile.querySelector('img');
+        const metaK = tile.querySelector('.tile-meta .k');
+        const metaT = tile.querySelector('.tile-meta .t');
+        const metaS = tile.querySelector('.tile-meta .s');
+
+        return {
+          href,
+          imgSrc: img ? (img.getAttribute('src') || "") : "",
+          imgAlt: img ? (img.getAttribute('alt') || "") : "",
+          k: metaK ? metaK.textContent.trim() : "",
+          t: metaT ? metaT.textContent.trim() : "Open",
+          s: metaS ? metaS.textContent.trim() : ""
+        };
+      }
+
+      function renderRowContext(rowEl){
+        if(!rowEl || !rowCtxGrid) return;
+
+        const name = rowEl.getAttribute('data-rowname') || rowEl.id || "Browse";
+        if(rowCtxLabel) rowCtxLabel.textContent = name;
+
+        const tiles = Array.from(rowEl.querySelectorAll('.row-track .tile'));
+        const picks = tiles.slice(0, 2).map(extractTileData);
+
+        // fallback if not enough tiles
+        while(picks.length < 2){
+          picks.push({ href:"#fiches", imgSrc:"", imgAlt:"", k:"", t:"Explore guides", s:"" });
+        }
+
+        rowCtxGrid.innerHTML = picks.map(p => {
+          const thumb = p.imgSrc
+            ? `<div class="rail-row-thumb"><img src="${p.imgSrc}" alt="${p.imgAlt}"></div>`
+            : `<div class="rail-row-thumb"></div>`;
+
+          return `
+            <a class="rail-row-card" href="${p.href}">
+              ${thumb}
+              <div class="rail-row-meta">
+                <div class="k">${p.k || "Editor’s pick"}</div>
+                <p class="t">${p.t}</p>
+                <div class="s">${p.s || ""}</div>
+              </div>
+            </a>
+          `;
+        }).join('');
+      }
+
+      // Observe which row the user is browsing (best intersection ratio)
+      if(rows.length && 'IntersectionObserver' in window){
+        const ratios = new Map();
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            ratios.set(entry.target.id, entry.intersectionRatio);
+          });
+
+          // pick the row with highest ratio (and > small threshold)
+          let bestId = currentRowId;
+          let best = ratios.get(bestId) || 0;
+
+          ratios.forEach((r, id) => {
+            if(r > best){
+              best = r;
+              bestId = id;
+            }
+          });
+
+          // only change context if meaningful (prevents flicker)
+          if(best > 0.22 && bestId !== currentRowId){
+            currentRowId = bestId;
+            const rowEl = document.getElementById(currentRowId);
+            renderRowContext(rowEl);
+          }
+        }, { threshold:[0,0.12,0.22,0.35,0.5,0.7] });
+
+        rows.forEach(r => io.observe(r));
+      }
+
+      // Also: if user interacts with a track, “lock” the context to that row
+      rows.forEach(rowEl => {
+        const track = rowEl.querySelector('.row-track');
+        if(!track) return;
+        track.addEventListener('pointerdown', () => {
+          currentRowId = rowEl.id;
+          renderRowContext(rowEl);
+        }, { passive:true });
+        track.addEventListener('focusin', () => {
+          currentRowId = rowEl.id;
+          renderRowContext(rowEl);
+        });
+      });
+
+      // initial render
+      const initial = document.getElementById(currentRowId) || rows[0];
+      renderRowContext(initial);
+
     })();
   </script>
 
 </body>
 </html>
+
