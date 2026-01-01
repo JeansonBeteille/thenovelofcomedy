@@ -2,10 +2,115 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>The Novel of Comedy (TNoC) – Digital atlas & critical cartography of humorous fiction</title>
+
+  <!-- =========================================================
+       SEO / SIGNAL — “betonné”
+       ========================================================= -->
+  <title>The Novel of Comedy (TNoC) — Atlas of humorous fiction: social satire, comic crime, absurdist comedy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://www.thenovelofcomedy.com/">
+
+  <!-- Author / ownership (discreet but strong) -->
+  <meta name="author" content="Boris Jeanson Béteille">
+  <meta name="copyright" content="© Boris Jeanson Béteille">
+
+  <!-- Description (SEO + humans + machines) -->
   <meta name="description"
-        content="The Novel of Comedy (TNoC) is a digital atlas and critical cartography of humorous fiction: three currents, branches, environments, Labs, and comparable novel & author guides.">
+        content="The Novel of Comedy (TNoC) is a digital atlas and critical cartography of humorous fiction: social satire & comedy of manners (Comedy of Society), comic crime & caper fiction (Crime Comedy), and absurdist / postmodern comic fiction (Neo-Nonsense). Fixed 10-chapter novel guides and author profiles, citation-ready.">
+
+  <!-- Optional keywords (lightweight, not relied upon) -->
+  <meta name="keywords"
+        content="humorous fiction, comedy novel, social satire, comedy of manners, comic crime fiction, caper novel, heist fiction, absurdist fiction, postmodern satire, comic noir, satirical novel, literary atlas, bibliography, reading guide, The Novel of Comedy, TNoC">
+
+  <!-- Robots -->
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="The Novel of Comedy (TNoC) — Atlas of humorous fiction">
+  <meta property="og:description" content="A living atlas of humorous fiction: social satire, comic crime, absurdist & postmodern comedy — with fixed 10-chapter guides and citation-ready pages.">
+  <meta property="og:url" content="https://www.thenovelofcomedy.com/">
+  <meta property="og:type" content="website">
+  <!-- Put a real image here when ready -->
+  <meta property="og:image" content="https://www.thenovelofcomedy.com/img/og-tnoc.jpg">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Novel of Comedy (TNoC) — Atlas of humorous fiction">
+  <meta name="twitter:description" content="Social satire · comic crime · absurdist comedy — fixed 10-chapter guides, citation-ready.">
+  <meta name="twitter:image" content="https://www.thenovelofcomedy.com/img/og-tnoc.jpg">
+
+  <!-- Basic language alternates (keep simple) -->
+  <link rel="alternate" href="https://www.thenovelofcomedy.com/" hreflang="en">
+  <link rel="alternate" href="https://www.thenovelofcomedy.com/fr/" hreflang="fr">
+  <link rel="alternate" href="https://www.thenovelofcomedy.com/" hreflang="x-default">
+
+  <!-- =========================================================
+       Structured Data (JSON-LD) — strong machine signal
+       ========================================================= -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"Person",
+        "@id":"https://www.thenovelofcomedy.com/#boris-jeanson-beteille",
+        "name":"Boris Jeanson Béteille",
+        "description":"Creator and editor of The Novel of Comedy (TNoC), a digital atlas and critical cartography of humorous fiction.",
+        "url":"https://www.thenovelofcomedy.com/"
+      },
+      {
+        "@type":"Organization",
+        "@id":"https://www.thenovelofcomedy.com/#tnoc",
+        "name":"The Novel of Comedy (TNoC)",
+        "url":"https://www.thenovelofcomedy.com/",
+        "founder":{"@id":"https://www.thenovelofcomedy.com/#boris-jeanson-beteille"},
+        "description":"A digital atlas and critical cartography of humorous fiction: social satire, comic crime, absurdist and postmodern comedy."
+      },
+      {
+        "@type":"WebSite",
+        "@id":"https://www.thenovelofcomedy.com/#website",
+        "name":"The Novel of Comedy (TNoC)",
+        "url":"https://www.thenovelofcomedy.com/",
+        "publisher":{"@id":"https://www.thenovelofcomedy.com/#tnoc"},
+        "inLanguage":"en"
+      },
+      {
+        "@type":"WebPage",
+        "@id":"https://www.thenovelofcomedy.com/#webpage",
+        "url":"https://www.thenovelofcomedy.com/",
+        "name":"The Novel of Comedy (TNoC) — Atlas of humorous fiction",
+        "isPartOf":{"@id":"https://www.thenovelofcomedy.com/#website"},
+        "about":[
+          {
+            "@type":"Thing",
+            "name":"Humorous fiction",
+            "sameAs":"https://en.wikipedia.org/wiki/Humour"
+          },
+          {
+            "@type":"Thing",
+            "name":"Social satire",
+            "sameAs":"https://en.wikipedia.org/wiki/Satire"
+          },
+          {
+            "@type":"Thing",
+            "name":"Comic crime fiction",
+            "sameAs":"https://en.wikipedia.org/wiki/Crime_fiction"
+          },
+          {
+            "@type":"Thing",
+            "name":"Absurdist fiction",
+            "sameAs":"https://en.wikipedia.org/wiki/Absurdism"
+          }
+        ],
+        "creator":{"@id":"https://www.thenovelofcomedy.com/#boris-jeanson-beteille"},
+        "publisher":{"@id":"https://www.thenovelofcomedy.com/#tnoc"},
+        "inLanguage":"en"
+      }
+    ]
+  }
+  </script>
 
   <style>
     :root{
@@ -168,7 +273,7 @@
       background:rgba(0,0,0,.42);
       backdrop-filter:blur(8px);
       box-shadow:0 18px 60px rgba(0,0,0,.55);
-      max-width:780px;
+      max-width:820px;
       color:#fff;
     }
 
@@ -176,13 +281,13 @@
       margin:0;
       font-size:36px; line-height:1.05;
       letter-spacing:-.02em;
-      max-width:640px;
+      max-width:680px;
     }
     .hero-stream .hero-title .thin{ font-weight:420; opacity:.95; }
     .hero-stream .hero-title .bold{ font-weight:740; }
 
     .hero-stream .hero-totem{
-      font-size:14px; line-height:1.6; margin:10px 0 0; max-width:700px;
+      font-size:14px; line-height:1.6; margin:10px 0 0; max-width:760px;
       opacity:.92;
     }
     .hero-stream .hero-proof{
@@ -265,9 +370,9 @@
     .row-sub{
       margin:0;
       font-size:13px;
-      opacity:.80;
+      opacity:.82;
       line-height:1.35;
-      max-width:76ch;
+      max-width:82ch;
     }
     .row-cut{
       margin:0;
@@ -442,7 +547,7 @@
       :root{ --tileW:176px; }
       .row-hint{ display:none; }
       .row-title{ font-size:13px; }
-      .row-sub{ font-size:12px; opacity:.84; }
+      .row-sub{ font-size:12px; opacity:.86; }
       .row-cut{ font-size:11.5px; }
       .row-progress{ margin:0 10px 12px; }
       .row-track{ padding:10px 10px 10px; }
@@ -520,11 +625,11 @@
       font-size:15px;
       line-height:1.6;
       color:rgba(0,0,0,.72);
-      max-width:78ch;
+      max-width:82ch;
       margin:0;
     }
     .section-sub{
-      font-size:13px; color:var(--muted); max-width:78ch;
+      font-size:13px; color:var(--muted); max-width:82ch;
       margin:8px 0 0;
       line-height:1.6;
     }
@@ -704,7 +809,7 @@
     .rail-next a strong{ display:block; font-weight:650; font-size:13px; }
     .rail-next a span{ display:block; font-size:12px; color:rgba(0,0,0,.58); margin-top:2px; }
 
-    /* ===== UPGRADE PROPRE: contextual “From Browse Rows” (2 mini posters) ===== */
+    /* contextual “From Browse Rows” (2 mini posters) */
     .rail-rows{
       padding:12px 10px 12px;
       border-top:1px solid rgba(0,0,0,.06);
@@ -852,9 +957,10 @@
             <span class="thin">The</span> <span class="bold">Novel</span> <span class="thin">of</span> <span class="bold">Comedy</span>
           </h1>
 
+          <!-- SEO-friendly, but still “discreet” -->
           <p class="hero-totem">
             <em>Comedy is one of the most precise ways of reading reality.</em><br>
-            A living atlas of novels and authors — built to compare tones, mechanics, and comic forms.
+            A living atlas of humorous fiction: <strong>social satire</strong> (comedy of manners), <strong>comic crime</strong> (capers), and <strong>absurdist / postmodern comedy</strong>.
           </p>
 
           <div class="hero-proof">
@@ -879,12 +985,15 @@
     <!-- ROWS -->
     <section class="rows" aria-label="Browse like a platform" id="browseRows">
 
+      <!-- =========================================================
+           ROW 1 — Comedy of Society (SEO: social satire / comedy of manners)
+           ========================================================= -->
       <div class="row" id="row-society" aria-label="Comedy of Society row" data-rowname="Comedy of Society">
         <div class="row-head">
           <div class="row-left">
             <h2 class="row-title">Comedy of Society</h2>
-            <p class="row-sub">Rules and institutions collide with private life.</p>
-            <p class="row-cut">Editor’s cut: best “friction engines” (work, family, hierarchy).</p>
+            <p class="row-sub">Social satire &amp; comedy of manners — institutions collide with private life.</p>
+            <p class="row-cut">Editor’s cut: friction engines (work, class, family, hierarchy).</p>
           </div>
           <div class="row-hint">
             <a class="pill" href="currents.html#society" aria-label="See all Comedy of Society">All →</a>
@@ -897,31 +1006,53 @@
           <button class="row-arrow right" type="button" aria-label="Scroll right"><span>›</span></button>
 
           <div class="row-track" aria-label="Comedy of Society carousel">
-            <a class="tile" href="./fichewilt.html" aria-label="Open the Wilt novel guide">
+            <a class="tile" href="wilt-fiche.html" aria-label="Open the Wilt novel guide">
               <div class="tile-media">
-                <img src="wilt31A.png" alt="Cover of Wilt (Tom Sharpe)" loading="eager" decoding="async" fetchpriority="high">
+                <img src="img/wilt.png" alt="Cover of Wilt (Tom Sharpe) — social satire and institutional comedy" loading="eager" decoding="async" fetchpriority="high">
               </div>
               <div class="tile-meta">
-                <div class="k">Society · Frustration</div>
+                <div class="k">Society · Satire</div>
                 <div class="t">Wilt</div>
                 <div class="s">Tom Sharpe · 1976</div>
               </div>
             </a>
 
-            <a class="tile" href="fr/fiche-roman/the-code-of-the-woosters" aria-label="Open The Code of the Woosters guide">
+            <a class="tile" href="the-code-of-the-woosters-fiche.html" aria-label="Open The Code of the Woosters guide">
               <div class="tile-media">
-                <img src="theco.png" alt="Cover of The Code of the Woosters (P. G. Wodehouse)" loading="eager" decoding="async" fetchpriority="high">
+                <img src="img/the-code-of-the-woosters.png" alt="Cover of The Code of the Woosters (P. G. Wodehouse) — comedy of manners" loading="lazy" decoding="async">
               </div>
               <div class="tile-meta">
-                <div class="k">Society · Code</div>
+                <div class="k">Society · Manners</div>
                 <div class="t">Woosters</div>
                 <div class="s">P. G. Wodehouse · 1938</div>
               </div>
             </a>
 
-            <a class="tile" href="fr/fiche-roman/the-girls-of-slender-means" aria-label="Open The Girls of Slender Means guide">
+            <a class="tile" href="lucky-jim-fiche.html" aria-label="Open Lucky Jim guide">
               <div class="tile-media">
-                <img src="img/girls-of-slender-means.png" alt="Cover of The Girls of Slender Means (Muriel Spark)" loading="lazy" decoding="async">
+                <img src="img/lucky-jim.png" alt="Cover of Lucky Jim (Kingsley Amis) — campus satire" loading="lazy" decoding="async">
+              </div>
+              <div class="tile-meta">
+                <div class="k">Society · Campus satire</div>
+                <div class="t">Lucky Jim</div>
+                <div class="s">Kingsley Amis · 1954</div>
+              </div>
+            </a>
+
+            <a class="tile" href="small-world-fiche.html" aria-label="Open Small World guide">
+              <div class="tile-media">
+                <img src="img/small-world.png" alt="Cover of Small World (David Lodge) — academic satire" loading="lazy" decoding="async">
+              </div>
+              <div class="tile-meta">
+                <div class="k">Society · Academic satire</div>
+                <div class="t">Small World</div>
+                <div class="s">David Lodge · 1984</div>
+              </div>
+            </a>
+
+            <a class="tile" href="the-girls-of-slender-means-fiche.html" aria-label="Open The Girls of Slender Means guide">
+              <div class="tile-media">
+                <img src="img/the-girls-of-slender-means.png" alt="Cover of The Girls of Slender Means (Muriel Spark) — manners and social comedy" loading="lazy" decoding="async">
               </div>
               <div class="tile-meta">
                 <div class="k">Society · Manners</div>
@@ -930,14 +1061,36 @@
               </div>
             </a>
 
-            <a class="tile" href="fr/fiche-roman/sample-society-7" aria-label="Open sample society pick 7">
+            <a class="tile" href="flauberts-parrot-fiche.html" aria-label="Open Flaubert’s Parrot guide">
               <div class="tile-media">
-                <img src="img/sample-society-7.png" alt="Cover of a Comedy of Society novel (sample)" loading="lazy" decoding="async">
+                <img src="img/flauberts-parrot.png" alt="Cover of Flaubert’s Parrot (Julian Barnes) — literary satire" loading="lazy" decoding="async">
               </div>
               <div class="tile-meta">
-                <div class="k">Society · Branch</div>
-                <div class="t">Sample 7</div>
-                <div class="s">Example entry</div>
+                <div class="k">Society · Literary satire</div>
+                <div class="t">Flaubert’s Parrot</div>
+                <div class="s">Julian Barnes · 1984</div>
+              </div>
+            </a>
+
+            <a class="tile" href="the-old-devils-fiche.html" aria-label="Open The Old Devils guide">
+              <div class="tile-media">
+                <img src="img/the-old-devils.png" alt="Cover of The Old Devils (Kingsley Amis) — late-life social satire" loading="lazy" decoding="async">
+              </div>
+              <div class="tile-meta">
+                <div class="k">Society · Satire</div>
+                <div class="t">The Old Devils</div>
+                <div class="s">Kingsley Amis · 1986</div>
+              </div>
+            </a>
+
+            <a class="tile" href="bright-lights-big-city-fiche.html" aria-label="Open Bright Lights, Big City guide">
+              <div class="tile-media">
+                <img src="img/bright-lights-big-city.png" alt="Cover of Bright Lights, Big City (Jay McInerney) — urban social satire" loading="lazy" decoding="async">
+              </div>
+              <div class="tile-meta">
+                <div class="k">Society · Urban satire</div>
+                <div class="t">Bright Lights</div>
+                <div class="s">Jay McInerney · 1984</div>
               </div>
             </a>
           </div>
@@ -946,12 +1099,15 @@
         </div>
       </div>
 
+      <!-- =========================================================
+           ROW 2 — Crime Comedy (SEO: comic crime / caper / heist)
+           ========================================================= -->
       <div class="row" id="row-crime" aria-label="Crime Comedy row" data-rowname="Crime Comedy">
         <div class="row-head">
           <div class="row-left">
             <h2 class="row-title">Crime Comedy</h2>
-            <p class="row-sub">Plans derail; morality looks ridiculous.</p>
-            <p class="row-cut">Editor’s cut: capers, schemers, and elegant failures.</p>
+            <p class="row-sub">Comic crime fiction — capers, heists, schemes; morality looks ridiculous.</p>
+            <p class="row-cut">Editor’s cut: elegant failures, crooked plans, comic noir.</p>
           </div>
           <div class="row-hint">
             <a class="pill" href="currents.html#crime" aria-label="See all Crime Comedy">All →</a>
@@ -964,36 +1120,69 @@
           <button class="row-arrow right" type="button" aria-label="Scroll right"><span>›</span></button>
 
           <div class="row-track" aria-label="Crime Comedy carousel">
-            <a class="tile" href="fr/fiche-roman/westlake-sample" aria-label="Open a Westlake guide sample">
+            <a class="tile" href="tourist-season-fiche.html" aria-label="Open Tourist Season guide">
               <div class="tile-media">
-                <img src="img/westlake-sample.png" alt="Cover of a Donald Westlake comic crime novel" loading="lazy" decoding="async">
-              </div>
-              <div class="tile-meta">
-                <div class="k">Crime · Schemer</div>
-                <div class="t">Westlake</div>
-                <div class="s">Example entry</div>
-              </div>
-            </a>
-
-            <a class="tile" href="fr/fiche-roman/hiaasen-sample" aria-label="Open a Hiaasen guide sample">
-              <div class="tile-media">
-                <img src="img/hiaasen-sample.png" alt="Cover of a Carl Hiaasen comic crime novel" loading="lazy" decoding="async">
+                <img src="img/tourist-season.png" alt="Cover of Tourist Season (Carl Hiaasen) — comic crime fiction" loading="lazy" decoding="async">
               </div>
               <div class="tile-meta">
                 <div class="k">Crime · Comic noir</div>
-                <div class="t">Hiaasen</div>
-                <div class="s">Example entry</div>
+                <div class="t">Tourist Season</div>
+                <div class="s">Carl Hiaasen · 1986</div>
               </div>
             </a>
 
-            <a class="tile" href="fr/fiche-roman/sample-crime-3" aria-label="Open sample crime pick 3">
+            <a class="tile" href="florida-roadkill-fiche.html" aria-label="Open Florida Roadkill guide">
               <div class="tile-media">
-                <img src="img/sample-crime-3.png" alt="Cover of a comic crime novel (sample)" loading="lazy" decoding="async">
+                <img src="img/florida-roadkill.png" alt="Cover of Florida Roadkill (Tim Dorsey) — crime caper comedy" loading="lazy" decoding="async">
               </div>
               <div class="tile-meta">
-                <div class="k">Crime · Branch</div>
-                <div class="t">Sample 3</div>
-                <div class="s">Example entry</div>
+                <div class="k">Crime · Caper</div>
+                <div class="t">Florida Roadkill</div>
+                <div class="s">Tim Dorsey · 1999</div>
+              </div>
+            </a>
+
+            <a class="tile" href="big-trouble-fiche.html" aria-label="Open Big Trouble guide">
+              <div class="tile-media">
+                <img src="img/big-trouble.png" alt="Cover of Big Trouble (Dave Barry) — comic crime and farce" loading="lazy" decoding="async">
+              </div>
+              <div class="tile-meta">
+                <div class="k">Crime · Farce</div>
+                <div class="t">Big Trouble</div>
+                <div class="s">Dave Barry · 1999</div>
+              </div>
+            </a>
+
+            <a class="tile" href="the-deep-blue-good-by-fiche.html" aria-label="Open The Deep Blue Good-by guide">
+              <div class="tile-media">
+                <img src="img/the-deep-blue-good-by.png" alt="Cover of The Deep Blue Good-by (John D. MacDonald) — crime fiction with dark comedy" loading="lazy" decoding="async">
+              </div>
+              <div class="tile-meta">
+                <div class="k">Crime · Noir edge</div>
+                <div class="t">Deep Blue</div>
+                <div class="s">John D. MacDonald · 1964</div>
+              </div>
+            </a>
+
+            <a class="tile" href="good-behavior-fiche.html" aria-label="Open Good Behavior guide">
+              <div class="tile-media">
+                <img src="img/good-behavior.png" alt="Cover of Good Behavior — comic crime and misbehavior" loading="lazy" decoding="async">
+              </div>
+              <div class="tile-meta">
+                <div class="k">Crime · Mischief</div>
+                <div class="t">Good Behavior</div>
+                <div class="s">Mysterious Press · 1985</div>
+              </div>
+            </a>
+
+            <a class="tile" href="the-commitments-fiche.html" aria-label="Open The Commitments guide">
+              <div class="tile-media">
+                <img src="img/the-commitments.png" alt="Cover of The Commitments (Roddy Doyle) — social comedy with hustler energy" loading="lazy" decoding="async">
+              </div>
+              <div class="tile-meta">
+                <div class="k">Crime · Hustle</div>
+                <div class="t">Commitments</div>
+                <div class="s">Roddy Doyle · 1987</div>
               </div>
             </a>
           </div>
@@ -1002,12 +1191,15 @@
         </div>
       </div>
 
+      <!-- =========================================================
+           ROW 3 — Neo-Nonsense (SEO: absurdist / postmodern comic fiction)
+           ========================================================= -->
       <div class="row" id="row-neo" aria-label="Neo-Nonsense row" data-rowname="Neo-Nonsense">
         <div class="row-head">
           <div class="row-left">
             <h2 class="row-title">Neo-Nonsense</h2>
-            <p class="row-sub">Rigorous logic inside a world without guarantees.</p>
-            <p class="row-cut">Editor’s cut: cosmic bureaucracy, science vertigo, canon hijacks.</p>
+            <p class="row-sub">Absurdist &amp; postmodern comic fiction — rigorous logic inside a cracked world.</p>
+            <p class="row-cut">Editor’s cut: bureaucracy, vertigo of meaning, canon hijacks.</p>
           </div>
           <div class="row-hint">
             <a class="pill" href="currents.html#neo" aria-label="See all Neo-Nonsense">All →</a>
@@ -1020,9 +1212,75 @@
           <button class="row-arrow right" type="button" aria-label="Scroll right"><span>›</span></button>
 
           <div class="row-track" aria-label="Neo-Nonsense carousel">
-            <a class="tile" href="fr/fiche-roman/james-percival-everett" aria-label="Open James guide">
+            <a class="tile" href="portnoys-complaint-fiche.html" aria-label="Open Portnoy’s Complaint guide">
               <div class="tile-media">
-                <img src="img/james-percival-everett.png" alt="Cover of James (Percival Everett)" loading="lazy" decoding="async">
+                <img src="img/portnoys-complaint.png" alt="Cover of Portnoy’s Complaint (Philip Roth) — proto neo-nonsense and postmodern comedy" loading="lazy" decoding="async">
+              </div>
+              <div class="tile-meta">
+                <div class="k">Neo · Postmodern</div>
+                <div class="t">Portnoy</div>
+                <div class="s">Philip Roth · 1969</div>
+              </div>
+            </a>
+
+            <a class="tile" href="generation-x-fiche.html" aria-label="Open Generation X guide">
+              <div class="tile-media">
+                <img src="img/generation-x.png" alt="Cover of Generation X (Douglas Coupland) — postmodern social comedy with neo edge" loading="lazy" decoding="async">
+              </div>
+              <div class="tile-meta">
+                <div class="k">Neo · Media shift</div>
+                <div class="t">Generation X</div>
+                <div class="s">Douglas Coupland · 1991</div>
+              </div>
+            </a>
+
+            <a class="tile" href="the-malaise-expedition-fiche.html" aria-label="Open The Malaise Expedition guide">
+              <div class="tile-media">
+                <img src="img/the-malaise-expedition.png" alt="Cover of The Malaise Expedition (Jean Echenoz) — absurdist logic and neo-nonsense tone" loading="lazy" decoding="async">
+              </div>
+              <div class="tile-meta">
+                <div class="k">Neo · Absurd</div>
+                <div class="t">Malaise</div>
+                <div class="s">Jean Echenoz · 1986</div>
+              </div>
+            </a>
+
+            <a class="tile" href="white-noise-fiche.html" aria-label="Open White Noise guide">
+              <div class="tile-media">
+                <img src="img/white-noise.png" alt="Cover of White Noise (Don DeLillo) — absurdist and postmodern satire" loading="lazy" decoding="async">
+              </div>
+              <div class="tile-meta">
+                <div class="k">Neo · Satire</div>
+                <div class="t">White Noise</div>
+                <div class="s">Don DeLillo · 1985</div>
+              </div>
+            </a>
+
+            <a class="tile" href="money-fiche.html" aria-label="Open Money guide">
+              <div class="tile-media">
+                <img src="img/money.png" alt="Cover of Money (Martin Amis) — postmodern social satire" loading="lazy" decoding="async">
+              </div>
+              <div class="tile-meta">
+                <div class="k">Neo · Satire</div>
+                <div class="t">Money</div>
+                <div class="s">Martin Amis · 1984</div>
+              </div>
+            </a>
+
+            <a class="tile" href="double-negative-fiche.html" aria-label="Open Double Negative guide">
+              <div class="tile-media">
+                <img src="img/double-negative.png" alt="Cover of Double Negative (David Carkeet) — absurdist comedy and logic games" loading="lazy" decoding="async">
+              </div>
+              <div class="tile-meta">
+                <div class="k">Neo · Logic games</div>
+                <div class="t">Double Negative</div>
+                <div class="s">David Carkeet · 1980</div>
+              </div>
+            </a>
+
+            <a class="tile" href="james-fiche.html" aria-label="Open James guide">
+              <div class="tile-media">
+                <img src="img/james.png" alt="Cover of James (Percival Everett) — canon hijack and absurdist comedy" loading="lazy" decoding="async">
               </div>
               <div class="tile-meta">
                 <div class="k">Neo · Canon hijack</div>
@@ -1031,20 +1289,9 @@
               </div>
             </a>
 
-            <a class="tile" href="fr/fiche-roman/douglas-adams-sample" aria-label="Open a Douglas Adams guide sample">
-              <div class="tile-media">
-                <img src="img/douglas-adams-sample.png" alt="Cover of a Douglas Adams novel" loading="lazy" decoding="async">
-              </div>
-              <div class="tile-meta">
-                <div class="k">Neo · Bureaucracy</div>
-                <div class="t">Douglas Adams</div>
-                <div class="s">Example entry</div>
-              </div>
-            </a>
-
             <a class="tile is-portrait" href="author-profiles.html#kurt-vonnegut" aria-label="Open Kurt Vonnegut profile">
               <div class="tile-media">
-                <img src="img/vonnegut-sample.png" alt="Portrait of Kurt Vonnegut" loading="lazy" decoding="async">
+                <img src="img/kurt-vonnegut-portrait.jpg" alt="Portrait of Kurt Vonnegut — absurdist and postmodern humor" loading="lazy" decoding="async">
               </div>
               <div class="tile-meta">
                 <div class="k">Author</div>
@@ -1058,12 +1305,15 @@
         </div>
       </div>
 
+      <!-- =========================================================
+           ROW 4 — Authors (fill space)
+           ========================================================= -->
       <div class="row" id="row-authors" aria-label="Authors row" data-rowname="Authors">
         <div class="row-head">
           <div class="row-left">
             <h2 class="row-title">Authors</h2>
-            <p class="row-sub">How writers build comic mechanics over a career.</p>
-            <p class="row-cut">Editor’s cut: voices with the clearest “devices”.</p>
+            <p class="row-sub">How writers build comic mechanics over time — voice, rhythm, institutions, obsessions.</p>
+            <p class="row-cut">Editor’s cut: devices you can “see” page after page.</p>
           </div>
           <div class="row-hint">
             <a class="pill" href="author-profiles.html" aria-label="See all author profiles">All →</a>
@@ -1078,7 +1328,7 @@
           <div class="row-track" aria-label="Authors carousel">
             <a class="tile is-portrait" href="author-profiles.html#tom-sharpe" aria-label="Open Tom Sharpe profile">
               <div class="tile-media">
-                <img src="tomsh.jpg" alt="Portrait of Tom Sharpe" loading="lazy" decoding="async">
+                <img src="img/tom-sharpe-portrait.jpg" alt="Portrait of Tom Sharpe — British social satire" loading="lazy" decoding="async">
               </div>
               <div class="tile-meta">
                 <div class="k">Author profile</div>
@@ -1087,9 +1337,9 @@
               </div>
             </a>
 
-            <a class="tile is-portrait" href="author-profiles.html#wodehouse" aria-label="Open P. G. Wodehouse profile">
+            <a class="tile is-portrait" href="author-profiles.html#pg-wodehouse" aria-label="Open P. G. Wodehouse profile">
               <div class="tile-media">
-                <img src="img/pg-wodehouse.jpg" alt="Portrait of P. G. Wodehouse" loading="lazy" decoding="async">
+                <img src="img/pg-wodehouse-portrait.jpg" alt="Portrait of P. G. Wodehouse — comedy of manners" loading="lazy" decoding="async">
               </div>
               <div class="tile-meta">
                 <div class="k">Author profile</div>
@@ -1100,11 +1350,33 @@
 
             <a class="tile is-portrait" href="author-profiles.html#muriel-spark" aria-label="Open Muriel Spark profile">
               <div class="tile-media">
-                <img src="img/muriel-spark.jpg" alt="Portrait of Muriel Spark" loading="lazy" decoding="async">
+                <img src="img/muriel-spark-portrait.jpg" alt="Portrait of Muriel Spark — social comedy and satire" loading="lazy" decoding="async">
               </div>
               <div class="tile-meta">
                 <div class="k">Author profile</div>
                 <div class="t">Muriel Spark</div>
+                <div class="s">Open profile</div>
+              </div>
+            </a>
+
+            <a class="tile is-portrait" href="author-profiles.html#martin-amis" aria-label="Open Martin Amis profile">
+              <div class="tile-media">
+                <img src="img/martin-amis-portrait.jpg" alt="Portrait of Martin Amis — postmodern satire" loading="lazy" decoding="async">
+              </div>
+              <div class="tile-meta">
+                <div class="k">Author profile</div>
+                <div class="t">Martin Amis</div>
+                <div class="s">Open profile</div>
+              </div>
+            </a>
+
+            <a class="tile is-portrait" href="author-profiles.html#douglas-coupland" aria-label="Open Douglas Coupland profile">
+              <div class="tile-media">
+                <img src="img/douglas-coupland-portrait.jpg" alt="Portrait of Douglas Coupland — postmodern comedy" loading="lazy" decoding="async">
+              </div>
+              <div class="tile-meta">
+                <div class="k">Author profile</div>
+                <div class="t">Coupland</div>
                 <div class="s">Open profile</div>
               </div>
             </a>
@@ -1150,7 +1422,7 @@
                 Start from the works. Then read the comic device — with the same matrix, every time.
               </p>
               <p class="section-sub">
-                This homepage is a digest. Full essays, context and taxonomy live on dedicated pages.
+                This homepage is a digest. Full essays, definitions and taxonomy live on dedicated pages.
               </p>
             </header>
 
@@ -1165,7 +1437,7 @@
                   <ul class="list">
                     <li>Reading note (signed)</li>
                     <li>Incipit (original language)</li>
-                    <li>Characters (archetypes + line-citations)</li>
+                    <li>Characters (archetypes + citations)</li>
                     <li>Cartography coordinates</li>
                   </ul>
                   <p class="card-tagline">Designed to spark reading first — then give landmarks.</p>
@@ -1192,7 +1464,7 @@
                   <p>For cycles where comedy evolves across volumes.</p>
                   <ul class="list">
                     <li>tone shifts across time</li>
-                    <li>character device maturation</li>
+                    <li>device maturation</li>
                     <li>context changes per volume</li>
                   </ul>
                 </div>
@@ -1205,10 +1477,10 @@
               <div class="section-kicker">Currents</div>
               <h2 class="section-title">Three currents of modern humorous fiction</h2>
               <p class="section-lead">
-                Society, Crime, Neo-Nonsense: three dynamics — plus hybrids — to navigate modern laughter.
+                A genealogy as well as a map: <strong>social satire</strong> first (Comedy of Society), then <strong>comic crime</strong> (Crime Comedy), and finally <strong>absurdist / postmodern comedy</strong> (Neo-Nonsense).
               </p>
               <p class="section-sub">
-                Full definitions and branches: on the Currents page.
+                This page keeps it short. Full definitions, branches and examples: on the Currents page.
               </p>
             </header>
 
@@ -1219,8 +1491,8 @@
                   <a class="card-link" href="currents.html#society">Map →</a>
                 </div>
                 <div class="card-body">
-                  <p>Friction between people and rules: family, work, hierarchy.</p>
-                  <p class="card-tagline">Signature: integration vs refusal.</p>
+                  <p><strong>Social satire</strong> &amp; <strong>comedy of manners</strong>: family, work, hierarchy, class.</p>
+                  <p class="card-tagline">Signature: institutions generate the comic engine.</p>
                 </div>
               </article>
 
@@ -1230,8 +1502,8 @@
                   <a class="card-link" href="currents.html#crime">Map →</a>
                 </div>
                 <div class="card-body">
-                  <p>Transgression as comic terrain: failed plans, elastic morality.</p>
-                  <p class="card-tagline">Signature: rule exposed as absurd.</p>
+                  <p><strong>Comic crime fiction</strong>: capers, heists, schemes, elastic morality.</p>
+                  <p class="card-tagline">Signature: transgression becomes a narrative machine.</p>
                 </div>
               </article>
 
@@ -1241,8 +1513,8 @@
                   <a class="card-link" href="currents.html#neo">Map →</a>
                 </div>
                 <div class="card-body">
-                  <p>Logic games + science + vertigo of meaning.</p>
-                  <p class="card-tagline">Signature: rigor in a cracked world.</p>
+                  <p><strong>Absurdist</strong> &amp; <strong>postmodern</strong> comic fiction: rigorous logic in a cracked world.</p>
+                  <p class="card-tagline">Signature: meaning wobbles — the mechanism stays precise.</p>
                 </div>
               </article>
             </div>
@@ -1253,10 +1525,10 @@
               <div class="section-kicker">Toolbox</div>
               <h2 class="section-title">Toolbox to read the guides</h2>
               <p class="section-lead">
-                Simple coordinates, reused everywhere: Role, Environment, and optional Labs.
+                Reused everywhere: Role, Environment, and optional Labs — for comparability.
               </p>
               <p class="section-sub">
-                The goal is comparability: from one guide to the next, the same vocabulary.
+                A small shared vocabulary makes guides readable for humans and machines.
               </p>
             </header>
 
@@ -1278,8 +1550,8 @@
                   <a class="card-link" href="fr/cartographie/environnements">Open →</a>
                 </div>
                 <div class="card-body">
-                  <p>Where it plays: place, milieu, period, institutions.</p>
-                  <p class="card-tagline">A map coordinate — not a theme.</p>
+                  <p>Place, milieu, period, institutions — where it plays.</p>
+                  <p class="card-tagline">A map coordinate, not a theme.</p>
                 </div>
               </article>
 
@@ -1289,8 +1561,8 @@
                   <a class="card-link" href="fr/cartographie/labs">Open →</a>
                 </div>
                 <div class="card-body">
-                  <p>Optional hubs connecting multiple works by shared energy.</p>
-                  <p class="card-tagline">Use when corpora become clear.</p>
+                  <p>Optional hubs connecting works by shared energy.</p>
+                  <p class="card-tagline">Use when a corpus becomes clear.</p>
                 </div>
               </article>
             </div>
@@ -1336,7 +1608,7 @@
               <div class="section-kicker">Researchers &amp; AI</div>
               <h2 class="section-title">For research, libraries and assistants</h2>
               <p class="section-lead">
-                The atlas is structured so a human (or model) can compare books quickly.
+                Structured so a human (or model) can compare books quickly: stable IDs, fixed matrices, explicit vocabulary.
               </p>
               <p class="section-sub">
                 Exports and data licensing live on the dedicated page.
@@ -1397,7 +1669,7 @@
                   <a class="card-link" href="currents.html">Open →</a>
                 </div>
                 <div class="card-body">
-                  <p>Society, Crime, Neo-Nonsense: fast orientation.</p>
+                  <p>Social satire, comic crime, absurdist comedy — fast orientation.</p>
                 </div>
               </article>
             </div>
@@ -1430,7 +1702,7 @@
               <div class="label">Suggested next</div>
               <a id="next1" href="#courants">
                 <strong>Currents</strong>
-                <span>Choose a path: Society / Crime / Neo.</span>
+                <span>Choose a path: social satire / comic crime / absurdist comedy.</span>
               </a>
               <a id="next2" href="#toolbox">
                 <strong>Toolbox</strong>
@@ -1438,16 +1710,12 @@
               </a>
             </div>
 
-            <!-- ✅ UPGRADE PROPRE: contextual “From Browse Rows” -->
             <div class="rail-rows" aria-label="From browse rows">
               <div class="label">
                 <strong>From browse rows</strong>
                 <span id="rowCtxLabel">Society</span>
               </div>
-
-              <div class="rail-row-grid" id="rowCtxGrid">
-                <!-- filled by JS -->
-              </div>
+              <div class="rail-row-grid" id="rowCtxGrid"></div>
             </div>
 
             <div class="rail-bottom">
@@ -1462,7 +1730,8 @@
     <footer class="footer" role="contentinfo">
       <div class="footer-inner">
         <div>
-          <strong>The Novel of Comedy (TNoC)</strong> · Atlas and critical compass for humorous fiction.
+          <strong>The Novel of Comedy (TNoC)</strong> · Atlas and critical compass for humorous fiction.<br>
+          <span style="opacity:.82">© <span id="y"></span> Boris Jeanson Béteille</span>
         </div>
         <div class="footer-links">
           <a href="method.html">Method</a>
@@ -1526,10 +1795,13 @@
 
   <!-- =========================================================
        Scrollspy + reading progress + “You are here” + Suggested next (paper)
-       + UPGRADE PROPRE: contextual “From browse rows” (2 mini posters)
+       + contextual “From browse rows”
        ========================================================= -->
   <script>
     (function(){
+      const y = document.getElementById('y');
+      if(y) y.textContent = String(new Date().getFullYear());
+
       const linksDesktop = Array.from(document.querySelectorAll('#tocDesktop a'));
       const linksMobile  = Array.from(document.querySelectorAll('#tocMobile a'));
       const sections = Array.from(document.querySelectorAll('[data-spy]'));
@@ -1540,7 +1812,6 @@
       const next1 = document.getElementById('next1');
       const next2 = document.getElementById('next2');
 
-      // Row context UI
       const rowCtxLabel = document.getElementById('rowCtxLabel');
       const rowCtxGrid  = document.getElementById('rowCtxGrid');
 
@@ -1571,7 +1842,7 @@
 
       const nextMap = {
         "fiches": [
-          {href:"#courants", title:"Currents", desc:"Choose a path: Society / Crime / Neo."},
+          {href:"#courants", title:"Currents", desc:"Social satire / comic crime / absurdist comedy."},
           {href:"#toolbox", title:"Toolbox", desc:"Roles, environments, Labs."}
         ],
         "courants": [
@@ -1580,7 +1851,7 @@
         ],
         "toolbox": [
           {href:"#about", title:"About", desc:"How the atlas stays stable."},
-          {href:"#research", title:"Researchers & AI", desc:"Citation-ready structure."}
+          {href:"#research", title:"Researchers & AI", desc:"Stable IDs and vocabulary."}
         ],
         "about": [
           {href:"#research", title:"Researchers & AI", desc:"Data, reuse, stability."},
@@ -1657,11 +1928,7 @@
       updateProgress();
       setActiveFromScroll();
 
-      /* =========================================================
-         UPGRADE PROPRE:
-         detect the most “in-view” row up top, and mirror 2 picks into rail
-         (works even when you're down the page: it's a memory of your browse)
-         ========================================================= */
+      // contextual “From browse rows”
       const rows = Array.from(document.querySelectorAll('#browseRows .row'));
       let currentRowId = rows[0] ? rows[0].id : "row-society";
 
@@ -1691,7 +1958,6 @@
         const tiles = Array.from(rowEl.querySelectorAll('.row-track .tile'));
         const picks = tiles.slice(0, 2).map(extractTileData);
 
-        // fallback if not enough tiles
         while(picks.length < 2){
           picks.push({ href:"#fiches", imgSrc:"", imgAlt:"", k:"", t:"Explore guides", s:"" });
         }
@@ -1714,37 +1980,27 @@
         }).join('');
       }
 
-      // Observe which row the user is browsing (best intersection ratio)
       if(rows.length && 'IntersectionObserver' in window){
         const ratios = new Map();
         const io = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            ratios.set(entry.target.id, entry.intersectionRatio);
-          });
+          entries.forEach(entry => ratios.set(entry.target.id, entry.intersectionRatio));
 
-          // pick the row with highest ratio (and > small threshold)
           let bestId = currentRowId;
           let best = ratios.get(bestId) || 0;
 
           ratios.forEach((r, id) => {
-            if(r > best){
-              best = r;
-              bestId = id;
-            }
+            if(r > best){ best = r; bestId = id; }
           });
 
-          // only change context if meaningful (prevents flicker)
           if(best > 0.22 && bestId !== currentRowId){
             currentRowId = bestId;
-            const rowEl = document.getElementById(currentRowId);
-            renderRowContext(rowEl);
+            renderRowContext(document.getElementById(currentRowId));
           }
         }, { threshold:[0,0.12,0.22,0.35,0.5,0.7] });
 
         rows.forEach(r => io.observe(r));
       }
 
-      // Also: if user interacts with a track, “lock” the context to that row
       rows.forEach(rowEl => {
         const track = rowEl.querySelector('.row-track');
         if(!track) return;
@@ -1758,13 +2014,47 @@
         });
       });
 
-      // initial render
-      const initial = document.getElementById(currentRowId) || rows[0];
-      renderRowContext(initial);
-
+      renderRowContext(document.getElementById(currentRowId) || rows[0]);
     })();
   </script>
 
+  <!-- =========================================================
+       IMAGE FILES (to place in /img) — rename freely, keep same strings
+       =========================================================
+       Covers:
+       - img/wilt.png
+       - img/the-code-of-the-woosters.png
+       - img/lucky-jim.png
+       - img/small-world.png
+       - img/the-girls-of-slender-means.png
+       - img/flauberts-parrot.png
+       - img/the-old-devils.png
+       - img/bright-lights-big-city.png
+       - img/tourist-season.png
+       - img/florida-roadkill.png
+       - img/big-trouble.png
+       - img/the-deep-blue-good-by.png
+       - img/good-behavior.png
+       - img/the-commitments.png
+       - img/portnoys-complaint.png
+       - img/generation-x.png
+       - img/the-malaise-expedition.png
+       - img/white-noise.png
+       - img/money.png
+       - img/double-negative.png
+       - img/james.png
+
+       Portraits:
+       - img/tom-sharpe-portrait.jpg
+       - img/pg-wodehouse-portrait.jpg
+       - img/muriel-spark-portrait.jpg
+       - img/martin-amis-portrait.jpg
+       - img/douglas-coupland-portrait.jpg
+       - img/kurt-vonnegut-portrait.jpg
+
+       Social / OG:
+       - img/og-tnoc.jpg
+       ========================================================= -->
 </body>
 </html>
 
