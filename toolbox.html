@@ -1,0 +1,1433 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="night">
+<head>
+  <meta charset="utf-8">
+
+  <!-- =========================================================
+       SEO / IA micro-optimisation (stable + shareable)
+       ========================================================= -->
+  <title>Toolbox — Roles, environments, labs · The Novel of Comedy (TNoC)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b0b0c">
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="TNoC Toolbox: simple vocabulary reused across guides for comparability. Comedy level (Comic Engine / Comic Thread / Comic Turn), Environment, Labs, and author-level comedy categories.">
+  <meta name="author" content="Boris Jeanson Béteille">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+
+  <link rel="canonical" href="https://www.thenovelofcomedy.com/toolbox.html">
+  <link rel="alternate" hreflang="en" href="https://www.thenovelofcomedy.com/toolbox.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.thenovelofcomedy.com/toolbox.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="The Novel of Comedy (TNoC)">
+  <meta property="og:title" content="Toolbox — The Novel of Comedy">
+  <meta property="og:description" content="Simple vocabulary reused across guides: Comic Engine / Thread / Turn, Environment, Labs, author-level categories.">
+  <meta property="og:url" content="https://www.thenovelofcomedy.com/toolbox.html">
+  <meta property="og:image" content="https://www.thenovelofcomedy.com/img/wilt.png">
+  <meta property="og:image:alt" content="Cover: Wilt — Tom Sharpe (1976)">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Toolbox — The Novel of Comedy">
+  <meta name="twitter:description" content="Comic Engine / Thread / Turn · Environment · Labs · Author categories. Reused everywhere for comparability.">
+  <meta name="twitter:image" content="https://www.thenovelofcomedy.com/img/wilt.png">
+
+  <link rel="icon" href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="%230b0b0c"/><text x="50%25" y="54%25" text-anchor="middle" font-family="Georgia" font-size="18" fill="%23f6f4ef" letter-spacing="2">TNoC</text></svg>'>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Toolbox — The Novel of Comedy (TNoC)",
+    "url": "https://www.thenovelofcomedy.com/toolbox.html",
+    "inLanguage": "en",
+    "description": "TNoC Toolbox: simple vocabulary reused across guides for comparability. Comedy level (Comic Engine / Comic Thread / Comic Turn), Environment, Labs, and author-level comedy categories.",
+    "isPartOf": { "@type": "WebSite", "name": "The Novel of Comedy (TNoC)", "url": "https://www.thenovelofcomedy.com/" },
+    "publisher": { "@type": "Person", "name": "Boris Jeanson Béteille" }
+  }
+  </script>
+
+  <style>
+    /* =========================================================
+       TNoC — Luxe / Art-book skin
+       Toolbox page (paper-first, with night header)
+       ========================================================= */
+
+    :root{
+      --night:#0b0b0c;
+      --ivory:#f6f4ef;
+      --paper:#fbfaf7;
+      --ink:#0f0f10;
+      --smoke:rgba(246,244,239,.62);
+      --lineN:rgba(246,244,239,.14);
+      --lineN2:rgba(246,244,239,.22);
+      --lineD:rgba(11,11,12,.12);
+      --softN:rgba(246,244,239,.06);
+      --softD:rgba(11,11,12,.05);
+
+      --accent:#bfa77a;
+      --accent2:rgba(191,167,122,.24);
+
+      --w:1120px;
+      --pad: clamp(16px, 4.5vw, 28px);
+
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      --serif: ui-serif, "Iowan Old Style","Palatino Linotype", Palatino, Georgia, serif;
+
+      --cap: 11px;
+      --track: .22em;
+
+      --shadowN: 0 24px 90px rgba(0,0,0,.62);
+    }
+
+    html,body{
+      margin:0; padding:0;
+      font-family: var(--sans);
+      background: var(--night);
+      color: var(--ivory);
+      overflow-x:hidden;
+    }
+    a{color:inherit; text-decoration:none}
+    a:hover{text-decoration:none}
+    *{box-sizing:border-box}
+
+    @media (prefers-reduced-motion: reduce){
+      *{ animation:none !important; transition:none !important; scroll-behavior:auto !important; }
+    }
+
+    /* Subtle grain */
+    body::before{
+      content:"";
+      position:fixed; inset:0;
+      pointer-events:none;
+      opacity:.09;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
+      mix-blend-mode:overlay;
+    }
+
+    /* a11y */
+    .sr-only{
+      position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+      overflow:hidden; clip:rect(0,0,0,0); border:0;
+    }
+    .skiplink{
+      position:absolute; left:14px; top:12px;
+      padding:10px 12px;
+      border-radius:999px;
+      background: var(--ivory);
+      color: var(--ink);
+      z-index:999;
+      transform:translateY(-140%);
+      transition:transform .14s ease;
+      border:1px solid rgba(0,0,0,.12);
+      text-decoration:none;
+      font-size:12px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .skiplink:focus{ transform:translateY(0); }
+
+    /* =========================================================
+       TOPBAR
+       ========================================================= */
+    .topbar{
+      position:sticky; top:0; z-index:80;
+      backdrop-filter: blur(18px);
+      background: color-mix(in srgb, var(--night) 84%, transparent);
+      border-bottom:1px solid var(--lineN);
+    }
+    .topbar-inner{
+      max-width:var(--w);
+      margin:0 auto;
+      padding: 12px var(--pad);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      min-width:0;
+    }
+    .brand-mark{
+      width:34px; height:34px;
+      border-radius: 14px;
+      border:1px solid var(--lineN2);
+      display:flex; align-items:center; justify-content:center;
+      font-family: var(--serif);
+      font-weight: 700;
+      letter-spacing:.18em;
+      font-size: 11px;
+      background: rgba(255,255,255,.03);
+      flex:0 0 auto;
+    }
+    .brand-text{min-width:0}
+    .brand-title{
+      font-family: var(--serif);
+      font-size: 14px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      line-height: 1.05;
+    }
+    .brand-sub{
+      margin-top:3px;
+      font-size: 10.5px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--smoke);
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+
+    .nav{
+      display:flex; gap:10px; align-items:center;
+      font-size:12px;
+      letter-spacing:.10em;
+      text-transform:uppercase;
+    }
+    .nav a{opacity:.82; padding:8px 6px}
+    .nav a:hover{opacity:1}
+    .nav a.active{opacity:1; color: rgba(191,167,122,.95);}
+
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:8px;
+      padding: 10px 12px;
+      border-radius:999px;
+      border:1px solid var(--lineN2);
+      background: rgba(255,255,255,.04);
+      color: var(--ivory);
+      cursor:pointer;
+      transition: transform .14s ease, opacity .14s ease, border-color .14s ease, background .14s ease;
+      user-select:none;
+      font-size: 11px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      white-space:nowrap;
+    }
+    .btn:hover{ transform:translateY(-1px); border-color: rgba(191,167,122,.55); background: rgba(191,167,122,.10); }
+    .btn:focus-visible{ outline:2px solid rgba(191,167,122,.55); outline-offset:3px; }
+
+    .btn-primary{
+      background: var(--ivory);
+      color: var(--ink);
+      border-color: transparent;
+    }
+    .btn-primary:hover{
+      background: color-mix(in srgb, var(--ivory) 92%, var(--accent) 8%);
+      transform:translateY(-1px);
+    }
+
+    .kbd{
+      font-size:10px;
+      opacity:.8;
+      padding:3px 7px;
+      border-radius:999px;
+      border:1px solid var(--lineN);
+      background: rgba(0,0,0,.22);
+      letter-spacing:.06em;
+      text-transform:none;
+    }
+
+    @media(max-width:860px){
+      .brand-sub{display:none}
+      .nav a{display:none}
+      .kbd{display:none}
+    }
+
+    /* =========================================================
+       HERO (night)
+       ========================================================= */
+    .hero{
+      position:relative;
+      border-bottom:1px solid var(--lineN);
+      overflow:hidden;
+    }
+    .hero-inner{
+      max-width:var(--w);
+      margin:0 auto;
+      padding: 22px var(--pad) 18px;
+      display:grid;
+      grid-template-columns: 1.08fr .92fr;
+      gap: 16px;
+      align-items:stretch;
+    }
+    @media(max-width:980px){
+      .hero-inner{ grid-template-columns:1fr; }
+    }
+
+    .hero-card{
+      border-radius: 22px;
+      border:1px solid rgba(246,244,239,.14);
+      background: rgba(0,0,0,.36);
+      backdrop-filter: blur(14px);
+      box-shadow: var(--shadowN);
+      padding: 18px 18px 16px;
+    }
+    .hero-kicker{
+      font-size: var(--cap);
+      letter-spacing: var(--track);
+      text-transform: uppercase;
+      color: rgba(246,244,239,.78);
+      display:flex; gap:10px; flex-wrap:wrap; align-items:center;
+      margin-bottom: 10px;
+    }
+    .dot{width:4px;height:4px;border-radius:99px;background: rgba(246,244,239,.86);opacity:.8}
+
+    .hero-title{
+      margin:0;
+      font-family: var(--serif);
+      font-weight: 780;
+      letter-spacing: -.02em;
+      line-height: 1.03;
+      font-size: clamp(30px, 6.2vw, 54px);
+    }
+    .hero-tag{
+      margin: 10px 0 0;
+      font-family: var(--serif);
+      font-size: clamp(14px, 3.9vw, 18px);
+      line-height: 1.55;
+      color: rgba(246,244,239,.78);
+      max-width: 62ch;
+    }
+    .hero-actions{
+      margin-top: 14px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    .quick{
+      border-radius:22px;
+      border:1px solid rgba(246,244,239,.14);
+      background: rgba(0,0,0,.34);
+      backdrop-filter: blur(14px);
+      box-shadow: var(--shadowN);
+      padding: 14px;
+    }
+    .quick h3{
+      margin:0 0 8px;
+      font-family: var(--serif);
+      letter-spacing: .10em;
+      text-transform: uppercase;
+      font-size: 12px;
+      color: rgba(246,244,239,.86);
+    }
+    .chips{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin: 6px 0 0;
+    }
+    .pill{
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid rgba(246,244,239,.16);
+      background: rgba(246,244,239,.05);
+      font-size: 10px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(246,244,239,.76);
+      white-space:nowrap;
+    }
+    .mini{
+      margin-top:10px;
+      font-size: 12.5px;
+      line-height: 1.45;
+      color: rgba(246,244,239,.72);
+      max-width: 60ch;
+    }
+    .mini a{ text-decoration:underline; text-decoration-color: rgba(191,167,122,.55); }
+
+    /* =========================================================
+       Divider night -> paper
+       ========================================================= */
+    .stitch-divider{
+      position:relative;
+      height:74px;
+      background: linear-gradient(180deg, rgba(11,11,12,1) 0%, rgba(11,11,12,1) 38%, rgba(251,250,247,1) 100%);
+      border-top:1px solid rgba(246,244,239,.08);
+    }
+    .stitch-divider::before{
+      content:"";
+      position:absolute; left:0; right:0; top:26px;
+      height:1px;
+      background:
+        repeating-linear-gradient(90deg,
+          rgba(191,167,122,.65) 0, rgba(191,167,122,.65) 12px,
+          rgba(246,244,239,.12) 12px, rgba(246,244,239,.12) 22px);
+      opacity:.42;
+    }
+    .stitch-badge{
+      position:absolute; left:50%; top:16px;
+      transform:translateX(-50%);
+      padding:7px 12px;
+      border-radius:999px;
+      border:1px solid rgba(0,0,0,.10);
+      background: rgba(246,244,239,.94);
+      color: rgba(0,0,0,.70);
+      font-size: 10.5px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 10px 26px rgba(0,0,0,.10);
+      white-space:nowrap;
+    }
+
+    /* =========================================================
+       PAPER LAYER
+       ========================================================= */
+    .main{
+      background: var(--paper);
+      color: var(--ink);
+    }
+    .main-inner{
+      max-width: var(--w);
+      margin:0 auto;
+      padding: 26px var(--pad) 42px;
+      display:grid;
+      grid-template-columns: 1fr minmax(280px, .54fr);
+      gap: 20px;
+      align-items:start;
+    }
+    @media(max-width:960px){
+      .main-inner{ grid-template-columns:1fr; }
+    }
+
+    .section{
+      padding: 24px 0;
+      border-bottom: 1px solid rgba(11,11,12,.08);
+      scroll-margin-top:110px;
+    }
+    .section:last-of-type{ border-bottom:none; padding-bottom: 10px; }
+
+    .kicker{
+      font-size: 11px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(11,11,12,.58);
+    }
+    .h2{
+      font-family: var(--serif);
+      margin: 8px 0 8px;
+      font-size: 28px;
+      line-height: 1.08;
+      letter-spacing: -.01em;
+    }
+    .lead{
+      font-family: var(--serif);
+      margin:0;
+      font-size: 16px;
+      line-height: 1.7;
+      color: rgba(11,11,12,.74);
+      max-width: 86ch;
+    }
+    .sub{
+      margin: 12px 0 0;
+      font-size: 13.5px;
+      line-height: 1.65;
+      color: rgba(11,11,12,.60);
+      max-width: 86ch;
+    }
+
+    .grid-3{ display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:14px; }
+    .grid-2{ display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:14px; }
+    @media(max-width:900px){ .grid-3,.grid-2{ grid-template-columns:1fr; } }
+
+    .card{
+      background: rgba(255,255,255,.70);
+      border-radius: 18px;
+      border: 1px solid rgba(11,11,12,.10);
+      box-shadow: 0 10px 34px rgba(0,0,0,.06);
+      padding: 14px 14px 12px;
+    }
+    .card-head{
+      display:flex; align-items:baseline; justify-content:space-between; gap:10px;
+      font-family: var(--serif);
+      font-weight: 780;
+      font-size: 16px;
+      margin-bottom: 8px;
+      letter-spacing: -.01em;
+    }
+    .card-body{
+      font-size: 13.5px;
+      line-height: 1.65;
+      color: rgba(11,11,12,.78);
+    }
+    .card-body p{ margin:8px 0; }
+
+    .linkpill{
+      display:inline-flex; align-items:center; gap:8px;
+      font-size: 11px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(11,11,12,.68);
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(11,11,12,.12);
+      background: rgba(11,11,12,.02);
+      text-decoration:none;
+      transition: transform .14s ease, background .14s ease, border-color .14s ease;
+      white-space:nowrap;
+    }
+    .linkpill:hover{
+      transform: translateY(-1px);
+      border-color: rgba(191,167,122,.55);
+      background: rgba(191,167,122,.10);
+    }
+
+    .list{
+      margin: 10px 0 0;
+      padding-left: 17px;
+      font-size: 13.5px;
+      color: rgba(11,11,12,.78);
+    }
+
+    .note{
+      margin-top:12px;
+      padding: 12px 12px;
+      border-radius: 16px;
+      border:1px solid rgba(11,11,12,.10);
+      background: rgba(191,167,122,.10);
+      color: rgba(11,11,12,.78);
+      font-size: 13.5px;
+      line-height: 1.6;
+    }
+    .note strong{ font-family: var(--serif); }
+
+    .term{
+      border-radius: 18px;
+      border: 1px solid rgba(11,11,12,.10);
+      background: rgba(255,255,255,.78);
+      padding: 14px 14px 12px;
+      box-shadow: 0 10px 34px rgba(0,0,0,.06);
+    }
+    .term h3{
+      margin:0 0 6px;
+      font-family: var(--serif);
+      font-weight: 780;
+      font-size: 18px;
+      letter-spacing: -.01em;
+    }
+    .term .tag{
+      display:inline-flex; align-items:center; gap:8px;
+      font-size: 10.5px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(11,11,12,.64);
+      padding: 6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(11,11,12,.10);
+      background: rgba(11,11,12,.02);
+      margin-bottom:10px;
+    }
+    .term p{
+      margin:8px 0 0;
+      font-size: 13.5px;
+      line-height: 1.65;
+      color: rgba(11,11,12,.78);
+    }
+    .ex{
+      margin-top:10px;
+      font-size: 12.5px;
+      color: rgba(11,11,12,.62);
+      line-height: 1.55;
+    }
+    .ex a{ text-decoration:underline; text-decoration-color: rgba(191,167,122,.70); }
+
+    /* mobile toc */
+    .mobile-toc{
+      display:none;
+      margin: 10px 0 0;
+      border-radius: 18px;
+      border:1px solid rgba(11,11,12,.10);
+      background: rgba(255,255,255,.78);
+      box-shadow: 0 10px 34px rgba(0,0,0,.06);
+      overflow:hidden;
+    }
+    .mobile-toc summary{
+      cursor:pointer;
+      list-style:none;
+      padding: 12px 12px;
+      font-weight: 780;
+      font-size: 11px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(11,11,12,.72);
+      display:flex; align-items:center; justify-content:space-between;
+      gap:10px;
+      background: linear-gradient(180deg, rgba(11,11,12,.01), rgba(11,11,12,.03));
+    }
+    .mobile-toc summary::-webkit-details-marker{ display:none; }
+    .mobile-toc .toc{
+      padding: 10px 10px 12px;
+      display:grid;
+      gap:6px;
+    }
+    .mobile-toc .toc a{
+      padding: 10px 10px;
+      border-radius: 14px;
+      border:1px solid rgba(11,11,12,.10);
+      background: rgba(11,11,12,.015);
+      font-size: 13px;
+      color: rgba(11,11,12,.78);
+      text-decoration:none;
+    }
+    .mobile-toc .toc a.active{
+      border-color: rgba(191,167,122,.70);
+      background: rgba(191,167,122,.14);
+      color: #000;
+      font-weight: 780;
+    }
+    @media(max-width:960px){ .mobile-toc{ display:block; } }
+
+    /* rail */
+    .rail{
+      background: rgba(255,255,255,.78);
+      border-radius: 18px;
+      border:1px solid rgba(11,11,12,.10);
+      box-shadow: 0 10px 34px rgba(0,0,0,.06);
+      overflow:hidden;
+    }
+    .rail-sticky{ position:static; }
+    @media(min-width:960px){ .rail-sticky{ position:sticky; top:88px; } }
+    .rail header{
+      padding: 14px 14px 12px;
+      border-bottom:1px solid rgba(11,11,12,.08);
+      background: linear-gradient(180deg, rgba(11,11,12,.01), rgba(11,11,12,.03));
+    }
+    .rail header h3{
+      margin:0 0 6px;
+      font-size: 11px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(11,11,12,.78);
+      font-family: var(--serif);
+      font-weight: 780;
+    }
+    .rail-meta{
+      font-size:12px;
+      color: rgba(11,11,12,.58);
+      display:flex; flex-wrap:wrap;
+      gap:8px 10px;
+      align-items:center;
+      margin:0;
+    }
+    .rail-pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(11,11,12,.10);
+      background: rgba(11,11,12,.02);
+      font-size: 10px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(11,11,12,.62);
+      white-space:nowrap;
+    }
+    .rail-pill .tiny{
+      width:6px; height:6px; border-radius:99px;
+      background: rgba(191,167,122,.95);
+      box-shadow:0 0 0 5px rgba(191,167,122,.18);
+    }
+    .rail-progress{
+      margin-top:10px;
+      height:6px;
+      border-radius:999px;
+      background: rgba(11,11,12,.03);
+      border:1px solid rgba(11,11,12,.06);
+      overflow:hidden;
+    }
+    .rail-progress > span{
+      display:block;
+      height:100%;
+      width:0%;
+      background: linear-gradient(90deg, rgba(191,167,122,.95), rgba(11,11,12,.35));
+    }
+    .toc{
+      padding: 10px;
+      display:grid;
+      gap:6px;
+    }
+    .toc a{
+      padding: 10px 10px;
+      border-radius: 14px;
+      border:1px solid transparent;
+      background: rgba(11,11,12,.015);
+      font-size: 13px;
+      color: rgba(11,11,12,.78);
+      text-decoration:none;
+    }
+    .toc a:hover{
+      border-color: rgba(191,167,122,.40);
+      background: rgba(191,167,122,.10);
+    }
+    .toc a.active{
+      border-color: rgba(191,167,122,.70);
+      background: rgba(191,167,122,.14);
+      color:#000;
+      font-weight:780;
+    }
+
+    /* =========================================================
+       SEARCH OVERLAY
+       ========================================================= */
+    .overlay{
+      position:fixed;
+      inset:0;
+      z-index:200;
+      display:none;
+      background: rgba(0,0,0,.72);
+      backdrop-filter: blur(16px);
+      align-items:flex-start;
+      justify-content:center;
+      padding: 84px var(--pad) 16px;
+    }
+    .overlay.open{ display:flex; }
+    .searchbox{
+      width:min(900px, 100%);
+      border-radius: 22px;
+      border:1px solid rgba(246,244,239,.16);
+      background: rgba(0,0,0,.50);
+      box-shadow: 0 28px 110px rgba(0,0,0,.78);
+      overflow:hidden;
+    }
+    .search-top{
+      padding: 12px 12px 10px;
+      border-bottom:1px solid rgba(246,244,239,.10);
+      display:flex; gap:10px; align-items:center;
+    }
+    .search-top input{
+      width:100%;
+      padding: 12px 12px;
+      border-radius: 16px;
+      border:1px solid rgba(246,244,239,.16);
+      background: rgba(246,244,239,.06);
+      color: var(--ivory);
+      outline:none;
+      font-size: 14px;
+    }
+    .search-top input::placeholder{ color: rgba(246,244,239,.55); }
+    .search-close{
+      flex:0 0 auto;
+      padding: 10px 12px;
+      border-radius: 16px;
+      border:1px solid rgba(246,244,239,.18);
+      background: rgba(246,244,239,.06);
+      color: var(--ivory);
+      cursor:pointer;
+      font-size: 11px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+    .search-meta{
+      padding: 10px 12px 12px;
+      font-size: 11px;
+      letter-spacing: .10em;
+      text-transform: uppercase;
+      color: rgba(246,244,239,.70);
+      display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap;
+    }
+    .results{
+      max-height:min(54vh, 520px);
+      overflow:auto;
+      padding: 10px 10px 12px;
+      display:grid;
+      gap:8px;
+    }
+    .result{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      border-radius: 18px;
+      border:1px solid rgba(246,244,239,.12);
+      background: rgba(246,244,239,.04);
+      padding: 10px;
+      text-decoration:none;
+    }
+    .result:hover{ border-color: rgba(191,167,122,.45); background: rgba(191,167,122,.08); }
+    .rthumb{
+      width:48px;
+      height:48px;
+      border-radius: 14px;
+      overflow:hidden;
+      background: rgba(246,244,239,.06);
+      border:1px solid rgba(246,244,239,.14);
+      flex:0 0 auto;
+      display:flex; align-items:center; justify-content:center;
+      font-family: var(--serif);
+      color: rgba(246,244,239,.82);
+      letter-spacing: .10em;
+      text-transform: uppercase;
+      font-size: 12px;
+    }
+    .rtext{ min-width:0; }
+    .rtext .rk{
+      font-size: 9.5px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      opacity:.76;
+      margin:0 0 2px;
+    }
+    .rtext .rt{
+      margin:0;
+      font-family: var(--serif);
+      font-weight: 780;
+      font-size: 13px;
+      line-height: 1.2;
+      white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+    }
+    .rtext .rs{
+      margin-top:3px;
+      font-size: 12px;
+      opacity:.78;
+      white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+    }
+    .empty{
+      padding: 18px 12px;
+      text-align:center;
+      color: rgba(246,244,239,.78);
+      font-size: 12px;
+      letter-spacing: .06em;
+    }
+
+    /* =========================================================
+       FOOTER
+       ========================================================= */
+    .site-footer{
+      background: rgba(11,11,12,1);
+      color: rgba(246,244,239,.86);
+      border-top:1px solid rgba(246,244,239,.10);
+    }
+    .site-footer .inner{
+      max-width:var(--w);
+      margin:0 auto;
+      padding: 18px var(--pad) 24px;
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:16px;
+    }
+    .site-footer .left{
+      min-width:0;
+      font-size: 12px;
+      line-height:1.5;
+      letter-spacing: .02em;
+    }
+    .site-footer .left strong{
+      font-family: var(--serif);
+      font-weight: 780;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .site-footer .left .muted{ opacity:.78; }
+
+    .site-footer .links{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+      gap: 10px 14px;
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      opacity:.88;
+    }
+    .site-footer .links a{
+      color:inherit;
+      text-decoration:none;
+      padding:4px 0;
+      opacity:.82;
+    }
+    .site-footer .links a:hover{ opacity:1; text-decoration:none; color: rgba(191,167,122,.95); }
+
+    @media(max-width:900px){
+      .site-footer .inner{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+      .site-footer .links{ justify-content:flex-start; }
+    }
+  </style>
+</head>
+
+<body id="top">
+  <a class="skiplink" href="#paper">Skip to toolbox</a>
+
+  <!-- Search overlay -->
+  <div class="overlay" id="searchOverlay" aria-hidden="true">
+    <div class="searchbox" role="dialog" aria-modal="true" aria-label="Search Toolbox">
+      <div class="search-top">
+        <input id="searchInput" type="text" placeholder="Search a term…" autocomplete="off">
+        <button class="search-close" id="searchClose" type="button" aria-label="Close search">Esc</button>
+      </div>
+      <div class="search-meta">
+        <div><strong>Tip</strong> · Ctrl+K / ⌘K · Esc</div>
+        <div><span id="searchCount">0</span> results</div>
+      </div>
+      <div class="results" id="searchResults" aria-label="Search results"></div>
+      <div class="empty" id="searchEmpty" style="display:none;">No results. Try another spelling.</div>
+    </div>
+  </div>
+
+  <header class="topbar" role="banner">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html" aria-label="The Novel of Comedy home">
+        <div class="brand-mark">TNoC</div>
+        <div class="brand-text">
+          <div class="brand-title">The Novel of Comedy</div>
+          <div class="brand-sub">First atlas &amp; cartography of humorous fiction</div>
+        </div>
+      </a>
+
+      <nav class="nav" aria-label="Navigation">
+        <a href="index.html#rows">Browse</a>
+        <a href="currents.html">Currents</a>
+        <a href="novel-guides.html">Novels</a>
+        <a href="author-profiles.html">Authors</a>
+        <a class="active" href="toolbox.html">Toolbox</a>
+        <button class="btn" id="openSearch" type="button" aria-label="Open search">
+          Search <span class="kbd">Ctrl/⌘ K</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" aria-label="Toolbox hero">
+    <div class="hero-inner">
+      <div class="hero-card">
+        <div class="hero-kicker"><span class="dot"></span> Vocabulary <span class="dot"></span> Comparability <span class="dot"></span> Stable links</div>
+
+        <h1 class="hero-title">Toolbox</h1>
+
+        <p class="hero-tag">
+          A small set of terms reused across guides, so books can be compared without forcing a single theory.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#level">Comedy level</a>
+          <a class="btn" href="#environment">Environment</a>
+          <a class="btn" href="#labs">Labs</a>
+          <button class="btn" id="openSearch2" type="button">Search</button>
+        </div>
+      </div>
+
+      <aside class="quick" aria-label="Quick keys">
+        <h3>What the toolbox covers</h3>
+        <div class="chips" aria-label="Toolbox chips">
+          <span class="pill">Comic Engine</span>
+          <span class="pill">Comic Thread</span>
+          <span class="pill">Comic Turn</span>
+          <span class="pill">Environment</span>
+          <span class="pill">Labs</span>
+          <span class="pill">Author categories</span>
+        </div>
+        <p class="mini">
+          These labels appear in guides and profiles. They stay simple on purpose.
+          For full mapping, go to <a href="currents.html">Currents</a>.
+        </p>
+        <p class="mini" style="margin-top:8px;">
+          French reference pages:
+          <a href="/fr/cartographie/roles-romans">Roles</a>,
+          <a href="/fr/cartographie/environnements">Environments</a>,
+          <a href="/fr/cartographie/labs">Labs</a>.
+        </p>
+      </aside>
+    </div>
+  </section>
+
+  <div class="stitch-divider" aria-hidden="true">
+    <div class="stitch-badge">Night → Paper</div>
+  </div>
+
+  <!-- PAPER -->
+  <main class="main" id="paper" aria-label="Toolbox (paper layer)">
+    <div class="main-inner">
+      <div>
+
+        <details class="mobile-toc" id="mobileToc">
+          <summary>
+            <span>In this page</span>
+            <span style="opacity:.72; font-size:12px" id="mobileMeta">~4 min</span>
+          </summary>
+          <nav class="toc" aria-label="In this page (mobile)" id="tocMobile">
+            <a href="#overview">Overview</a>
+            <a href="#level">Comedy level</a>
+            <a href="#authors">Author categories</a>
+            <a href="#environment">Environment</a>
+            <a href="#labs">Labs</a>
+            <a href="#usage">How to use</a>
+          </nav>
+        </details>
+
+        <section class="section" id="overview" data-spy data-searchitem
+                 data-kind="Section" data-title="Overview" data-sub="What this toolbox is for" data-key="toolbox overview comparability vocabulary">
+          <div class="kicker">Overview</div>
+          <h2 class="h2">A small vocabulary, reused everywhere</h2>
+          <p class="lead">
+            The toolbox is not a theory. It is a stable set of labels that makes guides readable and comparable.
+          </p>
+          <p class="sub">
+            It answers three practical questions: how central comedy is in the book, where the book plays, and which clusters it belongs to.
+          </p>
+
+          <div class="grid-3" style="margin-top:14px;">
+            <article class="card" data-searchitem data-kind="Tool" data-title="Comedy level" data-sub="Comic Engine / Thread / Turn" data-key="comic engine thread turn level central">
+              <div class="card-head"><span>Comedy level</span><a class="linkpill" href="#level">Open →</a></div>
+              <div class="card-body">
+                <p>Is comedy the main motor, a sustained line, or punctual bursts.</p>
+              </div>
+            </article>
+
+            <article class="card" data-searchitem data-kind="Tool" data-title="Environment" data-sub="Place, milieu, period, institutions" data-key="environment place period institutions milieu">
+              <div class="card-head"><span>Environment</span><a class="linkpill" href="#environment">Open →</a></div>
+              <div class="card-body">
+                <p>Where it plays: settings and institutions that shape scenes.</p>
+              </div>
+            </article>
+
+            <article class="card" data-searchitem data-kind="Tool" data-title="Labs" data-sub="Optional clusters by shared energy" data-key="labs hubs clusters energy family">
+              <div class="card-head"><span>Labs</span><a class="linkpill" href="#labs">Open →</a></div>
+              <div class="card-body">
+                <p>Optional hubs connecting works that share a specific charge.</p>
+              </div>
+            </article>
+          </div>
+
+          <div class="note">
+            <strong>Important:</strong> “Comedy level” is not the same thing as a <em>current</em>.
+            Currents are the big map. Comedy level tells you how much comedy drives the text.
+          </div>
+        </section>
+
+        <section class="section" id="level" data-spy data-searchitem
+                 data-kind="Tool" data-title="Comedy level" data-sub="Comic Engine / Thread / Turn" data-key="comic engine comic thread comic turn level hybrid sporadic">
+          <div class="kicker">Comedy level</div>
+          <h2 class="h2">Comic Engine, Comic Thread, Comic Turn</h2>
+          <p class="lead">
+            Three labels that describe how central comedy is in a novel.
+          </p>
+          <p class="sub">
+            They stay rough by design. They help orientation. They do not replace reading.
+          </p>
+
+          <div class="grid-3" style="margin-top:14px;">
+            <div class="term" id="comic-engine" data-searchitem data-kind="Term" data-title="Comic Engine" data-sub="Comedy is the main narrative engine" data-key="comic engine main narrative engine voice rhythm logic">
+              <div class="tag">Novel label</div>
+              <h3>Comic Engine</h3>
+              <p>Comedy is the main narrative engine. It shapes the voice, the rhythm and the logic of scenes.</p>
+              <div class="ex">
+                Typical: <a href="wilt-fiche.html">Wilt</a>.
+                Many classic farces and institution comedies sit here.
+              </div>
+            </div>
+
+            <div class="term" id="comic-thread" data-searchitem data-kind="Term" data-title="Comic Thread" data-sub="A sustained comic thread coexists with other registers" data-key="comic thread hybrid sustained coexists registers">
+              <div class="tag">Novel label</div>
+              <h3>Comic Thread</h3>
+              <p>
+                The novel develops a sustained comic thread that coexists with other registers.
+                Comedy articulates the whole but does not alone determine the form.
+              </p>
+              <div class="ex">
+                Example: <a href="white-noise-fiche.html">White Noise</a> as a hybrid case.
+              </div>
+            </div>
+
+            <div class="term" id="comic-turn" data-searchitem data-kind="Term" data-title="Comic Turn" data-sub="Comedy appears as striking incursions" data-key="comic turn incursions moments punctually sporadic">
+              <div class="tag">Novel label</div>
+              <h3>Comic Turn</h3>
+              <p>
+                Comedy appears as striking incursions. These local moments structure the reading,
+                without occupying the entire text.
+              </p>
+              <div class="ex">
+                Useful for novels with sharp comic scenes inside a broader tone.
+              </div>
+            </div>
+          </div>
+
+          <div class="note" style="margin-top:14px;">
+            <strong>Practical reading cue:</strong> ask one question.
+            If you remove comedy, does the book collapse (Engine), keep a backbone (Thread), or keep its plot but lose sparks (Turn).
+          </div>
+        </section>
+
+        <section class="section" id="authors" data-spy data-searchitem
+                 data-kind="Tool" data-title="Author categories" data-sub="Core Comedy / Hybrid / Comic Incursions" data-key="author categories core comedy hybrid transversal comic incursions">
+          <div class="kicker">Author profiles</div>
+          <h2 class="h2">Core Comedy, Hybrid, Comic Incursions</h2>
+          <p class="lead">
+            Author profiles use a parallel trio, at the scale of a whole body of work.
+          </p>
+          <p class="sub">
+            This is not a ranking. It describes how consistently comedy functions as an organising force across books.
+          </p>
+
+          <div class="grid-3" style="margin-top:14px;">
+            <div class="term" id="core-comedy" data-searchitem data-kind="Term" data-title="Core Comedy" data-sub="Comedy is the centre of the work" data-key="core comedy centre consistent several books comic forms">
+              <div class="tag">Author label</div>
+              <h3>Core Comedy</h3>
+              <p>Comedy is the centre of the work. Several books develop comic forms and contexts, with variations in mechanics.</p>
+            </div>
+
+            <div class="term" id="hybrid-transversal" data-searchitem data-kind="Term" data-title="Hybrid / Transversal" data-sub="Works across several registers with a significant comic core" data-key="hybrid transversal registers comic core background tone">
+              <div class="tag">Author label</div>
+              <h3>Hybrid / Transversal</h3>
+              <p>The author works across several registers while keeping a significant comic core in part of their books or as a background tone.</p>
+            </div>
+
+            <div class="term" id="comic-incursions" data-searchitem data-kind="Term" data-title="Comic Incursions" data-sub="Comedy intervenes punctually" data-key="comic incursions punctually passages strong comic importance broader output">
+              <div class="tag">Author label</div>
+              <h3>Comic Incursions</h3>
+              <p>The author intervenes in comedy punctually. Some novels or passages have a strong comic importance within a broader output.</p>
+            </div>
+          </div>
+
+          <div class="note" style="margin-top:14px;">
+            <strong>Consistency rule:</strong> a novel can be Comic Engine while its author remains Hybrid,
+            if comedy is central in only part of the bibliography.
+          </div>
+        </section>
+
+        <section class="section" id="environment" data-spy data-searchitem
+                 data-kind="Tool" data-title="Environment" data-sub="Where it plays: place, milieu, period, institutions" data-key="environment place milieu period institutions setting">
+          <div class="kicker">Environment</div>
+          <h2 class="h2">Where it plays</h2>
+          <p class="lead">
+            Environment names the scene terrain: place, milieu, period, and the institutions that shape behaviour.
+          </p>
+          <p class="sub">
+            Keep it concrete. Prefer one strong institution to a pile of descriptors.
+          </p>
+
+          <div class="grid-2" style="margin-top:14px;">
+            <article class="card" data-searchitem data-kind="Guide" data-title="Environment in novel guides" data-sub="A short, concrete statement" data-key="environment in guides concrete institution">
+              <div class="card-head"><span>In novel guides</span><a class="linkpill" href="novel-guides.html">Browse →</a></div>
+              <div class="card-body">
+                <p>
+                  Format suggestion: <strong>Place</strong> · <strong>Institution</strong> · <strong>Social pressure</strong>.
+                </p>
+                <ul class="list">
+                  <li>Campus and its bureaucracy</li>
+                  <li>Family and inheritance rituals</li>
+                  <li>Police and procedural culture</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="card" data-searchitem data-kind="Reference" data-title="Environment reference page" data-sub="French taxonomy page" data-key="environment reference fr page">
+              <div class="card-head"><span>Reference</span><a class="linkpill" href="/fr/cartographie/environnements">Open →</a></div>
+              <div class="card-body">
+                <p>French source page for the evolving taxonomy. The English toolbox stays minimal and stable.</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="labs" data-spy data-searchitem
+                 data-kind="Tool" data-title="Labs" data-sub="Optional hubs that connect works" data-key="labs hubs optional clusters energy">
+          <div class="kicker">Labs</div>
+          <h2 class="h2">Optional hubs for navigation</h2>
+          <p class="lead">
+            Labs are optional. They connect books by shared energy, not by period or nationality.
+          </p>
+          <p class="sub">
+            A Lab should feel useful as a path: it helps you move from one guide to another with a clear reason.
+          </p>
+
+          <div class="grid-2" style="margin-top:14px;">
+            <article class="card" data-searchitem data-kind="Principle" data-title="What a Lab should do" data-sub="A usable connection" data-key="lab principle usable connection path">
+              <div class="card-head"><span>What a Lab does</span><span class="linkpill" style="pointer-events:none;">Rule</span></div>
+              <div class="card-body">
+                <ul class="list">
+                  <li>connect at least three works</li>
+                  <li>name a shared comic tension</li>
+                  <li>stay readable in one line</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="card" data-searchitem data-kind="Reference" data-title="Labs reference page" data-sub="French taxonomy page" data-key="labs reference fr page">
+              <div class="card-head"><span>Reference</span><a class="linkpill" href="/fr/cartographie/labs">Open →</a></div>
+              <div class="card-body">
+                <p>French source page for labs and their definitions as they evolve.</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="usage" data-spy data-searchitem
+                 data-kind="How-to" data-title="How to use" data-sub="Minimal, consistent, citable" data-key="how to use consistent minimal citable stable ids">
+          <div class="kicker">Usage</div>
+          <h2 class="h2">How to use the toolbox in guides</h2>
+          <p class="lead">
+            Keep it minimal. Repeat it consistently. Let the text do the nuanced work.
+          </p>
+
+          <div class="grid-3" style="margin-top:14px;">
+            <article class="card" data-searchitem data-kind="Rule" data-title="One label per axis" data-sub="Level, Environment, Labs" data-key="one label per axis level environment labs">
+              <div class="card-head"><span>One label per axis</span></div>
+              <div class="card-body">
+                <p>
+                  Use one comedy level label, one environment line, then labs if useful.
+                </p>
+              </div>
+            </article>
+
+            <article class="card" data-searchitem data-kind="Rule" data-title="Prefer nouns over adjective stacks" data-sub="Avoid heavy strings" data-key="nouns over adjectives avoid stacks">
+              <div class="card-head"><span>Nouns over stacks</span></div>
+              <div class="card-body">
+                <p>
+                  Prefer an institution noun to chains of qualifiers. It reads faster and travels better.
+                </p>
+              </div>
+            </article>
+
+            <article class="card" data-searchitem data-kind="Rule" data-title="Stable links" data-sub="Anchors are part of the method" data-key="stable links anchors citations">
+              <div class="card-head"><span>Stable links</span></div>
+              <div class="card-body">
+                <p>
+                  Use stable anchors for terms and sections. These anchors are meant to be cited.
+                </p>
+              </div>
+            </article>
+          </div>
+
+          <div class="note" style="margin-top:14px;">
+            <strong>Next step:</strong> once toolbox.html is live, each current page can link here and reuse the same labels,
+            without re-explaining them.
+          </div>
+        </section>
+
+      </div>
+
+      <aside class="rail" aria-label="In this page (toolbox)">
+        <div class="rail-sticky">
+          <header>
+            <h3>In this page</h3>
+            <p class="rail-meta">
+              <span class="rail-pill"><span class="tiny" aria-hidden="true"></span><span id="railHere">You are here: Overview</span></span>
+              <span class="rail-pill">~<span id="railTime">4</span> min</span>
+            </p>
+            <div class="rail-progress"><span></span></div>
+          </header>
+          <nav class="toc" id="tocDesktop">
+            <a href="#overview">Overview</a>
+            <a href="#level">Comedy level</a>
+            <a href="#authors">Author categories</a>
+            <a href="#environment">Environment</a>
+            <a href="#labs">Labs</a>
+            <a href="#usage">How to use</a>
+          </nav>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer" role="contentinfo" aria-label="Site footer">
+    <div class="inner">
+      <div class="left">
+        <strong>The Novel of Comedy (TNoC)</strong> · Atlas &amp; critical cartography of humorous fiction.<br>
+        <span class="muted">© <span id="year"></span> Boris Jeanson Béteille</span>
+      </div>
+
+      <nav class="links" aria-label="Footer links">
+        <a href="method.html">Method</a>
+        <a href="currents.html">Currents</a>
+        <a href="novel-guides.html">Novels</a>
+        <a href="author-profiles.html">Authors</a>
+        <a href="/fr/a-propos/comment-citer-tnoc">How to cite</a>
+        <a href="/fr/contact">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+  <noscript>
+    <div style="max-width:1120px;margin:14px auto;padding:12px 16px;border-radius:14px;background:#fff;color:#000;border:1px solid rgba(0,0,0,.12);">
+      JavaScript is disabled. Scrollspy and search overlay won’t work. You can still read the page and open links.
+    </div>
+  </noscript>
+
+  <script>
+    /* =========================================================
+       0) Footer year
+       ========================================================= */
+    (function(){
+      const y = document.getElementById('year');
+      if(y) y.textContent = String(new Date().getFullYear());
+    })();
+
+    /* =========================================================
+       1) Search overlay (Ctrl/⌘ K)
+       ========================================================= */
+    (function(){
+      const overlay = document.getElementById('searchOverlay');
+      const input = document.getElementById('searchInput');
+      const results = document.getElementById('searchResults');
+      const empty = document.getElementById('searchEmpty');
+      const count = document.getElementById('searchCount');
+
+      const openBtn = document.getElementById('openSearch');
+      const openBtn2 = document.getElementById('openSearch2');
+      const closeBtn = document.getElementById('searchClose');
+
+      const items = Array.from(document.querySelectorAll('[data-searchitem]')).map(el => {
+        const kind = el.getAttribute('data-kind') || "Item";
+        const title = el.getAttribute('data-title') || el.querySelector('h2,h3')?.textContent?.trim() || "Untitled";
+        const sub = el.getAttribute('data-sub') || "";
+        const key = el.getAttribute('data-key') || "";
+        const id = el.id ? ("#" + el.id) : "#paper";
+        const badge = (kind || "Item").slice(0,2).toUpperCase();
+        return { href: id, title, sub, kind, key, badge };
+      });
+
+      function open(withQuery){
+        overlay.classList.add('open');
+        overlay.setAttribute('aria-hidden','false');
+        document.body.style.overflow = 'hidden';
+        if(input){
+          input.value = withQuery || "";
+          setTimeout(()=> input.focus(), 40);
+        }
+        render(input ? input.value : "");
+      }
+      function close(){
+        overlay.classList.remove('open');
+        overlay.setAttribute('aria-hidden','true');
+        document.body.style.overflow = '';
+      }
+
+      function norm(s){
+        return (s || "").toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+      }
+
+      function render(q){
+        const nq = norm(q).trim();
+        const filtered = !nq ? items.slice(0, 18) : items.filter(it => {
+          const hay = norm(it.title + " " + it.sub + " " + it.kind + " " + it.key);
+          return hay.includes(nq);
+        }).slice(0, 50);
+
+        results.innerHTML = filtered.map(it => `
+          <a class="result" href="${it.href}">
+            <div class="rthumb" aria-hidden="true">${it.badge}</div>
+            <div class="rtext">
+              <div class="rk">${it.kind || "Result"}</div>
+              <p class="rt">${it.title || "Untitled"}</p>
+              <div class="rs">${it.sub || ""}</div>
+            </div>
+          </a>
+        `).join('');
+
+        const n = filtered.length;
+        count.textContent = String(n);
+        empty.style.display = (n === 0) ? 'block' : 'none';
+      }
+
+      function hookOpen(btn){
+        if(!btn) return;
+        btn.addEventListener('click', () => open(""));
+      }
+      hookOpen(openBtn);
+      hookOpen(openBtn2);
+
+      if(closeBtn) closeBtn.addEventListener('click', close);
+      overlay.addEventListener('click', (e) => { if(e.target === overlay) close(); });
+
+      if(input) input.addEventListener('input', () => render(input.value));
+
+      results.addEventListener('click', (e) => {
+        const a = e.target.closest('a');
+        if(a) close();
+      });
+
+      window.addEventListener('keydown', (e) => {
+        const isMac = navigator.platform.toUpperCase().indexOf('MAC')>=0;
+        const k = e.key.toLowerCase() === 'k';
+        if(k && ((isMac && e.metaKey) || (!isMac && e.ctrlKey))){
+          e.preventDefault();
+          if(overlay.classList.contains('open')) close(); else open("");
+        }
+        if(e.key === 'Escape') close();
+      });
+    })();
+
+    /* =========================================================
+       2) Paper scrollspy + progress + reading time
+       ========================================================= */
+    (function(){
+      const linksDesktop = Array.from(document.querySelectorAll('#tocDesktop a'));
+      const linksMobile  = Array.from(document.querySelectorAll('#tocMobile a'));
+      const sections = Array.from(document.querySelectorAll('[data-spy]'));
+      const bar = document.querySelector('.rail-progress > span');
+      const railHere = document.getElementById('railHere');
+      const railTime = document.getElementById('railTime');
+      const mobileMeta = document.getElementById('mobileMeta');
+
+      function getHashId(href){
+        if (!href) return "";
+        const i = href.indexOf('#');
+        return (i === -1) ? "" : href.slice(i + 1);
+      }
+
+      function estimateReadingTime(){
+        const paper = document.querySelector('main.main');
+        if(!paper) return 4;
+        const text = paper.innerText || "";
+        const words = text.trim().split(/\s+/).filter(Boolean).length;
+        return Math.max(3, Math.round(words / 200));
+      }
+
+      function updateProgress(){
+        if(!bar) return;
+        const doc = document.documentElement;
+        const st = doc.scrollTop || document.body.scrollTop;
+        const sh = doc.scrollHeight - doc.clientHeight;
+        const pct = sh > 0 ? (st / sh) * 100 : 0;
+        bar.style.width = Math.max(0, Math.min(100, pct)) + "%";
+      }
+
+      function setActive(){
+        if(!sections.length) return;
+        const st = window.scrollY || 0;
+        const offset = 150;
+        let activeId = sections[0].id;
+        sections.forEach(s => { if(st + offset >= s.offsetTop) activeId = s.id; });
+
+        function apply(links){
+          links.forEach(a => a.classList.toggle('active', getHashId(a.getAttribute('href')) === activeId));
+        }
+        apply(linksDesktop);
+        apply(linksMobile);
+
+        if(railHere){
+          const map = {
+            "overview":"Overview",
+            "level":"Comedy level",
+            "authors":"Author categories",
+            "environment":"Environment",
+            "labs":"Labs",
+            "usage":"How to use"
+          };
+          railHere.textContent = "You are here: " + (map[activeId] || "Overview");
+        }
+      }
+
+      const minutes = estimateReadingTime();
+      if(railTime) railTime.textContent = String(minutes);
+      if(mobileMeta) mobileMeta.textContent = "~" + minutes + " min";
+
+      window.addEventListener('scroll', updateProgress, { passive:true });
+      window.addEventListener('scroll', setActive, { passive:true });
+      window.addEventListener('resize', setActive);
+
+      updateProgress();
+      setActive();
+    })();
+  </script>
+</body>
+</html>
+
