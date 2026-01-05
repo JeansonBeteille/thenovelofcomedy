@@ -1,1835 +1,2235 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="night">
 <head>
   <meta charset="utf-8">
 
   <!-- =========================================================
-       SEO / SIGNAL — “betonné”
+       SEO / IA micro-optimisation (stable + shareable)
        ========================================================= -->
-  <title>The Novel of Comedy (TNoC) — Atlas of humorous fiction: social satire, comic crime, absurdist comedy</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- Canonical -->
-  <link rel="canonical" href="https://www.thenovelofcomedy.com/">
-
-  <!-- Author / ownership (discreet but strong) -->
+  <title>The Novel of Comedy (TNoC) — Atlas of humorous fiction (comedy of society · comic crime · neo-nonsense)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b0b0c">
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="The Novel of Comedy (TNoC) is a streaming-like atlas and critical cartography of humorous fiction: comedy of society, comic crime, and neo-nonsense — with fixed 10-part novel guides, author profiles, and stable citation-ready links.">
   <meta name="author" content="Boris Jeanson Béteille">
-  <meta name="copyright" content="© Boris Jeanson Béteille">
+  <meta name="robots" content="index,follow,max-image-preview:large">
 
-  <!-- Description (SEO + humans + machines) -->
-  <meta name="description"
-        content="The Novel of Comedy (TNoC) is a digital atlas and critical cartography of humorous fiction: social satire & comedy of manners (Comedy of Society), comic crime & caper fiction (Crime Comedy), and absurdist / postmodern comic fiction (Neo-Nonsense). Fixed 10-chapter novel guides and author profiles, citation-ready.">
+  <link rel="canonical" href="https://www.thenovelofcomedy.com/">
+  <link rel="alternate" hreflang="en" href="https://www.thenovelofcomedy.com/">
+  <link rel="alternate" hreflang="fr" href="https://www.thenovelofcomedy.com/fr/">
+  <link rel="alternate" hreflang="x-default" href="https://www.thenovelofcomedy.com/">
 
-  <!-- Optional keywords (lightweight, not relied upon) -->
-  <meta name="keywords"
-        content="humorous fiction, comedy novel, social satire, comedy of manners, comic crime fiction, caper novel, heist fiction, absurdist fiction, postmodern satire, comic noir, satirical novel, literary atlas, bibliography, reading guide, The Novel of Comedy, TNoC">
-
-  <!-- Robots -->
-  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="The Novel of Comedy (TNoC) — Atlas of humorous fiction">
-  <meta property="og:description" content="A living atlas of humorous fiction: social satire, comic crime, absurdist & postmodern comedy — with fixed 10-chapter guides and citation-ready pages.">
-  <meta property="og:url" content="https://www.thenovelofcomedy.com/">
   <meta property="og:type" content="website">
-  <!-- Put a real image here when ready -->
-  <meta property="og:image" content="https://www.thenovelofcomedy.com/img/og-tnoc.jpg">
+  <meta property="og:site_name" content="The Novel of Comedy (TNoC)">
+  <meta property="og:title" content="The Novel of Comedy — Atlas of humorous fiction">
+  <meta property="og:description" content="A living atlas of humorous fiction: comedy of society, comic crime, neo-nonsense. Fixed 10-part guides, author profiles, stable citations.">
+  <meta property="og:url" content="https://www.thenovelofcomedy.com/">
+  <meta property="og:image" content="https://www.thenovelofcomedy.com/img/wilt.png">
+  <meta property="og:image:alt" content="Cover: Wilt — Tom Sharpe (1976)">
 
-  <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="The Novel of Comedy (TNoC) — Atlas of humorous fiction">
-  <meta name="twitter:description" content="Social satire · comic crime · absurdist comedy — fixed 10-chapter guides, citation-ready.">
-  <meta name="twitter:image" content="https://www.thenovelofcomedy.com/img/og-tnoc.jpg">
+  <meta name="twitter:title" content="The Novel of Comedy — Atlas of humorous fiction">
+  <meta name="twitter:description" content="Comedy of Society · comic crime · neo-nonsense — fixed 10-part guides + author profiles + stable citations.">
+  <meta name="twitter:image" content="https://www.thenovelofcomedy.com/img/wilt.png">
 
-  <!-- Basic language alternates (keep simple) -->
-  <link rel="alternate" href="https://www.thenovelofcomedy.com/" hreflang="en">
-  <link rel="alternate" href="https://www.thenovelofcomedy.com/fr/" hreflang="fr">
-  <link rel="alternate" href="https://www.thenovelofcomedy.com/" hreflang="x-default">
+  <link rel="icon" href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="%230b0b0c"/><text x="50%25" y="54%25" text-anchor="middle" font-family="Georgia" font-size="18" fill="%23f6f4ef" letter-spacing="2">TNoC</text></svg>'>
+  <link rel="preload" as="image" href="img/wilt.png">
 
-  <!-- =========================================================
-       Structured Data (JSON-LD) — strong machine signal
-       ========================================================= -->
   <script type="application/ld+json">
   {
-    "@context":"https://schema.org",
-    "@graph":[
-      {
-        "@type":"Person",
-        "@id":"https://www.thenovelofcomedy.com/#boris-jeanson-beteille",
-        "name":"Boris Jeanson Béteille",
-        "description":"Creator and editor of The Novel of Comedy (TNoC), a digital atlas and critical cartography of humorous fiction.",
-        "url":"https://www.thenovelofcomedy.com/"
-      },
-      {
-        "@type":"Organization",
-        "@id":"https://www.thenovelofcomedy.com/#tnoc",
-        "name":"The Novel of Comedy (TNoC)",
-        "url":"https://www.thenovelofcomedy.com/",
-        "founder":{"@id":"https://www.thenovelofcomedy.com/#boris-jeanson-beteille"},
-        "description":"A digital atlas and critical cartography of humorous fiction: social satire, comic crime, absurdist and postmodern comedy."
-      },
-      {
-        "@type":"WebSite",
-        "@id":"https://www.thenovelofcomedy.com/#website",
-        "name":"The Novel of Comedy (TNoC)",
-        "url":"https://www.thenovelofcomedy.com/",
-        "publisher":{"@id":"https://www.thenovelofcomedy.com/#tnoc"},
-        "inLanguage":"en"
-      },
-      {
-        "@type":"WebPage",
-        "@id":"https://www.thenovelofcomedy.com/#webpage",
-        "url":"https://www.thenovelofcomedy.com/",
-        "name":"The Novel of Comedy (TNoC) — Atlas of humorous fiction",
-        "isPartOf":{"@id":"https://www.thenovelofcomedy.com/#website"},
-        "about":[
-          {
-            "@type":"Thing",
-            "name":"Humorous fiction",
-            "sameAs":"https://en.wikipedia.org/wiki/Humour"
-          },
-          {
-            "@type":"Thing",
-            "name":"Social satire",
-            "sameAs":"https://en.wikipedia.org/wiki/Satire"
-          },
-          {
-            "@type":"Thing",
-            "name":"Comic crime fiction",
-            "sameAs":"https://en.wikipedia.org/wiki/Crime_fiction"
-          },
-          {
-            "@type":"Thing",
-            "name":"Absurdist fiction",
-            "sameAs":"https://en.wikipedia.org/wiki/Absurdism"
-          }
-        ],
-        "creator":{"@id":"https://www.thenovelofcomedy.com/#boris-jeanson-beteille"},
-        "publisher":{"@id":"https://www.thenovelofcomedy.com/#tnoc"},
-        "inLanguage":"en"
-      }
-    ]
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "The Novel of Comedy (TNoC)",
+    "url": "https://www.thenovelofcomedy.com/",
+    "inLanguage": "en",
+    "description": "Atlas and critical cartography of humorous fiction: comedy of society, comic crime, neo-nonsense. Fixed 10-part novel guides, author profiles, stable citation-ready links.",
+    "publisher": { "@type": "Person", "name": "Boris Jeanson Béteille" },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://www.thenovelofcomedy.com/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
   }
   </script>
 
   <style>
+    /* =========================================================
+       TNoC — Luxe / Art-book skin (no videos)
+       Keep structure. Change aura.
+       ========================================================= */
+
     :root{
-      --bg:#0b0b0c;
-      --paper:#f7f5f0;
-      --ink:#1e1e1e;
-      --graphite:#2b2b2b;
-      --evergreen:#2E7D32;
-      --muted:rgba(0,0,0,.55);
-      --border:rgba(0,0,0,.14);
-      --card:#ffffff;
-      --shadow:0 1px 2px rgba(0,0,0,.04);
-      --shadowLift:0 14px 40px rgba(0,0,0,.18);
+      --night:#0b0b0c;
+      --ivory:#f6f4ef;
+      --paper:#fbfaf7;
+      --ink:#0f0f10;
+      --smoke:rgba(246,244,239,.62);
+      --lineN:rgba(246,244,239,.14);
+      --lineN2:rgba(246,244,239,.22);
+      --lineD:rgba(11,11,12,.12);
+      --softN:rgba(246,244,239,.06);
+      --softD:rgba(11,11,12,.05);
+
+      --accent:#bfa77a; /* warm “champagne” */
+      --accent2:rgba(191,167,122,.24);
+
       --w:1120px;
-      --serif: ui-serif, Georgia, "Times New Roman", Times, serif;
+      --pad: clamp(16px, 4.5vw, 28px);
 
-      /* tiles */
-      --tileW:160px;
-      --tileRadius:14px;
+      --tileW: 170px;
+      --tileRadius: 18px;
 
-      /* sticky offsets */
-      --railTop:88px;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      --serif: ui-serif, "Iowan Old Style","Palatino Linotype", Palatino, Georgia, serif;
+
+      --cap: 11px;
+      --track: .22em;
+
+      --shadowN: 0 24px 90px rgba(0,0,0,.62);
+      --shadowTile: 0 16px 50px rgba(0,0,0,.52);
+      --shadowTileH: 0 22px 70px rgba(0,0,0,.62);
+
+      --heroH: min(72svh, 720px);
     }
 
-    *{box-sizing:border-box}
     html,body{
-      margin:0;
-      padding:0;
-      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      color:var(--ink);
-      background:var(--bg);
-      overflow-x:visible;
+      margin:0; padding:0;
+      font-family: var(--sans);
+      background: var(--night);
+      color: var(--ivory);
+      overflow-x:hidden;
     }
-    a{color:inherit;text-decoration:none}
-    a:hover{text-decoration:underline}
-    .page-wrap{ min-height:100vh; background:var(--bg); overflow-x:visible; }
+    a{color:inherit; text-decoration:none}
+    a:hover{text-decoration:none}
+    *{box-sizing:border-box}
 
-    .skip-link{
-      position:absolute; left:-999px; top:10px;
-      padding:8px 12px; background:#fff; color:#000;
-      border-radius:999px; border:1px solid rgba(0,0,0,.18);
-      z-index:1000; font-size:13px;
+    @media (prefers-reduced-motion: reduce){
+      *{ animation:none !important; transition:none !important; scroll-behavior:auto !important; }
     }
-    .skip-link:focus{ left:12px; outline:none; }
+
+    /* Subtle grain */
+    body::before{
+      content:"";
+      position:fixed; inset:0;
+      pointer-events:none;
+      opacity:.09;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
+      mix-blend-mode:overlay;
+    }
+
+    /* a11y */
+    .sr-only{
+      position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+      overflow:hidden; clip:rect(0,0,0,0); border:0;
+    }
+    .skiplink{
+      position:absolute; left:14px; top:12px;
+      padding:10px 12px;
+      border-radius:999px;
+      background: var(--ivory);
+      color: var(--ink);
+      z-index:999;
+      transform:translateY(-140%);
+      transition:transform .14s ease;
+      border:1px solid rgba(0,0,0,.12);
+      text-decoration:none;
+      font-size:12px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .skiplink:focus{ transform:translateY(0); }
 
     /* =========================================================
-       TOPBAR
+       TOPBAR — Jewellery / maison
        ========================================================= */
     .topbar{
-      position:sticky; top:0; z-index:60;
-      backdrop-filter:blur(10px);
-      background:rgba(11,11,12,.92);
-      color:#fff; border-bottom:1px solid rgba(255,255,255,.08);
+      position:sticky; top:0; z-index:80;
+      backdrop-filter: blur(18px);
+      background: color-mix(in srgb, var(--night) 84%, transparent);
+      border-bottom:1px solid var(--lineN);
     }
     .topbar-inner{
-      max-width:var(--w); width:100%;
-      margin:0 auto; padding:10px 20px;
-      display:flex; align-items:center; justify-content:space-between; gap:16px;
+      max-width:var(--w);
+      margin:0 auto;
+      padding: 12px var(--pad);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
     }
-    .brand{ display:flex; align-items:center; gap:10px; min-width:0; }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      min-width:0;
+    }
     .brand-mark{
-      width:34px; height:34px; border-radius:12px;
-      border:1px solid rgba(255,255,255,.18);
+      width:34px; height:34px;
+      border-radius: 14px;
+      border:1px solid var(--lineN2);
       display:flex; align-items:center; justify-content:center;
-      font-weight:650; letter-spacing:.06em; text-transform:uppercase; font-size:11px;
-      background:radial-gradient(circle at 0 0,rgba(255,255,255,.22),rgba(0,0,0,.7));
+      font-family: var(--serif);
+      font-weight: 700;
+      letter-spacing:.18em;
+      font-size: 11px;
+      background: rgba(255,255,255,.03);
       flex:0 0 auto;
     }
-    .brand-text{ display:flex; flex-direction:column; gap:1px; min-width:0; }
+    .brand-text{min-width:0}
     .brand-title{
-      font-size:15px; letter-spacing:.05em; text-transform:uppercase;
-      white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+      font-family: var(--serif);
+      font-size: 14px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      line-height: 1.05;
     }
     .brand-sub{
-      font-size:11px; opacity:.7;
-      white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
-    }
-    .nav{ display:flex; flex-wrap:wrap; gap:12px; font-size:13px; }
-    .nav a{ opacity:.82; padding:6px 0; }
-    .nav a:hover{ opacity:1; text-decoration:none; }
-    .nav a.is-primary{
-      padding:6px 12px; border-radius:999px;
-      border:1px solid rgba(255,255,255,.22); font-size:12px;
-    }
-    @media(max-width:900px){
-      .topbar-inner{ flex-direction:column; align-items:flex-start; padding:10px 16px; }
-      .nav{ width:100%; justify-content:flex-start; }
-    }
-    @media(max-width:600px){
-      .brand-title{ font-size:16px; letter-spacing:.06em; }
-      .brand-sub{ display:none; }
+      margin-top:3px;
+      font-size: 10.5px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--smoke);
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
     }
 
-    /* =========================================================
-       Buttons
-       ========================================================= */
+    .nav{
+      display:flex; gap:10px; align-items:center;
+      font-size:12px;
+      letter-spacing:.10em;
+      text-transform:uppercase;
+    }
+    .nav a{opacity:.82; padding:8px 6px}
+    .nav a:hover{opacity:1}
     .btn{
       display:inline-flex; align-items:center; justify-content:center;
-      padding:9px 14px; border-radius:999px; font-size:13px;
-      border:1px solid transparent; cursor:pointer; text-decoration:none; white-space:nowrap;
-      transition:transform .14s ease, opacity .14s ease, background .14s ease;
+      gap:8px;
+      padding: 10px 12px;
+      border-radius:999px;
+      border:1px solid var(--lineN2);
+      background: rgba(255,255,255,.04);
+      color: var(--ivory);
+      cursor:pointer;
+      transition: transform .14s ease, opacity .14s ease, border-color .14s ease, background .14s ease;
+      user-select:none;
+      font-size: 11px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      white-space:nowrap;
     }
-    .btn:focus-visible{
-      outline:2px solid rgba(46,125,50,.55);
-      outline-offset:3px;
+    .btn:hover{ transform:translateY(-1px); border-color: rgba(191,167,122,.55); background: rgba(191,167,122,.10); }
+    .btn:focus-visible{ outline:2px solid rgba(191,167,122,.55); outline-offset:3px; }
+
+    .btn-primary{
+      background: var(--ivory);
+      color: var(--ink);
+      border-color: transparent;
     }
-    .btn:hover{ transform:translateY(-1px); }
-    .btn-primary{ background:#fff; color:#000; border-color:rgba(255,255,255,.03); }
-    .btn-secondary{ background:rgba(0,0,0,.22); border-color:rgba(255,255,255,.30); color:#fff; }
-    .btn-ghost{ background:transparent; border-color:rgba(255,255,255,.24); color:#fff; opacity:.92; }
-    .btn-ghost:hover{ opacity:1; }
+    .btn-primary:hover{
+      background: color-mix(in srgb, var(--ivory) 92%, var(--accent) 8%);
+      transform:translateY(-1px);
+    }
+
+    .kbd{
+      font-size:10px;
+      opacity:.8;
+      padding:3px 7px;
+      border-radius:999px;
+      border:1px solid var(--lineN);
+      background: rgba(0,0,0,.22);
+      letter-spacing:.06em;
+      text-transform:none;
+    }
+
+    @media(max-width:860px){
+      .brand-sub{display:none}
+      .nav a{display:none}
+      .kbd{display:none}
+    }
 
     /* =========================================================
-       HERO
+       HERO — “gallery wall”, calmer, more couture
        ========================================================= */
-    .hero.hero-stream{
+    .hero{
       position:relative;
+      border-bottom:1px solid var(--lineN);
       overflow:hidden;
-      border-bottom:1px solid rgba(255,255,255,.08);
-      background:var(--bg);
-      color:#fff;
-      --hero-bg: none;
+      min-height: var(--heroH);
     }
-    .hero.hero-stream::before{
+
+    .marquee-wall{
+      position:absolute; inset:0;
+      opacity:.55;
+      filter: grayscale(1) contrast(1.08);
+      pointer-events:none;
+      transform:translateZ(0);
+    }
+    .marquee-wall::before{
       content:"";
       position:absolute; inset:0;
       background:
-        linear-gradient(90deg, rgba(0,0,0,.86) 0%, rgba(0,0,0,.58) 48%, rgba(0,0,0,.18) 78%, rgba(0,0,0,0) 100%),
-        var(--hero-bg);
-      opacity:.54;
-      filter:saturate(1.03) contrast(1.03);
-      transform:scale(1.02);
-      pointer-events:none;
+        radial-gradient(900px 520px at 18% 16%, rgba(191,167,122,.14), transparent 60%),
+        radial-gradient(900px 520px at 86% 30%, rgba(255,255,255,.06), transparent 65%),
+        linear-gradient(90deg, rgba(0,0,0,.90) 0%, rgba(0,0,0,.66) 46%, rgba(0,0,0,.24) 78%, rgba(0,0,0,0) 100%);
+      z-index:2;
     }
-    .hero.hero-stream::after{
+    .marquee-wall::after{
       content:"";
-      position:absolute; inset:auto 0 0 0; height:220px;
+      position:absolute; inset:auto 0 0 0; height:280px;
       background:linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,.92));
-      pointer-events:none;
+      z-index:2;
     }
 
-    .hero.hero-stream.hero-skin-map{
-      --hero-bg: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%201200%20520%27%3E%3Cdefs%3E%3CradialGradient%20id%3D%27g%27%20cx%3D%2720%25%27%20cy%3D%2715%25%27%20r%3D%2790%25%27%3E%3Cstop%20offset%3D%270%25%27%20stop-color%3D%27%23ffffff%27%20stop-opacity%3D%270.10%27/%3E%3Cstop%20offset%3D%2760%25%27%20stop-color%3D%27%23ffffff%27%20stop-opacity%3D%270%27/%3E%3C/radialGradient%3E%3ClinearGradient%20id%3D%27fade%27%20x1%3D%270%27%20x2%3D%271%27%3E%3Cstop%20offset%3D%270%25%27%20stop-color%3D%27%230b0b0c%27%20stop-opacity%3D%270.25%27/%3E%3Cstop%20offset%3D%27100%25%27%20stop-color%3D%27%230b0b0c%27%20stop-opacity%3D%270.80%27/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width%3D%271200%27%20height%3D%27520%27%20fill%3D%27%230b0b0c%27/%3E%3Crect%20width%3D%271200%27%20height%3D%27520%27%20fill%3D%27url(%23g)%27/%3E%3Cg%20opacity%3D%270.55%27%3E%3Cpath%20d%3D%27M60%2C420%20C220%2C320%20310%2C310%20440%2C240%20S720%2C120%20890%2C150%201120%2C90%27%20fill%3D%27none%27%20stroke%3D%27%232e7d32%27%20stroke-opacity%3D%270.38%27%20stroke-width%3D%273%27/%3E%3Cpath%20d%3D%27M90%2C390%20C260%2C360%20320%2C280%20470%2C290%20S770%2C360%20940%2C280%201120%2C340%27%20fill%3D%27none%27%20stroke%3D%27%23ffffff%27%20stroke-opacity%3D%270.16%27%20stroke-width%3D%272%27%20stroke-dasharray%3D%276%206%27/%3E%3Cpath%20d%3D%27M140%2C120%20C260%2C160%20340%2C220%20440%2C210%20S700%2C140%20840%2C210%201020%2C200%27%20fill%3D%27none%27%20stroke%3D%27%23ffffff%27%20stroke-opacity%3D%270.12%27%20stroke-width%3D%272%27/%3E%3Cpath%20d%3D%27M260%2C470%20C340%2C420%20420%2C410%20510%2C360%20S720%2C260%20830%2C240%20980%2C220%27%20fill%3D%27none%27%20stroke%3D%27%232e7d32%27%20stroke-opacity%3D%270.22%27%20stroke-width%3D%272%27/%3E%3C/g%3E%3Crect%20width%3D%271200%27%20height%3D%27520%27%20fill%3D%27url(%23fade)%27/%3E%3C/svg%3E") center/cover no-repeat;
+    .marquee-strip{
+      position:absolute; left:0; right:0;
+      display:flex;
+      gap:12px;
+      padding:12px 0;
+      z-index:1;
+      will-change:transform;
+    }
+    .marquee-strip.top{ top:24px; transform:rotate(-2deg) }
+    .marquee-strip.mid{ top:40%; transform:rotate(1deg) }
+    .marquee-strip.bot{ bottom:44px; transform:rotate(-1.5deg) }
+
+    .marquee-track{
+      display:flex;
+      gap:12px;
+      animation:marquee 52s linear infinite;
+    }
+    .marquee-strip.mid .marquee-track{ animation-duration:62s; animation-direction:reverse; opacity:.95; }
+    .marquee-strip.bot .marquee-track{ animation-duration:70s; opacity:.90; }
+    @keyframes marquee{
+      0%{ transform:translateX(0) }
+      100%{ transform:translateX(-50%) }
     }
 
-    .hero-stream .hero-inner{
-      max-width:var(--w); width:100%;
+    .mini-poster{
+      width:116px;
+      aspect-ratio:3/4;
+      border-radius: 18px;
+      border:1px solid rgba(246,244,239,.16);
+      background:#0f0f10;
+      overflow:hidden;
+      box-shadow: 0 14px 38px rgba(0,0,0,.58);
+    }
+    .mini-poster img{
+      width:100%; height:100%;
+      object-fit:cover;
+      display:block;
+      filter: grayscale(1) contrast(1.02);
+    }
+
+    .hero-inner{
+      position:relative;
+      z-index:5;
+      max-width:var(--w);
       margin:0 auto;
-      padding:22px 20px 10px;
-      position:relative; z-index:1;
-    }
-    @media(max-width:960px){
-      .hero-stream .hero-inner{ padding:16px 16px 8px; }
-    }
-
-    .hero-stream .hero-copy{
-      padding:14px 14px 12px;
-      border-radius:18px;
-      border:1px solid rgba(255,255,255,.14);
-      background:rgba(0,0,0,.42);
-      backdrop-filter:blur(8px);
-      box-shadow:0 18px 60px rgba(0,0,0,.55);
-      max-width:820px;
-      color:#fff;
+      padding: 30px var(--pad) 18px;
+      display:grid;
+      grid-template-columns: 1.12fr .88fr;
+      gap: 16px;
+      align-items:end;
+      min-height: var(--heroH);
     }
 
-    .hero-stream .hero-title{
+    /* Left editorial block: less “app card”, more “Maison placard” */
+    .hero-card{
+      border-radius: 22px;
+      border:1px solid rgba(246,244,239,.14);
+      background: rgba(0,0,0,.36);
+      backdrop-filter: blur(14px);
+      box-shadow: var(--shadowN);
+      padding: 18px 18px 16px;
+      max-width: 840px;
+    }
+
+    .hero-kicker{
+      font-size: var(--cap);
+      letter-spacing: var(--track);
+      text-transform: uppercase;
+      color: rgba(246,244,239,.78);
+      display:flex; gap:10px; flex-wrap:wrap; align-items:center;
+      margin-bottom: 10px;
+    }
+    .dot{width:4px;height:4px;border-radius:99px;background: rgba(246,244,239,.86);opacity:.8}
+
+    .hero-title{
       margin:0;
-      font-size:36px; line-height:1.05;
-      letter-spacing:-.02em;
-      max-width:680px;
+      font-family: var(--serif);
+      font-weight: 700;
+      letter-spacing: -.02em;
+      line-height: 1.03;
+      font-size: clamp(30px, 6.2vw, 56px);
     }
-    .hero-stream .hero-title .thin{ font-weight:420; opacity:.95; }
-    .hero-stream .hero-title .bold{ font-weight:740; }
+    .hero-title .thin{ font-weight: 500; opacity:.92; }
+    .hero-title .bold{ font-weight: 780; }
 
-    .hero-stream .hero-totem{
-      font-size:14px; line-height:1.6; margin:10px 0 0; max-width:760px;
-      opacity:.92;
+    .hero-tag{
+      margin: 10px 0 0;
+      font-family: var(--serif);
+      font-size: clamp(14px, 3.9vw, 18px);
+      line-height: 1.55;
+      color: rgba(246,244,239,.78);
+      max-width: 60ch;
     }
-    .hero-stream .hero-proof{
-      margin-top:10px;
-      font-size:12px;
-      opacity:.86;
-      letter-spacing:.02em;
-    }
-    .hero-stream .hero-proof strong{ font-weight:650; }
+    .hero-tag em{ font-style: normal; opacity:.92 }
 
-    .hero-stream .hero-chips{
-      margin-top:10px;
-      display:flex; flex-wrap:wrap; gap:6px;
+    .hero-actions{
+      margin-top: 14px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
     }
-    .hero-chip{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:6px 10px;
+
+    /* Featured panel: reduce “features talk”, show the work */
+    .nowplaying{
+      border-radius:22px;
+      border:1px solid rgba(246,244,239,.14);
+      background: rgba(0,0,0,.34);
+      backdrop-filter: blur(14px);
+      box-shadow: var(--shadowN);
+      padding: 14px;
+      display:grid;
+      grid-template-columns: 150px 1fr;
+      gap: 12px;
+      align-items:center;
+    }
+    .now-cover{
+      width:150px;
+      aspect-ratio:3/4;
+      border-radius: 18px;
+      overflow:hidden;
+      border:1px solid rgba(246,244,239,.16);
+      background:#0f0f10;
+      box-shadow: 0 18px 54px rgba(0,0,0,.62);
+    }
+    .now-cover img{
+      width:100%; height:100%;
+      object-fit:cover;
+      display:block;
+      filter: grayscale(1) contrast(1.04);
+    }
+    .now-k{
+      font-size: 10px;
+      letter-spacing: var(--track);
+      text-transform: uppercase;
+      color: rgba(246,244,239,.74);
+      margin:0 0 6px;
+    }
+    .now-t{
+      margin:0;
+      font-family: var(--serif);
+      font-weight: 780;
+      font-size: 16px;
+      line-height: 1.15;
+      letter-spacing: -.01em;
+    }
+    .now-s{
+      margin-top:6px;
+      font-size: 12.5px;
+      line-height: 1.35;
+      color: rgba(246,244,239,.72);
+      max-width: 46ch;
+    }
+    .now-mini{
+      margin-top:10px;
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+    .pill{
+      padding:7px 10px;
       border-radius:999px;
-      border:1px solid rgba(255,255,255,.18);
-      background:rgba(255,255,255,.06);
-      font-size:11px;
-      opacity:.92;
+      border:1px solid rgba(246,244,239,.16);
+      background: rgba(246,244,239,.05);
+      font-size: 10px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(246,244,239,.76);
       white-space:nowrap;
     }
-    .hero-chip .dot{
-      width:7px; height:7px; border-radius:99px;
-      background:rgba(46,125,50,.95);
-      box-shadow:0 0 0 5px rgba(46,125,50,.22);
-      flex:0 0 auto;
-    }
 
-    .hero-stream .hero-actions{
-      margin-top:12px;
-      display:flex; flex-wrap:wrap; gap:8px;
-    }
-
-    @media(max-width:600px){
-      .hero-stream .hero-inner{ padding:12px 16px 6px; }
-      .hero-stream .hero-copy{ padding:12px; }
-      .hero-stream .hero-title{
-        display:block;
-        font-size:18px;
-        letter-spacing:.02em;
-        max-width:none;
+    @media(max-width:980px){
+      .hero-inner{
+        grid-template-columns:1fr;
+        align-items:start;
+        padding: 18px var(--pad) 16px;
+        min-height: min(66svh, 640px);
       }
-      .hero-stream .hero-totem{ margin-top:6px; font-size:13px; line-height:1.55; }
-      .hero-stream .hero-proof{ margin-top:8px; font-size:11px; }
-      .hero-chip{ font-size:10.5px; padding:5px 9px; }
-      .hero-stream .hero-actions{ margin-top:10px; }
+      .nowplaying{ grid-template-columns: 140px 1fr; }
+      .now-cover{ width:140px; }
     }
 
     /* =========================================================
-       ROWS
+       ROWS — make it “gallery rails” (less Netflix UI)
        ========================================================= */
     .rows{
-      max-width:var(--w); width:100%;
+      max-width:var(--w);
       margin:0 auto;
-      padding:10px 20px 14px;
-      color:#fff;
-      position:relative;
-      z-index:2;
+      padding: 12px var(--pad) 14px;
       overflow-x:hidden;
     }
-    @media(max-width:960px){ .rows{ padding:8px 16px 12px; } }
-    @media(max-width:600px){ .rows{ padding-top:6px; } }
 
-    .row{ margin-top:14px; scroll-margin-top:140px; }
+    .row{ margin-top: 18px; scroll-margin-top: 120px; }
+
     .row-head{
-      display:flex; align-items:flex-end; justify-content:space-between; gap:12px;
-      margin:0 0 8px;
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:12px;
+      margin:0 0 10px;
     }
-    .row-left{ display:flex; flex-direction:column; gap:4px; min-width:0; }
     .row-title{
       margin:0;
-      font-size:14px;
-      letter-spacing:.08em;
-      text-transform:uppercase;
+      font-family: var(--serif);
+      font-size: 14px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
       opacity:.92;
     }
     .row-sub{
-      margin:0;
-      font-size:13px;
-      opacity:.82;
-      line-height:1.35;
-      max-width:82ch;
+      margin:6px 0 0;
+      font-size: 13px;
+      line-height: 1.4;
+      color: rgba(246,244,239,.70);
+      max-width: 88ch;
     }
-    .row-cut{
-      margin:0;
-      font-size:12px;
-      opacity:.72;
-      font-style:italic;
-      line-height:1.25;
-    }
-
     .row-hint{
-      font-size:12px; opacity:.72;
-      display:flex; gap:10px; align-items:center;
+      font-size: 11px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(246,244,239,.62);
+      display:flex;
+      gap:10px;
+      align-items:center;
       flex:0 0 auto;
     }
-    .row-hint .pill{
-      padding:5px 10px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.16);
-      background:rgba(255,255,255,.06);
-      font-size:11px;
-      opacity:.92;
-      white-space:nowrap;
-    }
-    .row-hint a.pill:hover{ text-decoration:none; opacity:1; }
+    .row-hint a{ color: rgba(246,244,239,.70); }
+    .row-hint a:hover{ color: rgba(246,244,239,.92); }
 
     .row-shell{
       position:relative;
-      border-radius:18px;
-      border:1px solid rgba(255,255,255,.10);
-      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(0,0,0,.35));
+      border-radius: 22px;
+      border:1px solid rgba(246,244,239,.10);
+      background: linear-gradient(180deg, rgba(246,244,239,.04), rgba(0,0,0,.36));
       overflow:hidden;
-      width:100%;
     }
     .row-shell::before,
     .row-shell::after{
       content:"";
-      position:absolute; top:0; bottom:0; width:36px; z-index:2;
-      pointer-events:none;
+      position:absolute; top:0; bottom:0; width:34px;
+      pointer-events:none; z-index:2;
     }
-    .row-shell::before{ left:0; background:linear-gradient(90deg, rgba(0,0,0,.65), rgba(0,0,0,0)); }
-    .row-shell::after{ right:0; background:linear-gradient(270deg, rgba(0,0,0,.65), rgba(0,0,0,0)); }
+    .row-shell::before{ left:0; background:linear-gradient(90deg, rgba(0,0,0,.74), rgba(0,0,0,0)); }
+    .row-shell::after{ right:0; background:linear-gradient(270deg, rgba(0,0,0,.74), rgba(0,0,0,0)); }
 
     .row-track{
       display:flex;
-      gap:10px;
+      gap:12px;
       overflow:auto;
-      padding:12px 12px 10px;
+      padding: 14px 14px 12px;
       scroll-snap-type:x mandatory;
       -webkit-overflow-scrolling:touch;
-      scroll-padding-left:12px;
-      scroll-padding-right:12px;
+      scroll-padding-left:14px;
+      scroll-padding-right:14px;
     }
     .row-track::-webkit-scrollbar{ height:10px; }
-    .row-track::-webkit-scrollbar-thumb{ background:rgba(255,255,255,.14); border-radius:999px; }
-    .row-track:focus{
-      outline:2px solid rgba(46,125,50,.55);
-      outline-offset:3px;
-      border-radius:16px;
+    .row-track::-webkit-scrollbar-thumb{
+      background: rgba(246,244,239,.14);
+      border-radius:999px;
     }
 
     .row-progress{
       height:6px;
-      margin:0 12px 12px;
+      margin:0 14px 14px;
       border-radius:999px;
-      background:rgba(255,255,255,.08);
-      border:1px solid rgba(255,255,255,.10);
+      background: rgba(246,244,239,.07);
+      border:1px solid rgba(246,244,239,.10);
       overflow:hidden;
     }
     .row-progress > span{
       display:block;
       height:100%;
       width:0%;
-      background:linear-gradient(90deg, rgba(46,125,50,.95), rgba(255,255,255,.18));
-      opacity:.9;
+      background: linear-gradient(90deg, rgba(191,167,122,.95), rgba(246,244,239,.18));
+      opacity:.92;
     }
 
-    .row-arrow{
-      position:absolute; top:0; bottom:0;
-      width:56px;
-      border:0;
-      background:linear-gradient(90deg, rgba(0,0,0,.80), rgba(0,0,0,0));
-      color:#fff;
-      cursor:pointer;
-      opacity:0;
-      transition:opacity .15s ease;
-      display:flex; align-items:center; justify-content:center;
-      z-index:3;
-    }
-    .row-shell:hover .row-arrow{ opacity:1; }
-    .row-arrow.right{
-      right:0;
-      background:linear-gradient(270deg, rgba(0,0,0,.80), rgba(0,0,0,0));
-    }
-    .row-arrow.left{ left:0; }
-    .row-arrow span{
-      width:34px; height:34px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.18);
-      background:rgba(0,0,0,.35);
-      backdrop-filter:blur(6px);
-      display:flex; align-items:center; justify-content:center;
-      font-size:18px;
-      line-height:1;
-    }
-    .row-arrow:disabled{ opacity:0 !important; pointer-events:none; }
-    @media(max-width:800px){ .row-arrow{ display:none; } }
-
+    /* Tiles: more object-like, less “UI card” */
     .tile{
       scroll-snap-align:start;
       flex:0 0 var(--tileW);
-      border-radius:var(--tileRadius);
-      border:1px solid rgba(255,255,255,.16);
-      background:#111;
+      border-radius: var(--tileRadius);
+      border:1px solid rgba(246,244,239,.16);
+      background:#0f0f10;
       overflow:hidden;
       position:relative;
-      box-shadow:0 12px 30px rgba(0,0,0,.45);
+      box-shadow: var(--shadowTile);
       transform:translateY(0);
-      transition:transform .14s ease, box-shadow .14s ease, border-color .14s ease, filter .14s ease;
+      transition:transform .16s ease, box-shadow .16s ease, border-color .16s ease, filter .16s ease;
     }
     .tile:hover{
       transform:translateY(-2px);
-      box-shadow:0 18px 46px rgba(0,0,0,.50);
-      border-color:rgba(255,255,255,.28);
-      filter:saturate(1.02) contrast(1.02);
-      text-decoration:none;
+      box-shadow: var(--shadowTileH);
+      border-color: rgba(191,167,122,.40);
+      filter: contrast(1.02);
     }
     .tile:focus-visible{
-      outline:2px solid rgba(46,125,50,.55);
+      outline:2px solid rgba(191,167,122,.55);
       outline-offset:3px;
     }
-    .tile-media{
-      width:100%;
-      aspect-ratio:3/4;
-      background:#0f0f10;
-    }
+
+    .tile-media{ width:100%; aspect-ratio:3/4; background:#0f0f10; }
     .tile-media img{
       width:100%; height:100%;
-      object-fit:cover; display:block;
+      object-fit:cover;
+      display:block;
+      filter: grayscale(1) contrast(1.02);
     }
+    .tile.is-portrait .tile-media{ aspect-ratio:4/5; }
+
     .tile-meta{
       position:absolute; left:10px; right:10px; bottom:10px;
-      padding:6px 7px;
-      border-radius:12px;
-      background:rgba(0,0,0,.58);
-      border:1px solid rgba(255,255,255,.14);
-      backdrop-filter:blur(8px);
+      padding:8px 9px 7px;
+      border-radius: 14px;
+      background: rgba(0,0,0,.56);
+      border:1px solid rgba(246,244,239,.12);
+      backdrop-filter: blur(10px);
       color:#fff;
     }
     .tile-meta .k{
-      font-size:10px;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-      opacity:.85;
-      margin:0 0 2px;
+      font-size: 9.5px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      opacity:.78;
+      margin:0 0 3px;
       line-height:1.15;
     }
     .tile-meta .t{
-      font-size:12px;
-      font-weight:650;
+      font-family: var(--serif);
+      font-size: 12.5px;
+      font-weight: 720;
       line-height:1.15;
       margin:0;
+      letter-spacing:-.01em;
     }
     .tile-meta .s{
-      font-size:11px;
-      opacity:.82;
-      margin-top:2px;
+      font-size: 11px;
+      opacity:.78;
+      margin-top:3px;
       line-height:1.2;
     }
-    .tile.is-portrait .tile-media{ aspect-ratio:4/5; }
 
     @media(max-width:600px){
       :root{ --tileW:176px; }
       .row-hint{ display:none; }
-      .row-title{ font-size:13px; }
-      .row-sub{ font-size:12px; opacity:.86; }
-      .row-cut{ font-size:11.5px; }
-      .row-progress{ margin:0 10px 12px; }
-      .row-track{ padding:10px 10px 10px; }
+      .rows{ padding-bottom:70px; }
+      body{ padding-bottom:72px; }
     }
 
     /* =========================================================
-       PREMIUM DIVIDER (black -> paper “couture”)
+       Divider — black to paper: more “book seam”
        ========================================================= */
     .stitch-divider{
       position:relative;
-      height:62px;
-      background:linear-gradient(180deg, rgba(11,11,12,1) 0%, rgba(11,11,12,1) 35%, rgba(247,245,240,1) 100%);
-      border-top:1px solid rgba(255,255,255,.06);
+      height:74px;
+      background: linear-gradient(180deg, rgba(11,11,12,1) 0%, rgba(11,11,12,1) 38%, rgba(251,250,247,1) 100%);
+      border-top:1px solid rgba(246,244,239,.08);
     }
     .stitch-divider::before{
       content:"";
-      position:absolute; left:0; right:0; top:22px;
+      position:absolute; left:0; right:0; top:26px;
       height:1px;
       background:
-        repeating-linear-gradient(
-          90deg,
-          rgba(46,125,50,.65) 0,
-          rgba(46,125,50,.65) 10px,
-          rgba(255,255,255,.08) 10px,
-          rgba(255,255,255,.08) 18px
-        );
-      opacity:.45;
+        repeating-linear-gradient(90deg,
+          rgba(191,167,122,.65) 0, rgba(191,167,122,.65) 12px,
+          rgba(246,244,239,.12) 12px, rgba(246,244,239,.12) 22px);
+      opacity:.42;
     }
     .stitch-badge{
-      position:absolute; left:50%; top:14px;
+      position:absolute; left:50%; top:16px;
       transform:translateX(-50%);
-      padding:6px 10px;
+      padding:7px 12px;
       border-radius:999px;
-      border:1px solid rgba(0,0,0,.12);
-      background:rgba(247,245,240,.92);
-      color:rgba(0,0,0,.78);
-      font-size:11px;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-      backdrop-filter:blur(6px);
-      box-shadow:0 10px 24px rgba(0,0,0,.10);
+      border:1px solid rgba(0,0,0,.10);
+      background: rgba(246,244,239,.94);
+      color: rgba(0,0,0,.70);
+      font-size: 10.5px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 10px 26px rgba(0,0,0,.10);
       white-space:nowrap;
     }
 
     /* =========================================================
-       MAIN (paper)
+       PAPER LAYER — editorial, less “admin cards”
        ========================================================= */
-    .main{ background:var(--paper); min-height:60vh; }
+    .main{
+      background: var(--paper);
+      color: var(--ink);
+    }
     .main-inner{
-      max-width:1120px; margin:0 auto; padding:22px 20px 40px;
-      display:grid; grid-template-columns:minmax(0,1.08fr) minmax(260px,.62fr);
-      gap:20px; align-items:flex-start;
+      max-width: var(--w);
+      margin:0 auto;
+      padding: 26px var(--pad) 42px;
+      display:grid;
+      grid-template-columns: 1fr minmax(280px, .54fr);
+      gap: 20px;
+      align-items:start;
     }
-    .content-column{ min-width:0; }
     @media(max-width:960px){
-      .main-inner{ grid-template-columns:1fr; padding:22px 16px 40px; }
+      .main-inner{ grid-template-columns:1fr; }
     }
 
-    .section{ padding:22px 0; border-bottom:1px solid rgba(0,0,0,.06); }
-    .section:last-of-type{ border-bottom:none; padding-bottom:10px; }
-    .section-header{ margin-bottom:14px; }
-    .section-kicker{
-      font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted);
+    .section{
+      padding: 24px 0;
+      border-bottom: 1px solid rgba(11,11,12,.08);
+      scroll-margin-top:110px;
     }
+    .section:last-of-type{ border-bottom:none; padding-bottom: 10px; }
 
-    .section-title{
-      font-family:var(--serif);
-      font-size:26px;
-      letter-spacing:.02em;
-      margin:5px 0 6px;
-      line-height:1.12;
+    .kicker{
+      font-size: 11px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(11,11,12,.58);
     }
-    .section-lead{
-      font-family:var(--serif);
-      font-size:15px;
-      line-height:1.6;
-      color:rgba(0,0,0,.72);
-      max-width:82ch;
+    .h2{
+      font-family: var(--serif);
+      margin: 8px 0 8px;
+      font-size: 28px;
+      line-height: 1.08;
+      letter-spacing: -.01em;
+    }
+    .lead{
+      font-family: var(--serif);
       margin:0;
+      font-size: 16px;
+      line-height: 1.7;
+      color: rgba(11,11,12,.74);
+      max-width: 84ch;
     }
-    .section-sub{
-      font-size:13px; color:var(--muted); max-width:82ch;
-      margin:8px 0 0;
-      line-height:1.6;
+    .sub{
+      margin: 12px 0 0;
+      font-size: 13.5px;
+      line-height: 1.65;
+      color: rgba(11,11,12,.60);
+      max-width: 84ch;
     }
 
-    .grid-3{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
-    .grid-2{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+    .grid-3{ display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:14px; }
+    .grid-2{ display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:14px; }
     @media(max-width:900px){ .grid-3,.grid-2{ grid-template-columns:1fr; } }
 
     .card{
-      background:var(--card); border-radius:16px; border:1px solid var(--border);
-      box-shadow:var(--shadow); padding:14px 14px 12px;
+      background: rgba(255,255,255,.70);
+      border-radius: 18px;
+      border: 1px solid rgba(11,11,12,.10);
+      box-shadow: 0 10px 34px rgba(0,0,0,.06);
+      padding: 14px 14px 12px;
     }
-    .card-header{
+    .card-head{
       display:flex; align-items:baseline; justify-content:space-between; gap:10px;
-      font-weight:650; font-size:15px; margin-bottom:6px;
+      font-family: var(--serif);
+      font-weight: 700;
+      font-size: 16px;
+      margin-bottom: 8px;
+      letter-spacing: -.01em;
     }
-    .card-body{ font-size:13px; line-height:1.6; color:var(--graphite); }
+    .card-body{
+      font-size: 13.5px;
+      line-height: 1.65;
+      color: rgba(11,11,12,.78);
+    }
     .card-body p{ margin:8px 0; }
-    .card-tagline{ font-size:12px; color:var(--muted); margin-top:6px; line-height:1.55; }
-    .card-link{
+    .linkpill{
       display:inline-flex; align-items:center; gap:8px;
-      font-size:12px; color:rgba(0,0,0,.72);
-      padding:6px 9px;
-      border-radius:999px;
-      border:1px solid rgba(0,0,0,.12);
-      background:rgba(0,0,0,.02);
+      font-size: 11px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(11,11,12,.68);
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(11,11,12,.12);
+      background: rgba(11,11,12,.02);
       text-decoration:none;
-      transition:transform .14s ease, background .14s ease;
+      transition: transform .14s ease, background .14s ease, border-color .14s ease;
+      white-space:nowrap;
     }
-    .card-link:hover{ text-decoration:none; transform:translateY(-1px); background:rgba(0,0,0,.035); }
-    .card-link:focus-visible{ outline:2px solid rgba(46,125,50,.45); outline-offset:3px; }
+    .linkpill:hover{
+      transform: translateY(-1px);
+      border-color: rgba(191,167,122,.55);
+      background: rgba(191,167,122,.10);
+    }
+    .list{
+      margin: 10px 0 0;
+      padding-left: 17px;
+      font-size: 13.5px;
+      color: rgba(11,11,12,.78);
+    }
 
-    .list{ margin:8px 0 0; padding-left:17px; font-size:13px; color:var(--graphite); }
-    .list li{ margin:2px 0 4px; }
-
-    /* Mobile “In this page” */
+    /* mobile toc */
     .mobile-toc{
       display:none;
-      margin-top:10px;
-      border-radius:16px;
-      border:1px solid rgba(0,0,0,.12);
-      background:#fff;
-      box-shadow:var(--shadow);
+      margin: 10px 0 0;
+      border-radius: 18px;
+      border:1px solid rgba(11,11,12,.10);
+      background: rgba(255,255,255,.78);
+      box-shadow: 0 10px 34px rgba(0,0,0,.06);
       overflow:hidden;
     }
     .mobile-toc summary{
       cursor:pointer;
       list-style:none;
-      padding:12px 12px;
-      font-weight:650;
-      font-size:13px;
-      color:var(--graphite);
+      padding: 12px 12px;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(11,11,12,.72);
       display:flex; align-items:center; justify-content:space-between;
       gap:10px;
-      background:linear-gradient(180deg, rgba(0,0,0,.01), rgba(0,0,0,.03));
+      background: linear-gradient(180deg, rgba(11,11,12,.01), rgba(11,11,12,.03));
     }
     .mobile-toc summary::-webkit-details-marker{ display:none; }
-    .mobile-toc summary .meta{
-      font-weight:500;
-      opacity:.72;
-      font-size:12px;
-      white-space:nowrap;
-    }
     .mobile-toc .toc{
-      padding:10px 10px 12px;
-      display:grid; gap:6px;
+      padding: 10px 10px 12px;
+      display:grid;
+      gap:6px;
     }
     .mobile-toc .toc a{
-      padding:9px 10px; border-radius:12px;
-      border:1px solid rgba(0,0,0,.10); background:rgba(0,0,0,.015);
-      font-size:13px; color:var(--graphite); text-decoration:none;
+      padding: 10px 10px;
+      border-radius: 14px;
+      border:1px solid rgba(11,11,12,.10);
+      background: rgba(11,11,12,.015);
+      font-size: 13px;
+      color: rgba(11,11,12,.78);
+      text-decoration:none;
     }
     .mobile-toc .toc a.active{
-      border-color:var(--evergreen);
-      background:rgba(46,125,50,.08);
-      color:#000; font-weight:650;
+      border-color: rgba(191,167,122,.70);
+      background: rgba(191,167,122,.14);
+      color: #000;
+      font-weight: 700;
     }
     @media(max-width:960px){ .mobile-toc{ display:block; } }
 
-    /* =========================================================
-       RAIL (desktop sticky)
-       ========================================================= */
+    /* rail */
     .rail{
-      background:#fff; border-radius:16px;
-      border:1px solid var(--border);
-      box-shadow:var(--shadow);
-      font-size:13px;
-      overflow:visible;
+      background: rgba(255,255,255,.78);
+      border-radius: 18px;
+      border:1px solid rgba(11,11,12,.10);
+      box-shadow: 0 10px 34px rgba(0,0,0,.06);
+      overflow:hidden;
     }
     .rail-sticky{ position:static; }
-    @media(min-width:960px){
-      .rail-sticky{ position:sticky; top:var(--railTop); }
-    }
-
+    @media(min-width:960px){ .rail-sticky{ position:sticky; top:88px; } }
     .rail header{
-      padding:14px 14px 10px;
-      border-bottom:1px solid rgba(0,0,0,.06);
-      background:linear-gradient(180deg,rgba(0,0,0,.015),rgba(0,0,0,.03));
-      border-radius:16px 16px 0 0;
+      padding: 14px 14px 12px;
+      border-bottom:1px solid rgba(11,11,12,.08);
+      background: linear-gradient(180deg, rgba(11,11,12,.01), rgba(11,11,12,.03));
     }
     .rail header h3{
-      margin:0 0 4px; font-size:12px;
-      letter-spacing:.12em; text-transform:uppercase; color:var(--graphite);
+      margin:0 0 6px;
+      font-size: 11px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(11,11,12,.78);
+      font-family: var(--serif);
+      font-weight: 700;
     }
     .rail-meta{
-      margin:0;
       font-size:12px;
-      color:rgba(0,0,0,.62);
-      line-height:1.35;
-      display:flex;
-      flex-wrap:wrap;
+      color: rgba(11,11,12,.58);
+      display:flex; flex-wrap:wrap;
       gap:8px 10px;
       align-items:center;
+      margin:0;
     }
     .rail-pill{
-      display:inline-flex; align-items:center; gap:6px;
-      padding:5px 9px;
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 6px 10px;
       border-radius:999px;
-      border:1px solid rgba(0,0,0,.12);
-      background:rgba(0,0,0,.02);
-      font-size:11px;
-      color:rgba(0,0,0,.70);
+      border:1px solid rgba(11,11,12,.10);
+      background: rgba(11,11,12,.02);
+      font-size: 10px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(11,11,12,.62);
       white-space:nowrap;
     }
     .rail-pill .tiny{
       width:6px; height:6px; border-radius:99px;
-      background:rgba(46,125,50,.9);
-      box-shadow:0 0 0 5px rgba(46,125,50,.18);
+      background: rgba(191,167,122,.95);
+      box-shadow:0 0 0 5px rgba(191,167,122,.18);
     }
-
     .rail-progress{
-      margin-top:10px; height:6px; border-radius:999px;
-      background:rgba(0,0,0,.03);
-      border:1px solid rgba(0,0,0,.06);
+      margin-top:10px;
+      height:6px;
+      border-radius:999px;
+      background: rgba(11,11,12,.03);
+      border:1px solid rgba(11,11,12,.06);
       overflow:hidden;
     }
     .rail-progress > span{
-      display:block; height:100%; width:0%;
-      background:linear-gradient(90deg,var(--evergreen),#555);
-    }
-
-    .toc{ padding:10px 10px 10px; display:grid; gap:6px; }
-    .toc a{
-      padding:8px 10px; border-radius:12px;
-      border:1px solid transparent; background:rgba(0,0,0,.015);
-      font-size:13px; color:var(--graphite); text-decoration:none;
-    }
-    .toc a:hover{ border-color:var(--border); background:rgba(0,0,0,.03); }
-    .toc a.active{
-      border-color:var(--evergreen);
-      background:rgba(46,125,50,.08);
-      color:#000; font-weight:650;
-    }
-
-    .rail-next{
-      padding:10px 10px 12px;
-      border-top:1px solid rgba(0,0,0,.06);
-    }
-    .rail-next .label{
-      font-size:11px;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-      color:rgba(0,0,0,.62);
-      margin-bottom:8px;
-    }
-    .rail-next a{
       display:block;
-      padding:9px 10px;
-      border-radius:12px;
-      border:1px solid rgba(0,0,0,.10);
-      background:rgba(0,0,0,.015);
-      text-decoration:none;
-      margin-bottom:6px;
-      transition:transform .14s ease, background .14s ease;
+      height:100%;
+      width:0%;
+      background: linear-gradient(90deg, rgba(191,167,122,.95), rgba(11,11,12,.35));
     }
-    .rail-next a:hover{ transform:translateY(-1px); background:rgba(0,0,0,.03); }
-    .rail-next a strong{ display:block; font-weight:650; font-size:13px; }
-    .rail-next a span{ display:block; font-size:12px; color:rgba(0,0,0,.58); margin-top:2px; }
-
-    /* contextual “From Browse Rows” (2 mini posters) */
-    .rail-rows{
-      padding:12px 10px 12px;
-      border-top:1px solid rgba(0,0,0,.06);
-    }
-    .rail-rows .label{
-      display:flex;
-      align-items:baseline;
-      justify-content:space-between;
-      gap:10px;
-      margin-bottom:8px;
-    }
-    .rail-rows .label strong{
-      font-size:11px;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-      color:rgba(0,0,0,.62);
-    }
-    .rail-rows .label span{
-      font-size:11px;
-      color:rgba(0,0,0,.52);
-      white-space:nowrap;
-    }
-    .rail-row-grid{
+    .toc{
+      padding: 10px;
       display:grid;
-      grid-template-columns:repeat(2, minmax(0,1fr));
-      gap:8px;
+      gap:6px;
     }
-    .rail-row-card{
-      border-radius:14px;
-      border:1px solid rgba(0,0,0,.10);
-      background:#fff;
-      overflow:hidden;
-      text-decoration:none;
-      box-shadow:0 10px 26px rgba(0,0,0,.08);
-      transform:translateY(0);
-      transition:transform .14s ease, box-shadow .14s ease, border-color .14s ease;
-    }
-    .rail-row-card:hover{
-      transform:translateY(-1px);
-      box-shadow:0 14px 34px rgba(0,0,0,.12);
-      border-color:rgba(0,0,0,.16);
+    .toc a{
+      padding: 10px 10px;
+      border-radius: 14px;
+      border:1px solid transparent;
+      background: rgba(11,11,12,.015);
+      font-size: 13px;
+      color: rgba(11,11,12,.78);
       text-decoration:none;
     }
-    .rail-row-thumb{
-      width:100%;
-      aspect-ratio:3/4;
-      background:#101012;
-      position:relative;
+    .toc a:hover{
+      border-color: rgba(191,167,122,.40);
+      background: rgba(191,167,122,.10);
     }
-    .rail-row-thumb img{
-      width:100%; height:100%;
-      object-fit:cover;
-      display:block;
-    }
-    .rail-row-meta{
-      padding:8px 9px 9px;
-      color:rgba(0,0,0,.80);
-    }
-    .rail-row-meta .k{
-      font-size:10px;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-      color:rgba(0,0,0,.52);
-      margin:0 0 3px;
-      line-height:1.1;
-    }
-    .rail-row-meta .t{
-      margin:0;
-      font-size:12px;
-      font-weight:650;
-      line-height:1.2;
-      color:rgba(0,0,0,.86);
-    }
-    .rail-row-meta .s{
-      margin-top:2px;
-      font-size:11px;
-      color:rgba(0,0,0,.56);
-      line-height:1.2;
-    }
-
-    .rail-bottom{
-      padding:0 10px 12px;
-      border-radius:0 0 16px 16px;
-    }
-    .rail-bottom .btn{
-      width:100%; justify-content:center;
-      background:rgba(0,0,0,.03);
-      color:var(--graphite);
-      border-color:var(--border);
-      box-shadow:none;
-      font-size:12px; padding:8px 10px;
+    .toc a.active{
+      border-color: rgba(191,167,122,.70);
+      background: rgba(191,167,122,.14);
+      color:#000;
+      font-weight:700;
     }
 
     /* =========================================================
-       FOOTER
+       SEARCH OVERLAY — same logic, more “couture”
        ========================================================= */
-    .footer{
-      background:var(--bg); color:#f5f5f5;
-      border-top:1px solid rgba(255,255,255,.08);
+    .overlay{
+      position:fixed;
+      inset:0;
+      z-index:200;
+      display:none;
+      background: rgba(0,0,0,.72);
+      backdrop-filter: blur(16px);
+      align-items:flex-start;
+      justify-content:center;
+      padding: 84px var(--pad) 16px;
     }
-    .footer-inner{
-      max-width:1120px; margin:0 auto; padding:18px 20px 22px;
-      display:flex; flex-wrap:wrap; justify-content:space-between; gap:12px;
-      font-size:12px; opacity:.88;
+    .overlay.open{ display:flex; }
+    .searchbox{
+      width:min(900px, 100%);
+      border-radius: 22px;
+      border:1px solid rgba(246,244,239,.16);
+      background: rgba(0,0,0,.50);
+      box-shadow: 0 28px 110px rgba(0,0,0,.78);
+      overflow:hidden;
     }
-    .footer-links{ display:flex; flex-wrap:wrap; gap:12px; }
-    @media(max-width:900px){ .footer-inner{ padding:18px 16px 22px; } }
+    .search-top{
+      padding: 12px 12px 10px;
+      border-bottom:1px solid rgba(246,244,239,.10);
+      display:flex; gap:10px; align-items:center;
+    }
+    .search-top input{
+      width:100%;
+      padding: 12px 12px;
+      border-radius: 16px;
+      border:1px solid rgba(246,244,239,.16);
+      background: rgba(246,244,239,.06);
+      color: var(--ivory);
+      outline:none;
+      font-size: 14px;
+    }
+    .search-top input::placeholder{ color: rgba(246,244,239,.55); }
+    .search-close{
+      flex:0 0 auto;
+      padding: 10px 12px;
+      border-radius: 16px;
+      border:1px solid rgba(246,244,239,.18);
+      background: rgba(246,244,239,.06);
+      color: var(--ivory);
+      cursor:pointer;
+      font-size: 11px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+    .search-meta{
+      padding: 10px 12px 12px;
+      font-size: 11px;
+      letter-spacing: .10em;
+      text-transform: uppercase;
+      color: rgba(246,244,239,.70);
+      display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap;
+    }
+    .results{
+      max-height:min(54vh, 520px);
+      overflow:auto;
+      padding: 10px 10px 12px;
+      display:grid;
+      gap:8px;
+    }
+    .result{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      border-radius: 18px;
+      border:1px solid rgba(246,244,239,.12);
+      background: rgba(246,244,239,.04);
+      padding: 10px;
+      text-decoration:none;
+    }
+    .result:hover{ border-color: rgba(191,167,122,.45); background: rgba(191,167,122,.08); }
+    .rthumb{
+      width:48px;
+      aspect-ratio:3/4;
+      border-radius: 14px;
+      overflow:hidden;
+      background:#0f0f10;
+      border:1px solid rgba(246,244,239,.14);
+      flex:0 0 auto;
+    }
+    .rthumb img{
+      width:100%; height:100%;
+      object-fit:cover;
+      display:block;
+      filter: grayscale(1) contrast(1.02);
+    }
+    .rtext{ min-width:0; }
+    .rtext .rk{
+      font-size: 9.5px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      opacity:.76;
+      margin:0 0 2px;
+    }
+    .rtext .rt{
+      margin:0;
+      font-family: var(--serif);
+      font-weight: 780;
+      font-size: 13px;
+      line-height: 1.2;
+      white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+    }
+    .rtext .rs{
+      margin-top:3px;
+      font-size: 12px;
+      opacity:.78;
+      white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+    }
+    .empty{
+      padding: 18px 12px;
+      text-align:center;
+      color: rgba(246,244,239,.78);
+      font-size: 12px;
+      letter-spacing: .06em;
+    }
+
+    /* =========================================================
+       BOTTOM NAV (mobile) — keep, but luxury
+       ========================================================= */
+    .bottomnav{
+      position:fixed;
+      left:0; right:0; bottom:0;
+      z-index:120;
+      display:none;
+      background: color-mix(in srgb, var(--night) 86%, transparent);
+      border-top:1px solid rgba(246,244,239,.10);
+      backdrop-filter: blur(18px);
+    }
+    .bottomnav-inner{
+      display:grid;
+      grid-template-columns:repeat(4, 1fr);
+      padding: 10px 10px 12px;
+      gap: 8px;
+    }
+    .bn-item{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:6px;
+      padding: 10px 6px;
+      border-radius: 16px;
+      color: var(--ivory);
+      text-decoration:none;
+      opacity:.86;
+      border:1px solid rgba(246,244,239,.10);
+      cursor:pointer;
+      background: rgba(246,244,239,.03);
+      font-size: 11px;
+      letter-spacing: .06em;
+    }
+    .bn-item:hover{ opacity:1; }
+    .bn-item.active{
+      opacity:1;
+      border-color: rgba(191,167,122,.55);
+      background: rgba(191,167,122,.12);
+    }
+    .bn-ic{ font-size:16px; line-height:1; }
+    .bn-tx{ font-size:11px; }
+    @media(max-width:600px){ .bottomnav{ display:block; } }
+
+    /* =========================================================
+       FOOTER — restrained
+       ========================================================= */
+    .site-footer{
+      background: rgba(11,11,12,1);
+      color: rgba(246,244,239,.86);
+      border-top:1px solid rgba(246,244,239,.10);
+    }
+    .site-footer .inner{
+      max-width:var(--w);
+      margin:0 auto;
+      padding: 18px var(--pad) 24px;
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:16px;
+    }
+    .site-footer .left{
+      min-width:0;
+      font-size: 12px;
+      line-height:1.5;
+      letter-spacing: .02em;
+    }
+    .site-footer .left strong{
+      font-family: var(--serif);
+      font-weight: 780;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .site-footer .left .muted{ opacity:.78; }
+
+    .site-footer .links{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+      gap: 10px 14px;
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      opacity:.88;
+    }
+    .site-footer .links a{
+      color:inherit;
+      text-decoration:none;
+      padding:4px 0;
+      opacity:.82;
+    }
+    .site-footer .links a:hover{ opacity:1; text-decoration:none; color: rgba(191,167,122,.95); }
+
+    @media(max-width:900px){
+      .site-footer .inner{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+      .site-footer .links{ justify-content:flex-start; }
+    }
   </style>
 </head>
 
 <body id="top">
-  <a class="skip-link" href="#fiches">Skip to content</a>
+  <a class="skiplink" href="#rows">Skip to browse rows</a>
 
-  <div class="page-wrap">
-
-    <header class="topbar" role="banner" aria-label="Main navigation">
-      <div class="topbar-inner">
-        <a href="index.html" class="brand" aria-label="The Novel of Comedy home">
-          <div class="brand-mark">TNoC</div>
-          <div class="brand-text">
-            <div class="brand-title">The Novel of Comedy</div>
-            <div class="brand-sub">Digital atlas &amp; critical cartography of humorous fiction</div>
-          </div>
-        </a>
-
-        <nav class="nav" aria-label="Navigation">
-          <a href="#fiches">Guides</a>
-          <a href="novel-guides.html">Novel guides</a>
-          <a href="author-profiles.html">Author profiles</a>
-          <a href="currents.html">Currents</a>
-          <a href="#toolbox">Toolbox</a>
-          <a href="method.html">Method</a>
-          <a href="#about">About</a>
-          <a href="#research" class="is-primary">Researchers &amp; AI</a>
-        </nav>
+  <!-- Search overlay -->
+  <div class="overlay" id="searchOverlay" aria-hidden="true">
+    <div class="searchbox" role="dialog" aria-modal="true" aria-label="Search TNoC">
+      <div class="search-top">
+        <input id="searchInput" type="text" placeholder="Search a book or an author…" autocomplete="off">
+        <button class="search-close" id="searchClose" type="button" aria-label="Close search">Esc</button>
       </div>
-    </header>
-
-    <!-- HERO -->
-    <section class="hero hero-stream hero-skin-map" aria-label="Homepage hero (visual)">
-      <div class="hero-inner">
-        <div class="hero-copy">
-
-          <h1 class="hero-title">
-            <span class="thin">The</span> <span class="bold">Novel</span> <span class="thin">of</span> <span class="bold">Comedy</span>
-          </h1>
-
-          <!-- SEO-friendly, but still “discreet” -->
-          <p class="hero-totem">
-            <em>Comedy is one of the most precise ways of reading reality.</em><br>
-            A living atlas of humorous fiction: <strong>social satire</strong> (comedy of manners), <strong>comic crime</strong> (capers), and <strong>neo-nonsense</strong> (absurdist / postmodern comedy).
-          </p>
-          </p>
-
-          <div class="hero-proof">
-            <strong>Proof:</strong> fixed 10-chapter guides · curated currents · citation-ready pages.
-          </div>
-
-          <div class="hero-chips" aria-label="Key features">
-            <span class="hero-chip"><span class="dot" aria-hidden="true"></span>Fixed matrix (10)</span>
-            <span class="hero-chip"><span class="dot" aria-hidden="true"></span>Currents → Branch → Environment</span>
-            <span class="hero-chip"><span class="dot" aria-hidden="true"></span>Editor’s curation</span>
-          </div>
-
-          <div class="hero-actions">
-            <a href="novel-guides.html" class="btn btn-primary">Explore novel guides</a>
-            <a href="author-profiles.html" class="btn btn-secondary">Browse author profiles</a>
-            <a href="currents.html" class="btn btn-ghost">See the map</a>
-          </div>
-        </div>
+      <div class="search-meta">
+        <div><strong>Tip</strong> · Ctrl+K / ⌘K · Esc</div>
+        <div><span id="searchCount">0</span> results</div>
       </div>
-    </section>
-
-    <!-- ROWS -->
-    <section class="rows" aria-label="Browse like a platform" id="browseRows">
-
-      <!-- =========================================================
-           ROW 1 — Comedy of Society (SEO: social satire / comedy of manners)
-           ========================================================= -->
-      <div class="row" id="row-society" aria-label="Comedy of Society row" data-rowname="Comedy of Society">
-        <div class="row-head">
-          <div class="row-left">
-            <h2 class="row-title">Comedy of Society</h2>
-            <p class="row-sub">Social satire &amp; comedy of manners — institutions collide with private life.</p>
-            <p class="row-cut">Editor’s cut: friction engines (work, class, family, hierarchy).</p>
-          </div>
-          <div class="row-hint">
-            <a class="pill" href="currents.html#society" aria-label="See all Comedy of Society">All →</a>
-            <span class="pill" aria-hidden="true">Swipe / scroll</span>
-          </div>
-        </div>
-
-        <div class="row-shell" data-row>
-          <button class="row-arrow left" type="button" aria-label="Scroll left"><span>‹</span></button>
-          <button class="row-arrow right" type="button" aria-label="Scroll right"><span>›</span></button>
-
-          <div class="row-track" aria-label="Comedy of Society carousel">
-            <a class="tile" href="wilt-fiche.html" aria-label="Open the Wilt novel guide">
-              <div class="tile-media">
-                <img src="img/wilt.png" alt="Cover of Wilt (Tom Sharpe) — social satire and institutional comedy" loading="eager" decoding="async" fetchpriority="high">
-              </div>
-              <div class="tile-meta">
-                <div class="k">Society · Satire</div>
-                <div class="t">Wilt</div>
-                <div class="s">Tom Sharpe · 1976</div>
-              </div>
-            </a>
-
-            <a class="tile" href="the-code-of-the-woosters-fiche.html" aria-label="Open The Code of the Woosters guide">
-              <div class="tile-media">
-                <img src="img/the-code-of-the-woosters.png" alt="Cover of The Code of the Woosters (P. G. Wodehouse) — comedy of manners" loading="lazy" decoding="async">
-              </div>
-              <div class="tile-meta">
-                <div class="k">Society · Manners</div>
-                <div class="t">Woosters</div>
-                <div class="s">P. G. Wodehouse · 1938</div>
-              </div>
-            </a>
-
-            <a class="tile" href="lucky-jim-fiche.html" aria-label="Open Lucky Jim guide">
-              <div class="tile-media">
-                <img src="img/lucky-jim.png" alt="Cover of Lucky Jim (Kingsley Amis) — campus satire" loading="lazy" decoding="async">
-              </div>
-              <div class="tile-meta">
-                <div class="k">Society · Campus satire</div>
-                <div class="t">Lucky Jim</div>
-                <div class="s">Kingsley Amis · 1954</div>
-              </div>
-            </a>
-
-            <a class="tile" href="small-world-fiche.html" aria-label="Open Small World guide">
-              <div class="tile-media">
-                <img src="img/small-world.png" alt="Cover of Small World (David Lodge) — academic satire" loading="lazy" decoding="async">
-              </div>
-              <div class="tile-meta">
-                <div class="k">Society · Academic satire</div>
-                <div class="t">Small World</div>
-                <div class="s">David Lodge · 1984</div>
-              </div>
-            </a>
-
-            <a class="tile" href="the-girls-of-slender-means-fiche.html" aria-label="Open The Girls of Slender Means guide">
-              <div class="tile-media">
-                <img src="img/the-girls-of-slender-means.png" alt="Cover of The Girls of Slender Means (Muriel Spark) — manners and social comedy" loading="lazy" decoding="async">
-              </div>
-              <div class="tile-meta">
-                <div class="k">Society · Manners</div>
-                <div class="t">Slender Means</div>
-                <div class="s">Muriel Spark · 1963</div>
-              </div>
-            </a>
-
-            <a class="tile" href="flauberts-parrot-fiche.html" aria-label="Open Flaubert’s Parrot guide">
-              <div class="tile-media">
-                <img src="img/flauberts-parrot.png" alt="Cover of Flaubert’s Parrot (Julian Barnes) — literary satire" loading="lazy" decoding="async">
-              </div>
-              <div class="tile-meta">
-                <div class="k">Society · Literary satire</div>
-                <div class="t">Flaubert’s Parrot</div>
-                <div class="s">Julian Barnes · 1984</div>
-              </div>
-            </a>
-
-            <a class="tile" href="the-old-devils-fiche.html" aria-label="Open The Old Devils guide">
-              <div class="tile-media">
-                <img src="img/the-old-devils.png" alt="Cover of The Old Devils (Kingsley Amis) — late-life social satire" loading="lazy" decoding="async">
-              </div>
-              <div class="tile-meta">
-                <div class="k">Society · Satire</div>
-                <div class="t">The Old Devils</div>
-                <div class="s">Kingsley Amis · 1986</div>
-              </div>
-            </a>
-
-            <a class="tile" href="bright-lights-big-city-fiche.html" aria-label="Open Bright Lights, Big City guide">
-              <div class="tile-media">
-                <img src="img/bright-lights-big-city.png" alt="Cover of Bright Lights, Big City (Jay McInerney) — urban social satire" loading="lazy" decoding="async">
-              </div>
-              <div class="tile-meta">
-                <div class="k">Society · Urban satire</div>
-                <div class="t">Bright Lights</div>
-                <div class="s">Jay McInerney · 1984</div>
-              </div>
-            </a>
-          </div>
-
-          <div class="row-progress" aria-hidden="true"><span></span></div>
-        </div>
-      </div>
-
-      <!-- =========================================================
-           ROW 2 — Crime Comedy (SEO: comic crime / caper / heist)
-           ========================================================= -->
-      <div class="row" id="row-crime" aria-label="Crime Comedy row" data-rowname="Crime Comedy">
-        <div class="row-head">
-          <div class="row-left">
-            <h2 class="row-title">Crime Comedy</h2>
-            <p class="row-sub">Comic crime fiction — capers, heists, schemes; morality looks ridiculous.</p>
-            <p class="row-cut">Editor’s cut: elegant failures, crooked plans, comic noir.</p>
-          </div>
-          <div class="row-hint">
-            <a class="pill" href="currents.html#crime" aria-label="See all Crime Comedy">All →</a>
-            <span class="pill" aria-hidden="true">Swipe / scroll</span>
-          </div>
-        </div>
-
-        <div class="row-shell" data-row>
-          <button class="row-arrow left" type="button" aria-label="Scroll left"><span>‹</span></button>
-          <button class="row-arrow right" type="button" aria-label="Scroll right"><span>›</span></button>
-
-          <div class="row-track" aria-label="Crime Comedy carousel">
-            <a class="tile" href="tourist-season-fiche.html" aria-label="Open Tourist Season guide">
-              <div class="tile-media">
-                <img src="img/tourist-season.png" alt="Cover of Tourist Season (Carl Hiaasen) — comic crime fiction" loading="lazy" decoding="async">
-              </div>
-              <div class="tile-meta">
-                <div class="k">Crime · Comic noir</div>
-                <div class="t">Tourist Season</div>
-                <div class="s">Carl Hiaasen · 1986</div>
-              </div>
-            </a>
-
-            <a class="tile" href="florida-roadkill-fiche.html" aria-label="Open Florida Roadkill guide">
-              <div class="tile-media">
-                <img src="img/florida-roadkill.png" alt="Cover of Florida Roadkill (Tim Dorsey) — crime caper comedy" loading="lazy" decoding="async">
-              </div>
-              <div class="tile-meta">
-                <div class="k">Crime · Caper</div>
-                <div class="t">Florida Roadkill</div>
-                <div class="s">Tim Dorsey · 1999</div>
-              </div>
-            </a>
-
-            <a class="tile" href="big-trouble-fiche.html" aria-label="Open Big Trouble guide">
-              <div class="tile-media">
-                <img src="img/big-trouble.png" alt="Cover of Big Trouble (Dave Barry) — comic crime and farce" loading="lazy" decoding="async">
-              </div>
-              <div class="tile-meta">
-                <div class="k">Crime · Farce</div>
-                <div class="t">Big Trouble</div>
-                <div class="s">Dave Barry · 1999</div>
-              </div>
-            </a>
-
-            <a class="tile" href="the-deep-blue-good-by-fiche.html" aria-label="Open The Deep Blue Good-by guide">
-              <div class="tile-media">
-                <img src="img/the-deep-blue-good-by.png" alt="Cover of The Deep Blue Good-by (John D. MacDonald) — crime fiction with dark comedy" loading="lazy" decoding="async">
-              </div>
-              <div class="tile-meta">
-                <div class="k">Crime · Noir edge</div>
-                <div class="t">Deep Blue</div>
-                <div class="s">John D. MacDonald · 1964</div>
-              </div>
-            </a>
-
-            <a class="tile" href="good-behavior-fiche.html" aria-label="Open Good Behavior guide">
-              <div class="tile-media">
-                <img src="img/good-behavior.png" alt="Cover of Good Behavior — comic crime and misbehavior" loading="lazy" decoding="async">
-              </div>
-              <div class="tile-meta">
-                <div class="k">Crime · Mischief</div>
-                <div class="t">Good Behavior</div>
-                <div class="s">Mysterious Press · 1985</div>
-              </div>
-            </a>
-
-            <a class="tile" href="the-commitments-fiche.html" aria-label="Open The Commitments guide">
-              <div class="tile-media">
-                <img src="img/the-commitments.png" alt="Cover of The Commitments (Roddy Doyle) — social comedy with hustler energy" loading="lazy" decoding="async">
-              </div>
-              <div class="tile-meta">
-                <div class="k">Crime · Hustle</div>
-                <div class="t">Commitments</div>
-                <div class="s">Roddy Doyle · 1987</div>
-              </div>
-            </a>
-          </div>
-
-          <div class="row-progress" aria-hidden="true"><span></span></div>
-        </div>
-      </div>
-
-      <!-- =========================================================
-           ROW 3 — Neo-Nonsense (SEO: absurdist / postmodern comic fiction)
-           ========================================================= -->
-      <div class="row" id="row-neo" aria-label="Neo-Nonsense row" data-rowname="Neo-Nonsense">
-        <div class="row-head">
-          <div class="row-left">
-            <h2 class="row-title">Neo-Nonsense</h2>
-            <p class="row-sub">Absurdist &amp; postmodern comic fiction — rigorous logic inside a cracked world.</p>
-            <p class="row-cut">Editor’s cut: bureaucracy, vertigo of meaning, canon hijacks.</p>
-          </div>
-          <div class="row-hint">
-            <a class="pill" href="currents.html#neo" aria-label="See all Neo-Nonsense">All →</a>
-            <span class="pill" aria-hidden="true">Swipe / scroll</span>
-          </div>
-        </div>
-
-        <div class="row-shell" data-row>
-          <button class="row-arrow left" type="button" aria-label="Scroll left"><span>‹</span></button>
-          <button class="row-arrow right" type="button" aria-label="Scroll right"><span>›</span></button>
-
-          <div class="row-track" aria-label="Neo-Nonsense carousel">
-            <a class="tile" href="portnoys-complaint-fiche.html" aria-label="Open Portnoy’s Complaint guide">
-              <div class="tile-media">
-                <img src="img/portnoys-complaint.png" alt="Cover of Portnoy’s Complaint (Philip Roth) — proto neo-nonsense and postmodern comedy" loading="lazy" decoding="async">
-              </div>
-              <div class="tile-meta">
-                <div class="k">Neo · Postmodern</div>
-                <div class="t">Portnoy</div>
-                <div class="s">Philip Roth · 1969</div>
-              </div>
-            </a>
-
-            <a class="tile" href="generation-x-fiche.html" aria-label="Open Generation X guide">
-              <div class="tile-media">
-                <img src="img/generation-x.png" alt="Cover of Generation X (Douglas Coupland) — postmodern social comedy with neo edge" loading="lazy" decoding="async">
-              </div>
-              <div class="tile-meta">
-                <div class="k">Neo · Media shift</div>
-                <div class="t">Generation X</div>
-                <div class="s">Douglas Coupland · 1991</div>
-              </div>
-            </a>
-
-            <a class="tile" href="the-malaise-expedition-fiche.html" aria-label="Open The Malaise Expedition guide">
-              <div class="tile-media">
-                <img src="img/the-malaise-expedition.png" alt="Cover of The Malaise Expedition (Jean Echenoz) — absurdist logic and neo-nonsense tone" loading="lazy" decoding="async">
-              </div>
-              <div class="tile-meta">
-                <div class="k">Neo · Absurd</div>
-                <div class="t">Malaise</div>
-                <div class="s">Jean Echenoz · 1986</div>
-              </div>
-            </a>
-
-            <a class="tile" href="white-noise-fiche.html" aria-label="Open White Noise guide">
-              <div class="tile-media">
-                <img src="img/white-noise.png" alt="Cover of White Noise (Don DeLillo) — absurdist and postmodern satire" loading="lazy" decoding="async">
-              </div>
-              <div class="tile-meta">
-                <div class="k">Neo · Satire</div>
-                <div class="t">White Noise</div>
-                <div class="s">Don DeLillo · 1985</div>
-              </div>
-            </a>
-
-            <a class="tile" href="money-fiche.html" aria-label="Open Money guide">
-              <div class="tile-media">
-                <img src="img/money.png" alt="Cover of Money (Martin Amis) — postmodern social satire" loading="lazy" decoding="async">
-              </div>
-              <div class="tile-meta">
-                <div class="k">Neo · Satire</div>
-                <div class="t">Money</div>
-                <div class="s">Martin Amis · 1984</div>
-              </div>
-            </a>
-
-            <a class="tile" href="double-negative-fiche.html" aria-label="Open Double Negative guide">
-              <div class="tile-media">
-                <img src="img/double-negative.png" alt="Cover of Double Negative (David Carkeet) — absurdist comedy and logic games" loading="lazy" decoding="async">
-              </div>
-              <div class="tile-meta">
-                <div class="k">Neo · Logic games</div>
-                <div class="t">Double Negative</div>
-                <div class="s">David Carkeet · 1980</div>
-              </div>
-            </a>
-
-            <a class="tile" href="james-fiche.html" aria-label="Open James guide">
-              <div class="tile-media">
-                <img src="img/james.png" alt="Cover of James (Percival Everett) — canon hijack and absurdist comedy" loading="lazy" decoding="async">
-              </div>
-              <div class="tile-meta">
-                <div class="k">Neo · Canon hijack</div>
-                <div class="t">James</div>
-                <div class="s">Percival Everett · 2024</div>
-              </div>
-            </a>
-
-            <a class="tile is-portrait" href="author-profiles.html#kurt-vonnegut" aria-label="Open Kurt Vonnegut profile">
-              <div class="tile-media">
-                <img src="img/kurt-vonnegut-portrait.jpg" alt="Portrait of Kurt Vonnegut — absurdist and postmodern humor" loading="lazy" decoding="async">
-              </div>
-              <div class="tile-meta">
-                <div class="k">Author</div>
-                <div class="t">Vonnegut</div>
-                <div class="s">Open profile</div>
-              </div>
-            </a>
-          </div>
-
-          <div class="row-progress" aria-hidden="true"><span></span></div>
-        </div>
-      </div>
-
-      <!-- =========================================================
-           ROW 4 — Authors (fill space)
-           ========================================================= -->
-      <div class="row" id="row-authors" aria-label="Authors row" data-rowname="Authors">
-        <div class="row-head">
-          <div class="row-left">
-            <h2 class="row-title">Authors</h2>
-            <p class="row-sub">How writers build comic mechanics over time — voice, rhythm, institutions, obsessions.</p>
-            <p class="row-cut">Editor’s cut: devices you can “see” page after page.</p>
-          </div>
-          <div class="row-hint">
-            <a class="pill" href="author-profiles.html" aria-label="See all author profiles">All →</a>
-            <span class="pill" aria-hidden="true">Swipe / scroll</span>
-          </div>
-        </div>
-
-        <div class="row-shell" data-row>
-          <button class="row-arrow left" type="button" aria-label="Scroll left"><span>‹</span></button>
-          <button class="row-arrow right" type="button" aria-label="Scroll right"><span>›</span></button>
-
-          <div class="row-track" aria-label="Authors carousel">
-            <a class="tile is-portrait" href="author-profiles.html#tom-sharpe" aria-label="Open Tom Sharpe profile">
-              <div class="tile-media">
-                <img src="img/tom-sharpe-portrait.jpg" alt="Portrait of Tom Sharpe — British social satire" loading="lazy" decoding="async">
-              </div>
-              <div class="tile-meta">
-                <div class="k">Author profile</div>
-                <div class="t">Tom Sharpe</div>
-                <div class="s">Open profile</div>
-              </div>
-            </a>
-
-            <a class="tile is-portrait" href="author-profiles.html#pg-wodehouse" aria-label="Open P. G. Wodehouse profile">
-              <div class="tile-media">
-                <img src="img/pg-wodehouse-portrait.jpg" alt="Portrait of P. G. Wodehouse — comedy of manners" loading="lazy" decoding="async">
-              </div>
-              <div class="tile-meta">
-                <div class="k">Author profile</div>
-                <div class="t">Wodehouse</div>
-                <div class="s">Open profile</div>
-              </div>
-            </a>
-
-            <a class="tile is-portrait" href="author-profiles.html#muriel-spark" aria-label="Open Muriel Spark profile">
-              <div class="tile-media">
-                <img src="img/muriel-spark-portrait.jpg" alt="Portrait of Muriel Spark — social comedy and satire" loading="lazy" decoding="async">
-              </div>
-              <div class="tile-meta">
-                <div class="k">Author profile</div>
-                <div class="t">Muriel Spark</div>
-                <div class="s">Open profile</div>
-              </div>
-            </a>
-
-            <a class="tile is-portrait" href="author-profiles.html#martin-amis" aria-label="Open Martin Amis profile">
-              <div class="tile-media">
-                <img src="img/martin-amis-portrait.jpg" alt="Portrait of Martin Amis — postmodern satire" loading="lazy" decoding="async">
-              </div>
-              <div class="tile-meta">
-                <div class="k">Author profile</div>
-                <div class="t">Martin Amis</div>
-                <div class="s">Open profile</div>
-              </div>
-            </a>
-
-            <a class="tile is-portrait" href="author-profiles.html#douglas-coupland" aria-label="Open Douglas Coupland profile">
-              <div class="tile-media">
-                <img src="img/douglas-coupland-portrait.jpg" alt="Portrait of Douglas Coupland — postmodern comedy" loading="lazy" decoding="async">
-              </div>
-              <div class="tile-meta">
-                <div class="k">Author profile</div>
-                <div class="t">Coupland</div>
-                <div class="s">Open profile</div>
-              </div>
-            </a>
-          </div>
-
-          <div class="row-progress" aria-hidden="true"><span></span></div>
-        </div>
-      </div>
-
-    </section>
-
-    <!-- PREMIUM DIVIDER -->
-    <div class="stitch-divider" aria-hidden="true">
-      <div class="stitch-badge">Atlas layer → Paper layer</div>
+      <div class="results" id="searchResults" aria-label="Search results"></div>
+      <div class="empty" id="searchEmpty" style="display:none;">No results. Try another spelling.</div>
     </div>
-
-    <!-- MAIN -->
-    <main class="main" aria-label="Main content">
-      <div class="main-inner">
-
-        <div class="content-column">
-
-          <details class="mobile-toc" id="mobileToc">
-            <summary>
-              <span>In this page</span>
-              <span class="meta" id="mobileMeta">~4 min</span>
-            </summary>
-            <nav class="toc" aria-label="In this page (mobile)" id="tocMobile">
-              <a href="#fiches">Guides</a>
-              <a href="#courants">Currents</a>
-              <a href="#toolbox">Toolbox</a>
-              <a href="#about">About</a>
-              <a href="#research">Researchers &amp; AI</a>
-              <a href="#start-here">Where to start?</a>
-            </nav>
-          </details>
-
-          <section class="section" id="fiches" data-spy>
-            <header class="section-header">
-              <div class="section-kicker">Guides</div>
-              <h2 class="section-title">Novel, author and series guides</h2>
-              <p class="section-lead">
-                Start from the works. Then read the comic device — with the same matrix, every time.
-              </p>
-              <p class="section-sub">
-                This homepage is a digest. Full essays, definitions and taxonomy live on dedicated pages.
-              </p>
-            </header>
-
-            <div class="grid-3">
-              <article class="card">
-                <div class="card-header">
-                  <span>Novel guides</span>
-                  <a class="card-link" href="novel-guides.html">Open →</a>
-                </div>
-                <div class="card-body">
-                  <p>Fixed ten-chapter matrix, identical from one book to the next.</p>
-                  <ul class="list">
-                    <li>Reading note (signed)</li>
-                    <li>Incipit (original language)</li>
-                    <li>Characters (archetypes + citations)</li>
-                    <li>Cartography coordinates</li>
-                  </ul>
-                  <p class="card-tagline">Designed to spark reading first — then give landmarks.</p>
-                </div>
-              </article>
-
-              <article class="card">
-                <div class="card-header">
-                  <span>Author profiles</span>
-                  <a class="card-link" href="author-profiles.html">Open →</a>
-                </div>
-                <div class="card-body">
-                  <p>How writers build humor: motifs, voice, institutions, rhythm.</p>
-                  <p class="card-tagline">Secondary to the works — but crucial for connections.</p>
-                </div>
-              </article>
-
-              <article class="card">
-                <div class="card-header">
-                  <span>Series guides</span>
-                  <a class="card-link" href="series.html">Open →</a>
-                </div>
-                <div class="card-body">
-                  <p>For cycles where comedy evolves across volumes.</p>
-                  <ul class="list">
-                    <li>tone shifts across time</li>
-                    <li>device maturation</li>
-                    <li>context changes per volume</li>
-                  </ul>
-                </div>
-              </article>
-            </div>
-          </section>
-
-          <section class="section" id="courants" data-spy>
-            <header class="section-header">
-              <div class="section-kicker">Currents</div>
-              <h2 class="section-title">Three currents of modern humorous fiction</h2>
-              <p class="section-lead">
-                A genealogy as well as a map: <strong>social satire</strong> first (Comedy of Society), then <strong>comic crime</strong> (Crime Comedy), and finally <strong>absurdist / postmodern comedy</strong> (Neo-Nonsense).
-              </p>
-              <p class="section-sub">
-                This page keeps it short. Full definitions, branches and examples: on the Currents page.
-              </p>
-            </header>
-
-            <div class="grid-3">
-              <article class="card">
-                <div class="card-header">
-                  <span>Comedy of Society</span>
-                  <a class="card-link" href="currents.html#society">Map →</a>
-                </div>
-                <div class="card-body">
-                  <p><strong>Social satire</strong> &amp; <strong>comedy of manners</strong>: family, work, hierarchy, class.</p>
-                  <p class="card-tagline">Signature: institutions generate the comic engine.</p>
-                </div>
-              </article>
-
-              <article class="card">
-                <div class="card-header">
-                  <span>Crime Comedy</span>
-                  <a class="card-link" href="currents.html#crime">Map →</a>
-                </div>
-                <div class="card-body">
-                  <p><strong>Comic crime fiction</strong>: capers, heists, schemes, elastic morality.</p>
-                  <p class="card-tagline">Signature: transgression becomes a narrative machine.</p>
-                </div>
-              </article>
-
-              <article class="card">
-                <div class="card-header">
-                  <span>Neo-Nonsense</span>
-                  <a class="card-link" href="currents.html#neo">Map →</a>
-                </div>
-                <div class="card-body">
-                  <p><strong>Absurdist</strong> &amp; <strong>postmodern</strong> comic fiction: rigorous logic in a cracked world.</p>
-                  <p class="card-tagline">Signature: meaning wobbles — the mechanism stays precise.</p>
-                </div>
-              </article>
-            </div>
-          </section>
-
-          <section class="section" id="toolbox" data-spy>
-            <header class="section-header">
-              <div class="section-kicker">Toolbox</div>
-              <h2 class="section-title">Toolbox to read the guides</h2>
-              <p class="section-lead">
-                Reused everywhere: Role, Environment, and optional Labs — for comparability.
-              </p>
-              <p class="section-sub">
-                A small shared vocabulary makes guides readable for humans and machines.
-              </p>
-            </header>
-
-            <div class="grid-3">
-              <article class="card">
-                <div class="card-header">
-                  <span>Role</span>
-                  <a class="card-link" href="fr/cartographie/roles-romans">Open →</a>
-                </div>
-                <div class="card-body">
-                  <p>Comic Engine · Comic Thread · Comic Turn.</p>
-                  <p class="card-tagline">How comedy drives the novel.</p>
-                </div>
-              </article>
-
-              <article class="card">
-                <div class="card-header">
-                  <span>Environment</span>
-                  <a class="card-link" href="fr/cartographie/environnements">Open →</a>
-                </div>
-                <div class="card-body">
-                  <p>Place, milieu, period, institutions — where it plays.</p>
-                  <p class="card-tagline">A map coordinate, not a theme.</p>
-                </div>
-              </article>
-
-              <article class="card">
-                <div class="card-header">
-                  <span>Labs</span>
-                  <a class="card-link" href="fr/cartographie/labs">Open →</a>
-                </div>
-                <div class="card-body">
-                  <p>Optional hubs connecting works by shared energy.</p>
-                  <p class="card-tagline">Use when a corpus becomes clear.</p>
-                </div>
-              </article>
-            </div>
-          </section>
-
-          <section class="section" id="about" data-spy>
-            <header class="section-header">
-              <div class="section-kicker">About</div>
-              <h2 class="section-title">A living library, built to be cited</h2>
-              <p class="section-lead">
-                Add guides progressively. Keep the matrix stable. Make connections readable.
-              </p>
-              <p class="section-sub">
-                Editorial position & method are explained on the Method page.
-              </p>
-            </header>
-
-            <div class="grid-2">
-              <article class="card">
-                <div class="card-header">
-                  <span>Method</span>
-                  <a class="card-link" href="method.html">Read →</a>
-                </div>
-                <div class="card-body">
-                  <p>Why the matrix is fixed, how sources are handled, and how the atlas is curated.</p>
-                </div>
-              </article>
-
-              <article class="card">
-                <div class="card-header">
-                  <span>How to cite</span>
-                  <a class="card-link" href="fr/a-propos/comment-citer-tnoc">Open →</a>
-                </div>
-                <div class="card-body">
-                  <p>Designed for libraries, researchers, and stable linking.</p>
-                </div>
-              </article>
-            </div>
-          </section>
-
-          <section class="section" id="research" data-spy>
-            <header class="section-header">
-              <div class="section-kicker">Researchers &amp; AI</div>
-              <h2 class="section-title">For research, libraries and assistants</h2>
-              <p class="section-lead">
-                Structured so a human (or model) can compare books quickly: stable IDs, fixed matrices, explicit vocabulary.
-              </p>
-              <p class="section-sub">
-                Exports and data licensing live on the dedicated page.
-              </p>
-            </header>
-
-            <div class="grid-2">
-              <article class="card">
-                <div class="card-header">
-                  <span>Research uses</span>
-                  <a class="card-link" href="fr/a-propos">Open →</a>
-                </div>
-                <div class="card-body">
-                  <ul class="list">
-                    <li>comparable matrices</li>
-                    <li>explicit typology</li>
-                    <li>stable identifiers</li>
-                  </ul>
-                </div>
-              </article>
-
-              <article class="card">
-                <div class="card-header">
-                  <span>Data & licence</span>
-                  <a class="card-link" href="fr/a-propos/donnees-licence">Open →</a>
-                </div>
-                <div class="card-body">
-                  <p>Lightweight reuse for corpus projects.</p>
-                </div>
-              </article>
-            </div>
-          </section>
-
-          <section class="section" id="start-here" data-spy>
-            <header class="section-header">
-              <div class="section-kicker">Orientation</div>
-              <h2 class="section-title">Where to start?</h2>
-              <p class="section-lead">
-                Enter by a book, by a current, or by a Lab — then follow connections.
-              </p>
-              <p class="section-sub">If you’re new: begin with one guide you already love.</p>
-            </header>
-
-            <div class="grid-2">
-              <article class="card">
-                <div class="card-header">
-                  <span>Start with a guide</span>
-                  <a class="card-link" href="novel-guides.html">Browse →</a>
-                </div>
-                <div class="card-body">
-                  <p>Pick one book. Read the device. Follow “Suggested next”.</p>
-                </div>
-              </article>
-
-              <article class="card">
-                <div class="card-header">
-                  <span>Start with currents</span>
-                  <a class="card-link" href="currents.html">Open →</a>
-                </div>
-                <div class="card-body">
-                  <p>Social satire, comic crime, absurdist comedy — fast orientation.</p>
-                </div>
-              </article>
-            </div>
-          </section>
-
-        </div>
-
-        <!-- DESKTOP RAIL -->
-        <aside class="rail" aria-label="In this page (desktop)">
-          <div class="rail-sticky">
-            <header>
-              <h3>In this page</h3>
-              <p class="rail-meta">
-                <span class="rail-pill"><span class="tiny" aria-hidden="true"></span><span id="railHere">You are here: Guides</span></span>
-                <span class="rail-pill">~<span id="railTime">4</span> min</span>
-              </p>
-              <div class="rail-progress" aria-label="Reading progress"><span></span></div>
-            </header>
-
-            <nav class="toc" id="tocDesktop">
-              <a href="#fiches">Guides</a>
-              <a href="#courants">Currents</a>
-              <a href="#toolbox">Toolbox</a>
-              <a href="#about">About</a>
-              <a href="#research">Researchers &amp; AI</a>
-              <a href="#start-here">Where to start?</a>
-            </nav>
-
-            <div class="rail-next" aria-label="Suggested next (paper sections)">
-              <div class="label">Suggested next</div>
-              <a id="next1" href="#courants">
-                <strong>Currents</strong>
-                <span>Choose a path: social satire / comic crime / absurdist comedy.</span>
-              </a>
-              <a id="next2" href="#toolbox">
-                <strong>Toolbox</strong>
-                <span>Roles, environments, Labs.</span>
-              </a>
-            </div>
-
-            <div class="rail-rows" aria-label="From browse rows">
-              <div class="label">
-                <strong>From browse rows</strong>
-                <span id="rowCtxLabel">Society</span>
-              </div>
-              <div class="rail-row-grid" id="rowCtxGrid"></div>
-            </div>
-
-            <div class="rail-bottom">
-              <a class="btn" href="#top">↑ Back to top</a>
-            </div>
-          </div>
-        </aside>
-
-      </div>
-    </main>
-
-    <footer class="footer" role="contentinfo">
-      <div class="footer-inner">
-        <div>
-          <strong>The Novel of Comedy (TNoC)</strong> · Atlas and critical compass for humorous fiction.<br>
-          <span style="opacity:.82">© <span id="y"></span> Boris Jeanson Béteille</span>
-        </div>
-        <div class="footer-links">
-          <a href="method.html">Method</a>
-          <a href="fr/a-propos">About</a>
-          <a href="fr/a-propos/manifesto">Manifesto</a>
-          <a href="fr/a-propos/comment-citer-tnoc">How to cite TNoC</a>
-          <a href="fr/a-propos/donnees-licence">Data & licence</a>
-          <a href="fr/contact">Contact</a>
-        </div>
-      </div>
-    </footer>
-
   </div>
 
-  <!-- =========================================================
-       Row arrows + row progress hints
-       ========================================================= -->
+  <header class="topbar" role="banner">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html" aria-label="The Novel of Comedy home">
+        <div class="brand-mark">TNoC</div>
+        <div class="brand-text">
+          <div class="brand-title">The Novel of Comedy</div>
+          <div class="brand-sub">First atlas &amp; cartography of humorous fiction</div>
+        </div>
+      </a>
+
+      <nav class="nav" aria-label="Navigation">
+        <a href="#rows">Browse</a>
+        <a href="#paper">Paper</a>
+        <a href="novel-guides.html">Novels</a>
+        <a href="author-profiles.html">Authors</a>
+        <button class="btn" id="openSearch" type="button" aria-label="Open search">
+          Search <span class="kbd">Ctrl/⌘ K</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" aria-label="Hero (streaming wall)">
+    <div class="marquee-wall" aria-hidden="true">
+      <div class="marquee-strip top">
+        <div class="marquee-track" id="mq1"></div>
+        <div class="marquee-track" id="mq1b"></div>
+      </div>
+      <div class="marquee-strip mid">
+        <div class="marquee-track" id="mq2"></div>
+        <div class="marquee-track" id="mq2b"></div>
+      </div>
+      <div class="marquee-strip bot">
+        <div class="marquee-track" id="mq3"></div>
+        <div class="marquee-track" id="mq3b"></div>
+      </div>
+    </div>
+
+    <div class="hero-inner">
+      <div class="hero-card">
+        <div class="hero-kicker"><span class="dot"></span> Atlas <span class="dot"></span> Guides <span class="dot"></span> Cartography</div>
+
+        <h1 class="hero-title">
+          <span class="thin">The</span> <span class="bold">Novel</span> <span class="thin">of</span> <span class="bold">Comedy</span>
+        </h1>
+
+        <p class="hero-tag">
+          Comedy of Society · Comic Crime · Neo-Nonsense.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="novel-guides.html">Open novel guides</a>
+          <a class="btn" href="author-profiles.html">Open author profiles</a>
+          <a class="btn" href="currents.html">Map</a>
+          <button class="btn" id="openSearch2" type="button">Search</button>
+        </div>
+      </div>
+
+      <aside class="nowplaying" aria-label="Featured pick">
+        <div class="now-cover">
+          <img id="featuredImg" src="img/wilt.png" alt="Featured cover" loading="eager" fetchpriority="high" decoding="async">
+        </div>
+        <div>
+          <p class="now-k" id="featuredK">Featured</p>
+          <h2 class="now-t" id="featuredT">Wilt — Tom Sharpe (1976)</h2>
+          <div class="now-s" id="featuredS">
+            One guide. One device. Ten chapters — always the same matrix.
+          </div>
+          <div class="now-mini">
+            <span class="pill">10-part matrix</span>
+            <span class="pill">Stable links</span>
+            <span class="pill">Citable</span>
+          </div>
+          <div class="hero-actions" style="margin-top:12px;">
+            <a class="btn btn-primary" id="featuredLink" href="wilt-fiche.html">Open</a>
+            <button class="btn" id="shufflePick" type="button">Surprise</button>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ROWS -->
+  <section class="rows" id="rows" aria-label="Browse rows (streaming)">
+
+    <!-- Row 1 -->
+    <div class="row" id="row-society" data-rowname="Comedy of Society" aria-label="Comedy of Society row">
+      <div class="row-head">
+        <div class="row-left">
+          <h2 class="row-title">Comedy of Society</h2>
+          <p class="row-sub">Institutions collide with private life — satire &amp; manners.</p>
+        </div>
+        <div class="row-hint">
+          <a href="currents.html#society">All →</a>
+          <span style="opacity:.55;">Swipe</span>
+        </div>
+      </div>
+
+      <div class="row-shell" data-row>
+        <div class="row-track" aria-label="Comedy of Society carousel">
+          <a class="tile" href="the-commitments-fiche.html"
+             data-kind="Novel" data-title="The Commitments"
+             data-current="Society" data-branch="Satire"
+             data-author="Roddy Doyle" data-year="1987"
+             data-sub="Roddy Doyle · 1987"
+             data-tags="society satire">
+            <div class="tile-media"><img src="img/the-commitments.png" alt="Cover of The Commitments" loading="lazy" decoding="async"></div>
+            <div class="tile-meta">
+              <div class="k">Society · Satire</div>
+              <div class="t">The Commitments</div>
+              <div class="s">Roddy Doyle · 1987</div>
+            </div>
+          </a>
+
+          <a class="tile" href="wilt-fiche.html"
+             data-kind="Novel" data-title="Wilt"
+             data-current="Society" data-branch="Satire"
+             data-author="Tom Sharpe" data-year="1976"
+             data-sub="Tom Sharpe · 1976"
+             data-tags="society satire">
+            <div class="tile-media"><img src="img/wilt.png" alt="Cover of Wilt" loading="lazy" decoding="async"></div>
+            <div class="tile-meta">
+              <div class="k">Society · Satire</div>
+              <div class="t">Wilt</div>
+              <div class="s">Tom Sharpe · 1976</div>
+            </div>
+          </a>
+
+          <a class="tile" href="poor-souls-fiche.html"
+             data-kind="Novel" data-title="Poor Souls"
+             data-current="Society" data-branch="Satire"
+             data-author="Joseph Connolly" data-year="1995"
+             data-sub="Joseph Connolly · 1995"
+             data-tags="society">
+            <div class="tile-media"><img src="img/poor-souls.png" alt="Cover of Poor Souls" loading="lazy" decoding="async"></div>
+            <div class="tile-meta">
+              <div class="k">Society · Satire</div>
+              <div class="t">Poor Souls</div>
+              <div class="s">Joseph Connolly · 1995</div>
+            </div>
+          </a>
+
+          <a class="tile" href="what-a-carve-up-fiche.html"
+             data-kind="Novel" data-title="What a Carve Up!"
+             data-current="Society" data-branch="Satire"
+             data-author="Jonathan Coe" data-year="1994"
+             data-sub="Jonathan Coe · 1994"
+             data-tags="society satire">
+            <div class="tile-media"><img src="img/what-a-carve-up.png" alt="Cover of What a Carve Up!" loading="lazy" decoding="async"></div>
+            <div class="tile-meta">
+              <div class="k">Society · Satire</div>
+              <div class="t">What a Carve Up!</div>
+              <div class="s">Jonathan Coe · 1994</div>
+            </div>
+          </a>
+
+          <a class="tile" href="the-sportswriter-fiche.html"
+             data-kind="Novel" data-title="The Sportswriter"
+             data-current="Society" data-branch="Manners"
+             data-author="Richard Ford" data-year="1986"
+             data-sub="Richard Ford · 1986"
+             data-tags="society">
+            <div class="tile-media"><img src="img/the-sportswriter.png" alt="Cover of The Sportswriter" loading="lazy" decoding="async"></div>
+            <div class="tile-meta">
+              <div class="k">Society · Manners</div>
+              <div class="t">The Sportswriter</div>
+              <div class="s">Richard Ford · 1986</div>
+            </div>
+          </a>
+
+          <a class="tile" href="small-world-fiche.html"
+             data-kind="Novel" data-title="Small World"
+             data-current="Society" data-branch="Campus"
+             data-author="David Lodge" data-year="1984"
+             data-sub="David Lodge · 1984"
+             data-tags="society manners campus">
+            <div class="tile-media"><img src="img/small-world.png" alt="Cover of Small World" loading="lazy" decoding="async"></div>
+            <div class="tile-meta">
+              <div class="k">Society · Campus</div>
+              <div class="t">Small World</div>
+              <div class="s">David Lodge · 1984</div>
+            </div>
+          </a>
+
+          <a class="tile" href="the-girls-of-slender-means-fiche.html"
+             data-kind="Novel" data-title="The Girls of Slender Means"
+             data-current="Society" data-branch="Manners"
+             data-author="Muriel Spark" data-year="1963"
+             data-sub="Muriel Spark · 1963"
+             data-tags="society manners">
+            <div class="tile-media"><img src="img/the-girls-of-slender-means.png" alt="Cover of The Girls of Slender Means" loading="lazy" decoding="async"></div>
+            <div class="tile-meta">
+              <div class="k">Society · Manners</div>
+              <div class="t">Girls of Slender Means</div>
+              <div class="s">Muriel Spark · 1963</div>
+            </div>
+          </a>
+
+          <a class="tile" href="babycake-fiche.html"
+             data-kind="Novel" data-title="Babycakes"
+             data-current="Society" data-branch="Manners"
+             data-author="Armistead Maupin" data-year="1984"
+             data-sub="Armistead Maupin · 1984"
+             data-tags="society">
+            <div class="tile-media"><img src="img/babycake.png" alt="Cover of Babycakes" loading="lazy" decoding="async"></div>
+            <div class="tile-meta">
+              <div class="k">Society · Manners</div>
+              <div class="t">Babycakes</div>
+              <div class="s">Armistead Maupin · 1984</div>
+            </div>
+          </a>
+
+          <a class="tile" href="high-fidelity-fiche.html"
+             data-kind="Novel" data-title="High Fidelity"
+             data-current="Society" data-branch="Manners"
+             data-author="Nick Hornby" data-year="1995"
+             data-sub="Nick Hornby · 1995"
+             data-tags="society">
+            <div class="tile-media"><img src="img/high-fidelity.png" alt="Cover of High Fidelity" loading="lazy" decoding="async"></div>
+            <div class="tile-meta">
+              <div class="k">Society · Manners</div>
+              <div class="t">High Fidelity</div>
+              <div class="s">Nick Hornby · 1995</div>
+            </div>
+          </a>
+
+          <a class="tile" href="the-code-of-the-woosters-fiche.html"
+             data-kind="Novel" data-title="The Code of the Woosters"
+             data-current="Society" data-branch="Manners"
+             data-author="P. G. Wodehouse" data-year="1938"
+             data-sub="P. G. Wodehouse · 1938"
+             data-tags="society manners">
+            <div class="tile-media"><img src="img/the-code-of-the-woosters.png" alt="Cover of The Code of the Woosters" loading="lazy" decoding="async"></div>
+            <div class="tile-meta">
+              <div class="k">Society · Manners</div>
+              <div class="t">Woosters</div>
+              <div class="s">P. G. Wodehouse · 1938</div>
+            </div>
+          </a>
+
+          <a class="tile" href="the-old-devils-fiche.html"
+             data-kind="Novel" data-title="The Old Devils"
+             data-current="Society" data-branch="Manners"
+             data-author="Kingsley Amis" data-year="1986"
+             data-sub="Kingsley Amis · 1986"
+             data-tags="society">
+            <div class="tile-media"><img src="img/the-old-devils.png" alt="Cover of The Old Devils" loading="lazy" decoding="async"></div>
+            <div class="tile-meta">
+              <div class="k">Society · Manners</div>
+              <div class="t">The Old Devils</div>
+              <div class="s">Kingsley Amis · 1986</div>
+            </div>
+          </a>
+
+          <a class="tile" href="the-bonfire-of-the-vanities-fiche.html"
+             data-kind="Novel" data-title="The Bonfire of the Vanities"
+             data-current="Society" data-branch="Satire"
+             data-author="Tom Wolfe" data-year="1987"
+             data-sub="Tom Wolfe · 1987"
+             data-tags="society satire">
+            <div class="tile-media"><img src="img/the-bonfire-of-the-vanities.png" alt="Cover of The Bonfire of the Vanities" loading="lazy" decoding="async"></div>
+            <div class="tile-meta">
+              <div class="k">Society · Satire</div>
+              <div class="t">Bonfire of the Vanities</div>
+              <div class="s">Tom Wolfe · 1987</div>
+            </div>
+          </a>
+        </div>
+
+        <div class="row-progress" aria-hidden="true"><span></span></div>
+      </div>
+    </div>
+
+    <!-- Row — Author Profiles -->
+    <div class="row" id="row-authors" data-rowname="Author Profiles" aria-label="Author Profiles row">
+      <div class="row-head">
+        <div class="row-left">
+          <h2 class="row-title">Author Profiles</h2>
+          <p class="row-sub">Portraits + method : how writers build humor (voice, rhythm, institutions, devices)</p>
+        </div>
+        <div class="row-hint">
+          <a href="author-profiles.html">All →</a>
+          <span style="opacity:.55;">Swipe</span>
+        </div>
+      </div>
+
+      <div class="row-shell" data-row>
+        <div class="row-track" aria-label="Author Profiles carousel">
+          <a class="tile is-portrait" href="author-profiles.html#kurt-vonnegut"
+             data-kind="Author" data-title="Kurt Vonnegut" data-sub="Author profile"
+             data-tags="author neo absurd satire">
+            <div class="tile-media"><img src="img/kurt-vonnegut-portrait.jpg" alt="Portrait of Kurt Vonnegut" loading="lazy" decoding="async"></div>
+            <div class="tile-meta"><div class="k">Author</div><div class="t">Vonnegut</div><div class="s">Open profile</div></div>
+          </a>
+
+          <a class="tile is-portrait" href="author-profiles.html#tom-sharpe"
+             data-kind="Author" data-title="Tom Sharpe" data-sub="Author profile"
+             data-tags="author society satire frustration comedy">
+            <div class="tile-media"><img src="img/tom-sharpe-portrait.jpg" alt="Portrait of Tom Sharpe" loading="lazy" decoding="async"></div>
+            <div class="tile-meta"><div class="k">Author</div><div class="t">Tom Sharpe</div><div class="s">Open profile</div></div>
+          </a>
+
+          <a class="tile is-portrait" href="author-profiles.html#francoise-sagan"
+             data-kind="Author" data-title="Françoise Sagan" data-sub="Author profile"
+             data-tags="author society manners irony">
+            <div class="tile-media"><img src="img/francoise-sagan-portrait.jpg" alt="Portrait of Françoise Sagan" loading="lazy" decoding="async"></div>
+            <div class="tile-meta"><div class="k">Author</div><div class="t">Sagan</div><div class="s">Open profile</div></div>
+          </a>
+
+          <a class="tile is-portrait" href="author-profiles.html#perceval"
+             data-kind="Author" data-title="Perceval" data-sub="Author profile"
+             data-tags="author outsider">
+            <div class="tile-media"><img src="img/perceval-portrait.jpg" alt="Portrait of Perceval" loading="lazy" decoding="async"></div>
+            <div class="tile-meta"><div class="k">Author</div><div class="t">Perceval</div><div class="s">Open profile</div></div>
+          </a>
+
+          <a class="tile is-portrait" href="author-profiles.html#p-g-wodehouse"
+             data-kind="Author" data-title="P. G. Wodehouse" data-sub="Author profile"
+             data-tags="author society manners">
+            <div class="tile-media"><img src="img/pg-wodehouse-portrait.jpg" alt="Portrait of P. G. Wodehouse" loading="lazy" decoding="async"></div>
+            <div class="tile-meta"><div class="k">Author</div><div class="t">Wodehouse</div><div class="s">Open profile</div></div>
+          </a>
+
+          <a class="tile is-portrait" href="author-profiles.html#douglas-adams"
+             data-kind="Author" data-title="Douglas Adams" data-sub="Author profile"
+             data-tags="author neo nonsense absurd">
+            <div class="tile-media"><img src="img/douglas-adams-portrait.jpg" alt="Portrait of Douglas Adams" loading="lazy" decoding="async"></div>
+            <div class="tile-meta"><div class="k">Author</div><div class="t">Douglas Adams</div><div class="s">Open profile</div></div>
+          </a>
+
+          <a class="tile is-portrait" href="author-profiles.html#donald-e-westlake"
+             data-kind="Author" data-title="Donald E. Westlake" data-sub="Author profile"
+             data-tags="author crime caper">
+            <div class="tile-media"><img src="img/donald-e-westlake-portrait.jpg" alt="Portrait of Donald E. Westlake" loading="lazy" decoding="async"></div>
+            <div class="tile-meta"><div class="k">Author</div><div class="t">Westlake</div><div class="s">Open profile</div></div>
+          </a>
+
+          <a class="tile is-portrait" href="author-profiles.html#jean-echenoz"
+             data-kind="Author" data-title="Jean Echenoz" data-sub="Author profile"
+             data-tags="author neo absurd">
+            <div class="tile-media"><img src="img/jean-echenoz-portrait.jpg" alt="Portrait of Jean Echenoz" loading="lazy" decoding="async"></div>
+            <div class="tile-meta"><div class="k">Author</div><div class="t">Echenoz</div><div class="s">Open profile</div></div>
+          </a>
+
+          <a class="tile is-portrait" href="author-profiles.html#john-kennedy-toole"
+             data-kind="Author" data-title="John Kennedy Toole" data-sub="Author profile"
+             data-tags="author society grotesque">
+            <div class="tile-media"><img src="img/john-kennedy-toole-portrait.jpg" alt="Portrait of John Kennedy Toole" loading="lazy" decoding="async"></div>
+            <div class="tile-meta"><div class="k">Author</div><div class="t">Toole</div><div class="s">Open profile</div></div>
+          </a>
+
+          <a class="tile is-portrait" href="author-profiles.html#carl-hiaasen"
+             data-kind="Author" data-title="Carl Hiaasen" data-sub="Author profile"
+             data-tags="author crime comic noir">
+            <div class="tile-media"><img src="img/carl-hiaasen-portrait.jpg" alt="Portrait of Carl Hiaasen" loading="lazy" decoding="async"></div>
+            <div class="tile-meta"><div class="k">Author</div><div class="t">Hiaasen</div><div class="s">Open profile</div></div>
+          </a>
+
+          <a class="tile is-portrait" href="author-profiles.html#muriel-spark"
+             data-kind="Author" data-title="Muriel Spark" data-sub="Author profile"
+             data-tags="author society irony dark">
+            <div class="tile-media"><img src="img/muriel-spark-portrait.jpg" alt="Portrait of Muriel Spark" loading="lazy" decoding="async"></div>
+            <div class="tile-meta"><div class="k">Author</div><div class="t">Muriel Spark</div><div class="s">Open profile</div></div>
+          </a>
+
+          <a class="tile is-portrait" href="author-profiles.html#dave-barry"
+             data-kind="Author" data-title="Dave Barry" data-sub="Author profile"
+             data-tags="author society american humor">
+            <div class="tile-media"><img src="img/dave-barry-portrait.jpg" alt="Portrait of Dave Barry" loading="lazy" decoding="async"></div>
+            <div class="tile-meta"><div class="k">Author</div><div class="t">Dave Barry</div><div class="s">Open profile</div></div>
+          </a>
+        </div>
+
+        <div class="row-progress" aria-hidden="true"><span></span></div>
+      </div>
+    </div>
+
+    <!-- Row 2 (FIXED / uniform) -->
+    <div class="row" id="row-crime" data-rowname="Crime Comedy" aria-label="Crime Comedy row">
+      <div class="row-head">
+        <div class="row-left">
+          <h2 class="row-title">Crime Comedy</h2>
+          <p class="row-sub">Capers, heists, schemes; morality looks ridiculous.</p>
+        </div>
+        <div class="row-hint">
+          <a href="currents.html#crime">All →</a>
+          <span style="opacity:.55;">Swipe</span>
+        </div>
+      </div>
+
+      <div class="row-shell" data-row>
+        <div class="row-track" aria-label="Crime Comedy carousel">
+
+          <!-- 1 / 12 -->
+          <a class="tile" href="tourist-season-fiche.html"
+             data-kind="Novel" data-title="Tourist Season"
+             data-sub="Carl Hiaasen · 1986"
+             data-tags="crime comic noir caper">
+            <div class="tile-media">
+              <img src="img/tourist-season.png" alt="Cover of Tourist Season (Carl Hiaasen) — comic crime fiction" loading="lazy" decoding="async">
+            </div>
+            <div class="tile-meta">
+              <div class="k">Crime · Comic noir</div>
+              <div class="t">Tourist Season</div>
+              <div class="s">Carl Hiaasen · 1986</div>
+            </div>
+          </a>
+
+          <!-- 2 / 12 -->
+          <a class="tile" href="florida-roadkill-fiche.html"
+             data-kind="Novel" data-title="Florida Roadkill"
+             data-sub="Tim Dorsey · 1999"
+             data-tags="crime caper farce">
+            <div class="tile-media">
+              <img src="img/florida-roadkill.png" alt="Cover of Florida Roadkill (Tim Dorsey) — crime caper comedy" loading="lazy" decoding="async">
+            </div>
+            <div class="tile-meta">
+              <div class="k">Crime · Caper</div>
+              <div class="t">Florida Roadkill</div>
+              <div class="s">Tim Dorsey · 1999</div>
+            </div>
+          </a>
+
+          <!-- 3 / 12 -->
+          <a class="tile" href="good-behavior-fiche.html"
+             data-kind="Novel" data-title="Good Behavior"
+             data-sub="Open guide"
+             data-tags="crime leonard hitmen comic">
+            <div class="tile-media">
+              <img src="img/good-behavior.png" alt="Cover of Good Behavior — comic crime" loading="lazy" decoding="async">
+            </div>
+            <div class="tile-meta">
+              <div class="k">Crime · Hitmen</div>
+              <div class="t">Good Behavior</div>
+              <div class="s">Open guide</div>
+            </div>
+          </a>
+
+          <!-- 4 / 12 -->
+          <a class="tile" href="rum-punch-fiche.html"
+             data-kind="Novel" data-title="Rum Punch"
+             data-sub="Open guide"
+             data-tags="crime caper heist florida">
+            <div class="tile-media">
+              <img src="img/rum-punch.png" alt="Cover of Rum Punch — crime caper" loading="lazy" decoding="async">
+            </div>
+            <div class="tile-meta">
+              <div class="k">Crime · Caper</div>
+              <div class="t">Rum Punch</div>
+              <div class="s">Open guide</div>
+            </div>
+          </a>
+
+          <!-- 5 / 12 -->
+          <a class="tile" href="double-negative-fiche.html"
+             data-kind="Novel" data-title="Double Negative"
+             data-sub="Campus crime"
+             data-tags="crime campus noir academic">
+            <div class="tile-media">
+              <img src="img/double-negative.png" alt="Cover of Double Negative — campus crime" loading="lazy" decoding="async">
+            </div>
+            <div class="tile-meta">
+              <div class="k">Crime · Campus</div>
+              <div class="t">Double Negative</div>
+              <div class="s">Campus crime</div>
+            </div>
+          </a>
+
+          <!-- 6 / 12 -->
+          <a class="tile" href="pulp-fiche.html"
+             data-kind="Novel" data-title="Pulp"
+             data-sub="Open guide"
+             data-tags="crime meta noir writer">
+            <div class="tile-media">
+              <img src="img/pulp.png" alt="Cover of Pulp — comic noir" loading="lazy" decoding="async">
+            </div>
+            <div class="tile-meta">
+              <div class="k">Crime · Meta-noir</div>
+              <div class="t">Pulp</div>
+              <div class="s">Open guide</div>
+            </div>
+          </a>
+
+          <!-- 7 / 12 -->
+          <a class="tile" href="san-antonio-series.html"
+             data-kind="Series" data-title="San-Antonio"
+             data-sub="Series guide"
+             data-tags="crime series french pulp">
+            <div class="tile-media">
+              <img src="img/san-antonio.png" alt="Cover of San-Antonio — series" loading="lazy" decoding="async">
+            </div>
+            <div class="tile-meta">
+              <div class="k">Crime · Series</div>
+              <div class="t">San-Antonio</div>
+              <div class="s">Series guide</div>
+            </div>
+          </a>
+
+          <!-- 8 / 12 -->
+          <a class="tile" href="the-deep-blue-good-by-fiche.html"
+             data-kind="Novel" data-title="The Deep Blue Good-by"
+             data-sub="Open guide"
+             data-tags="crime hardboiled florida">
+            <div class="tile-media">
+              <img src="img/the-deep-blue-good-by.png" alt="Cover of The Deep Blue Good-by — hardboiled with comic edges" loading="lazy" decoding="async">
+            </div>
+            <div class="tile-meta">
+              <div class="k">Crime · Hardboiled</div>
+              <div class="t">The Deep Blue Good-by</div>
+              <div class="s">Open guide</div>
+            </div>
+          </a>
+
+          <!-- 9 / 12 -->
+          <a class="tile" href="crepe-suzette-fiche.html"
+             data-kind="Novel" data-title="Crêpe Suzette"
+             data-sub="Open guide"
+             data-tags="crime farce european">
+            <div class="tile-media">
+              <img src="img/crepe-suzette.png" alt="Cover of Crêpe Suzette — comic crime" loading="lazy" decoding="async">
+            </div>
+            <div class="tile-meta">
+              <div class="k">Crime · Farce</div>
+              <div class="t">Crêpe Suzette</div>
+              <div class="s">Open guide</div>
+            </div>
+          </a>
+
+          <!-- 10 / 12 -->
+          <a class="tile" href="the-player-fiche.html"
+             data-kind="Novel" data-title="The Player"
+             data-sub="Open guide"
+             data-tags="crime satire hollywood">
+            <div class="tile-media">
+              <img src="img/the-player.png" alt="Cover of The Player — satirical crime-adjacent comedy" loading="lazy" decoding="async">
+            </div>
+            <div class="tile-meta">
+              <div class="k">Crime · Satire</div>
+              <div class="t">The Player</div>
+              <div class="s">Open guide</div>
+            </div>
+          </a>
+
+          <!-- 11 / 12 -->
+          <a class="tile" href="divorcing-jack-fiche.html"
+             data-kind="Novel" data-title="Divorcing Jack"
+             data-sub="Open guide"
+             data-tags="crime dark comedy ireland">
+            <div class="tile-media">
+              <img src="img/divorcing-jack.png" alt="Cover of Divorcing Jack — dark crime comedy" loading="lazy" decoding="async">
+            </div>
+            <div class="tile-meta">
+              <div class="k">Crime · Dark comedy</div>
+              <div class="t">Divorcing Jack</div>
+              <div class="s">Open guide</div>
+            </div>
+          </a>
+
+          <!-- 12 / 12 -->
+          <a class="tile" href="the-burglar-who-painted-like-mondrian-fiche.html"
+             data-kind="Novel" data-title="The Burglar Who Painted Like Mondrian"
+             data-sub="Open guide"
+             data-tags="crime heist burglar art">
+            <div class="tile-media">
+              <img src="img/the-burglar-who-painted-like-mondrian.png" alt="Cover of The Burglar Who Painted Like Mondrian — comic heist" loading="lazy" decoding="async">
+            </div>
+            <div class="tile-meta">
+              <div class="k">Crime · Heist</div>
+              <div class="t">Burglar · Mondrian</div>
+              <div class="s">Open guide</div>
+            </div>
+          </a>
+
+        </div>
+
+        <div class="row-progress" aria-hidden="true"><span></span></div>
+      </div>
+    </div>
+
+    <!-- Row 3 -->
+    <div class="row" id="row-neo" data-rowname="Neo-Nonsense" aria-label="Neo-Nonsense row">
+      <div class="row-head">
+        <div class="row-left">
+          <h2 class="row-title">Neo-Nonsense</h2>
+          <p class="row-sub">Absurdist &amp; postmodern comedy — rigorous logic inside a cracked world.</p>
+        </div>
+        <div class="row-hint">
+          <a href="currents.html#neo">All →</a>
+          <span style="opacity:.55;">Swipe</span>
+        </div>
+      </div>
+
+      <div class="row-shell" data-row>
+        <div class="row-track" aria-label="Neo-Nonsense carousel">
+          <a class="tile" href="the-malaise-expedition-fiche.html" data-kind="Novel" data-title="The Malaise Expedition" data-sub="Jean Echenoz · 1986" data-tags="neo absurd">
+            <div class="tile-media"><img src="img/the-malaise-expedition.png" alt="Cover of The Malaise Expedition (Jean Echenoz) — absurdist comedy" loading="lazy" decoding="async"></div>
+            <div class="tile-meta"><div class="k">Neo · Absurd</div><div class="t">Malaise</div><div class="s">Jean Echenoz · 1986</div></div>
+          </a>
+
+          <a class="tile" href="white-noise-fiche.html" data-kind="Novel" data-title="White Noise" data-sub="Don DeLillo · 1985" data-tags="neo satire postmodern">
+            <div class="tile-media"><img src="img/white-noise.png" alt="Cover of White Noise (Don DeLillo) — postmodern satire" loading="lazy" decoding="async"></div>
+            <div class="tile-meta"><div class="k">Neo · Satire</div><div class="t">White Noise</div><div class="s">Don DeLillo · 1985</div></div>
+          </a>
+
+          <a class="tile is-portrait" href="author-profiles.html#kurt-vonnegut" data-kind="Author" data-title="Kurt Vonnegut" data-sub="Author profile" data-tags="author neo absurd">
+            <div class="tile-media"><img src="img/kurt-vonnegut-portrait.jpg" alt="Portrait of Kurt Vonnegut" loading="lazy" decoding="async"></div>
+            <div class="tile-meta"><div class="k">Author</div><div class="t">Vonnegut</div><div class="s">Open profile</div></div>
+          </a>
+        </div>
+        <div class="row-progress" aria-hidden="true"><span></span></div>
+      </div>
+    </div>
+
+  </section>
+
+  <div class="stitch-divider" aria-hidden="true">
+    <div class="stitch-badge">Atlas → Paper</div>
+  </div>
+
+  <!-- PAPER -->
+  <main class="main" id="paper" aria-label="Paper layer (full)">
+    <div class="main-inner">
+      <div>
+        <details class="mobile-toc" id="mobileToc">
+          <summary>
+            <span>In this page</span>
+            <span style="opacity:.72; font-size:12px" id="mobileMeta">~4 min</span>
+          </summary>
+          <nav class="toc" aria-label="In this page (mobile)" id="tocMobile">
+            <a href="#fiches">Guides</a>
+            <a href="#currents">Currents</a>
+            <a href="#toolbox">Toolbox</a>
+            <a href="#about">About</a>
+            <a href="#research">Researchers &amp; AI</a>
+            <a href="#start">Where to start?</a>
+          </nav>
+        </details>
+
+        <section class="section" id="fiches" data-spy>
+          <div class="kicker">Guides</div>
+          <h2 class="h2">Novel, author and series guides</h2>
+          <p class="lead">Start from the works. Read the device — with the same matrix, every time.</p>
+          <p class="sub">This homepage is a digest. Full definitions &amp; taxonomy live on dedicated pages.</p>
+
+          <div class="grid-3" style="margin-top:14px;">
+            <article class="card">
+              <div class="card-head"><span>Novel guides</span><a class="linkpill" href="novel-guides.html">Open →</a></div>
+              <div class="card-body">
+                <p>Fixed ten-chapter matrix, identical from one book to the next.</p>
+                <ul class="list">
+                  <li>Reading note (signed)</li>
+                  <li>Incipit (original language)</li>
+                  <li>Characters (archetypes + citations)</li>
+                  <li>Cartography coordinates</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card-head"><span>Author profiles</span><a class="linkpill" href="author-profiles.html">Open →</a></div>
+              <div class="card-body">
+                <p>How writers build humor: motifs, voice, institutions, rhythm.</p>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card-head"><span>Series guides</span><a class="linkpill" href="series.html">Open →</a></div>
+              <div class="card-body">
+                <p>For cycles where comedy evolves across volumes.</p>
+                <ul class="list">
+                  <li>tone shifts across time</li>
+                  <li>device maturation</li>
+                  <li>context changes per volume</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="currents" data-spy>
+          <div class="kicker">Currents</div>
+          <h2 class="h2">Three currents of modern humorous fiction</h2>
+          <p class="lead">
+            <strong>Comedy of Society</strong>, <strong>comic crime</strong>, and <strong>absurdist / postmodern comedy</strong>.
+          </p>
+          <p class="sub">Full definitions, branches and examples live on the Currents page.</p>
+
+          <div class="grid-3" style="margin-top:14px;">
+            <article class="card">
+              <div class="card-head"><span>Comedy of Society</span><a class="linkpill" href="currents.html#society">Map →</a></div>
+              <div class="card-body"><p><strong>Satire</strong> &amp; <strong>manners</strong>: family, work, hierarchy, class.</p></div>
+            </article>
+            <article class="card">
+              <div class="card-head"><span>Crime Comedy</span><a class="linkpill" href="currents.html#crime">Map →</a></div>
+              <div class="card-body"><p><strong>Comic crime fiction</strong>: capers, schemes, elastic morality.</p></div>
+            </article>
+            <article class="card">
+              <div class="card-head"><span>Neo-Nonsense</span><a class="linkpill" href="currents.html#neo">Map →</a></div>
+              <div class="card-body"><p><strong>Absurd</strong> &amp; <strong>postmodern</strong>: rigorous logic in a cracked world.</p></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="toolbox" data-spy>
+          <div class="kicker">Toolbox</div>
+          <h2 class="h2">Toolbox to read the guides</h2>
+          <p class="lead">Role · Environment · optional Labs — reused everywhere for comparability.</p>
+
+          <div class="grid-3" style="margin-top:14px;">
+            <article class="card">
+              <div class="card-head"><span>Role</span><a class="linkpill" href="fr/cartographie/roles-romans">Open →</a></div>
+              <div class="card-body"><p>Comic Engine · Comic Thread · Comic Turn.</p></div>
+            </article>
+            <article class="card">
+              <div class="card-head"><span>Environment</span><a class="linkpill" href="fr/cartographie/environnements">Open →</a></div>
+              <div class="card-body"><p>Place, milieu, period, institutions — where it plays.</p></div>
+            </article>
+            <article class="card">
+              <div class="card-head"><span>Labs</span><a class="linkpill" href="fr/cartographie/labs">Open →</a></div>
+              <div class="card-body"><p>Optional hubs connecting works by shared energy.</p></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="about" data-spy>
+          <div class="kicker">About</div>
+          <h2 class="h2">A living library, built to be cited</h2>
+          <p class="lead">Add guides progressively. Keep the matrix stable. Make connections readable.</p>
+
+          <div class="grid-2" style="margin-top:14px;">
+            <article class="card">
+              <div class="card-head"><span>Method</span><a class="linkpill" href="method.html">Read →</a></div>
+              <div class="card-body"><p>Why the matrix is fixed, how sources are handled, and how the atlas is curated.</p></div>
+            </article>
+            <article class="card">
+              <div class="card-head"><span>How to cite</span><a class="linkpill" href="fr/a-propos/comment-citer-tnoc">Open →</a></div>
+              <div class="card-body"><p>Designed for libraries, researchers, and stable linking.</p></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="research" data-spy>
+          <div class="kicker">Researchers &amp; AI</div>
+          <h2 class="h2">For research, libraries and assistants</h2>
+          <p class="lead">Structured for comparison: stable IDs, fixed matrices, explicit vocabulary.</p>
+
+          <div class="grid-2" style="margin-top:14px;">
+            <article class="card">
+              <div class="card-head"><span>Research uses</span><a class="linkpill" href="fr/a-propos">Open →</a></div>
+              <div class="card-body">
+                <ul class="list">
+                  <li>comparable matrices</li>
+                  <li>explicit typology</li>
+                  <li>stable identifiers</li>
+                </ul>
+              </div>
+            </article>
+            <article class="card">
+              <div class="card-head"><span>Data &amp; licence</span><a class="linkpill" href="fr/a-propos/donnees-licence">Open →</a></div>
+              <div class="card-body"><p>Lightweight reuse for corpus projects.</p></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="start" data-spy>
+          <div class="kicker">Orientation</div>
+          <h2 class="h2">Where to start?</h2>
+          <p class="lead">Enter by a book, by a current, or by a Lab — then follow connections.</p>
+
+          <div class="grid-2" style="margin-top:14px;">
+            <article class="card">
+              <div class="card-head"><span>Start with a guide</span><a class="linkpill" href="novel-guides.html">Browse →</a></div>
+              <div class="card-body"><p>Pick one book. Read the device. Follow “Suggested next”.</p></div>
+            </article>
+            <article class="card">
+              <div class="card-head"><span>Start with currents</span><a class="linkpill" href="currents.html">Open →</a></div>
+              <div class="card-body"><p>Fast orientation.</p></div>
+            </article>
+          </div>
+        </section>
+      </div>
+
+      <aside class="rail" aria-label="In this page (paper)">
+        <div class="rail-sticky">
+          <header>
+            <h3>In this page</h3>
+            <p class="rail-meta">
+              <span class="rail-pill"><span class="tiny" aria-hidden="true"></span><span id="railHere">You are here: Guides</span></span>
+              <span class="rail-pill">~<span id="railTime">4</span> min</span>
+            </p>
+            <div class="rail-progress"><span></span></div>
+          </header>
+          <nav class="toc" id="tocDesktop">
+            <a href="#fiches">Guides</a>
+            <a href="#currents">Currents</a>
+            <a href="#toolbox">Toolbox</a>
+            <a href="#about">About</a>
+            <a href="#research">Researchers &amp; AI</a>
+            <a href="#start">Where to start?</a>
+          </nav>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer" role="contentinfo" aria-label="Site footer">
+    <div class="inner">
+      <div class="left">
+        <strong>The Novel of Comedy (TNoC)</strong> · Atlas &amp; critical cartography of humorous fiction.<br>
+        <span class="muted">© <span id="year"></span> Boris Jeanson Béteille</span>
+      </div>
+
+      <nav class="links" aria-label="Footer links">
+        <a href="method.html">Method</a>
+        <a href="fr/a-propos">About</a>
+        <a href="fr/a-propos/manifesto">Manifesto</a>
+        <a href="fr/a-propos/comment-citer-tnoc">How to cite</a>
+        <a href="fr/a-propos/donnees-licence">Data &amp; licence</a>
+        <a href="fr/contact">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- Bottom nav mobile -->
+  <nav class="bottomnav" aria-label="Bottom navigation">
+    <div class="bottomnav-inner">
+      <a class="bn-item active" href="#top" id="bnHome"><div class="bn-ic">⌂</div><div class="bn-tx">Home</div></a>
+      <a class="bn-item" href="#rows" id="bnBrowse"><div class="bn-ic">⟡</div><div class="bn-tx">Browse</div></a>
+      <a class="bn-item" href="currents.html" id="bnMap"><div class="bn-ic">∿</div><div class="bn-tx">Map</div></a>
+      <button class="bn-item" type="button" id="bnSearch"><div class="bn-ic">⌕</div><div class="bn-tx">Search</div></button>
+    </div>
+  </nav>
+
+  <noscript>
+    <div style="max-width:1120px;margin:14px auto;padding:12px 16px;border-radius:14px;background:#fff;color:#000;border:1px solid rgba(0,0,0,.12);">
+      JavaScript is disabled — carousels and search overlay won’t work. You can still browse the page and open links.
+    </div>
+  </noscript>
+
   <script>
+    /* =========================================================
+       0) Footer year
+       ========================================================= */
+    (function(){
+      const y = document.getElementById('year');
+      if(y) y.textContent = String(new Date().getFullYear());
+    })();
+
+    /* =========================================================
+       0b) If ?q= is present, open search overlay (SEO SearchAction)
+       ========================================================= */
+    (function(){
+      const params = new URLSearchParams(location.search);
+      const q = params.get('q');
+      if(!q) return;
+      window.__tnoc_initial_query = q;
+    })();
+
+    /* =========================================================
+       1) Build marquee wall from tiles (covers + portraits)
+       ========================================================= */
+    (function(){
+      const tileImgs = Array.from(document.querySelectorAll('.tile img'))
+        .map(img => ({ src: img.getAttribute('src') || "", alt: img.getAttribute('alt') || "" }))
+        .filter(x => x.src);
+
+      if(!tileImgs.length) return;
+
+      function shuffle(arr){
+        const a = arr.slice();
+        for(let i=a.length-1;i>0;i--){
+          const j = Math.floor(Math.random()*(i+1));
+          [a[i],a[j]] = [a[j],a[i]];
+        }
+        return a;
+      }
+
+      const mixed = shuffle(tileImgs);
+
+      function fillMarquee(containerId, count){
+        const el = document.getElementById(containerId);
+        if(!el) return;
+        const items = [];
+        for(let i=0;i<count;i++){
+          const p = mixed[i % mixed.length];
+          items.push(`<div class="mini-poster"><img src="${p.src}" alt="" aria-hidden="true" loading="lazy" decoding="async"></div>`);
+        }
+        el.innerHTML = items.join('');
+      }
+
+      fillMarquee('mq1', 24);  fillMarquee('mq1b', 24);
+      fillMarquee('mq2', 22);  fillMarquee('mq2b', 22);
+      fillMarquee('mq3', 20);  fillMarquee('mq3b', 20);
+    })();
+
+    /* =========================================================
+       2) Row progress bars
+       ========================================================= */
     (function(){
       const shells = Array.from(document.querySelectorAll('[data-row]'));
-      function clamp(n, a, b){ return Math.max(a, Math.min(b, n)); }
-
+      function clamp(n,a,b){ return Math.max(a, Math.min(b, n)); }
       shells.forEach(shell => {
         const track = shell.querySelector('.row-track');
-        const left  = shell.querySelector('.row-arrow.left');
-        const right = shell.querySelector('.row-arrow.right');
         const prog  = shell.querySelector('.row-progress > span');
-        if(!track || !left || !right) return;
-
-        const step = () => Math.max(260, Math.floor(track.clientWidth * 0.85));
-
-        function updateArrows(){
-          const max = Math.max(0, track.scrollWidth - track.clientWidth - 2);
-          left.disabled  = track.scrollLeft <= 2;
-          right.disabled = track.scrollLeft >= max;
-        }
-        function updateProgress(){
-          if(!prog) return;
+        if(!track || !prog) return;
+        function update(){
           const max = Math.max(1, track.scrollWidth - track.clientWidth);
           const pct = clamp((track.scrollLeft / max) * 100, 0, 100);
           prog.style.width = pct + "%";
         }
-
-        left.addEventListener('click', () => track.scrollBy({ left: -step(), behavior:'smooth' }));
-        right.addEventListener('click', () => track.scrollBy({ left:  step(), behavior:'smooth' }));
-
-        track.addEventListener('scroll', () => { updateArrows(); updateProgress(); }, { passive:true });
-        window.addEventListener('resize', () => { updateArrows(); updateProgress(); });
-
-        track.setAttribute('tabindex','0');
-        track.addEventListener('keydown', (e) => {
-          if(e.key === 'ArrowLeft'){ track.scrollBy({ left:-step(), behavior:'smooth' }); }
-          if(e.key === 'ArrowRight'){ track.scrollBy({ left: step(), behavior:'smooth' }); }
-        });
-
-        updateArrows();
-        updateProgress();
+        track.addEventListener('scroll', update, { passive:true });
+        window.addEventListener('resize', update);
+        update();
       });
     })();
-  </script>
 
-  <!-- =========================================================
-       Scrollspy + reading progress + “You are here” + Suggested next (paper)
-       + contextual “From browse rows”
-       ========================================================= -->
-  <script>
+    /* =========================================================
+       3) Search overlay (Ctrl/⌘ K) + close on result click
+       ========================================================= */
     (function(){
-      const y = document.getElementById('y');
-      if(y) y.textContent = String(new Date().getFullYear());
+      const overlay = document.getElementById('searchOverlay');
+      const input = document.getElementById('searchInput');
+      const results = document.getElementById('searchResults');
+      const empty = document.getElementById('searchEmpty');
+      const count = document.getElementById('searchCount');
 
+      const openBtn = document.getElementById('openSearch');
+      const openBtn2 = document.getElementById('openSearch2');
+      const closeBtn = document.getElementById('searchClose');
+      const bnSearch = document.getElementById('bnSearch');
+
+      const items = Array.from(document.querySelectorAll('.tile')).map(t => {
+        const href = t.getAttribute('href') || "#";
+        const title = (t.getAttribute('data-title') || t.querySelector('.tile-meta .t')?.textContent || "").trim();
+        const sub = (t.getAttribute('data-sub') || t.querySelector('.tile-meta .s')?.textContent || "").trim();
+        const kind = (t.getAttribute('data-kind') || t.querySelector('.tile-meta .k')?.textContent || "").trim();
+        const tags = (t.getAttribute('data-tags') || "").trim();
+        const img = t.querySelector('img')?.getAttribute('src') || "";
+        return { href, title, sub, kind, tags, img };
+      });
+
+      function open(withQuery){
+        overlay.classList.add('open');
+        overlay.setAttribute('aria-hidden','false');
+        document.body.style.overflow = 'hidden';
+        if(input){
+          input.value = withQuery || "";
+          setTimeout(()=> input.focus(), 40);
+        }
+        render(input ? input.value : "");
+      }
+      function close(){
+        overlay.classList.remove('open');
+        overlay.setAttribute('aria-hidden','true');
+        document.body.style.overflow = '';
+      }
+
+      function norm(s){
+        return (s || "").toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+      }
+
+      function render(q){
+        const nq = norm(q).trim();
+        const filtered = !nq ? items.slice(0, 18) : items.filter(it => {
+          const hay = norm(it.title + " " + it.sub + " " + it.kind + " " + it.tags);
+          return hay.includes(nq);
+        }).slice(0, 50);
+
+        results.innerHTML = filtered.map(it => `
+          <a class="result" href="${it.href}">
+            <div class="rthumb">${it.img ? `<img src="${it.img}" alt="" loading="lazy" decoding="async">` : ""}</div>
+            <div class="rtext">
+              <div class="rk">${it.kind || "Result"}</div>
+              <p class="rt">${it.title || "Untitled"}</p>
+              <div class="rs">${it.sub || ""}</div>
+            </div>
+          </a>
+        `).join('');
+
+        const n = filtered.length;
+        count.textContent = String(n);
+        empty.style.display = (n === 0) ? 'block' : 'none';
+      }
+
+      function hookOpen(btn){
+        if(!btn) return;
+        btn.addEventListener('click', () => open(""));
+      }
+      hookOpen(openBtn);
+      hookOpen(openBtn2);
+      hookOpen(bnSearch);
+
+      if(closeBtn) closeBtn.addEventListener('click', close);
+      overlay.addEventListener('click', (e) => { if(e.target === overlay) close(); });
+
+      if(input) input.addEventListener('input', () => render(input.value));
+
+      results.addEventListener('click', (e) => {
+        const a = e.target.closest('a');
+        if(a) close();
+      });
+
+      window.addEventListener('keydown', (e) => {
+        const isMac = navigator.platform.toUpperCase().indexOf('MAC')>=0;
+        const k = e.key.toLowerCase() === 'k';
+        if(k && ((isMac && e.metaKey) || (!isMac && e.ctrlKey))){
+          e.preventDefault();
+          if(overlay.classList.contains('open')) close(); else open("");
+        }
+        if(e.key === 'Escape') close();
+      });
+
+      if(window.__tnoc_initial_query){
+        const q = String(window.__tnoc_initial_query || "");
+        try { history.replaceState(null, "", location.pathname + location.hash); } catch(e){}
+        open(q);
+      }
+    })();
+
+    /* =========================================================
+       4) Surprise me: pick a random tile and set as featured
+       ========================================================= */
+    (function(){
+      const btn = document.getElementById('shufflePick');
+      const fImg = document.getElementById('featuredImg');
+      const fK = document.getElementById('featuredK');
+      const fT = document.getElementById('featuredT');
+      const fS = document.getElementById('featuredS');
+      const fL = document.getElementById('featuredLink');
+
+      function setFeatured(tile){
+        const img = tile.querySelector('img');
+        const k = tile.querySelector('.tile-meta .k')?.textContent?.trim() || "Featured";
+        const t = tile.querySelector('.tile-meta .t')?.textContent?.trim() || "Open";
+        const s = tile.querySelector('.tile-meta .s')?.textContent?.trim() || "";
+        const href = tile.getAttribute('href') || "#";
+
+        if(fImg && img){
+          fImg.src = img.getAttribute('src') || "";
+          fImg.alt = img.getAttribute('alt') || "Featured";
+        }
+        if(fK) fK.textContent = k ? ("Featured · " + k) : "Featured";
+        if(fT) fT.textContent = t + (s ? " — " + s : "");
+        if(fS) fS.textContent = "Open the guide. Change the featured item with Surprise.";
+        if(fL) fL.href = href;
+      }
+
+      const first = document.querySelector('.tile');
+      if(first) setFeatured(first);
+
+      if(btn){
+        btn.addEventListener('click', () => {
+          const tiles = Array.from(document.querySelectorAll('.tile'));
+          if(!tiles.length) return;
+          const pick = tiles[Math.floor(Math.random() * tiles.length)];
+          if(pick){
+            setFeatured(pick);
+            location.hash = "#top";
+          }
+        });
+      }
+    })();
+
+    /* =========================================================
+       5) Paper scrollspy + progress + reading time
+       ========================================================= */
+    (function(){
       const linksDesktop = Array.from(document.querySelectorAll('#tocDesktop a'));
       const linksMobile  = Array.from(document.querySelectorAll('#tocMobile a'));
       const sections = Array.from(document.querySelectorAll('[data-spy]'));
       const bar = document.querySelector('.rail-progress > span');
-
       const railHere = document.getElementById('railHere');
       const railTime = document.getElementById('railTime');
-      const next1 = document.getElementById('next1');
-      const next2 = document.getElementById('next2');
-
-      const rowCtxLabel = document.getElementById('rowCtxLabel');
-      const rowCtxGrid  = document.getElementById('rowCtxGrid');
+      const mobileMeta = document.getElementById('mobileMeta');
 
       function getHashId(href){
         if (!href) return "";
         const i = href.indexOf('#');
-        if (i === -1) return "";
-        return href.slice(i + 1);
-      }
-
-      function updateProgress(){
-        if(!bar) return;
-        const doc = document.documentElement;
-        const scrollTop = doc.scrollTop || document.body.scrollTop;
-        const scrollHeight = doc.scrollHeight - doc.clientHeight;
-        const pct = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
-        bar.style.width = Math.max(0, Math.min(100, pct)) + "%";
+        return (i === -1) ? "" : href.slice(i + 1);
       }
 
       function estimateReadingTime(){
@@ -1837,225 +2237,76 @@
         if(!paper) return 4;
         const text = paper.innerText || "";
         const words = text.trim().split(/\s+/).filter(Boolean).length;
-        const minutes = Math.max(3, Math.round(words / 200));
-        return minutes;
+        return Math.max(3, Math.round(words / 200));
       }
 
-      const nextMap = {
-        "fiches": [
-          {href:"#courants", title:"Currents", desc:"Social satire / comic crime / absurdist comedy."},
-          {href:"#toolbox", title:"Toolbox", desc:"Roles, environments, Labs."}
-        ],
-        "courants": [
-          {href:"#toolbox", title:"Toolbox", desc:"Decode role + environment."},
-          {href:"#fiches", title:"Guides", desc:"Back to the fixed matrix."}
-        ],
-        "toolbox": [
-          {href:"#about", title:"About", desc:"How the atlas stays stable."},
-          {href:"#research", title:"Researchers & AI", desc:"Stable IDs and vocabulary."}
-        ],
-        "about": [
-          {href:"#research", title:"Researchers & AI", desc:"Data, reuse, stability."},
-          {href:"#start-here", title:"Where to start?", desc:"Pick a first entry."}
-        ],
-        "research": [
-          {href:"#start-here", title:"Where to start?", desc:"Your first route through the atlas."},
-          {href:"#fiches", title:"Guides", desc:"Return to works-first reading."}
-        ],
-        "start-here": [
-          {href:"novel-guides.html", title:"Explore novel guides", desc:"Open the gallery of books."},
-          {href:"author-profiles.html", title:"Browse author profiles", desc:"Follow voices and devices."}
-        ]
-      };
-
-      function setSuggestedNext(activeId){
-        const items = nextMap[activeId] || nextMap["fiches"];
-        if(next1 && items[0]){
-          next1.href = items[0].href;
-          next1.querySelector('strong').textContent = items[0].title;
-          next1.querySelector('span').textContent = items[0].desc;
-        }
-        if(next2 && items[1]){
-          next2.href = items[1].href;
-          next2.querySelector('strong').textContent = items[1].title;
-          next2.querySelector('span').textContent = items[1].desc;
-        }
+      function updateProgress(){
+        if(!bar) return;
+        const doc = document.documentElement;
+        const st = doc.scrollTop || document.body.scrollTop;
+        const sh = doc.scrollHeight - doc.clientHeight;
+        const pct = sh > 0 ? (st / sh) * 100 : 0;
+        bar.style.width = Math.max(0, Math.min(100, pct)) + "%";
       }
 
-      function setActiveFromScroll(){
+      function setActive(){
         if(!sections.length) return;
-
-        const scrollTop = window.scrollY || window.pageYOffset;
+        const st = window.scrollY || 0;
         const offset = 150;
         let activeId = sections[0].id;
+        sections.forEach(s => { if(st + offset >= s.offsetTop) activeId = s.id; });
 
-        sections.forEach(section => {
-          if (scrollTop + offset >= section.offsetTop) activeId = section.id;
-        });
-
-        function applyActive(links){
-          links.forEach(link => {
-            const targetId = getHashId(link.getAttribute('href'));
-            link.classList.toggle('active', targetId === activeId);
-          });
+        function apply(links){
+          links.forEach(a => a.classList.toggle('active', getHashId(a.getAttribute('href')) === activeId));
         }
-        applyActive(linksDesktop);
-        applyActive(linksMobile);
+        apply(linksDesktop);
+        apply(linksMobile);
 
         if(railHere){
-          const pretty =
-            activeId === "fiches" ? "Guides" :
-            activeId === "courants" ? "Currents" :
-            activeId === "toolbox" ? "Toolbox" :
-            activeId === "about" ? "About" :
-            activeId === "research" ? "Researchers & AI" :
-            activeId === "start-here" ? "Where to start?" : "Guides";
-          railHere.textContent = "You are here: " + pretty;
+          const map = {
+            "fiches":"Guides",
+            "currents":"Currents",
+            "toolbox":"Toolbox",
+            "about":"About",
+            "research":"Researchers & AI",
+            "start":"Where to start?"
+          };
+          railHere.textContent = "You are here: " + (map[activeId] || "Guides");
         }
-
-        setSuggestedNext(activeId);
       }
 
-      // init reading time
       const minutes = estimateReadingTime();
       if(railTime) railTime.textContent = String(minutes);
-      const mobileMeta = document.getElementById('mobileMeta');
       if(mobileMeta) mobileMeta.textContent = "~" + minutes + " min";
 
       window.addEventListener('scroll', updateProgress, { passive:true });
-      window.addEventListener('scroll', setActiveFromScroll, { passive:true });
-      window.addEventListener('resize', setActiveFromScroll);
+      window.addEventListener('scroll', setActive, { passive:true });
+      window.addEventListener('resize', setActive);
 
       updateProgress();
-      setActiveFromScroll();
+      setActive();
+    })();
 
-      // contextual “From browse rows”
-      const rows = Array.from(document.querySelectorAll('#browseRows .row'));
-      let currentRowId = rows[0] ? rows[0].id : "row-society";
+    /* =========================================================
+       6) Bottom nav active state
+       ========================================================= */
+    (function(){
+      const bnHome = document.getElementById('bnHome');
+      const bnBrowse = document.getElementById('bnBrowse');
+      const bnSearch = document.getElementById('bnSearch');
 
-      function extractTileData(tile){
-        const href = tile.getAttribute('href') || "#";
-        const img = tile.querySelector('img');
-        const metaK = tile.querySelector('.tile-meta .k');
-        const metaT = tile.querySelector('.tile-meta .t');
-        const metaS = tile.querySelector('.tile-meta .s');
-
-        return {
-          href,
-          imgSrc: img ? (img.getAttribute('src') || "") : "",
-          imgAlt: img ? (img.getAttribute('alt') || "") : "",
-          k: metaK ? metaK.textContent.trim() : "",
-          t: metaT ? metaT.textContent.trim() : "Open",
-          s: metaS ? metaS.textContent.trim() : ""
-        };
+      function setActive(which){
+        [bnHome,bnBrowse,bnSearch].forEach(el => el && el.classList.remove('active'));
+        if(which && which.classList) which.classList.add('active');
       }
 
-      function renderRowContext(rowEl){
-        if(!rowEl || !rowCtxGrid) return;
-
-        const name = rowEl.getAttribute('data-rowname') || rowEl.id || "Browse";
-        if(rowCtxLabel) rowCtxLabel.textContent = name;
-
-        const tiles = Array.from(rowEl.querySelectorAll('.row-track .tile'));
-        const picks = tiles.slice(0, 2).map(extractTileData);
-
-        while(picks.length < 2){
-          picks.push({ href:"#fiches", imgSrc:"", imgAlt:"", k:"", t:"Explore guides", s:"" });
-        }
-
-        rowCtxGrid.innerHTML = picks.map(p => {
-          const thumb = p.imgSrc
-            ? `<div class="rail-row-thumb"><img src="${p.imgSrc}" alt="${p.imgAlt}"></div>`
-            : `<div class="rail-row-thumb"></div>`;
-
-          return `
-            <a class="rail-row-card" href="${p.href}">
-              ${thumb}
-              <div class="rail-row-meta">
-                <div class="k">${p.k || "Editor’s pick"}</div>
-                <p class="t">${p.t}</p>
-                <div class="s">${p.s || ""}</div>
-              </div>
-            </a>
-          `;
-        }).join('');
-      }
-
-      if(rows.length && 'IntersectionObserver' in window){
-        const ratios = new Map();
-        const io = new IntersectionObserver((entries) => {
-          entries.forEach(entry => ratios.set(entry.target.id, entry.intersectionRatio));
-
-          let bestId = currentRowId;
-          let best = ratios.get(bestId) || 0;
-
-          ratios.forEach((r, id) => {
-            if(r > best){ best = r; bestId = id; }
-          });
-
-          if(best > 0.22 && bestId !== currentRowId){
-            currentRowId = bestId;
-            renderRowContext(document.getElementById(currentRowId));
-          }
-        }, { threshold:[0,0.12,0.22,0.35,0.5,0.7] });
-
-        rows.forEach(r => io.observe(r));
-      }
-
-      rows.forEach(rowEl => {
-        const track = rowEl.querySelector('.row-track');
-        if(!track) return;
-        track.addEventListener('pointerdown', () => {
-          currentRowId = rowEl.id;
-          renderRowContext(rowEl);
-        }, { passive:true });
-        track.addEventListener('focusin', () => {
-          currentRowId = rowEl.id;
-          renderRowContext(rowEl);
-        });
-      });
-
-      renderRowContext(document.getElementById(currentRowId) || rows[0]);
+      if(bnHome) bnHome.addEventListener('click', () => setActive(bnHome));
+      if(bnBrowse) bnBrowse.addEventListener('click', () => setActive(bnBrowse));
+      if(bnSearch) bnSearch.addEventListener('click', () => setActive(bnSearch));
     })();
   </script>
 
-  <!-- =========================================================
-       IMAGE FILES (to place in /img) — rename freely, keep same strings
-       =========================================================
-       Covers:
-       - img/wilt.png
-       - img/the-code-of-the-woosters.png
-       - img/lucky-jim.png
-       - img/small-world.png
-       - img/the-girls-of-slender-means.png
-       - img/flauberts-parrot.png
-       - img/the-old-devils.png
-       - img/bright-lights-big-city.png
-       - img/tourist-season.png
-       - img/florida-roadkill.png
-       - img/big-trouble.png
-       - img/the-deep-blue-good-by.png
-       - img/good-behavior.png
-       - img/the-commitments.png
-       - img/portnoys-complaint.png
-       - img/generation-x.png
-       - img/the-malaise-expedition.png
-       - img/white-noise.png
-       - img/money.png
-       - img/double-negative.png
-       - img/james.png
-
-       Portraits:
-       - img/tom-sharpe-portrait.jpg
-       - img/pg-wodehouse-portrait.jpg
-       - img/muriel-spark-portrait.jpg
-       - img/martin-amis-portrait.jpg
-       - img/douglas-coupland-portrait.jpg
-       - img/kurt-vonnegut-portrait.jpg
-
-       Social / OG:
-       - img/og-tnoc.jpg
-       ========================================================= -->
+  <!-- Images expected in /img -->
 </body>
 </html>
 
