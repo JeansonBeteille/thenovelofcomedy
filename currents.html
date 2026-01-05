@@ -1,928 +1,1119 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="night">
 <head>
   <meta charset="utf-8">
-  <title>Currents — The Novel of Comedy</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description"
-        content="The three currents of The Novel of Comedy: Comedy of Society, Crime Comedy, and Neo-Nonsense. Definitions, main branches, close-to terms, and how to read the map.">
+
+  <!-- =========================================================
+       SEO / IA micro-optimisation (stable + shareable)
+       ========================================================= -->
+  <title>Currents · The Novel of Comedy (TNoC)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b0b0c">
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="Currents of humorous fiction in The Novel of Comedy: Comedy of Society, Crime Comedy, and Neo-Nonsense. Definitions, branches, and how to navigate the atlas with stable links.">
+  <meta name="author" content="Boris Jeanson Béteille">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+
+  <link rel="canonical" href="https://www.thenovelofcomedy.com/currents.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="The Novel of Comedy (TNoC)">
+  <meta property="og:title" content="Currents · The Novel of Comedy">
+  <meta property="og:description" content="Comedy of Society · Crime Comedy · Neo-Nonsense: definitions, branches and navigation logic.">
+  <meta property="og:url" content="https://www.thenovelofcomedy.com/currents.html">
+  <meta property="og:image" content="https://www.thenovelofcomedy.com/img/wilt.png">
+  <meta property="og:image:alt" content="Cover: Wilt · Tom Sharpe (1976)">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Currents · The Novel of Comedy">
+  <meta name="twitter:description" content="Three currents of humorous fiction: Society · Crime · Neo-Nonsense.">
+  <meta name="twitter:image" content="https://www.thenovelofcomedy.com/img/wilt.png">
+
+  <link rel="icon" href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="%230b0b0c"/><text x="50%25" y="54%25" text-anchor="middle" font-family="Georgia" font-size="18" fill="%23f6f4ef" letter-spacing="2">TNoC</text></svg>'>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Currents · The Novel of Comedy (TNoC)",
+    "url": "https://www.thenovelofcomedy.com/currents.html",
+    "inLanguage": "en",
+    "description": "Definitions and navigation of the three currents of humorous fiction in The Novel of Comedy: Comedy of Society, Crime Comedy, Neo-Nonsense."
+  }
+  </script>
 
   <style>
+    /* =========================================================
+       TNoC - Currents page (compatible skin with index master)
+       ========================================================= */
     :root{
-      --bg:#0b0b0c;
-      --paper:#f7f5f0;
-      --ink:#1e1e1e;
-      --graphite:#2b2b2b;
-      --evergreen:#2E7D32;
-      --muted:rgba(0,0,0,.55);
-      --chip:rgba(0,0,0,.06);
-      --border:rgba(0,0,0,.14);
-      --card:#ffffff;
-      --shadow:0 1px 2px rgba(0,0,0,.04);
+      --night:#0b0b0c;
+      --ivory:#f6f4ef;
+      --paper:#fbfaf7;
+      --ink:#0f0f10;
+
+      --smoke:rgba(246,244,239,.62);
+      --lineN:rgba(246,244,239,.14);
+      --lineN2:rgba(246,244,239,.22);
+
+      --softN:rgba(246,244,239,.06);
+      --softD:rgba(11,11,12,.05);
+
+      --accent:#bfa77a;
+      --accent2:rgba(191,167,122,.24);
+
+      --w:1120px;
+      --pad: clamp(16px, 4.5vw, 28px);
+
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      --serif: ui-serif, "Iowan Old Style","Palatino Linotype", Palatino, Georgia, serif;
+
+      --cap: 11px;
+      --track: .22em;
+
+      --shadowN: 0 24px 90px rgba(0,0,0,.62);
     }
 
-    *{box-sizing:border-box}
     html,body{
-      margin:0;
-      padding:0;
-      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      color:var(--ink);
-      background:var(--bg);
+      margin:0; padding:0;
+      font-family: var(--sans);
+      background: var(--night);
+      color: var(--ivory);
+      overflow-x:hidden;
     }
-    a{color:inherit;text-decoration:none}
-    a:hover{text-decoration:underline}
+    a{color:inherit; text-decoration:none}
+    a:hover{text-decoration:none}
+    *{box-sizing:border-box}
 
-    .page-wrap{ min-height:100vh; background:var(--bg); }
+    @media (prefers-reduced-motion: reduce){
+      *{ animation:none !important; transition:none !important; scroll-behavior:auto !important; }
+    }
 
-    .skip-link{
-      position:absolute;
-      left:-999px;
-      top:10px;
-      padding:8px 12px;
-      background:#fff;
-      color:#000;
+    /* Subtle grain */
+    body::before{
+      content:"";
+      position:fixed; inset:0;
+      pointer-events:none;
+      opacity:.09;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
+      mix-blend-mode:overlay;
+    }
+
+    /* a11y */
+    .skiplink{
+      position:absolute; left:14px; top:12px;
+      padding:10px 12px;
       border-radius:999px;
-      border:1px solid rgba(0,0,0,.18);
-      z-index:1000;
-      font-size:13px;
+      background: var(--ivory);
+      color: var(--ink);
+      z-index:999;
+      transform:translateY(-140%);
+      transition:transform .14s ease;
+      border:1px solid rgba(0,0,0,.12);
+      text-decoration:none;
+      font-size:12px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
     }
-    .skip-link:focus{ left:12px; outline:none; }
+    .skiplink:focus{ transform:translateY(0); }
 
-    /* TOP NAV */
+    /* =========================================================
+       TOPBAR
+       ========================================================= */
     .topbar{
-      position:sticky;
-      top:0;
-      z-index:20;
-      backdrop-filter:blur(10px);
-      background:rgba(11,11,12,.92);
-      color:#fff;
-      border-bottom:1px solid rgba(255,255,255,.08);
+      position:sticky; top:0; z-index:80;
+      backdrop-filter: blur(18px);
+      background: color-mix(in srgb, var(--night) 84%, transparent);
+      border-bottom:1px solid var(--lineN);
     }
     .topbar-inner{
-      max-width:1120px;
+      max-width:var(--w);
       margin:0 auto;
-      padding:10px 20px;
+      padding: 12px var(--pad);
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:16px;
+      gap:14px;
     }
     .brand{
-      display:flex;
-      align-items:center;
-      gap:10px;
+      display:flex; align-items:center; gap:12px;
+      min-width:0;
     }
     .brand-mark{
-      width:34px;height:34px;border-radius:12px;
-      border:1px solid rgba(255,255,255,.18);
-      display:flex;align-items:center;justify-content:center;
-      font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:11px;
-      background:radial-gradient(circle at 0 0,rgba(255,255,255,.22),rgba(0,0,0,.7));
-    }
-    .brand-text{ display:flex; flex-direction:column; gap:1px; }
-    .brand-title{ font-size:15px; letter-spacing:.05em; text-transform:uppercase; }
-    .brand-sub{ font-size:11px; opacity:.7; }
-    .nav{
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-      font-size:13px;
-    }
-    .nav a{
-      opacity:.82;
-      padding:6px 0;
-    }
-    .nav a:hover{ opacity:1; text-decoration:none; }
-    .nav a.is-primary{
-      padding:6px 12px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.22);
-      font-size:12px;
-    }
-    .nav a.is-active{
-      opacity:1;
-      border-bottom:2px solid rgba(255,255,255,.65);
-      padding-bottom:4px;
-    }
-    @media(max-width:900px){
-      .topbar-inner{ flex-direction:column; align-items:flex-start; }
-      .nav{ width:100%; justify-content:flex-start; }
-    }
-
-    /* HERO */
-    .hero{
-      background:var(--bg);
-      color:#fff;
-      border-bottom:1px solid rgba(255,255,255,.08);
-    }
-    .hero-inner{
-      max-width:1120px;
-      margin:0 auto;
-      padding:38px 20px 26px;
-      display:grid;
-      grid-template-columns:1.3fr 1fr;
-      gap:26px;
-      align-items:start;
-    }
-    @media(max-width:960px){ .hero-inner{ grid-template-columns:1fr; } }
-
-    .hero-kicker{
-      font-size:12px;
+      width:34px; height:34px;
+      border-radius: 14px;
+      border:1px solid var(--lineN2);
+      display:flex; align-items:center; justify-content:center;
+      font-family: var(--serif);
+      font-weight: 700;
       letter-spacing:.18em;
+      font-size: 11px;
+      background: rgba(255,255,255,.03);
+      flex:0 0 auto;
+    }
+    .brand-text{min-width:0}
+    .brand-title{
+      font-family: var(--serif);
+      font-size: 14px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      line-height: 1.05;
+    }
+    .brand-sub{
+      margin-top:3px;
+      font-size: 10.5px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--smoke);
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .nav{
+      display:flex; gap:10px; align-items:center;
+      font-size:12px;
+      letter-spacing:.10em;
       text-transform:uppercase;
-      opacity:.9;
     }
-    .hero-title{
-      margin:10px 0 6px;
-      font-size:30px;
-      line-height:1.15;
-      letter-spacing:.02em;
-      max-width:720px;
+    .nav a{opacity:.82; padding:8px 6px}
+    .nav a:hover{opacity:1}
+    .nav a.active{opacity:1; color: rgba(191,167,122,.95);}
+    @media(max-width:860px){
+      .brand-sub{display:none}
+      .nav a{display:none}
     }
-    .hero-sub{
-      margin:0;
-      font-size:13px;
-      line-height:1.65;
-      opacity:.9;
-      max-width:720px;
-    }
-    .hero-actions{
-      margin-top:14px;
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-    }
+
     .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:9px 14px;
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:8px;
+      padding: 10px 12px;
       border-radius:999px;
-      font-size:13px;
-      border:1px solid transparent;
+      border:1px solid var(--lineN2);
+      background: rgba(255,255,255,.04);
+      color: var(--ivory);
       cursor:pointer;
-      text-decoration:none;
+      transition: transform .14s ease, opacity .14s ease, border-color .14s ease, background .14s ease;
+      user-select:none;
+      font-size: 11px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
       white-space:nowrap;
     }
-    .btn-primary{ background:#fff; color:#000; border-color:rgba(255,255,255,.03); }
-    .btn-secondary{
-      background:rgba(0,0,0,.2);
-      border-color:rgba(255,255,255,.3);
-      color:#fff;
+    .btn:hover{ transform:translateY(-1px); border-color: rgba(191,167,122,.55); background: rgba(191,167,122,.10); }
+    .btn:focus-visible{ outline:2px solid rgba(191,167,122,.55); outline-offset:3px; }
+    .btn-primary{
+      background: var(--ivory);
+      color: var(--ink);
+      border-color: transparent;
+    }
+    .btn-primary:hover{
+      background: color-mix(in srgb, var(--ivory) 92%, var(--accent) 8%);
+      transform:translateY(-1px);
     }
 
-    .hero-panel{
-      border-radius:18px;
-      border:1px solid rgba(255,255,255,.18);
-      background:radial-gradient(circle at 0 0,rgba(255,255,255,.12),rgba(0,0,0,.92));
-      padding:14px 16px 12px;
-      box-shadow:0 12px 40px rgba(0,0,0,.7);
+    /* =========================================================
+       HERO - Currents
+       ========================================================= */
+    .hero{
+      position:relative;
+      border-bottom:1px solid var(--lineN);
+      overflow:hidden;
     }
-    .hero-panel h2{
-      margin:0 0 6px;
-      font-size:12px;
-      letter-spacing:.14em;
-      text-transform:uppercase;
-      opacity:.9;
+    .hero::before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        radial-gradient(1000px 520px at 16% 18%, rgba(191,167,122,.14), transparent 60%),
+        radial-gradient(900px 520px at 86% 30%, rgba(255,255,255,.06), transparent 65%),
+        linear-gradient(90deg, rgba(0,0,0,.90) 0%, rgba(0,0,0,.66) 52%, rgba(0,0,0,.24) 82%, rgba(0,0,0,0) 100%);
+      pointer-events:none;
     }
-    .hero-panel p{
-      margin:0 0 10px;
-      font-size:13px;
-      opacity:.86;
-      line-height:1.55;
+    .hero-inner{
+      position:relative;
+      z-index:2;
+      max-width:var(--w);
+      margin:0 auto;
+      padding: 26px var(--pad) 18px;
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 16px;
+      align-items:end;
     }
-
-    .chip-row{
+    @media(max-width:980px){
+      .hero-inner{ grid-template-columns:1fr; align-items:start; }
+    }
+    .hero-card{
+      border-radius: 22px;
+      border:1px solid rgba(246,244,239,.14);
+      background: rgba(0,0,0,.36);
+      backdrop-filter: blur(14px);
+      box-shadow: var(--shadowN);
+      padding: 18px 18px 16px;
+      max-width: 860px;
+    }
+    .hero-kicker{
+      font-size: var(--cap);
+      letter-spacing: var(--track);
+      text-transform: uppercase;
+      color: rgba(246,244,239,.78);
+      display:flex; gap:10px; flex-wrap:wrap; align-items:center;
+      margin-bottom: 10px;
+    }
+    .dot{width:4px;height:4px;border-radius:99px;background: rgba(246,244,239,.86);opacity:.8}
+    .hero-title{
+      margin:0;
+      font-family: var(--serif);
+      font-weight: 780;
+      letter-spacing: -.02em;
+      line-height: 1.03;
+      font-size: clamp(30px, 6.2vw, 54px);
+    }
+    .hero-tag{
+      margin: 10px 0 0;
+      font-family: var(--serif);
+      font-size: clamp(14px, 3.9vw, 18px);
+      line-height: 1.55;
+      color: rgba(246,244,239,.78);
+      max-width: 66ch;
+    }
+    .hero-actions{
+      margin-top: 14px;
       display:flex;
       flex-wrap:wrap;
-      gap:8px;
-      margin-top:8px;
-    }
-    .chip{
-      display:inline-flex;
-      align-items:center;
-      gap:6px;
-      padding:5px 11px;
-      border-radius:999px;
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.18);
-      font-size:11px;
-      color:#f5f5f5;
-    }
-    .chip-dot{
-      width:8px;height:8px;border-radius:50%;
-      background:var(--evergreen);
-      flex-shrink:0;
+      gap:10px;
     }
 
-    /* MAIN */
-    .main{ background:var(--paper); min-height:60vh; }
-    .main-inner{
-      max-width:1120px;
-      margin:0 auto;
-      padding:26px 20px 40px;
-      display:grid;
-      grid-template-columns:minmax(0,1.08fr) minmax(240px,.6fr);
-      gap:20px;
-      align-items:flex-start;
+    .hero-aside{
+      border-radius:22px;
+      border:1px solid rgba(246,244,239,.14);
+      background: rgba(0,0,0,.34);
+      backdrop-filter: blur(14px);
+      box-shadow: var(--shadowN);
+      padding: 14px;
+      color: rgba(246,244,239,.78);
+      font-size: 13px;
+      line-height: 1.55;
     }
-    @media(max-width:960px){ .main-inner{ grid-template-columns:1fr; } }
-    .content-column{ min-width:0; }
+    .pillrow{ margin-top:10px; display:flex; gap:8px; flex-wrap:wrap; }
+    .pill{
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid rgba(246,244,239,.16);
+      background: rgba(246,244,239,.05);
+      font-size: 10px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(246,244,239,.76);
+      white-space:nowrap;
+    }
+
+    /* =========================================================
+       Seam (night to paper)
+       ========================================================= */
+    .stitch-divider{
+      position:relative;
+      height:74px;
+      background: linear-gradient(180deg, rgba(11,11,12,1) 0%, rgba(11,11,12,1) 38%, rgba(251,250,247,1) 100%);
+      border-top:1px solid rgba(246,244,239,.08);
+    }
+    .stitch-divider::before{
+      content:"";
+      position:absolute; left:0; right:0; top:26px;
+      height:1px;
+      background:
+        repeating-linear-gradient(90deg,
+          rgba(191,167,122,.65) 0, rgba(191,167,122,.65) 12px,
+          rgba(246,244,239,.12) 12px, rgba(246,244,239,.12) 22px);
+      opacity:.42;
+    }
+    .stitch-badge{
+      position:absolute; left:50%; top:16px;
+      transform:translateX(-50%);
+      padding:7px 12px;
+      border-radius:999px;
+      border:1px solid rgba(0,0,0,.10);
+      background: rgba(246,244,239,.94);
+      color: rgba(0,0,0,.70);
+      font-size: 10.5px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 10px 26px rgba(0,0,0,.10);
+      white-space:nowrap;
+    }
+
+    /* =========================================================
+       PAPER
+       ========================================================= */
+    .main{
+      background: var(--paper);
+      color: var(--ink);
+    }
+    .main-inner{
+      max-width: var(--w);
+      margin:0 auto;
+      padding: 26px var(--pad) 42px;
+      display:grid;
+      grid-template-columns: 1fr minmax(280px, .54fr);
+      gap: 20px;
+      align-items:start;
+    }
+    @media(max-width:960px){
+      .main-inner{ grid-template-columns:1fr; }
+    }
 
     .section{
-      padding:26px 0;
-      border-bottom:1px solid rgba(0,0,0,.06);
+      padding: 24px 0;
+      border-bottom: 1px solid rgba(11,11,12,.08);
+      scroll-margin-top:110px;
     }
-    .section:last-of-type{ border-bottom:none; padding-bottom:10px; }
-    .section-header{ margin-bottom:14px; }
-    .section-kicker{
-      font-size:11px;
-      letter-spacing:.16em;
-      text-transform:uppercase;
-      color:var(--muted);
+    .section:last-of-type{ border-bottom:none; padding-bottom: 10px; }
+
+    .kicker{
+      font-size: 11px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(11,11,12,.58);
     }
-    .section-title{
-      font-size:24px;
-      letter-spacing:.04em;
-      margin:4px 0;
+    .h2{
+      font-family: var(--serif);
+      margin: 8px 0 8px;
+      font-size: 28px;
+      line-height: 1.08;
+      letter-spacing: -.01em;
     }
-    .section-sub{
-      font-size:14px;
-      color:var(--muted);
-      max-width:760px;
+    .lead{
+      font-family: var(--serif);
       margin:0;
+      font-size: 16px;
+      line-height: 1.7;
+      color: rgba(11,11,12,.74);
+      max-width: 88ch;
+    }
+    .sub{
+      margin: 12px 0 0;
+      font-size: 13.5px;
+      line-height: 1.65;
+      color: rgba(11,11,12,.60);
+      max-width: 88ch;
     }
 
-    .grid-3{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; }
-    .grid-2{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
+    .grid-3{ display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:14px; }
+    .grid-2{ display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:14px; }
     @media(max-width:900px){ .grid-3,.grid-2{ grid-template-columns:1fr; } }
 
     .card{
-      background:var(--card);
-      border-radius:16px;
-      border:1px solid var(--border);
-      box-shadow:var(--shadow);
-      padding:16px 16px 14px;
+      background: rgba(255,255,255,.70);
+      border-radius: 18px;
+      border: 1px solid rgba(11,11,12,.10);
+      box-shadow: 0 10px 34px rgba(0,0,0,.06);
+      padding: 14px 14px 12px;
     }
-    .card-header{
-      font-weight:600;
-      font-size:15px;
-      margin-bottom:6px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:10px;
-    }
-    .badge{
-      font-size:10px;
-      letter-spacing:.14em;
-      text-transform:uppercase;
-      padding:3px 8px;
-      border-radius:999px;
-      border:1px solid rgba(0,0,0,.14);
-      background:rgba(0,0,0,.02);
-      color:var(--muted);
-      white-space:nowrap;
+    .card-head{
+      display:flex; align-items:baseline; justify-content:space-between; gap:10px;
+      font-family: var(--serif);
+      font-weight: 780;
+      font-size: 16px;
+      margin-bottom: 8px;
+      letter-spacing: -.01em;
     }
     .card-body{
-      font-size:13px;
-      line-height:1.6;
-      color:var(--graphite);
+      font-size: 13.5px;
+      line-height: 1.65;
+      color: rgba(11,11,12,.78);
     }
-    .card-body p{ margin:0 0 8px; }
-    .list{ margin:8px 0 0; padding-left:17px; font-size:13px; color:var(--graphite); }
-    .list li{ margin:2px 0 4px; }
-    .muted{ color:var(--muted); font-size:12px; }
-
-    /* “MAP PATH” callout */
-    .meta-ia{
-      font-size:12px;
-      color:var(--muted);
-      background:#f3f1ea;
-      border-radius:14px;
-      border:1px dashed rgba(0,0,0,.18);
-      padding:10px 12px;
-      margin-top:12px;
-    }
-    .meta-ia strong{ font-weight:600; }
-    .meta-ia .meta-long{ display:inline; }
-    .meta-ia .meta-short{ display:none; }
-    @media(max-width:600px){
-      .meta-ia{ font-size:11px; padding:9px 10px; }
-      .meta-ia .meta-long{ display:none; }
-      .meta-ia .meta-short{ display:inline; }
+    .card-body p{ margin:8px 0; }
+    .list{
+      margin: 10px 0 0;
+      padding-left: 17px;
+      font-size: 13.5px;
+      color: rgba(11,11,12,.78);
     }
 
-    /* RAIL (sticky) */
-    .rail{
-      background:#fff;
-      border-radius:16px;
-      border:1px solid var(--border);
-      box-shadow:var(--shadow);
-      font-size:13px;
+    .linkpill{
+      display:inline-flex; align-items:center; gap:8px;
+      font-size: 11px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(11,11,12,.68);
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(11,11,12,.12);
+      background: rgba(11,11,12,.02);
+      text-decoration:none;
+      transition: transform .14s ease, background .14s ease, border-color .14s ease;
+      white-space:nowrap;
+    }
+    .linkpill:hover{
+      transform: translateY(-1px);
+      border-color: rgba(191,167,122,.55);
+      background: rgba(191,167,122,.10);
+    }
+
+    .chiprow{ display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
+    .chip{
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 7px 10px;
+      border-radius:999px;
+      border:1px solid rgba(11,11,12,.12);
+      background: rgba(11,11,12,.02);
+      font-size: 10.5px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(11,11,12,.70);
+      white-space:nowrap;
+    }
+    .chip .tiny{
+      width:6px; height:6px; border-radius:99px;
+      background: rgba(191,167,122,.95);
+      box-shadow:0 0 0 5px rgba(191,167,122,.18);
+    }
+
+    /* mobile toc */
+    .mobile-toc{
+      display:none;
+      margin: 10px 0 0;
+      border-radius: 18px;
+      border:1px solid rgba(11,11,12,.10);
+      background: rgba(255,255,255,.78);
+      box-shadow: 0 10px 34px rgba(0,0,0,.06);
       overflow:hidden;
     }
-    @media(min-width:960px){ .rail{ position:sticky; top:88px; } }
+    .mobile-toc summary{
+      cursor:pointer;
+      list-style:none;
+      padding: 12px 12px;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(11,11,12,.72);
+      display:flex; align-items:center; justify-content:space-between;
+      gap:10px;
+      background: linear-gradient(180deg, rgba(11,11,12,.01), rgba(11,11,12,.03));
+    }
+    .mobile-toc summary::-webkit-details-marker{ display:none; }
+    .toc{
+      padding: 10px;
+      display:grid;
+      gap:6px;
+    }
+    .toc a{
+      padding: 10px 10px;
+      border-radius: 14px;
+      border:1px solid transparent;
+      background: rgba(11,11,12,.015);
+      font-size: 13px;
+      color: rgba(11,11,12,.78);
+      text-decoration:none;
+    }
+    .toc a:hover{
+      border-color: rgba(191,167,122,.40);
+      background: rgba(191,167,122,.10);
+    }
+    .toc a.active{
+      border-color: rgba(191,167,122,.70);
+      background: rgba(191,167,122,.14);
+      color:#000;
+      font-weight:700;
+    }
+    @media(max-width:960px){ .mobile-toc{ display:block; } }
+
+    /* rail */
+    .rail{
+      background: rgba(255,255,255,.78);
+      border-radius: 18px;
+      border:1px solid rgba(11,11,12,.10);
+      box-shadow: 0 10px 34px rgba(0,0,0,.06);
+      overflow:hidden;
+    }
+    .rail-sticky{ position:static; }
+    @media(min-width:960px){ .rail-sticky{ position:sticky; top:88px; } }
     .rail header{
-      padding:14px 14px 10px;
-      border-bottom:1px solid rgba(0,0,0,.06);
-      background:linear-gradient(180deg,rgba(0,0,0,.015),rgba(0,0,0,.03));
+      padding: 14px 14px 12px;
+      border-bottom:1px solid rgba(11,11,12,.08);
+      background: linear-gradient(180deg, rgba(11,11,12,.01), rgba(11,11,12,.03));
     }
     .rail header h3{
-      margin:0 0 4px;
-      font-size:12px;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-      color:var(--graphite);
+      margin:0 0 6px;
+      font-size: 11px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(11,11,12,.78);
+      font-family: var(--serif);
+      font-weight: 700;
     }
-    .rail header p{ margin:0; font-size:12px; color:var(--muted); }
+    .rail-meta{
+      font-size:12px;
+      color: rgba(11,11,12,.58);
+      display:flex; flex-wrap:wrap;
+      gap:8px 10px;
+      align-items:center;
+      margin:0;
+    }
+    .rail-pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(11,11,12,.10);
+      background: rgba(11,11,12,.02);
+      font-size: 10px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(11,11,12,.62);
+      white-space:nowrap;
+    }
+    .rail-pill .tiny{
+      width:6px; height:6px; border-radius:99px;
+      background: rgba(191,167,122,.95);
+      box-shadow:0 0 0 5px rgba(191,167,122,.18);
+    }
     .rail-progress{
-      margin-top:8px;
+      margin-top:10px;
       height:6px;
       border-radius:999px;
-      background:rgba(0,0,0,.03);
-      border:1px solid rgba(0,0,0,.06);
+      background: rgba(11,11,12,.03);
+      border:1px solid rgba(11,11,12,.06);
       overflow:hidden;
     }
     .rail-progress > span{
       display:block;
       height:100%;
       width:0%;
-      background:linear-gradient(90deg,var(--evergreen),#555);
-    }
-    .toc{ padding:10px 10px 12px; display:grid; gap:6px; }
-    .toc a{
-      padding:8px 10px;
-      border-radius:12px;
-      border:1px solid transparent;
-      background:rgba(0,0,0,.015);
-      font-size:13px;
-      color:var(--graphite);
-      text-decoration:none;
-    }
-    .toc a:hover{ border-color:var(--border); background:rgba(0,0,0,.03); }
-    .toc a.active{
-      border-color:var(--evergreen);
-      background:rgba(46,125,50,.08);
-      color:#000;
-      font-weight:600;
-    }
-    .rail-bottom{ padding:0 10px 12px; }
-    .rail-bottom .btn{
-      width:100%;
-      justify-content:center;
-      background:rgba(0,0,0,.03);
-      color:var(--graphite);
-      border-color:var(--border);
-      box-shadow:none;
-      font-size:12px;
-      padding:8px 10px;
+      background: linear-gradient(90deg, rgba(191,167,122,.95), rgba(11,11,12,.35));
     }
 
-    .footer{
-      background:var(--bg);
-      color:#f5f5f5;
-      border-top:1px solid rgba(255,255,255,.08);
+    /* =========================================================
+       FOOTER
+       ========================================================= */
+    .site-footer{
+      background: rgba(11,11,12,1);
+      color: rgba(246,244,239,.86);
+      border-top:1px solid rgba(246,244,239,.10);
     }
-    .footer-inner{
-      max-width:1120px;
+    .site-footer .inner{
+      max-width:var(--w);
       margin:0 auto;
-      padding:18px 20px 22px;
+      padding: 18px var(--pad) 24px;
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:16px;
+    }
+    .site-footer .left{
+      min-width:0;
+      font-size: 12px;
+      line-height:1.5;
+      letter-spacing: .02em;
+    }
+    .site-footer .left strong{
+      font-family: var(--serif);
+      font-weight: 780;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .site-footer .left .muted{ opacity:.78; }
+
+    .site-footer .links{
       display:flex;
       flex-wrap:wrap;
-      justify-content:space-between;
-      gap:12px;
-      font-size:12px;
+      justify-content:flex-end;
+      gap: 10px 14px;
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
       opacity:.88;
     }
-    .footer-links{ display:flex; flex-wrap:wrap; gap:12px; }
+    .site-footer .links a{
+      color:inherit;
+      text-decoration:none;
+      padding:4px 0;
+      opacity:.82;
+    }
+    .site-footer .links a:hover{ opacity:1; text-decoration:none; color: rgba(191,167,122,.95); }
 
-    @media(max-width:600px){
-      .hero-inner{ padding:28px 16px 20px; }
-      .hero-title{ font-size:24px; }
-      .hero-sub{ font-size:13px; line-height:1.55; }
-      .main-inner{ padding:20px 16px 28px; }
-      .section{ padding:20px 0; }
-      .section-title{ font-size:22px; }
-      .section-sub{ font-size:13px; }
-      .card{ padding:14px 14px 12px; }
-      .topbar-inner{ padding:8px 14px; }
-      .nav{ font-size:12px; gap:10px; }
-      .footer-inner{ padding:14px 14px 18px; font-size:11px; }
-      .rail{ position:static; }
+    @media(max-width:900px){
+      .site-footer .inner{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+      .site-footer .links{ justify-content:flex-start; }
     }
   </style>
 </head>
 
 <body id="top">
-  <a class="skip-link" href="#currents">Skip to content</a>
+  <a class="skiplink" href="#paper">Skip to currents</a>
 
-  <div class="page-wrap">
-
-    <!-- TOP BAR -->
-    <header class="topbar" role="banner" aria-label="Main navigation">
-      <div class="topbar-inner">
-        <a href="index.html" class="brand" aria-label="The Novel of Comedy home">
-          <div class="brand-mark">TNoC</div>
-          <div class="brand-text">
-            <div class="brand-title">The Novel of Comedy</div>
-            <div class="brand-sub">Digital atlas & critical cartography of comic fiction</div>
-          </div>
-        </a>
-
-        <nav class="nav" aria-label="Navigation">
-          <a href="index.html#fiches">Guides</a>
-          <a href="novel-fiches.html">Novel guides</a>
-          <a href="author-profiles.html">Author profiles</a>
-          <a href="currents.html" class="is-active">Currents</a>
-          <a href="index.html#toolbox">Toolbox</a>
-          <a href="method.html">Method</a>
-          <a href="index.html#about">About</a>
-          <a href="index.html#research" class="is-primary">Researchers &amp; AI</a>
-        </nav>
-      </div>
-    </header>
-
-    <!-- HERO -->
-    <section class="hero" aria-label="Currents overview">
-      <div class="hero-inner">
-        <div>
-          <div class="hero-kicker">Cartography · Primary layer</div>
-          <h1 class="hero-title">Currents</h1>
-          <p class="hero-sub">
-            Three large dynamics organise the map of modern comic fiction:
-            <strong>Comedy of Society</strong>, <strong>Crime Comedy</strong> and <strong>Neo-Nonsense</strong>.
-            They are not genres. They are <em>reading paths</em>: a way of naming what comedy does to reality.
-          </p>
-
-          <div class="hero-actions">
-            <a href="novel-fiches.html" class="btn btn-primary">Explore novel guides</a>
-            <a href="index.html" class="btn btn-secondary">Back to homepage</a>
-          </div>
-
-          <!-- Option A: chips = full current names -->
-          <div class="chip-row" aria-label="Currents quick labels">
-            <span class="chip"><span class="chip-dot"></span>Comedy of Society</span>
-            <span class="chip"><span class="chip-dot"></span>Crime Comedy</span>
-            <span class="chip"><span class="chip-dot"></span>Neo-Nonsense</span>
-          </div>
+  <header class="topbar" role="banner">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html" aria-label="The Novel of Comedy home">
+        <div class="brand-mark">TNoC</div>
+        <div class="brand-text">
+          <div class="brand-title">Currents</div>
+          <div class="brand-sub">Three currents · stable navigation</div>
         </div>
+      </a>
 
-        <aside class="hero-panel" aria-label="How to read the map">
-          <h2>How to read the map</h2>
-          <p>
-            Start with a <strong>Current</strong>, then zoom in:
-            pick a <strong>Branch</strong>, locate the <strong>Environment</strong>, and describe the <strong>Role</strong>
-            played by comedy inside the novel.
-          </p>
-          <div class="meta-ia" aria-label="Cartography path">
-            <strong>Cartography path</strong><br>
-            <span class="meta-long">
-              Current → Branch → Environment → Role<br>
-              <span class="muted">Labs are optional hubs: they connect several guides that share a similar comic energy.</span>
-            </span>
-            <span class="meta-short">
-              Current → Branch → Environment → Role · <span class="muted">Labs = optional hubs.</span>
-            </span>
-          </div>
-        </aside>
-      </div>
-    </section>
+      <nav class="nav" aria-label="Navigation">
+        <a href="index.html#rows">Browse</a>
+        <a class="active" href="currents.html">Currents</a>
+        <a href="novel-guides.html">Novels</a>
+        <a href="author-profiles.html">Authors</a>
+        <a href="toolbox.html">Toolbox</a>
+      </nav>
+    </div>
+  </header>
 
-    <!-- MAIN -->
-    <main class="main" aria-label="Main content">
-      <div class="main-inner">
+  <!-- HERO -->
+  <section class="hero" aria-label="Currents hero">
+    <div class="hero-inner">
+      <div class="hero-card">
+        <div class="hero-kicker"><span class="dot"></span> Orientation <span class="dot"></span> Branches <span class="dot"></span> Stable anchors</div>
+        <h1 class="hero-title">Currents</h1>
+        <p class="hero-tag">
+          Three currents of humorous fiction: <em>Comedy of Society</em>, <em>Crime Comedy</em>, and <em>Neo-Nonsense</em>.
+          Use them as entry points, then open a guide.
+        </p>
 
-        <!-- LEFT -->
-        <div class="content-column">
-
-          <!-- SECTION: WHAT IS A CURRENT -->
-          <section class="section" id="currents" data-spy>
-            <header class="section-header">
-              <div class="section-kicker">Orientation</div>
-              <h2 class="section-title">What a “current” is (and is not)</h2>
-              <p class="section-sub">
-                A current is a broad reading axis: it groups novels that produce laughter through a similar friction
-                between people, rules and reality. It does not freeze the work into a genre label: it helps us compare
-                books without reducing them.
-              </p>
-            </header>
-
-            <div class="grid-2">
-              <article class="card">
-                <div class="card-header">
-                  Current = “source”
-                  <span class="badge">Primary layer</span>
-                </div>
-                <div class="card-body">
-                  <p>
-                    A current is the source family of comedy.
-                    Branches are the recognisable “models” inside it (Frustration, Schemer, Cosmic Bureaucracy…).
-                  </p>
-                  <p class="muted">
-                    The map stays simple: each guide uses the same coordinates.
-                  </p>
-                </div>
-              </article>
-
-              <article class="card">
-                <div class="card-header">
-                  Then: zoom
-                  <span class="badge">Same order everywhere</span>
-                </div>
-                <div class="card-body">
-                  <ul class="list">
-                    <li><strong>Branch</strong> — the dominant comic flavour within the current.</li>
-                    <li><strong>Environment</strong> — where bodies struggle: milieu, place, period.</li>
-                    <li><strong>Role</strong> — how comedy drives the novel: Engine, Thread, or Turn.</li>
-                  </ul>
-                  <p class="muted">
-                    Labs are optional: they appear when several guides converge around a shared comic energy.
-                  </p>
-                </div>
-              </article>
-            </div>
-          </section>
-
-          <!-- Back-compat anchor: keep if other pages still link to #everyday -->
-          <span id="everyday" aria-hidden="true"></span>
-
-          <!-- SECTION: SOCIETY -->
-          <section class="section" id="society" data-spy>
-            <header class="section-header">
-              <div class="section-kicker">Current</div>
-              <h2 class="section-title">Comedy of Society</h2>
-              <p class="section-sub">
-                Comedy of Society is the original comic in literary. The individual facing the collective: family, work, neighbourhood, institutions, hierarchies.
-                Humour arises from the friction between the self and the rule.
-              </p>
-            </header>
-
-            <div class="grid-3">
-              <article class="card">
-                <div class="card-header">Definition <span class="badge">Reading axis</span></div>
-                <div class="card-body">
-                  <p>
-                    Comedy of Society stages the tension between belonging and resistance:
-                    the self confronted with codes, roles, institutions and the small mechanisms of social life.
-                  </p>
-                  <p class="muted">
-                    Claim: <em>Society comedy observes how people and rules constantly miss each other.</em>
-                  </p>
-                </div>
-              </article>
-
-              <article class="card">
-                <div class="card-header">Main branches <span class="badge">Zoom</span></div>
-                <div class="card-body">
-                  <ul class="list">
-                    <li>Frustration</li>
-                    <li>Winner / Comeback</li>
-                    <li>Code / Etiquette</li>
-                    <li>Vaudeville (form)</li>
-                    <li>Edge</li>
-                    <li>Campus</li>
-                    <li>…</li>
-                  </ul>
-                </div>
-              </article>
-
-              <article class="card">
-                <div class="card-header">Close to <span class="badge">Generic terms</span></div>
-                <div class="card-body">
-                  <p>
-                    <em>social comedy, social satire, comedy of manners, domestic comedy, workplace comedy, campus novel</em>.
-                  </p>
-                  <p class="muted">
-                    Use “Close to” as a translation bridge: it connects TNoC vocabulary to library/catalogue terms.
-                  </p>
-                </div>
-              </article>
-            </div>
-
-            <div class="grid-2" style="margin-top:18px;">
-              <article class="card">
-                <div class="card-header">Typical environments <span class="badge">Where it plays</span></div>
-                <div class="card-body">
-                  <ul class="list">
-                    <li>Schools & universities (technical college, campus)</li>
-                    <li>Family & domestic interiors</li>
-                    <li>Offices, administrations, small hierarchies</li>
-                    <li>Neighbourhoods, clubs, micro-societies</li>
-                  </ul>
-                </div>
-              </article>
-
-              <article class="card">
-                <div class="card-header">Entry points <span class="badge">Start here</span></div>
-                <div class="card-body">
-                  <p>
-                    If you like: brilliant losers, institutions that malfunction, codes that crush people —
-                    start with Society and pick a branch.
-                  </p>
-                  <ul class="list">
-                    <li><a href="fr/fiche-roman/wilt-1976">Example guide: <em>Wilt</em> (Tom Sharpe)</a></li>
-                    <li><a href="fr/fiche-roman/the-girls-of-slender-means">Example guide: <em>The Girls of Slender Means</em> (Muriel Spark)</a></li>
-                  </ul>
-                </div>
-              </article>
-            </div>
-          </section>
-
-          <!-- SECTION: CRIME COMEDY -->
-          <section class="section" id="crime" data-spy>
-            <header class="section-header">
-              <div class="section-kicker">Current</div>
-              <h2 class="section-title">Crime Comedy</h2>
-              <p class="section-sub">
-                The individual facing rule, law and morality. Crime, fault and transgression become comic material —
-                often less to celebrate crime than to expose how moral systems bend, crack, or look ridiculous.
-              </p>
-            </header>
-
-            <div class="grid-3">
-              <article class="card">
-                <div class="card-header">Definition <span class="badge">Reading axis</span></div>
-                <div class="card-body">
-                  <p>
-                    Comedy comes from failed plans, impossible compromises, flexible moralities,
-                    and plots where chance ends up replacing justice.
-                  </p>
-                  <p class="muted">
-                    Claim: <em>Crime becomes funny when it reveals the ridiculousness of moral systems more than the gravity of acts.</em>
-                  </p>
-                </div>
-              </article>
-
-              <article class="card">
-                <div class="card-header">Main branches <span class="badge">Zoom</span></div>
-                <div class="card-body">
-                  <ul class="list">
-                    <li>Schemer</li>
-                    <li>Hapless Criminal</li>
-                    <li>Avenger</li>
-                    <li>Survivor</li>
-                    <li>Trickster</li>
-                    <li>Comic Investigator</li>
-                    <li>Murder Campus</li>
-                    <li>…</li>
-                  </ul>
-                </div>
-              </article>
-
-              <article class="card">
-                <div class="card-header">Close to <span class="badge">Generic terms</span></div>
-                <div class="card-body">
-                  <p>
-                    <em>comic noir, caper novel, heist comedy, farcical thriller, satirical crime fiction, black comedy</em>.
-                  </p>
-                  <p class="muted">
-                    A bridge for readers: “crime fiction” vocabulary, but with comedy as the driving lens.
-                  </p>
-                </div>
-              </article>
-            </div>
-
-            <div class="grid-2" style="margin-top:18px;">
-              <article class="card">
-                <div class="card-header">Typical environments <span class="badge">Where it plays</span></div>
-                <div class="card-body">
-                  <ul class="list">
-                    <li>Backrooms of cities (bars, cheap hotels, crews)</li>
-                    <li>Institutions (police, courts, bureaucracies)</li>
-                    <li>Suburbs, small towns, local moralities</li>
-                    <li>Campuses when crime meets codes</li>
-                  </ul>
-                </div>
-              </article>
-
-              <article class="card">
-                <div class="card-header">Entry points <span class="badge">Start here</span></div>
-                <div class="card-body">
-                  <p>
-                    If you like: plans collapsing, criminals not quite competent enough, justice replaced by chaos —
-                    start with Crime and select a branch (Schemer, Hapless Criminal…).
-                  </p>
-                  <p class="muted">
-                    (Links to dedicated Crime guides can be plugged here as the corpus grows.)
-                  </p>
-                </div>
-              </article>
-            </div>
-          </section>
-
-          <!-- SECTION: NEO-NONSENSE -->
-          <section class="section" id="neo-nonsense" data-spy>
-            <header class="section-header">
-              <div class="section-kicker">Current</div>
-              <h2 class="section-title">Neo-Nonsense</h2>
-              <p class="section-sub">
-                The individual facing the universe. Neo-Nonsense appears in a world where certainties crack:
-                ideologies, grand theories, illusions of control — and where science, objects and systems become comic matter.
-              </p>
-            </header>
-
-            <div class="grid-3">
-              <article class="card">
-                <div class="card-header">Definition <span class="badge">Reading axis</span></div>
-                <div class="card-body">
-                  <p>
-                    It combines cinematic grammar, modern science, object-characters, existential self-mockery
-                    and fully conscious logical games.
-                  </p>
-                  <p class="muted">
-                    Claim: <em>The least extravagant logic in a world that no longer guarantees anything.</em>
-                  </p>
-                </div>
-              </article>
-
-              <article class="card">
-                <div class="card-header">Main branches <span class="badge">Zoom</span></div>
-                <div class="card-body">
-                  <ul class="list">
-                    <li><strong>Cosmic Bureaucracy</strong> — comic SF as paperwork, codes, protocols, cosmic “administration”.</li>
-                    <li><strong>Assistant Comedy</strong> — AI not as dystopia, but as servility, jealousy, meta-interaction.</li>
-                    <li><strong>Hypochondriac Metaphysics</strong> — the body as panic of meaning; symptoms as philosophy.</li>
-                    <li><strong>Canon Hijack</strong> — secondary character takeover; a canon rewritten from inside.</li>
-                  </ul>
-                </div>
-              </article>
-
-              <article class="card">
-                <div class="card-header">Close to <span class="badge">Generic terms</span></div>
-                <div class="card-body">
-                  <p>
-                    <em>absurdist fiction, comic SF, surreal comedy, metafiction, postmodern satire, philosophical comedy</em>.
-                  </p>
-                  <p class="muted">
-                    “Close to” is deliberately plural here: Neo-Nonsense is where criticism often splits labels.
-                  </p>
-                </div>
-              </article>
-            </div>
-
-            <div class="grid-2" style="margin-top:18px;">
-              <article class="card">
-                <div class="card-header">Typical environments <span class="badge">Where it plays</span></div>
-                <div class="card-body">
-                  <ul class="list">
-                    <li>Systems and “machines” (bureaucracies, labs, tech stacks)</li>
-                    <li>The universe as rulebook (science, metaphysics, cosmic logistics)</li>
-                    <li>Anxious bodies (medical corridors, symptoms, self-monitoring)</li>
-                    <li>Canon territories revisited (myths, classics, inherited stories)</li>
-                  </ul>
-                </div>
-              </article>
-
-              <article class="card">
-                <div class="card-header">Entry points <span class="badge">Start here</span></div>
-                <div class="card-body">
-                  <p>
-                    If you like: science as comic material, object-characters, meta-narratives, logical games —
-                    start with Neo-Nonsense and pick a branch (Cosmic Bureaucracy, Canon Hijack…).
-                  </p>
-                  <ul class="list">
-                    <li><a href="fr/fiche-roman/james-percival-everett">Example guide: <em>James</em> (Percival Everett)</a></li>
-                    <li class="muted">Douglas Adams can anchor “Cosmic Bureaucracy” when the dedicated guides are online.</li>
-                  </ul>
-                </div>
-              </article>
-            </div>
-          </section>
-
-          <!-- SECTION: NEXT -->
-          <section class="section" id="use" data-spy>
-            <header class="section-header">
-              <div class="section-kicker">Method</div>
-              <h2 class="section-title">How to use currents with the guides</h2>
-              <p class="section-sub">
-                Currents are the top-level compass. The guides are the heart. Use one to reach the other.
-              </p>
-            </header>
-
-            <div class="grid-2">
-              <article class="card">
-                <div class="card-header">Reader path <span class="badge">Simple</span></div>
-                <div class="card-body">
-                  <ul class="list">
-                    <li>Pick a novel you love → open its guide.</li>
-                    <li>Note its current and branch → click to explore siblings.</li>
-                    <li>Compare environments → recognise recurring “stages”.</li>
-                    <li>Compare roles (Engine/Thread/Turn) → understand the author’s comic intention.</li>
-                  </ul>
-                </div>
-              </article>
-
-              <article class="card">
-                <div class="card-header">Editor path <span class="badge">Building the atlas</span></div>
-                <div class="card-body">
-                  <p>
-                    When a corpus grows, a Lab may appear naturally (a cluster of works sharing a similar comic energy).
-                    Until then, currents + branches + environments + roles are enough to keep the map sharp.
-                  </p>
-                  <p class="muted">
-                    This is why the cartography never competes with the text: it supports it.
-                  </p>
-                </div>
-              </article>
-            </div>
-          </section>
-
-        </div>
-
-        <!-- RIGHT: RAIL -->
-        <aside class="rail" aria-label="In this page">
-          <header>
-            <h3>In this page</h3>
-            <p>Currents and how to read them.</p>
-            <div class="rail-progress" aria-label="Reading progress"><span></span></div>
-          </header>
-
-          <nav class="toc" id="toc">
-            <a href="#currents">What is a current</a>
-            <a href="#society">Comedy of Society</a>
-            <a href="#crime">Crime Comedy</a>
-            <a href="#neo-nonsense">Neo-Nonsense</a>
-            <a href="#use">How to use</a>
-          </nav>
-
-          <div class="rail-bottom">
-            <a class="btn" href="#top">↑ Back to top</a>
-          </div>
-        </aside>
-
-      </div>
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="footer" role="contentinfo">
-      <div class="footer-inner">
-        <div>
-          <strong>The Novel of Comedy (TNoC)</strong> · Currents are reading paths, guides are the heart.
-        </div>
-        <div class="footer-links">
-          <a href="method.html">Method</a>
-          <a href="index.html#about">About</a>
-          <a href="index.html#research">Researchers &amp; AI</a>
-          <a href="fr/a-propos/comment-citer-tnoc">How to cite TNoC</a>
-          <a href="fr/contact">Contact</a>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#society">Comedy of Society</a>
+          <a class="btn btn-primary" href="#crime">Crime Comedy</a>
+          <a class="btn btn-primary" href="#neo">Neo-Nonsense</a>
+          <a class="btn" href="toolbox.html">Toolbox</a>
         </div>
       </div>
-    </footer>
 
+      <aside class="hero-aside" aria-label="How to use currents">
+        <strong>How to read this page</strong><br>
+        Each current has a definition and typical branches. The goal is simple:
+        <em>find your entry</em>, then open a guide.
+        <div class="pillrow">
+          <span class="pill">definitions</span>
+          <span class="pill">branches</span>
+          <span class="pill">stable links</span>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <div class="stitch-divider" aria-hidden="true">
+    <div class="stitch-badge">Night → Paper</div>
   </div>
 
-  <!-- JS: SCROLLSPY + PROGRESS (rail) -->
+  <!-- PAPER -->
+  <main class="main" id="paper" aria-label="Currents paper layer">
+    <div class="main-inner">
+      <div>
+        <details class="mobile-toc" id="mobileToc">
+          <summary>
+            <span>In this page</span>
+            <span style="opacity:.72; font-size:12px" id="mobileMeta">~4 min</span>
+          </summary>
+          <nav class="toc" aria-label="In this page (mobile)" id="tocMobile">
+            <a href="#definition">What is a current?</a>
+            <a href="#society">Comedy of Society</a>
+            <a href="#crime">Crime Comedy</a>
+            <a href="#neo">Neo-Nonsense</a>
+            <a href="#how-to-start">Where to start?</a>
+            <a href="#toolbox-used">Toolbox</a>
+          </nav>
+        </details>
+
+        <!-- =========================================================
+             Definition
+             ========================================================= -->
+        <section class="section" id="definition" data-spy>
+          <div class="kicker">Definition</div>
+          <h2 class="h2">What is a “current”?</h2>
+          <p class="lead">
+            A current is a large, readable family of comic energies. It is not a rigid genre label.
+            It helps you navigate quickly, while keeping the guides comparable.
+          </p>
+          <p class="sub">
+            In practice: each novel guide is placed in one current, and optionally refined by a branch.
+            The toolbox adds a separate indicator called <strong>Comedy centrality</strong> (Comic Engine / Thread / Turn).
+          </p>
+
+          <p class="sub">
+            Comedy of Society is the original current of social comedy, centered on everyday life and institutions.
+            In the 20th century, Crime Comedy turns crime into a comic terrain.
+            After World War II, Neo-Nonsense integrates scientific and existential vertigo.
+            Society (integration / refusal) · Crime (transgression) · Neo-Nonsense (vertigo of meaning).
+          </p>
+
+          <div class="grid-3" style="margin-top:14px;">
+            <article class="card">
+              <div class="card-head"><span>Current</span><span class="linkpill" style="pointer-events:none;">macro</span></div>
+              <div class="card-body">
+                <p>The big orientation: society, crime, neo-nonsense.</p>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card-head"><span>Branch</span><span class="linkpill" style="pointer-events:none;">meso</span></div>
+              <div class="card-body">
+                <p>A typical path inside the current (satire, manners, caper, absurd).</p>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card-head"><span>Toolbox</span><a class="linkpill" href="toolbox.html">Open →</a></div>
+              <div class="card-body">
+                <p>Reusable vocabulary across guides (Comedy centrality, Environment, Labs).</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- =========================================================
+             SOCIETY
+             ========================================================= -->
+        <section class="section" id="society" data-spy>
+          <div class="kicker">Current</div>
+          <h2 class="h2">Comedy of Society</h2>
+          <p class="lead">Institutions collide with private life: satire, manners, social pressure.</p>
+          <p class="sub">
+            Typical scenes: work hierarchies, families, schools, clubs, class codes, polite cruelty.
+            Comedy often comes from norms and the cost of violating them.
+          </p>
+
+          <div class="grid-3" style="margin-top:14px;">
+            <article class="card">
+              <div class="card-head"><span>Core idea</span></div>
+              <div class="card-body">
+                <p><strong>Institutions</strong> (visible or invisible) produce friction. People behave badly, often with style.</p>
+                <div class="chiprow">
+                  <span class="chip"><span class="tiny" aria-hidden="true"></span>institutions</span>
+                  <span class="chip">status</span>
+                  <span class="chip">manners</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card-head"><span>Typical branches</span></div>
+              <div class="card-body">
+                <ul class="list">
+                  <li><strong>Satire</strong> (systems, class, ideology)</li>
+                  <li><strong>Manners</strong> (codes, romance, embarrassment)</li>
+                  <li><strong>Campus</strong> (academia, rituals, status games)</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card-head"><span>Open guides</span><a class="linkpill" href="novel-guides.html">Browse →</a></div>
+              <div class="card-body">
+                <ul class="list">
+                  <li><a href="wilt-fiche.html">Wilt</a> (Satire)</li>
+                  <li><a href="small-world-fiche.html">Small World</a> (Campus)</li>
+                  <li><a href="what-a-carve-up-fiche.html">What a Carve Up!</a> (Satire)</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- =========================================================
+             CRIME
+             ========================================================= -->
+        <section class="section" id="crime" data-spy>
+          <div class="kicker">Current</div>
+          <h2 class="h2">Crime Comedy</h2>
+          <p class="lead">Capers, schemes, elastic morality: crime as a comic device.</p>
+          <p class="sub">
+            The plot is often a machine: plans, mistakes, improvisations, consequences.
+            Comedy comes from competence gaps, moral shortcuts, and criminal rationality.
+          </p>
+
+          <div class="grid-3" style="margin-top:14px;">
+            <article class="card">
+              <div class="card-head"><span>Core idea</span></div>
+              <div class="card-body">
+                <p><strong>Plot mechanics</strong> become comedic: heists, capers, cover-ups, misdirection.</p>
+                <div class="chiprow">
+                  <span class="chip"><span class="tiny" aria-hidden="true"></span>schemes</span>
+                  <span class="chip">escalation</span>
+                  <span class="chip">moral elasticity</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card-head"><span>Typical branches</span></div>
+              <div class="card-body">
+                <ul class="list">
+                  <li><strong>Caper</strong> (plans, blunders, escalation)</li>
+                  <li><strong>Comic noir</strong> (dark edges, absurd violence)</li>
+                  <li><strong>Heist / burglar</strong> (craft, chaos)</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card-head"><span>Open guides</span><a class="linkpill" href="novel-guides.html">Browse →</a></div>
+              <div class="card-body">
+                <ul class="list">
+                  <li><a href="tourist-season-fiche.html">Tourist Season</a></li>
+                  <li><a href="florida-roadkill-fiche.html">Florida Roadkill</a></li>
+                  <li><a href="the-burglar-who-painted-like-mondrian-fiche.html">Burglar · Mondrian</a></li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- =========================================================
+             NEO
+             ========================================================= -->
+        <section class="section" id="neo" data-spy>
+          <div class="kicker">Current</div>
+          <h2 class="h2">Neo-Nonsense</h2>
+          <p class="lead">Absurdist and postmodern comedy: rigorous logic in a world that slips.</p>
+          <p class="sub">
+            The surface may be calm, the sentences controlled, but the world follows a skewed logic.
+            Comedy emerges from glitches, systems, and tonal shifts.
+          </p>
+
+          <div class="grid-3" style="margin-top:14px;">
+            <article class="card">
+              <div class="card-head"><span>Core idea</span></div>
+              <div class="card-body">
+                <p><strong>Rigour meets crack.</strong> The comic effect can be structural or tonal.</p>
+                <div class="chiprow">
+                  <span class="chip"><span class="tiny" aria-hidden="true"></span>absurd logic</span>
+                  <span class="chip">postmodern</span>
+                  <span class="chip">structure</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card-head"><span>Typical branches</span></div>
+              <div class="card-body">
+                <ul class="list">
+                  <li><strong>Absurd</strong> (deadpan chaos, logic puzzles)</li>
+                  <li><strong>Postmodern satire</strong> (media, systems, paranoia)</li>
+                  <li><strong>Meta / Formal</strong> (narration as device)</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card-head"><span>Open guides</span><a class="linkpill" href="novel-guides.html">Browse →</a></div>
+              <div class="card-body">
+                <ul class="list">
+                  <li><a href="the-malaise-expedition-fiche.html">The Malaise Expedition</a></li>
+                  <li><a href="white-noise-fiche.html">White Noise</a> (often hybrid)</li>
+                  <li><a href="author-profiles.html#kurt-vonnegut">Vonnegut (profile)</a></li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- =========================================================
+             Where to start
+             ========================================================= -->
+        <section class="section" id="how-to-start" data-spy>
+          <div class="kicker">Orientation</div>
+          <h2 class="h2">Where to start?</h2>
+          <p class="lead">Enter by a current, by a book, or by an author, then follow connections.</p>
+          <p class="sub">
+            If a book is “hybrid”, the guide still works: the matrix is fixed.
+            You will also see the <strong>Comedy centrality</strong> indicator in the toolbox.
+          </p>
+
+          <div class="grid-2" style="margin-top:14px;">
+            <article class="card">
+              <div class="card-head"><span>Start with a novel guide</span><a class="linkpill" href="novel-guides.html">Open →</a></div>
+              <div class="card-body">
+                <p>Pick one book. Read the device. Follow “Suggested next”.</p>
+                <ul class="list">
+                  <li>stable 10-part matrix</li>
+                  <li>comparability across works</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card-head"><span>Start with an author profile</span><a class="linkpill" href="author-profiles.html">Open →</a></div>
+              <div class="card-body">
+                <p>Learn the writer’s method: voice, rhythm, institutions, recurring devices.</p>
+                <ul class="list">
+                  <li>Core Comedy / Hybrid / Comic Incursions</li>
+                  <li>cross-links to guides</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- =========================================================
+             TOOLBOX (mini)
+             ========================================================= -->
+        <section class="section" id="toolbox-used" data-spy>
+          <div class="kicker">Toolbox</div>
+          <h2 class="h2">Toolbox used in every guide</h2>
+          <p class="lead">A small shared vocabulary: same terms everywhere, for comparability.</p>
+          <p class="sub">Full definitions live on the Toolbox page.</p>
+
+          <div class="grid-3" style="margin-top:14px;">
+            <article class="card">
+              <div class="card-head">
+                <span>Comedy centrality (novels)</span>
+                <a class="linkpill" href="toolbox.html#comedy-centrality-novels">Open →</a>
+              </div>
+              <div class="card-body">
+                <p><strong>Comic Engine</strong> · <strong>Comic Thread</strong> · <strong>Comic Turn</strong></p>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card-head">
+                <span>Comedy centrality (authors)</span>
+                <a class="linkpill" href="toolbox.html#comedy-centrality-authors">Open →</a>
+              </div>
+              <div class="card-body">
+                <p><strong>Core Comedy</strong> · <strong>Hybrid</strong> · <strong>Comic Incursions</strong></p>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="card-head">
+                <span>Environment &amp; Labs</span>
+                <a class="linkpill" href="toolbox.html#environment-labs">Open →</a>
+              </div>
+              <div class="card-body">
+                <p>Where it plays (milieu, institutions, period) plus optional connection hubs.</p>
+              </div>
+            </article>
+          </div>
+        </section>
+      </div>
+
+      <!-- Right rail -->
+      <aside class="rail" aria-label="In this page (currents)">
+        <div class="rail-sticky">
+          <header>
+            <h3>In this page</h3>
+            <p class="rail-meta">
+              <span class="rail-pill"><span class="tiny" aria-hidden="true"></span><span id="railHere">You are here: What is a current?</span></span>
+              <span class="rail-pill">~<span id="railTime">4</span> min</span>
+            </p>
+            <div class="rail-progress"><span></span></div>
+          </header>
+          <nav class="toc" id="tocDesktop">
+            <a href="#definition">What is a current?</a>
+            <a href="#society">Comedy of Society</a>
+            <a href="#crime">Crime Comedy</a>
+            <a href="#neo">Neo-Nonsense</a>
+            <a href="#how-to-start">Where to start?</a>
+            <a href="#toolbox-used">Toolbox</a>
+          </nav>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer" role="contentinfo" aria-label="Site footer">
+    <div class="inner">
+      <div class="left">
+        <strong>The Novel of Comedy (TNoC)</strong> · Currents · definitions and branches.<br>
+        <span class="muted">© <span id="year"></span> Boris Jeanson Béteille</span>
+      </div>
+
+      <nav class="links" aria-label="Footer links">
+        <a href="index.html">Home</a>
+        <a href="novel-guides.html">Novel guides</a>
+        <a href="author-profiles.html">Author profiles</a>
+        <a href="toolbox.html">Toolbox</a>
+        <a href="fr/contact">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
   <script>
-  (function(){
-    const links = Array.from(document.querySelectorAll('#toc a'));
-    const sections = Array.from(document.querySelectorAll('[data-spy]'));
-    const bar = document.querySelector('.rail-progress > span');
+    /* Footer year */
+    (function(){
+      const y = document.getElementById('year');
+      if(y) y.textContent = String(new Date().getFullYear());
+    })();
 
-    function getHashId(href){
-      if (!href) return "";
-      const hashIndex = href.indexOf('#');
-      if (hashIndex === -1) return "";
-      return href.slice(hashIndex + 1);
-    }
+    /* Paper scrollspy + progress + reading time */
+    (function(){
+      const linksDesktop = Array.from(document.querySelectorAll('#tocDesktop a'));
+      const linksMobile  = Array.from(document.querySelectorAll('#tocMobile a'));
+      const sections = Array.from(document.querySelectorAll('[data-spy]'));
+      const bar = document.querySelector('.rail-progress > span');
+      const railHere = document.getElementById('railHere');
+      const railTime = document.getElementById('railTime');
+      const mobileMeta = document.getElementById('mobileMeta');
 
-    function updateProgress(){
-      if(!bar) return;
-      const doc = document.documentElement;
-      const scrollTop = doc.scrollTop || document.body.scrollTop;
-      const scrollHeight = doc.scrollHeight - doc.clientHeight;
-      const pct = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
-      bar.style.width = Math.max(0, Math.min(100, pct)) + "%";
-    }
+      function getHashId(href){
+        if (!href) return "";
+        const i = href.indexOf('#');
+        return (i === -1) ? "" : href.slice(i + 1);
+      }
 
-    window.addEventListener('scroll', updateProgress, { passive:true });
-    updateProgress();
+      function estimateReadingTime(){
+        const paper = document.querySelector('main.main');
+        if(!paper) return 4;
+        const text = paper.innerText || "";
+        const words = text.trim().split(/\s+/).filter(Boolean).length;
+        return Math.max(3, Math.round(words / 210));
+      }
 
-    if(!links.length || !sections.length) return;
+      function updateProgress(){
+        if(!bar) return;
+        const doc = document.documentElement;
+        const st = doc.scrollTop || document.body.scrollTop;
+        const sh = doc.scrollHeight - doc.clientHeight;
+        const pct = sh > 0 ? (st / sh) * 100 : 0;
+        bar.style.width = Math.max(0, Math.min(100, pct)) + "%";
+      }
 
-    function setActiveFromScroll(){
-      const scrollTop = window.scrollY || window.pageYOffset;
-      const offset = 140;
-      let activeId = sections[0].id;
+      function setActive(){
+        if(!sections.length) return;
+        const st = window.scrollY || 0;
+        const offset = 150;
+        let activeId = sections[0].id;
+        sections.forEach(s => { if(st + offset >= s.offsetTop) activeId = s.id; });
 
-      sections.forEach(section => {
-        if (scrollTop + offset >= section.offsetTop) {
-          activeId = section.id;
+        function apply(links){
+          links.forEach(a => a.classList.toggle('active', getHashId(a.getAttribute('href')) === activeId));
         }
-      });
+        apply(linksDesktop);
+        apply(linksMobile);
 
-      links.forEach(link => {
-        const targetId = getHashId(link.getAttribute('href'));
-        link.classList.toggle('active', targetId === activeId);
-      });
-    }
+        if(railHere){
+          const map = {
+            "definition":"What is a current?",
+            "society":"Comedy of Society",
+            "crime":"Crime Comedy",
+            "neo":"Neo-Nonsense",
+            "how-to-start":"Where to start?",
+            "toolbox-used":"Toolbox"
+          };
+          railHere.textContent = "You are here: " + (map[activeId] || "Currents");
+        }
+      }
 
-    window.addEventListener('scroll', setActiveFromScroll, { passive:true });
-    window.addEventListener('resize', setActiveFromScroll);
-    setActiveFromScroll();
-  })();
+      const minutes = estimateReadingTime();
+      if(railTime) railTime.textContent = String(minutes);
+      if(mobileMeta) mobileMeta.textContent = "~" + minutes + " min";
+
+      window.addEventListener('scroll', updateProgress, { passive:true });
+      window.addEventListener('scroll', setActive, { passive:true });
+      window.addEventListener('resize', setActive);
+
+      updateProgress();
+      setActive();
+    })();
   </script>
-
 </body>
 </html>
-
