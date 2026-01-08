@@ -261,6 +261,7 @@
       min-height: var(--heroH);
     }
 
+    /* Keep the background wall as B&W (couture), but allow color elsewhere */
     .marquee-wall{
       position:absolute; inset:0;
       opacity:.55;
@@ -411,11 +412,13 @@
       background:#0f0f10;
       box-shadow: 0 18px 54px rgba(0,0,0,.62);
     }
+    /* ✅ Best option chosen: featured in subtle color (not over-saturated) */
     .now-cover img{
       width:100%; height:100%;
       object-fit:cover;
       display:block;
-      filter: grayscale(1) contrast(1.04);
+      filter: saturate(.96) contrast(1.03);
+      transform: translateZ(0);
     }
     .now-k{
       font-size: 10px;
@@ -587,11 +590,16 @@
     }
 
     .tile-media{ width:100%; aspect-ratio:3/4; background:#0f0f10; }
+    /* ✅ Best option chosen: COLOR by default (subtle), with gentle lift on hover */
     .tile-media img{
       width:100%; height:100%;
       object-fit:cover;
       display:block;
-      filter: grayscale(1) contrast(1.02);
+      filter: saturate(.94) contrast(1.02);
+      transition: filter .18s ease;
+    }
+    .tile:hover .tile-media img{
+      filter: saturate(1.02) contrast(1.03);
     }
     .tile.is-portrait .tile-media{ aspect-ratio:4/5; }
 
@@ -1004,11 +1012,12 @@
       text-transform: uppercase;
       font-size: 12px;
     }
+    /* ✅ Best option: keep search thumbs in subtle color too */
     .rthumb img{
       width:100%; height:100%;
       object-fit:cover;
       display:block;
-      filter: grayscale(1) contrast(1.02);
+      filter: saturate(.96) contrast(1.02);
     }
     .rtext{ min-width:0; }
     .rtext .rk{
@@ -1155,7 +1164,6 @@
         <button class="search-close" id="searchClose" type="button" aria-label="Close search">Esc</button>
       </div>
 
-      <!-- ✅ change: aria-live for count -->
       <div class="search-meta">
         <div><strong>Tip</strong> · Ctrl+K / ⌘K · Esc</div>
         <div aria-live="polite"><span id="searchCount">0</span> results</div>
@@ -1226,7 +1234,7 @@
 
       <aside class="nowplaying" aria-label="Featured pick" data-searchitem data-kind="Module" data-title="Featured pick" data-sub="Featured item + Surprise" data-key="featured pick surprise">
         <div class="now-cover">
-          <img id="featuredImg" src="wilt31A.png.png" alt="Cover of Wilt — Tom Sharpe (1976)" loading="eager" fetchpriority="high" decoding="async">
+          <img id="featuredImg" src="img/wilt.png" alt="Cover of Wilt — Tom Sharpe (1976)" loading="eager" fetchpriority="high" decoding="async">
         </div>
         <div>
           <p class="now-k" id="featuredK">Featured</p>
@@ -1288,7 +1296,7 @@
              data-author="Tom Sharpe" data-year="1976"
              data-sub="Tom Sharpe · 1976"
              data-tags="society satire">
-            <div class="tile-media"><img src="wilt31A.png.png" alt="Cover of Wilt" loading="lazy" decoding="async"></div>
+            <div class="tile-media"><img src="img/wilt.png" alt="Cover of Wilt" loading="lazy" decoding="async"></div>
             <div class="tile-meta">
               <div class="k">Society · Satire</div>
               <div class="t">Wilt</div>
@@ -1435,6 +1443,7 @@
               <div class="s">Tom Wolfe · 1987</div>
             </div>
           </a>
+
         </div>
 
         <div class="row-progress" aria-hidden="true"><span></span></div>
@@ -1968,7 +1977,7 @@
     <div class="inner">
       <div class="left">
         <strong>The Novel of Comedy (TNoC)</strong> · Atlas &amp; critical cartography of humorous fiction.<br>
-        <span class="muted">© <span id="year"></span> Boris Jeanson Béteille</span>
+        <span class="muted">© <span id="year"></span> Boris Jeanson Béanson Béteille</span>
       </div>
 
       <nav class="links" aria-label="Footer links">
@@ -2079,7 +2088,7 @@
 
     /* =========================================================
        3) Search overlay (Ctrl/⌘ K) — unified data-searchitem index
-       ✅ changes: focus-trap + restore focus + single Escape handler
+       ✅ focus-trap + restore focus
        ========================================================= */
     (function(){
       const overlay = document.getElementById('searchOverlay');
@@ -2184,7 +2193,6 @@
         if(a) close();
       });
 
-      // ✅ Focus trap + Esc + Ctrl/⌘K
       window.addEventListener('keydown', (e) => {
         const isOpen = overlay.classList.contains('open');
         const isMac = navigator.platform.toUpperCase().indexOf('MAC')>=0;
