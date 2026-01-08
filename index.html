@@ -203,6 +203,8 @@
     }
     .nav a{opacity:.82; padding:8px 6px}
     .nav a:hover{opacity:1}
+    .nav a.active{opacity:1; color: rgba(191,167,122,.95);}
+
     .btn{
       display:inline-flex; align-items:center; justify-content:center;
       gap:8px;
@@ -289,18 +291,23 @@
       padding:12px 0;
       z-index:1;
       will-change:transform;
+      overflow:hidden;
     }
     .marquee-strip.top{ top:24px; transform:rotate(-2deg) }
     .marquee-strip.mid{ top:40%; transform:rotate(1deg) }
     .marquee-strip.bot{ bottom:44px; transform:rotate(-1.5deg) }
 
+    /* Make inner track wide and continuous */
     .marquee-track{
       display:flex;
       gap:12px;
-      animation:marquee 52s linear infinite;
+      flex:0 0 auto;
+      width:max-content;
+      animation:marquee 54s linear infinite;
     }
-    .marquee-strip.mid .marquee-track{ animation-duration:62s; animation-direction:reverse; opacity:.95; }
-    .marquee-strip.bot .marquee-track{ animation-duration:70s; opacity:.90; }
+    .marquee-strip.mid .marquee-track{ animation-duration:64s; animation-direction:reverse; opacity:.95; }
+    .marquee-strip.bot .marquee-track{ animation-duration:72s; opacity:.90; }
+
     @keyframes marquee{
       0%{ transform:translateX(0) }
       100%{ transform:translateX(-50%) }
@@ -335,7 +342,6 @@
       min-height: var(--heroH);
     }
 
-    /* Left editorial block: less “app card”, more “Maison placard” */
     .hero-card{
       border-radius: 22px;
       border:1px solid rgba(246,244,239,.14);
@@ -384,7 +390,6 @@
       gap:10px;
     }
 
-    /* Featured panel: reduce “features talk”, show the work */
     .nowplaying{
       border-radius:22px;
       border:1px solid rgba(246,244,239,.14);
@@ -464,7 +469,7 @@
     }
 
     /* =========================================================
-       ROWS — make it “gallery rails” (less Netflix UI)
+       ROWS — make it “gallery rails”
        ========================================================= */
     .rows{
       max-width:var(--w);
@@ -558,7 +563,6 @@
       opacity:.92;
     }
 
-    /* Tiles: more object-like, less “UI card” */
     .tile{
       scroll-snap-align:start;
       flex:0 0 var(--tileW);
@@ -631,7 +635,7 @@
     }
 
     /* =========================================================
-       Divider — black to paper: more “book seam”
+       Divider — black to paper
        ========================================================= */
     .stitch-divider{
       position:relative;
@@ -666,7 +670,7 @@
     }
 
     /* =========================================================
-       PAPER LAYER — editorial, less “admin cards”
+       PAPER LAYER
        ========================================================= */
     .main{
       background: var(--paper);
@@ -907,7 +911,7 @@
     }
 
     /* =========================================================
-       SEARCH OVERLAY — same logic, more “couture”
+       SEARCH OVERLAY — unified (data-searchitem)
        ========================================================= */
     .overlay{
       position:fixed;
@@ -985,12 +989,20 @@
     .result:hover{ border-color: rgba(191,167,122,.45); background: rgba(191,167,122,.08); }
     .rthumb{
       width:48px;
-      aspect-ratio:3/4;
+      height:48px;
       border-radius: 14px;
       overflow:hidden;
-      background:#0f0f10;
+      background: rgba(246,244,239,.06);
       border:1px solid rgba(246,244,239,.14);
       flex:0 0 auto;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-family: var(--serif);
+      color: rgba(246,244,239,.82);
+      letter-spacing: .10em;
+      text-transform: uppercase;
+      font-size: 12px;
     }
     .rthumb img{
       width:100%; height:100%;
@@ -1029,7 +1041,7 @@
     }
 
     /* =========================================================
-       BOTTOM NAV (mobile) — keep, but luxury
+       BOTTOM NAV (mobile)
        ========================================================= */
     .bottomnav{
       position:fixed;
@@ -1139,13 +1151,16 @@
   <div class="overlay" id="searchOverlay" aria-hidden="true">
     <div class="searchbox" role="dialog" aria-modal="true" aria-label="Search TNoC">
       <div class="search-top">
-        <input id="searchInput" type="text" placeholder="Search a book or an author…" autocomplete="off">
+        <input id="searchInput" type="text" placeholder="Search a book, an author, or a section…" autocomplete="off">
         <button class="search-close" id="searchClose" type="button" aria-label="Close search">Esc</button>
       </div>
+
+      <!-- ✅ change: aria-live for count -->
       <div class="search-meta">
         <div><strong>Tip</strong> · Ctrl+K / ⌘K · Esc</div>
-        <div><span id="searchCount">0</span> results</div>
+        <div aria-live="polite"><span id="searchCount">0</span> results</div>
       </div>
+
       <div class="results" id="searchResults" aria-label="Search results"></div>
       <div class="empty" id="searchEmpty" style="display:none;">No results. Try another spelling.</div>
     </div>
@@ -1161,14 +1176,13 @@
         </div>
       </a>
 
-      <!-- UPDATED MENU: add Currents + Toolbox, intercalated -->
       <nav class="nav" aria-label="Navigation">
-        <a href="#rows">Browse</a>
-        <a href="#paper">Paper</a>
-        <a href="novel-guides.html">Novels</a>
-        <a href="author-profiles.html">Authors</a>
-        <a href="currents.html">Currents</a>
-        <a href="toolbox.html">Toolbox</a>
+        <a class="active" href="#rows" data-searchitem data-kind="Page" data-title="Browse rows" data-sub="Streaming rows on the homepage" data-key="browse rows home">Browse</a>
+        <a href="#paper" data-searchitem data-kind="Page" data-title="Paper layer" data-sub="Editorial section of the homepage" data-key="paper editorial homepage">Paper</a>
+        <a href="novel-guides.html" data-searchitem data-kind="Page" data-title="Novel guides" data-sub="Fixed 10-part matrix guides" data-key="novel guides ten chapters matrix">Novels</a>
+        <a href="author-profiles.html" data-searchitem data-kind="Page" data-title="Author profiles" data-sub="Profiles: how writers build humor" data-key="author profiles portraits method">Authors</a>
+        <a href="currents.html" data-searchitem data-kind="Page" data-title="Currents" data-sub="Three currents + branches" data-key="currents society crime neo">Currents</a>
+        <a href="toolbox.html" data-searchitem data-kind="Page" data-title="Toolbox" data-sub="Vocabulary reused everywhere" data-key="toolbox comic engine environment labs">Toolbox</a>
         <button class="btn" id="openSearch" type="button" aria-label="Open search">
           Search <span class="kbd">Ctrl/⌘ K</span>
         </button>
@@ -1180,20 +1194,17 @@
     <div class="marquee-wall" aria-hidden="true">
       <div class="marquee-strip top">
         <div class="marquee-track" id="mq1"></div>
-        <div class="marquee-track" id="mq1b"></div>
       </div>
       <div class="marquee-strip mid">
         <div class="marquee-track" id="mq2"></div>
-        <div class="marquee-track" id="mq2b"></div>
       </div>
       <div class="marquee-strip bot">
         <div class="marquee-track" id="mq3"></div>
-        <div class="marquee-track" id="mq3b"></div>
       </div>
     </div>
 
     <div class="hero-inner">
-      <div class="hero-card">
+      <div class="hero-card" data-searchitem data-kind="Page" data-title="The Novel of Comedy" data-sub="Homepage hero" data-key="home hero atlas cartography">
         <div class="hero-kicker"><span class="dot"></span> Atlas <span class="dot"></span> Guides <span class="dot"></span> Cartography</div>
 
         <h1 class="hero-title">
@@ -1213,9 +1224,9 @@
         </div>
       </div>
 
-      <aside class="nowplaying" aria-label="Featured pick">
+      <aside class="nowplaying" aria-label="Featured pick" data-searchitem data-kind="Module" data-title="Featured pick" data-sub="Featured item + Surprise" data-key="featured pick surprise">
         <div class="now-cover">
-          <img id="featuredImg" src="img/wilt.png" alt="Featured cover" loading="eager" fetchpriority="high" decoding="async">
+          <img id="featuredImg" src="img/wilt.png" alt="Cover of Wilt — Tom Sharpe (1976)" loading="eager" fetchpriority="high" decoding="async">
         </div>
         <div>
           <p class="now-k" id="featuredK">Featured</p>
@@ -1241,7 +1252,8 @@
   <section class="rows" id="rows" aria-label="Browse rows (streaming)">
 
     <!-- Row 1 -->
-    <div class="row" id="row-society" data-rowname="Comedy of Society" aria-label="Comedy of Society row">
+    <div class="row" id="row-society" data-rowname="Comedy of Society" aria-label="Comedy of Society row"
+         data-searchitem data-kind="Row" data-title="Comedy of Society" data-sub="Institutions collide with private life — satire & manners" data-key="society satire manners institutions">
       <div class="row-head">
         <div class="row-left">
           <h2 class="row-title">Comedy of Society</h2>
@@ -1255,7 +1267,8 @@
 
       <div class="row-shell" data-row>
         <div class="row-track" aria-label="Comedy of Society carousel">
-          <a class="tile" href="the-commitments-fiche.html"
+
+          <a class="tile" data-searchitem href="the-commitments-fiche.html"
              data-kind="Novel" data-title="The Commitments"
              data-current="Society" data-branch="Satire"
              data-author="Roddy Doyle" data-year="1987"
@@ -1269,7 +1282,7 @@
             </div>
           </a>
 
-          <a class="tile" href="wilt-fiche.html"
+          <a class="tile" data-searchitem href="wilt-fiche.html"
              data-kind="Novel" data-title="Wilt"
              data-current="Society" data-branch="Satire"
              data-author="Tom Sharpe" data-year="1976"
@@ -1283,7 +1296,7 @@
             </div>
           </a>
 
-          <a class="tile" href="poor-souls-fiche.html"
+          <a class="tile" data-searchitem href="poor-souls-fiche.html"
              data-kind="Novel" data-title="Poor Souls"
              data-current="Society" data-branch="Satire"
              data-author="Joseph Connolly" data-year="1995"
@@ -1297,7 +1310,7 @@
             </div>
           </a>
 
-          <a class="tile" href="what-a-carve-up-fiche.html"
+          <a class="tile" data-searchitem href="what-a-carve-up-fiche.html"
              data-kind="Novel" data-title="What a Carve Up!"
              data-current="Society" data-branch="Satire"
              data-author="Jonathan Coe" data-year="1994"
@@ -1311,7 +1324,7 @@
             </div>
           </a>
 
-          <a class="tile" href="the-sportswriter-fiche.html"
+          <a class="tile" data-searchitem href="the-sportswriter-fiche.html"
              data-kind="Novel" data-title="The Sportswriter"
              data-current="Society" data-branch="Manners"
              data-author="Richard Ford" data-year="1986"
@@ -1325,7 +1338,7 @@
             </div>
           </a>
 
-          <a class="tile" href="small-world-fiche.html"
+          <a class="tile" data-searchitem href="small-world-fiche.html"
              data-kind="Novel" data-title="Small World"
              data-current="Society" data-branch="Campus"
              data-author="David Lodge" data-year="1984"
@@ -1339,7 +1352,7 @@
             </div>
           </a>
 
-          <a class="tile" href="the-girls-of-slender-means-fiche.html"
+          <a class="tile" data-searchitem href="the-girls-of-slender-means-fiche.html"
              data-kind="Novel" data-title="The Girls of Slender Means"
              data-current="Society" data-branch="Manners"
              data-author="Muriel Spark" data-year="1963"
@@ -1353,7 +1366,7 @@
             </div>
           </a>
 
-          <a class="tile" href="babycake-fiche.html"
+          <a class="tile" data-searchitem href="babycake-fiche.html"
              data-kind="Novel" data-title="Babycakes"
              data-current="Society" data-branch="Manners"
              data-author="Armistead Maupin" data-year="1984"
@@ -1367,7 +1380,7 @@
             </div>
           </a>
 
-          <a class="tile" href="high-fidelity-fiche.html"
+          <a class="tile" data-searchitem href="high-fidelity-fiche.html"
              data-kind="Novel" data-title="High Fidelity"
              data-current="Society" data-branch="Manners"
              data-author="Nick Hornby" data-year="1995"
@@ -1381,7 +1394,7 @@
             </div>
           </a>
 
-          <a class="tile" href="the-code-of-the-woosters-fiche.html"
+          <a class="tile" data-searchitem href="the-code-of-the-woosters-fiche.html"
              data-kind="Novel" data-title="The Code of the Woosters"
              data-current="Society" data-branch="Manners"
              data-author="P. G. Wodehouse" data-year="1938"
@@ -1395,7 +1408,7 @@
             </div>
           </a>
 
-          <a class="tile" href="the-old-devils-fiche.html"
+          <a class="tile" data-searchitem href="the-old-devils-fiche.html"
              data-kind="Novel" data-title="The Old Devils"
              data-current="Society" data-branch="Manners"
              data-author="Kingsley Amis" data-year="1986"
@@ -1409,7 +1422,7 @@
             </div>
           </a>
 
-          <a class="tile" href="the-bonfire-of-the-vanities-fiche.html"
+          <a class="tile" data-searchitem href="the-bonfire-of-the-vanities-fiche.html"
              data-kind="Novel" data-title="The Bonfire of the Vanities"
              data-current="Society" data-branch="Satire"
              data-author="Tom Wolfe" data-year="1987"
@@ -1429,7 +1442,8 @@
     </div>
 
     <!-- Row — Author Profiles -->
-    <div class="row" id="row-authors" data-rowname="Author Profiles" aria-label="Author Profiles row">
+    <div class="row" id="row-authors" data-rowname="Author Profiles" aria-label="Author Profiles row"
+         data-searchitem data-kind="Row" data-title="Author Profiles row" data-sub="Portraits + method: voice, rhythm, institutions, devices" data-key="author profiles row portraits method">
       <div class="row-head">
         <div class="row-left">
           <h2 class="row-title">Author Profiles</h2>
@@ -1443,84 +1457,84 @@
 
       <div class="row-shell" data-row>
         <div class="row-track" aria-label="Author Profiles carousel">
-          <a class="tile is-portrait" href="author-profiles.html#kurt-vonnegut"
+          <a class="tile is-portrait" data-searchitem href="author-profiles.html#kurt-vonnegut"
              data-kind="Author" data-title="Kurt Vonnegut" data-sub="Author profile"
              data-tags="author neo absurd satire">
             <div class="tile-media"><img src="img/kurt-vonnegut-portrait.jpg" alt="Portrait of Kurt Vonnegut" loading="lazy" decoding="async"></div>
             <div class="tile-meta"><div class="k">Author</div><div class="t">Vonnegut</div><div class="s">Open profile</div></div>
           </a>
 
-          <a class="tile is-portrait" href="author-profiles.html#tom-sharpe"
+          <a class="tile is-portrait" data-searchitem href="author-profiles.html#tom-sharpe"
              data-kind="Author" data-title="Tom Sharpe" data-sub="Author profile"
              data-tags="author society satire frustration comedy">
             <div class="tile-media"><img src="img/tom-sharpe-portrait.jpg" alt="Portrait of Tom Sharpe" loading="lazy" decoding="async"></div>
             <div class="tile-meta"><div class="k">Author</div><div class="t">Sharpe</div><div class="s">Open profile</div></div>
           </a>
 
-          <a class="tile is-portrait" href="author-profiles.html#francoise-sagan"
+          <a class="tile is-portrait" data-searchitem href="author-profiles.html#francoise-sagan"
              data-kind="Author" data-title="Françoise Sagan" data-sub="Author profile"
              data-tags="author society manners irony">
             <div class="tile-media"><img src="img/francoise-sagan-portrait.jpg" alt="Portrait of Françoise Sagan" loading="lazy" decoding="async"></div>
             <div class="tile-meta"><div class="k">Author</div><div class="t">Sagan</div><div class="s">Open profile</div></div>
           </a>
 
-          <a class="tile is-portrait" href="author-profiles.html#perceval"
+          <a class="tile is-portrait" data-searchitem href="author-profiles.html#perceval"
              data-kind="Author" data-title="Perceval" data-sub="Author profile"
              data-tags="author outsider">
             <div class="tile-media"><img src="img/perceval-portrait.jpg" alt="Portrait of Perceval" loading="lazy" decoding="async"></div>
             <div class="tile-meta"><div class="k">Author</div><div class="t">Perceval</div><div class="s">Open profile</div></div>
           </a>
 
-          <a class="tile is-portrait" href="author-profiles.html#p-g-wodehouse"
+          <a class="tile is-portrait" data-searchitem href="author-profiles.html#p-g-wodehouse"
              data-kind="Author" data-title="P. G. Wodehouse" data-sub="Author profile"
              data-tags="author society manners">
             <div class="tile-media"><img src="img/pg-wodehouse-portrait.jpg" alt="Portrait of P. G. Wodehouse" loading="lazy" decoding="async"></div>
             <div class="tile-meta"><div class="k">Author</div><div class="t">Wodehouse</div><div class="s">Open profile</div></div>
           </a>
 
-          <a class="tile is-portrait" href="author-profiles.html#douglas-adams"
+          <a class="tile is-portrait" data-searchitem href="author-profiles.html#douglas-adams"
              data-kind="Author" data-title="Douglas Adams" data-sub="Author profile"
              data-tags="author neo nonsense absurd">
             <div class="tile-media"><img src="img/douglas-adams-portrait.jpg" alt="Portrait of Douglas Adams" loading="lazy" decoding="async"></div>
             <div class="tile-meta"><div class="k">Author</div><div class="t">Adams</div><div class="s">Open profile</div></div>
           </a>
 
-          <a class="tile is-portrait" href="author-profiles.html#donald-e-westlake"
+          <a class="tile is-portrait" data-searchitem href="author-profiles.html#donald-e-westlake"
              data-kind="Author" data-title="Donald E. Westlake" data-sub="Author profile"
              data-tags="author crime caper">
             <div class="tile-media"><img src="img/donald-e-westlake-portrait.jpg" alt="Portrait of Donald E. Westlake" loading="lazy" decoding="async"></div>
             <div class="tile-meta"><div class="k">Author</div><div class="t">Westlake</div><div class="s">Open profile</div></div>
           </a>
 
-          <a class="tile is-portrait" href="author-profiles.html#jean-echenoz"
+          <a class="tile is-portrait" data-searchitem href="author-profiles.html#jean-echenoz"
              data-kind="Author" data-title="Jean Echenoz" data-sub="Author profile"
              data-tags="author neo absurd">
             <div class="tile-media"><img src="img/jean-echenoz-portrait.jpg" alt="Portrait of Jean Echenoz" loading="lazy" decoding="async"></div>
             <div class="tile-meta"><div class="k">Author</div><div class="t">Echenoz</div><div class="s">Open profile</div></div>
           </a>
 
-          <a class="tile is-portrait" href="author-profiles.html#john-kennedy-toole"
+          <a class="tile is-portrait" data-searchitem href="author-profiles.html#john-kennedy-toole"
              data-kind="Author" data-title="John Kennedy Toole" data-sub="Author profile"
              data-tags="author society grotesque">
             <div class="tile-media"><img src="img/john-kennedy-toole-portrait.jpg" alt="Portrait of John Kennedy Toole" loading="lazy" decoding="async"></div>
             <div class="tile-meta"><div class="k">Author</div><div class="t">Toole</div><div class="s">Open profile</div></div>
           </a>
 
-          <a class="tile is-portrait" href="author-profiles.html#carl-hiaasen"
+          <a class="tile is-portrait" data-searchitem href="author-profiles.html#carl-hiaasen"
              data-kind="Author" data-title="Carl Hiaasen" data-sub="Author profile"
              data-tags="author crime comic noir">
             <div class="tile-media"><img src="img/carl-hiaasen-portrait.jpg" alt="Portrait of Carl Hiaasen" loading="lazy" decoding="async"></div>
             <div class="tile-meta"><div class="k">Author</div><div class="t">Hiaasen</div><div class="s">Open profile</div></div>
           </a>
 
-          <a class="tile is-portrait" href="author-profiles.html#muriel-spark"
+          <a class="tile is-portrait" data-searchitem href="author-profiles.html#muriel-spark"
              data-kind="Author" data-title="Muriel Spark" data-sub="Author profile"
              data-tags="author society irony dark">
             <div class="tile-media"><img src="img/muriel-spark-portrait.jpg" alt="Portrait of Muriel Spark" loading="lazy" decoding="async"></div>
             <div class="tile-meta"><div class="k">Author</div><div class="t">Spark</div><div class="s">Open profile</div></div>
           </a>
 
-          <a class="tile is-portrait" href="author-profiles.html#dave-barry"
+          <a class="tile is-portrait" data-searchitem href="author-profiles.html#dave-barry"
              data-kind="Author" data-title="Dave Barry" data-sub="Author profile"
              data-tags="author society american humor">
             <div class="tile-media"><img src="img/dave-barry-portrait.jpg" alt="Portrait of Dave Barry" loading="lazy" decoding="async"></div>
@@ -1532,8 +1546,9 @@
       </div>
     </div>
 
-    <!-- Row 2 (FIXED / uniform) -->
-    <div class="row" id="row-crime" data-rowname="Crime Comedy" aria-label="Crime Comedy row">
+    <!-- Row 2 -->
+    <div class="row" id="row-crime" data-rowname="Crime Comedy" aria-label="Crime Comedy row"
+         data-searchitem data-kind="Row" data-title="Crime Comedy" data-sub="Capers, heists, schemes; morality looks ridiculous" data-key="crime comedy caper heist noir">
       <div class="row-head">
         <div class="row-left">
           <h2 class="row-title">Crime Comedy</h2>
@@ -1548,8 +1563,7 @@
       <div class="row-shell" data-row>
         <div class="row-track" aria-label="Crime Comedy carousel">
 
-          <!-- 1 / 12 -->
-          <a class="tile" href="tourist-season-fiche.html"
+          <a class="tile" data-searchitem href="tourist-season-fiche.html"
              data-kind="Novel" data-title="Tourist Season"
              data-sub="Carl Hiaasen · 1986"
              data-tags="crime comic noir caper">
@@ -1563,8 +1577,7 @@
             </div>
           </a>
 
-          <!-- 2 / 12 -->
-          <a class="tile" href="florida-roadkill-fiche.html"
+          <a class="tile" data-searchitem href="florida-roadkill-fiche.html"
              data-kind="Novel" data-title="Florida Roadkill"
              data-sub="Tim Dorsey · 1999"
              data-tags="crime caper farce">
@@ -1578,8 +1591,7 @@
             </div>
           </a>
 
-          <!-- 3 / 12 -->
-          <a class="tile" href="good-behavior-fiche.html"
+          <a class="tile" data-searchitem href="good-behavior-fiche.html"
              data-kind="Novel" data-title="Good Behavior"
              data-sub="Open guide"
              data-tags="crime leonard hitmen comic">
@@ -1593,8 +1605,7 @@
             </div>
           </a>
 
-          <!-- 4 / 12 -->
-          <a class="tile" href="rum-punch-fiche.html"
+          <a class="tile" data-searchitem href="rum-punch-fiche.html"
              data-kind="Novel" data-title="Rum Punch"
              data-sub="Open guide"
              data-tags="crime caper heist florida">
@@ -1608,8 +1619,7 @@
             </div>
           </a>
 
-          <!-- 5 / 12 -->
-          <a class="tile" href="double-negative-fiche.html"
+          <a class="tile" data-searchitem href="double-negative-fiche.html"
              data-kind="Novel" data-title="Double Negative"
              data-sub="Campus crime"
              data-tags="crime campus noir academic">
@@ -1623,8 +1633,7 @@
             </div>
           </a>
 
-          <!-- 6 / 12 -->
-          <a class="tile" href="pulp-fiche.html"
+          <a class="tile" data-searchitem href="pulp-fiche.html"
              data-kind="Novel" data-title="Pulp"
              data-sub="Open guide"
              data-tags="crime meta noir writer">
@@ -1638,8 +1647,7 @@
             </div>
           </a>
 
-          <!-- 7 / 12 -->
-          <a class="tile" href="san-antonio-series.html"
+          <a class="tile" data-searchitem href="san-antonio-series.html"
              data-kind="Series" data-title="San-Antonio"
              data-sub="Series guide"
              data-tags="crime series french pulp">
@@ -1653,8 +1661,7 @@
             </div>
           </a>
 
-          <!-- 8 / 12 -->
-          <a class="tile" href="the-deep-blue-good-by-fiche.html"
+          <a class="tile" data-searchitem href="the-deep-blue-good-by-fiche.html"
              data-kind="Novel" data-title="The Deep Blue Good-by"
              data-sub="Open guide"
              data-tags="crime hardboiled florida">
@@ -1668,8 +1675,7 @@
             </div>
           </a>
 
-          <!-- 9 / 12 -->
-          <a class="tile" href="crepe-suzette-fiche.html"
+          <a class="tile" data-searchitem href="crepe-suzette-fiche.html"
              data-kind="Novel" data-title="Crêpe Suzette"
              data-sub="Open guide"
              data-tags="crime farce european">
@@ -1683,8 +1689,7 @@
             </div>
           </a>
 
-          <!-- 10 / 12 -->
-          <a class="tile" href="the-player-fiche.html"
+          <a class="tile" data-searchitem href="the-player-fiche.html"
              data-kind="Novel" data-title="The Player"
              data-sub="Open guide"
              data-tags="crime satire hollywood">
@@ -1698,8 +1703,7 @@
             </div>
           </a>
 
-          <!-- 11 / 12 -->
-          <a class="tile" href="divorcing-jack-fiche.html"
+          <a class="tile" data-searchitem href="divorcing-jack-fiche.html"
              data-kind="Novel" data-title="Divorcing Jack"
              data-sub="Open guide"
              data-tags="crime dark comedy ireland">
@@ -1713,8 +1717,7 @@
             </div>
           </a>
 
-          <!-- 12 / 12 -->
-          <a class="tile" href="the-burglar-who-painted-like-mondrian-fiche.html"
+          <a class="tile" data-searchitem href="the-burglar-who-painted-like-mondrian-fiche.html"
              data-kind="Novel" data-title="The Burglar Who Painted Like Mondrian"
              data-sub="Open guide"
              data-tags="crime heist burglar art">
@@ -1735,7 +1738,8 @@
     </div>
 
     <!-- Row 3 -->
-    <div class="row" id="row-neo" data-rowname="Neo-Nonsense" aria-label="Neo-Nonsense row">
+    <div class="row" id="row-neo" data-rowname="Neo-Nonsense" aria-label="Neo-Nonsense row"
+         data-searchitem data-kind="Row" data-title="Neo-Nonsense" data-sub="Absurdist & postmodern comedy — rigorous logic inside a cracked world" data-key="neo nonsense absurd postmodern">
       <div class="row-head">
         <div class="row-left">
           <h2 class="row-title">Neo-Nonsense</h2>
@@ -1749,17 +1753,17 @@
 
       <div class="row-shell" data-row>
         <div class="row-track" aria-label="Neo-Nonsense carousel">
-          <a class="tile" href="the-malaise-expedition-fiche.html" data-kind="Novel" data-title="The Malaise Expedition" data-sub="Jean Echenoz · 1986" data-tags="neo absurd">
+          <a class="tile" data-searchitem href="the-malaise-expedition-fiche.html" data-kind="Novel" data-title="The Malaise Expedition" data-sub="Jean Echenoz · 1986" data-tags="neo absurd">
             <div class="tile-media"><img src="img/the-malaise-expedition.png" alt="Cover of The Malaise Expedition (Jean Echenoz) — absurdist comedy" loading="lazy" decoding="async"></div>
             <div class="tile-meta"><div class="k">Neo · Absurd</div><div class="t">Malaise</div><div class="s">Jean Echenoz · 1986</div></div>
           </a>
 
-          <a class="tile" href="white-noise-fiche.html" data-kind="Novel" data-title="White Noise" data-sub="Don DeLillo · 1985" data-tags="neo satire postmodern">
+          <a class="tile" data-searchitem href="white-noise-fiche.html" data-kind="Novel" data-title="White Noise" data-sub="Don DeLillo · 1985" data-tags="neo satire postmodern">
             <div class="tile-media"><img src="img/white-noise.png" alt="Cover of White Noise (Don DeLillo) — postmodern satire" loading="lazy" decoding="async"></div>
             <div class="tile-meta"><div class="k">Neo · Satire</div><div class="t">White Noise</div><div class="s">Don DeLillo · 1985</div></div>
           </a>
 
-          <a class="tile is-portrait" href="author-profiles.html#kurt-vonnegut" data-kind="Author" data-title="Kurt Vonnegut" data-sub="Author profile" data-tags="author neo absurd">
+          <a class="tile is-portrait" data-searchitem href="author-profiles.html#kurt-vonnegut" data-kind="Author" data-title="Kurt Vonnegut" data-sub="Author profile" data-tags="author neo absurd">
             <div class="tile-media"><img src="img/kurt-vonnegut-portrait.jpg" alt="Portrait of Kurt Vonnegut" loading="lazy" decoding="async"></div>
             <div class="tile-meta"><div class="k">Author</div><div class="t">Vonnegut</div><div class="s">Open profile</div></div>
           </a>
@@ -1793,14 +1797,14 @@
           </nav>
         </details>
 
-        <section class="section" id="fiches" data-spy>
+        <section class="section" id="fiches" data-spy data-searchitem data-kind="Section" data-title="Guides" data-sub="Novel, author and series guides" data-key="guides novels authors series ten part matrix">
           <div class="kicker">Guides</div>
           <h2 class="h2">Novel, author and series guides</h2>
           <p class="lead">Start from the works. Read the device — with the same matrix, every time.</p>
           <p class="sub">This homepage is a digest. Full definitions &amp; taxonomy live on dedicated pages.</p>
 
           <div class="grid-3" style="margin-top:14px;">
-            <article class="card">
+            <article class="card" data-searchitem data-kind="Page" data-title="Novel guides" data-sub="Fixed ten-chapter matrix" data-key="novel guides matrix ten chapters">
               <div class="card-head"><span>Novel guides</span><a class="linkpill" href="novel-guides.html">Open →</a></div>
               <div class="card-body">
                 <p>Fixed ten-chapter matrix, identical from one book to the next.</p>
@@ -1813,14 +1817,14 @@
               </div>
             </article>
 
-            <article class="card">
+            <article class="card" data-searchitem data-kind="Page" data-title="Author profiles" data-sub="How writers build humor" data-key="author profiles voice rhythm devices">
               <div class="card-head"><span>Author profiles</span><a class="linkpill" href="author-profiles.html">Open →</a></div>
               <div class="card-body">
                 <p>How writers build humor: motifs, voice, institutions, rhythm.</p>
               </div>
             </article>
 
-            <article class="card">
+            <article class="card" data-searchitem data-kind="Page" data-title="Series guides" data-sub="Cycles where comedy evolves across volumes" data-key="series guides cycles volumes">
               <div class="card-head"><span>Series guides</span><a class="linkpill" href="series.html">Open →</a></div>
               <div class="card-body">
                 <p>For cycles where comedy evolves across volumes.</p>
@@ -1834,7 +1838,7 @@
           </div>
         </section>
 
-        <section class="section" id="currents" data-spy>
+        <section class="section" id="currents" data-spy data-searchitem data-kind="Section" data-title="Currents" data-sub="Three currents of modern humorous fiction" data-key="currents society crime neo nonsense">
           <div class="kicker">Currents</div>
           <h2 class="h2">Three currents of modern humorous fiction</h2>
           <p class="lead">
@@ -1843,66 +1847,66 @@
           <p class="sub">Full definitions, branches and examples live on the Currents page.</p>
 
           <div class="grid-3" style="margin-top:14px;">
-            <article class="card">
+            <article class="card" data-searchitem data-kind="Page" data-title="Comedy of Society" data-sub="Satire & manners" data-key="society satire manners">
               <div class="card-head"><span>Comedy of Society</span><a class="linkpill" href="currents.html#society">Map →</a></div>
               <div class="card-body"><p><strong>Satire</strong> &amp; <strong>manners</strong>: family, work, hierarchy, class.</p></div>
             </article>
-            <article class="card">
+            <article class="card" data-searchitem data-kind="Page" data-title="Crime Comedy" data-sub="Comic crime fiction" data-key="crime comedy caper noir">
               <div class="card-head"><span>Crime Comedy</span><a class="linkpill" href="currents.html#crime">Map →</a></div>
               <div class="card-body"><p><strong>Comic crime fiction</strong>: capers, schemes, elastic morality.</p></div>
             </article>
-            <article class="card">
+            <article class="card" data-searchitem data-kind="Page" data-title="Neo-Nonsense" data-sub="Absurd & postmodern" data-key="neo nonsense absurd postmodern">
               <div class="card-head"><span>Neo-Nonsense</span><a class="linkpill" href="currents.html#neo">Map →</a></div>
               <div class="card-body"><p><strong>Absurd</strong> &amp; <strong>postmodern</strong>: rigorous logic in a cracked world.</p></div>
             </article>
           </div>
         </section>
 
-        <section class="section" id="toolbox" data-spy>
+        <section class="section" id="toolbox" data-spy data-searchitem data-kind="Section" data-title="Toolbox" data-sub="Vocabulary reused everywhere for comparability" data-key="toolbox comic engine environment labs">
           <div class="kicker">Toolbox</div>
           <h2 class="h2">Toolbox to read the guides</h2>
-          <p class="lead">Role · Environment · optional Labs — reused everywhere for comparability.</p>
+          <p class="lead">Comedy level · Environment · optional Labs — reused everywhere for comparability.</p>
 
           <div class="grid-3" style="margin-top:14px;">
-            <article class="card">
-              <div class="card-head"><span>Role</span><a class="linkpill" href="fr/cartographie/roles-romans">Open →</a></div>
+            <article class="card" data-searchitem data-kind="Page" data-title="Comedy level" data-sub="Comic Engine / Thread / Turn" data-key="comic engine comic thread comic turn">
+              <div class="card-head"><span>Comedy level</span><a class="linkpill" href="toolbox.html#level">Open →</a></div>
               <div class="card-body"><p>Comic Engine · Comic Thread · Comic Turn.</p></div>
             </article>
-            <article class="card">
-              <div class="card-head"><span>Environment</span><a class="linkpill" href="fr/cartographie/environnements">Open →</a></div>
+            <article class="card" data-searchitem data-kind="Page" data-title="Environment" data-sub="Where it plays: place, milieu, institutions" data-key="environment place milieu institutions">
+              <div class="card-head"><span>Environment</span><a class="linkpill" href="toolbox.html#environment">Open →</a></div>
               <div class="card-body"><p>Place, milieu, period, institutions — where it plays.</p></div>
             </article>
-            <article class="card">
-              <div class="card-head"><span>Labs</span><a class="linkpill" href="fr/cartographie/labs">Open →</a></div>
+            <article class="card" data-searchitem data-kind="Page" data-title="Labs" data-sub="Optional hubs connecting works by shared energy" data-key="labs hubs clusters shared energy">
+              <div class="card-head"><span>Labs</span><a class="linkpill" href="toolbox.html#labs">Open →</a></div>
               <div class="card-body"><p>Optional hubs connecting works by shared energy.</p></div>
             </article>
           </div>
         </section>
 
-        <section class="section" id="about" data-spy>
+        <section class="section" id="about" data-spy data-searchitem data-kind="Section" data-title="About" data-sub="A living library, built to be cited" data-key="about method cite stable links">
           <div class="kicker">About</div>
           <h2 class="h2">A living library, built to be cited</h2>
           <p class="lead">Add guides progressively. Keep the matrix stable. Make connections readable.</p>
 
           <div class="grid-2" style="margin-top:14px;">
-            <article class="card">
+            <article class="card" data-searchitem data-kind="Page" data-title="Method" data-sub="Why the matrix is fixed" data-key="method fixed matrix sources">
               <div class="card-head"><span>Method</span><a class="linkpill" href="method.html">Read →</a></div>
               <div class="card-body"><p>Why the matrix is fixed, how sources are handled, and how the atlas is curated.</p></div>
             </article>
-            <article class="card">
+            <article class="card" data-searchitem data-kind="Page" data-title="How to cite" data-sub="Designed for libraries and stable linking" data-key="how to cite stable anchors">
               <div class="card-head"><span>How to cite</span><a class="linkpill" href="fr/a-propos/comment-citer-tnoc">Open →</a></div>
               <div class="card-body"><p>Designed for libraries, researchers, and stable linking.</p></div>
             </article>
           </div>
         </section>
 
-        <section class="section" id="research" data-spy>
+        <section class="section" id="research" data-spy data-searchitem data-kind="Section" data-title="Researchers & AI" data-sub="For research, libraries and assistants" data-key="research libraries assistants stable ids">
           <div class="kicker">Researchers &amp; AI</div>
           <h2 class="h2">For research, libraries and assistants</h2>
           <p class="lead">Structured for comparison: stable IDs, fixed matrices, explicit vocabulary.</p>
 
           <div class="grid-2" style="margin-top:14px;">
-            <article class="card">
+            <article class="card" data-searchitem data-kind="Page" data-title="Research uses" data-sub="Comparable matrices, explicit typology, stable identifiers" data-key="research uses comparable matrices">
               <div class="card-head"><span>Research uses</span><a class="linkpill" href="fr/a-propos">Open →</a></div>
               <div class="card-body">
                 <ul class="list">
@@ -1912,24 +1916,24 @@
                 </ul>
               </div>
             </article>
-            <article class="card">
+            <article class="card" data-searchitem data-kind="Page" data-title="Data & licence" data-sub="Lightweight reuse for corpus projects" data-key="data licence reuse">
               <div class="card-head"><span>Data &amp; licence</span><a class="linkpill" href="fr/a-propos/donnees-licence">Open →</a></div>
               <div class="card-body"><p>Lightweight reuse for corpus projects.</p></div>
             </article>
           </div>
         </section>
 
-        <section class="section" id="start" data-spy>
+        <section class="section" id="start" data-spy data-searchitem data-kind="Section" data-title="Where to start?" data-sub="Enter by a book, by a current, or by a Lab" data-key="start orientation book current lab">
           <div class="kicker">Orientation</div>
           <h2 class="h2">Where to start?</h2>
           <p class="lead">Enter by a book, by a current, or by a Lab — then follow connections.</p>
 
           <div class="grid-2" style="margin-top:14px;">
-            <article class="card">
+            <article class="card" data-searchitem data-kind="Page" data-title="Browse novel guides" data-sub="Pick one book, read the device, follow next" data-key="browse novel guides suggested next">
               <div class="card-head"><span>Start with a guide</span><a class="linkpill" href="novel-guides.html">Browse →</a></div>
               <div class="card-body"><p>Pick one book. Read the device. Follow “Suggested next”.</p></div>
             </article>
-            <article class="card">
+            <article class="card" data-searchitem data-kind="Page" data-title="Open Currents" data-sub="Fast orientation" data-key="open currents orientation">
               <div class="card-head"><span>Start with currents</span><a class="linkpill" href="currents.html">Open →</a></div>
               <div class="card-body"><p>Fast orientation.</p></div>
             </article>
@@ -2015,6 +2019,7 @@
 
     /* =========================================================
        1) Build marquee wall from tiles (covers + portraits)
+          (single continuous track per strip, duplicated content)
        ========================================================= */
     (function(){
       const tileImgs = Array.from(document.querySelectorAll('.tile img'))
@@ -2042,12 +2047,13 @@
           const p = mixed[i % mixed.length];
           items.push(`<div class="mini-poster"><img src="${p.src}" alt="" aria-hidden="true" loading="lazy" decoding="async"></div>`);
         }
-        el.innerHTML = items.join('');
+        const once = items.join('');
+        el.innerHTML = once + once; /* duplicate for seamless -50% loop */
       }
 
-      fillMarquee('mq1', 24);  fillMarquee('mq1b', 24);
-      fillMarquee('mq2', 22);  fillMarquee('mq2b', 22);
-      fillMarquee('mq3', 20);  fillMarquee('mq3b', 20);
+      fillMarquee('mq1', 24);
+      fillMarquee('mq2', 22);
+      fillMarquee('mq3', 20);
     })();
 
     /* =========================================================
@@ -2072,10 +2078,12 @@
     })();
 
     /* =========================================================
-       3) Search overlay (Ctrl/⌘ K) + close on result click
+       3) Search overlay (Ctrl/⌘ K) — unified data-searchitem index
+       ✅ changes: focus-trap + restore focus + single Escape handler
        ========================================================= */
     (function(){
       const overlay = document.getElementById('searchOverlay');
+      const box = overlay?.querySelector('.searchbox');
       const input = document.getElementById('searchInput');
       const results = document.getElementById('searchResults');
       const empty = document.getElementById('searchEmpty');
@@ -2086,46 +2094,46 @@
       const closeBtn = document.getElementById('searchClose');
       const bnSearch = document.getElementById('bnSearch');
 
-      const items = Array.from(document.querySelectorAll('.tile')).map(t => {
-        const href = t.getAttribute('href') || "#";
-        const title = (t.getAttribute('data-title') || t.querySelector('.tile-meta .t')?.textContent || "").trim();
-        const sub = (t.getAttribute('data-sub') || t.querySelector('.tile-meta .s')?.textContent || "").trim();
-        const kind = (t.getAttribute('data-kind') || t.querySelector('.tile-meta .k')?.textContent || "").trim();
-        const tags = (t.getAttribute('data-tags') || "").trim();
-        const img = t.querySelector('img')?.getAttribute('src') || "";
-        return { href, title, sub, kind, tags, img };
-      });
-
-      function open(withQuery){
-        overlay.classList.add('open');
-        overlay.setAttribute('aria-hidden','false');
-        document.body.style.overflow = 'hidden';
-        if(input){
-          input.value = withQuery || "";
-          setTimeout(()=> input.focus(), 40);
-        }
-        render(input ? input.value : "");
-      }
-      function close(){
-        overlay.classList.remove('open');
-        overlay.setAttribute('aria-hidden','true');
-        document.body.style.overflow = '';
-      }
+      let lastFocus = null;
 
       function norm(s){
         return (s || "").toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
       }
 
+      function badgeFrom(kind){
+        const k = (kind || "Item").trim();
+        return (k.slice(0,2) || "IT").toUpperCase();
+      }
+
+      const items = Array.from(document.querySelectorAll('[data-searchitem]')).map(el => {
+        const kind = el.getAttribute('data-kind') || "Item";
+        const title =
+          (el.getAttribute('data-title') || "").trim() ||
+          (el.querySelector('h1,h2,h3,.row-title,.card-head span,.tile-meta .t')?.textContent || "").trim() ||
+          "Untitled";
+        const sub =
+          (el.getAttribute('data-sub') || "").trim() ||
+          (el.querySelector('.row-sub,.tile-meta .s')?.textContent || "").trim();
+        const key = (el.getAttribute('data-key') || "").trim();
+        const tags = (el.getAttribute('data-tags') || "").trim();
+        const href = (el.getAttribute('href') || (el.id ? ("#" + el.id) : "#top")).trim();
+        const img = el.querySelector('img')?.getAttribute('src') || "";
+        const badge = badgeFrom(kind);
+        return { href, title, sub, kind, key, tags, img, badge };
+      }).filter(it => it.href && it.title);
+
       function render(q){
         const nq = norm(q).trim();
-        const filtered = !nq ? items.slice(0, 18) : items.filter(it => {
-          const hay = norm(it.title + " " + it.sub + " " + it.kind + " " + it.tags);
+        const filtered = !nq ? items.slice(0, 20) : items.filter(it => {
+          const hay = norm(it.title + " " + it.sub + " " + it.kind + " " + it.key + " " + it.tags);
           return hay.includes(nq);
-        }).slice(0, 50);
+        }).slice(0, 60);
 
         results.innerHTML = filtered.map(it => `
           <a class="result" href="${it.href}">
-            <div class="rthumb">${it.img ? `<img src="${it.img}" alt="" loading="lazy" decoding="async">` : ""}</div>
+            <div class="rthumb" aria-hidden="true">
+              ${it.img ? `<img src="${it.img}" alt="" loading="lazy" decoding="async">` : `${it.badge}`}
+            </div>
             <div class="rtext">
               <div class="rk">${it.kind || "Result"}</div>
               <p class="rt">${it.title || "Untitled"}</p>
@@ -2135,8 +2143,27 @@
         `).join('');
 
         const n = filtered.length;
-        count.textContent = String(n);
-        empty.style.display = (n === 0) ? 'block' : 'none';
+        if(count) count.textContent = String(n);
+        if(empty) empty.style.display = (n === 0) ? 'block' : 'none';
+      }
+
+      function open(withQuery){
+        lastFocus = document.activeElement;
+        overlay.classList.add('open');
+        overlay.setAttribute('aria-hidden','false');
+        document.body.style.overflow = 'hidden';
+        if(input){
+          input.value = withQuery || "";
+          setTimeout(()=> input.focus(), 40);
+        }
+        render(input ? input.value : "");
+      }
+
+      function close(){
+        overlay.classList.remove('open');
+        overlay.setAttribute('aria-hidden','true');
+        document.body.style.overflow = '';
+        if(lastFocus && lastFocus.focus) setTimeout(()=> lastFocus.focus(), 0);
       }
 
       function hookOpen(btn){
@@ -2157,14 +2184,37 @@
         if(a) close();
       });
 
+      // ✅ Focus trap + Esc + Ctrl/⌘K
       window.addEventListener('keydown', (e) => {
+        const isOpen = overlay.classList.contains('open');
         const isMac = navigator.platform.toUpperCase().indexOf('MAC')>=0;
         const k = e.key.toLowerCase() === 'k';
+
         if(k && ((isMac && e.metaKey) || (!isMac && e.ctrlKey))){
           e.preventDefault();
-          if(overlay.classList.contains('open')) close(); else open("");
+          if(isOpen) close(); else open("");
+          return;
         }
-        if(e.key === 'Escape') close();
+
+        if(!isOpen) return;
+
+        if(e.key === 'Escape'){ close(); return; }
+
+        if(e.key === 'Tab' && box){
+          const focusables = Array.from(box.querySelectorAll(
+            'a[href], button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])'
+          ));
+          if(!focusables.length) return;
+
+          const first = focusables[0];
+          const last  = focusables[focusables.length - 1];
+
+          if(e.shiftKey && document.activeElement === first){
+            e.preventDefault(); last.focus();
+          } else if(!e.shiftKey && document.activeElement === last){
+            e.preventDefault(); first.focus();
+          }
+        }
       });
 
       if(window.__tnoc_initial_query){
@@ -2292,7 +2342,7 @@
     })();
 
     /* =========================================================
-       6) Bottom nav active state
+       6) Bottom nav active state (home/browse/search)
        ========================================================= */
     (function(){
       const bnHome = document.getElementById('bnHome');
@@ -2313,3 +2363,4 @@
   <!-- Images expected in /img -->
 </body>
 </html>
+
