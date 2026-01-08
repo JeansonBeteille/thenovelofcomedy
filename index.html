@@ -1934,16 +1934,18 @@
       window.__tnoc_initial_query = q;
     })();
 
-    /* =========================================================
+/* =========================================================
    1) Build marquee wall from tiles (covers + portraits)
-   ✅ robust: works with images in root OR in /img
+   ✅ keeps ONLY images that actually load (covers + authors)
    ========================================================= */
 (function(){
-  const tileImgs = Array.from(document.querySelectorAll('.tile img'))
-    .map(img => ({ src: (img.getAttribute('src') || "").trim() }))
-    .filter(x => x.src);
+  const candidates = Array.from(document.querySelectorAll('.tile img'))
+    .map(img => (img.getAttribute('src') || "").trim())
+    .filter(Boolean);
 
-  if(!tileImgs.length) return;
+  if(!candidates.length) return;
+
+  const uniq = Array.from(new Set(candidates));
 
   function shuffle(arr){
     const a = arr.slice();
@@ -1954,32 +1956,60 @@
     return a;
   }
 
-  const mixed = shuffle(tileImgs);
+  const ok = [];
+  let pending = uniq.length;
+  let doneCalled = false;
 
-  function fillMarquee(containerId, count){
-    const el = document.getElementById(containerId);
-    if(!el) return;
+  function done(){
+    if(doneCalled) return;
+    doneCalled = true;
 
-    const items = [];
-    for(let i=0;i<count;i++){
-      const p = mixed[i % mixed.length];
-      const src = p.src;
-      const altSrc = src.includes("/") ? src : ("img/" + src);
+    const pool = ok.length ? ok : uniq;     // ✅ only loaded images
+    const mixed = shuffle(pool);
 
-      items.push(`
-        <div class="mini-poster">
-          <img src="${src}" alt="" aria-hidden="true" loading="lazy" decoding="async"
-               onerror="if(!this.dataset.tried){this.dataset.tried=1; this.src='${altSrc}'} else {this.style.display='none'}">
-        </div>
-      `);
+    function fillMarquee(containerId, count){
+      const el = document.getElementById(containerId);
+      if(!el) return;
+
+      const items = [];
+      for(let i=0;i<count;i++){
+        const src = mixed[i % mixed.length];
+        items.push(`<div class="mini-poster"><img src="${src}" alt="" aria-hidden="true" loading="lazy" decoding="async"></div>`);
+      }
+      const once = items.join('');
+      el.innerHTML = once + once;
     }
-    const once = items.join('');
-    el.innerHTML = once + once;
+
+    fillMarquee('mq1', 24);
+    fillMarquee('mq2', 22);
+    fillMarquee('mq3', 20);
   }
 
-  fillMarquee('mq1', 24);
-  fillMarquee('mq2', 22);
-  fillMarquee('mq3', 20);
+  // safety timeout in case some requests hang
+  const timer = setTimeout(done, 1000);
+
+  uniq.forEach(src => {
+    const img = new Image();
+
+    const finish = () => {
+      pending--;
+      if(pending <= 0){
+        clearTimeout(timer);
+        done();
+      }
+    };
+
+    img.onload = () => { ok.push(src); finish(); };
+
+    // try root first, then /img fallback once
+    const altSrc = src.includes("/") ? src : ("img/" + src);
+    img.onerror = () => {
+      img.onerror = () => finish();
+      img.src = altSrc;
+    };
+
+    img.src = src;
+  });
 })();
 
     /* =========================================================
