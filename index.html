@@ -521,11 +521,16 @@
 
     .tile-media{ width:100%; aspect-ratio:3/4; background:#0f0f10; }
     .tile-media img{
-      width:100%; height:100%;
-      object-fit:cover;
-      display:block;
-      filter: grayscale(1) contrast(1.02);
-    }
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  filter: saturate(.96) contrast(1.02);
+  transition: filter .18s ease;
+}
+.tile:hover .tile-media img{
+  filter: saturate(1.03) contrast(1.03);
+}
     .tile.is-portrait .tile-media{ aspect-ratio:4/5; }
 
     .tile-meta{
@@ -941,7 +946,7 @@
       width:100%; height:100%;
       object-fit:cover;
       display:block;
-      filter: grayscale(1) contrast(1.02);
+      filter:saturate(.96) contrast(1.02);
     }
     .rtext{ min-width:0; }
     .rtext .rk{
@@ -1200,7 +1205,7 @@
              data-author="Tom Sharpe" data-year="1976"
              data-sub="Tom Sharpe · 1976"
              data-tags="society satire">
-            <div class="tile-media"><img src="wilt31A.png.png" alt="Cover of Wilt" loading="lazy" decoding="async"></div>
+            <div class="tile-media"><img src="wilt.png" alt="Cover of Wilt" loading="lazy" decoding="async"></div>
             <div class="tile-meta">
               <div class="k">Society · Satire</div>
               <div class="t">Wilt</div>
@@ -1312,7 +1317,7 @@
              data-author="P. G. Wodehouse" data-year="1938"
              data-sub="P. G. Wodehouse · 1938"
              data-tags="society manners">
-            <div class="tile-media"><img src="img/the-code-of-the-woosters.png" alt="Cover of The Code of the Woosters" loading="lazy" decoding="async"></div>
+            <div class="tile-media"><img src="the-code-of-the-woosters.png" alt="Cover of The Code of the Woosters" loading="lazy" decoding="async"></div>
             <div class="tile-meta">
               <div class="k">Society · Manners</div>
               <div class="t">Woosters</div>
@@ -1379,7 +1384,7 @@
           <a class="tile is-portrait" data-searchitem href="author-profiles.html#tom-sharpe"
              data-kind="Author" data-title="Tom Sharpe" data-sub="Author profile"
              data-tags="author society satire frustration comedy">
-            <div class="tile-media"><img src="img/tom-sharpe-portrait.jpg" alt="Portrait of Tom Sharpe" loading="lazy" decoding="async"></div>
+            <div class="tile-media"><img src="tom-sharpe-portrait.jpg" alt="Portrait of Tom Sharpe" loading="lazy" decoding="async"></div>
             <div class="tile-meta"><div class="k">Author</div><div class="t">Sharpe</div><div class="s">Open profile</div></div>
           </a>
 
@@ -1930,43 +1935,52 @@
     })();
 
     /* =========================================================
-       1) Build marquee wall from tiles (covers + portraits)
-          (single continuous track per strip, duplicated content)
-       ========================================================= */
-    (function(){
-      const tileImgs = Array.from(document.querySelectorAll('.tile img'))
-        .map(img => ({ src: img.getAttribute('src') || "", alt: img.getAttribute('alt') || "" }))
-        .filter(x => x.src);
+   1) Build marquee wall from tiles (covers + portraits)
+   ✅ robust: works with images in root OR in /img
+   ========================================================= */
+(function(){
+  const tileImgs = Array.from(document.querySelectorAll('.tile img'))
+    .map(img => ({ src: (img.getAttribute('src') || "").trim() }))
+    .filter(x => x.src);
 
-      if(!tileImgs.length) return;
+  if(!tileImgs.length) return;
 
-      function shuffle(arr){
-        const a = arr.slice();
-        for(let i=a.length-1;i>0;i--){
-          const j = Math.floor(Math.random()*(i+1));
-          [a[i],a[j]] = [a[j],a[i]];
-        }
-        return a;
-      }
+  function shuffle(arr){
+    const a = arr.slice();
+    for(let i=a.length-1;i>0;i--){
+      const j = Math.floor(Math.random()*(i+1));
+      [a[i],a[j]] = [a[j],a[i]];
+    }
+    return a;
+  }
 
-      const mixed = shuffle(tileImgs);
+  const mixed = shuffle(tileImgs);
 
-      function fillMarquee(containerId, count){
-        const el = document.getElementById(containerId);
-        if(!el) return;
-        const items = [];
-        for(let i=0;i<count;i++){
-          const p = mixed[i % mixed.length];
-          items.push(`<div class="mini-poster"><img src="${p.src}" alt="" aria-hidden="true" loading="lazy" decoding="async"></div>`);
-        }
-        const once = items.join('');
-        el.innerHTML = once + once; /* duplicate for seamless -50% loop */
-      }
+  function fillMarquee(containerId, count){
+    const el = document.getElementById(containerId);
+    if(!el) return;
 
-      fillMarquee('mq1', 24);
-      fillMarquee('mq2', 22);
-      fillMarquee('mq3', 20);
-    })();
+    const items = [];
+    for(let i=0;i<count;i++){
+      const p = mixed[i % mixed.length];
+      const src = p.src;
+      const altSrc = src.includes("/") ? src : ("img/" + src);
+
+      items.push(`
+        <div class="mini-poster">
+          <img src="${src}" alt="" aria-hidden="true" loading="lazy" decoding="async"
+               onerror="if(!this.dataset.tried){this.dataset.tried=1; this.src='${altSrc}'} else {this.style.display='none'}">
+        </div>
+      `);
+    }
+    const once = items.join('');
+    el.innerHTML = once + once;
+  }
+
+  fillMarquee('mq1', 24);
+  fillMarquee('mq2', 22);
+  fillMarquee('mq3', 20);
+})();
 
     /* =========================================================
        2) Row progress bars
