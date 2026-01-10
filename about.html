@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="night">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0b0b0c" />
+  <meta name="color-scheme" content="dark light" />
+
+  <title>About — The Novel of Comedy (TNoC)</title>
+  <meta name="description" content="About The Novel of Comedy (TNoC): credits, editorial accountability, method, and how to cite the atlas." />
+  <meta name="author" content="Boris Jeanson Béteille" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+
+  <link rel="canonical" href="https://www.thenovelofcomedy.com/about.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="The Novel of Comedy (TNoC)" />
+  <meta property="og:title" content="About — The Novel of Comedy (TNoC)" />
+  <meta property="og:description" content="Credits, method and citation guidance for The Novel of Comedy (TNoC)." />
+  <meta property="og:url" content="https://www.thenovelofcomedy.com/about.html" />
+  <meta property="og:image" content="https://www.thenovelofcomedy.com/img/wilt.png" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="About — The Novel of Comedy (TNoC)" />
+  <meta name="twitter:description" content="Credits, method and citation guidance for The Novel of Comedy (TNoC)." />
+  <meta name="twitter:image" content="https://www.thenovelofcomedy.com/img/wilt.png" />
+
+  <link rel="icon" href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="%230b0b0c"/><text x="50%25" y="54%25" text-anchor="middle" font-family="Georgia" font-size="18" fill="%23f6f4ef" letter-spacing="2">TNoC</text></svg>' />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "About — The Novel of Comedy (TNoC)",
+    "url": "https://www.thenovelofcomedy.com/about.html",
+    "inLanguage": "en",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "The Novel of Comedy (TNoC)",
+      "url": "https://www.thenovelofcomedy.com/"
+    },
+    "author": { "@type": "Person", "name": "Boris Jeanson Béteille" },
+    "creator": { "@type": "Person", "name": "Boris Jeanson Béteille" },
+    "publisher": { "@type": "Person", "name": "Boris Jeanson Béteille" },
+    "about": "Atlas and critical cartography of humorous fiction: comedy of society, comic crime, neo-nonsense."
+  }
+  </script>
+
+  <style>
+    :root{
+      --night:#0b0b0c;
+      --ivory:#f6f4ef;
+      --paper:#fbfaf7;
+      --ink:#0f0f10;
+      --smoke:rgba(246,244,239,.62);
+      --lineN:rgba(246,244,239,.14);
+      --lineN2:rgba(246,244,239,.22);
+      --softN:rgba(246,244,239,.06);
+      --accent:#bfa77a;
+
+      --w:1120px;
+      --pad: clamp(16px, 4.5vw, 28px);
+
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      --serif: ui-serif, "Iowan Old Style","Palatino Linotype", Palatino, Georgia, serif;
+
+      --shadowN: 0 24px 90px rgba(0,0,0,.62);
+    }
+
+    html,body{
+      margin:0; padding:0;
+      font-family: var(--sans);
+      background: var(--night);
+      color: var(--ivory);
+      overflow-x:hidden;
+    }
+    *{ box-sizing:border-box; }
+    a{ color:inherit; text-decoration:none; }
+    a:hover{ text-decoration:none; }
+
+    body::before{
+      content:"";
+      position:fixed; inset:0;
+      pointer-events:none;
+      opacity:.09;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
+      mix-blend-mode:overlay;
+    }
+
+    .topbar{
+      position:sticky; top:0; z-index:80;
+      backdrop-filter: blur(18px);
+      background: color-mix(in srgb, var(--night) 84%, transparent);
+      border-bottom:1px solid var(--lineN);
+    }
+    .topbar-inner{
+      max-width:var(--w);
+      margin:0 auto;
+      padding: 12px var(--pad);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+    }
+    .brand{ display:flex; align-items:center; gap:12px; min-width:0; }
+    .brand-mark{
+      width:34px; height:34px;
+      border-radius: 14px;
+      border:1px solid var(--lineN2);
+      display:flex; align-items:center; justify-content:center;
+      font-family: var(--serif);
+      font-weight: 700;
+      letter-spacing:.18em;
+      font-size: 11px;
+      background: rgba(255,255,255,.03);
+      flex:0 0 auto;
+    }
+    .brand-title{
+      font-family: var(--serif);
+      font-size: 14px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      line-height: 1.05;
+    }
+    .brand-sub{
+      margin-top:3px;
+      font-size: 10.5px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--smoke);
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+
+    .nav{
+      display:flex; gap:10px; align-items:center;
+      font-size:12px;
+      letter-spacing:.10em;
+      text-transform:uppercase;
+    }
+    .nav a{opacity:.82; padding:8px 6px}
+    .nav a:hover{opacity:1}
+    .nav a.active{opacity:1; color: rgba(191,167,122,.95);}
+
+    @media(max-width:860px){
+      .brand-sub{display:none}
+      .nav a{display:none}
+    }
+
+    .hero{
+      border-bottom:1px solid var(--lineN);
+      padding: 26px 0 22px;
+    }
+    .hero-inner{
+      max-width:var(--w);
+      margin:0 auto;
+      padding: 0 var(--pad);
+    }
+    .hero-card{
+      border-radius: 22px;
+      border:1px solid rgba(246,244,239,.14);
+      background: rgba(0,0,0,.36);
+      backdrop-filter: blur(14px);
+      box-shadow: var(--shadowN);
+      padding: 18px 18px 16px;
+    }
+    .kicker{
+      font-size: 11px;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: rgba(246,244,239,.72);
+    }
+    h1{
+      margin:10px 0 0;
+      font-family: var(--serif);
+      font-size: clamp(26px, 5.2vw, 46px);
+      line-height: 1.05;
+      letter-spacing: -.02em;
+    }
+    .lead{
+      margin: 10px 0 0;
+      font-family: var(--serif);
+      font-size: 16px;
+      line-height: 1.7;
+      color: rgba(246,244,239,.78);
+      max-width: 78ch;
+    }
+    .cred{
+      margin: 12px 0 0;
+      font-size: 10.5px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: rgba(246,244,239,.62);
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+    }
+    .cred a{
+      color: rgba(246,244,239,.78);
+      border-bottom:1px solid rgba(246,244,239,.24);
+      padding-bottom:2px;
+    }
+    .cred a:hover{
+      color: rgba(246,244,239,.95);
+      border-bottom-color: rgba(191,167,122,.55);
+    }
+
+    .main{
+      max-width:var(--w);
+      margin:0 auto;
+      padding: 18px var(--pad) 40px;
+    }
+
+    .section{
+      margin-top: 16px;
+      border-radius: 18px;
+      border:1px solid rgba(246,244,239,.12);
+      background: rgba(255,255,255,.03);
+      padding: 14px 14px 12px;
+    }
+    .section h2{
+      margin:0 0 8px;
+      font-family: var(--serif);
+      font-size: 18px;
+      letter-spacing: -.01em;
+    }
+    .section p, .section li{
+      margin:8px 0;
+      font-size: 14px;
+      line-height: 1.7;
+      color: rgba(246,244,239,.78);
+    }
+    .section code{
+      display:block;
+      margin-top:10px;
+      padding:10px 12px;
+      border-radius: 14px;
+      border:1px solid rgba(246,244,239,.14);
+      background: rgba(0,0,0,.35);
+      color: rgba(246,244,239,.92);
+      overflow:auto;
+      font-size: 12.5px;
+      line-height: 1.55;
+      white-space:pre;
+    }
+
+    .site-footer{
+      border-top:1px solid rgba(246,244,239,.10);
+      padding: 18px 0 26px;
+      background: rgba(11,11,12,1);
+      color: rgba(246,244,239,.86);
+    }
+    .site-footer .inner{
+      max-width:var(--w);
+      margin:0 auto;
+      padding: 0 var(--pad);
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:16px;
+    }
+    .site-footer .left{
+      min-width:0;
+      font-size: 12px;
+      line-height:1.5;
+      letter-spacing: .02em;
+    }
+    .site-footer .left strong{
+      font-family: var(--serif);
+      font-weight: 780;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .site-footer .links{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+      gap: 10px 14px;
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      opacity:.88;
+    }
+    .site-footer .links a{ opacity:.82; }
+    .site-footer .links a:hover{ opacity:1; color: rgba(191,167,122,.95); }
+
+    @media(max-width:900px){
+      .site-footer .inner{ flex-direction:column; align-items:flex-start; }
+      .site-footer .links{ justify-content:flex-start; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar" role="banner">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html" aria-label="The Novel of Comedy home">
+        <div class="brand-mark">TNoC</div>
+        <div>
+          <div class="brand-title">The Novel of Comedy</div>
+          <div class="brand-sub">First atlas &amp; cartography of humorous fiction</div>
+        </div>
+      </a>
+
+      <nav class="nav" aria-label="Navigation">
+        <a href="index.html#rows">Browse</a>
+        <a href="novel-guides.html">Novels</a>
+        <a href="author-profiles.html">Authors</a>
+        <a href="currents.html">Currents</a>
+        <a href="toolbox.html">Toolbox</a>
+        <a class="active" href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" aria-label="About hero">
+    <div class="hero-inner">
+      <div class="hero-card" data-searchitem data-kind="Page" data-title="About — The Novel of Comedy (TNoC)" data-sub="Credits, method, citation">
+        <div class="kicker">About</div>
+        <h1>The Novel of Comedy (TNoC)</h1>
+        <p class="lead">
+          A streaming-like atlas and critical cartography of humorous fiction — built for stable comparison across works:
+          <em>Comedy of Society</em>, <em>Comic Crime</em>, <em>Neo-Nonsense</em>.
+        </p>
+        <div class="cred" data-searchitem data-kind="Credit" data-title="Created & curated by Boris Jeanson Béteille" data-sub="Credits">
+          <span>Created &amp; curated by</span>
+          <a href="about.html">Boris Jeanson Béteille</a>
+          <span aria-hidden="true">·</span>
+          <a href="index.html">Back to the atlas</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="main" aria-label="About content">
+    <section class="section" id="credits" data-searchitem data-kind="Section" data-title="Credits" data-sub="Editorial accountability and attribution">
+      <h2>Credits</h2>
+      <p>
+        The Novel of Comedy (TNoC) is an independent editorial project. Editorial accountability, selection, writing and taxonomy
+        are curated by <strong>Boris Jeanson Béteille</strong>.
+      </p>
+      <p>
+        If you reference or quote TNoC, please cite the project name <strong>and</strong> link to the source page.
+      </p>
+    </section>
+
+    <section class="section" id="method" data-searchitem data-kind="Section" data-title="Method" data-sub="Fixed matrices and stable comparison">
+      <h2>Method (short)</h2>
+      <p>
+        TNoC uses stable templates (including a fixed 10-part novel guide matrix) to make comic mechanisms comparable across books and authors.
+      </p>
+      <p>
+        More details live on the Method page:
+        <a href="method.html" style="border-bottom:1px solid rgba(246,244,239,.24); padding-bottom:2px;">method.html</a>.
+      </p>
+    </section>
+
+    <section class="section" id="cite" data-searchitem data-kind="Section" data-title="How to cite" data-sub="Copy-paste citation formats">
+      <h2>How to cite TNoC</h2>
+      <p>Copy/paste (web):</p>
+      <code>The Novel of Comedy (TNoC), “&lt;Title of page&gt;”, https://www.thenovelofcomedy.com/&lt;page&gt; (accessed &lt;YYYY-MM-DD&gt;).</code>
+
+      <p>Short credit line (for slides, notes, posts):</p>
+      <code>Source: The Novel of Comedy (TNoC) — https://www.thenovelofcomedy.com/</code>
+    </section>
+
+    <section class="section" id="reuse" data-searchitem data-kind="Section" data-title="Reuse" data-sub="Clear re-use terms">
+      <h2>Reuse</h2>
+      <p>
+        Quotations and short excerpts are welcome with clear attribution and a link to the source page.
+        For full-page reproduction or systematic reuse, please use the contact route below.
+      </p>
+      <p>
+        Contact: use the site contact page
+        <a href="fr/contact" style="border-bottom:1px solid rgba(246,244,239,.24); padding-bottom:2px;">fr/contact</a>.
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo" aria-label="Site footer">
+    <div class="inner">
+      <div class="left">
+        <strong>The Novel of Comedy (TNoC)</strong> · Atlas &amp; critical cartography of humorous fiction.<br>
+        <span style="opacity:.78;">© <span id="year"></span> Boris Jeanson Béteille</span>
+      </div>
+      <nav class="links" aria-label="Footer links">
+        <a href="index.html">Home</a>
+        <a href="method.html">Method</a>
+        <a href="about.html">About</a>
+        <a href="fr/contact">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      const y = document.getElementById('year');
+      if(y) y.textContent = String(new Date().getFullYear());
+    })();
+  </script>
+</body>
+</html>
+
