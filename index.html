@@ -44,6 +44,7 @@
     "inLanguage": "en",
     "description": "Atlas and critical cartography of humorous fiction: comedy of society, comic crime, neo-nonsense. Fixed 10-part novel guides, author profiles, stable citation-ready links.",
     "publisher": { "@type": "Person", "name": "Boris Jeanson Béteille" },
+"creator": { "@type": "Person", "name": "Boris Jeanson Béteille" },
     "potentialAction": {
       "@type": "SearchAction",
       "target": "https://www.thenovelofcomedy.com/?q={search_term_string}",
@@ -384,6 +385,28 @@
       max-width: 60ch;
     }
     .hero-tag em{ font-style: normal; opacity:.92 }
+
+/* ✅ Hero credit line (discreet, but “machine-readable”) */
+.hero-cred{
+  margin: 10px 0 0;
+  font-size: 10.5px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: rgba(246,244,239,.62);
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  align-items:center;
+}
+.hero-cred a{
+  color: rgba(246,244,239,.74);
+  border-bottom:1px solid rgba(246,244,239,.24);
+  padding-bottom:2px;
+}
+.hero-cred a:hover{
+  color: rgba(246,244,239,.95);
+  border-bottom-color: rgba(191,167,122,.55);
+}
 
     .hero-actions{
       margin-top: 14px;
@@ -1114,17 +1137,41 @@
         </div>
       </a>
 
-      <nav class="nav" aria-label="Navigation">
-        <a class="active" href="#rows" data-searchitem data-kind="Page" data-title="Browse rows" data-sub="Streaming rows on the homepage" data-key="browse rows home">Browse</a>
-        <a href="#paper" data-searchitem data-kind="Page" data-title="Paper layer" data-sub="Editorial section of the homepage" data-key="paper editorial homepage">Paper</a>
-        <a href="novel-guides.html" data-searchitem data-kind="Page" data-title="Novel guides" data-sub="Fixed 10-part matrix guides" data-key="novel guides ten chapters matrix">Novels</a>
-        <a href="author-profiles.html" data-searchitem data-kind="Page" data-title="Author profiles" data-sub="Profiles: how writers build humor" data-key="author profiles portraits method">Authors</a>
-        <a href="currents.html" data-searchitem data-kind="Page" data-title="Currents" data-sub="Three currents + branches" data-key="currents society crime neo">Currents</a>
-        <a href="toolbox.html" data-searchitem data-kind="Page" data-title="Toolbox" data-sub="Vocabulary reused everywhere" data-key="toolbox comic engine environment labs">Toolbox</a>
-        <button class="btn" id="openSearch" type="button" aria-label="Open search">
-          Search <span class="kbd">Ctrl/⌘ K</span>
-        </button>
-      </nav>
+     <nav class="nav" aria-label="Navigation">
+  <a class="active" href="#rows"
+     data-searchitem data-kind="Page" data-title="Browse rows"
+     data-sub="Streaming rows on the homepage" data-key="browse rows home">Browse</a>
+
+  <a href="novel-guides.html"
+     data-searchitem data-kind="Page" data-title="Novel guides"
+     data-sub="Fixed 10-part matrix guides" data-key="novel guides ten chapters matrix">Novels</a>
+
+  <a href="author-profiles.html"
+     data-searchitem data-kind="Page" data-title="Author profiles"
+     data-sub="Profiles: how writers build humor" data-key="author profiles portraits method">Authors</a>
+
+  <a href="currents.html"
+     data-searchitem data-kind="Page" data-title="Currents"
+     data-sub="Three currents + branches" data-key="currents society crime neo">Currents</a>
+
+  <a href="toolbox.html"
+     data-searchitem data-kind="Page" data-title="Toolbox"
+     data-sub="Vocabulary reused everywhere" data-key="toolbox comic engine environment labs">Toolbox</a>
+
+  <!-- ✅ About en dernier -->
+ <a href="about.html"
+   data-searchitem
+   data-kind="Page"
+   data-title="About"
+   data-sub="Credits + method + reuse"
+   data-key="about credits founder editor boris jeanson beteille">
+  About
+</a>
+
+  <button class="btn" id="openSearch" type="button" aria-label="Open search">
+    Search <span class="kbd">Ctrl/⌘ K</span>
+  </button>
+</nav>
     </div>
   </header>
 
@@ -1153,6 +1200,15 @@
         <p class="hero-tag">
           Comedy of Society · Comic Crime · Neo-Nonsense.
         </p>
+<div class="hero-cred"
+     data-searchitem
+     data-kind="Credit"
+     data-title="Created & curated by Boris Jeanson Béteille"
+     data-sub="Credits"
+     data-key="created curated founder editor boris jeanson beteille">
+  <span>Created &amp; curated by</span>
+  <a href="about.html">Boris Jeanson Béteille</a>
+</div>
 
         <div class="hero-actions">
           <a class="btn btn-primary" href="novel-guides.html">Open novel guides</a>
@@ -1936,7 +1992,8 @@
 
 /* =========================================================
    1) Build marquee wall from tiles (covers + portraits)
-   ✅ keeps ONLY images that actually load (covers + authors)
+   ✅ FIX: store the *actually loaded* path (root OR /img)
+   ✅ + per-image fallback in the marquee itself
    ========================================================= */
 (function(){
   const candidates = Array.from(document.querySelectorAll('.tile img'))
@@ -1964,7 +2021,7 @@
     if(doneCalled) return;
     doneCalled = true;
 
-    const pool = ok.length ? ok : uniq;     // ✅ only loaded images
+    const pool = ok.length ? ok : uniq;
     const mixed = shuffle(pool);
 
     function fillMarquee(containerId, count){
@@ -1974,7 +2031,14 @@
       const items = [];
       for(let i=0;i<count;i++){
         const src = mixed[i % mixed.length];
-        items.push(`<div class="mini-poster"><img src="${src}" alt="" aria-hidden="true" loading="lazy" decoding="async"></div>`);
+        const alt = src.startsWith("img/") ? src.slice(4) : ("img/" + src);
+
+        items.push(`
+          <div class="mini-poster">
+            <img src="${src}" alt="" aria-hidden="true" loading="lazy" decoding="async"
+                 onerror="if(!this.dataset.tried){this.dataset.tried=1; this.src='${alt}'} else {this.style.display='none'}">
+          </div>
+        `);
       }
       const once = items.join('');
       el.innerHTML = once + once;
@@ -1985,11 +2049,12 @@
     fillMarquee('mq3', 20);
   }
 
-  // safety timeout in case some requests hang
-  const timer = setTimeout(done, 1000);
+  const timer = setTimeout(done, 1600);
 
-  uniq.forEach(src => {
+  uniq.forEach(src0 => {
     const img = new Image();
+    let resolved = src0;
+    const alt = src0.startsWith("img/") ? src0.slice(4) : ("img/" + src0);
 
     const finish = () => {
       pending--;
@@ -1999,16 +2064,18 @@
       }
     };
 
-    img.onload = () => { ok.push(src); finish(); };
+    img.onload = () => { ok.push(resolved); finish(); };
 
-    // try root first, then /img fallback once
-    const altSrc = src.includes("/") ? src : ("img/" + src);
     img.onerror = () => {
-      img.onerror = () => finish();
-      img.src = altSrc;
+      if(resolved !== alt){
+        resolved = alt;
+        img.src = alt;
+      } else {
+        finish();
+      }
     };
 
-    img.src = src;
+    img.src = src0;
   });
 })();
 
